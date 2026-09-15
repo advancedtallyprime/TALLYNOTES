@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TallyPrime Notes & Learning Portal | GTEC Jain Keerti Education</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      /* ==========================================================================
+         Google Font & Root Variables
+         ========================================================================== */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+      :root {
+        --primary: #0f172a;         /* Deep slate for text/headings */
+        --primary-light: #0284c7;   /* Modern light blue accent */
+        --primary-hover: #0369a1;   /* Darker blue hover state */
+        --primary-subtle: #f0f9ff;  /* Soft light blue tint */
+        --secondary: #334155;       /* Muted slate */
+        --bg-body: #f8fafc;         /* Background canvas */
+        --bg-white: #ffffff;
+        --text-primary: #1e293b;
+        --text-secondary: #475569;  /* Muted slate gray */
+        --text-muted: #64748b;     /* Light grayish blue */
+        --border-color: #e2e8f0;    /* Minimalist light border */
+
+        /* Edu Mode Gold Accents */
+        --edu-bg: #fffbeb;
+        --edu-border: #fde68a;
+        --edu-text: #92400e;
+        --edu-accent: #d97706;
+
+        /* Shadows & Radius */
+        --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+        --shadow-md: 0 4px 12px rgba(2, 132, 199, 0.08);
+        --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.1);
+
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+
+        --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --transition: all 0.25s ease;
+      }
+
+      /* ==========================================================================
+         Reset & Base Styles
+         ========================================================================== */
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        height: 100%;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background: var(--bg-body);
+        color: var(--text-primary);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Keyboard Shortcut Styling */
+      kbd {
+        background-color: #f1f5f9;
+        color: #0f172a;
+        border: 1px solid #cbd5e1;
+        border-bottom: 2px solid #94a3b8;
+        border-radius: 4px;
+        padding: 0.15rem 0.45rem;
+        font-size: 0.82rem;
+        font-family: Consolas, "Courier New", monospace;
+        font-weight: 600;
+        display: inline-block;
+        white-space: nowrap;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      }
+
+      /* ==========================================================================
+         Header Section
+         ========================================================================== */
+      .main-header {
+        background: var(--bg-white);
+        border-bottom: 1px solid var(--border-color);
+        text-align: center;
+        padding: 2.75rem 1.5rem 2.25rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .institution-name {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--text-muted);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .main-header h1 {
+        font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+        color: var(--primary);
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        line-height: 1.25;
+      }
+
+      .main-header h1 span {
+        color: var(--primary-light);
+      }
+
+      .main-header .sub-tagline {
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        margin-top: 0.5rem;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .badge-group {
+        display: flex;
+        gap: 0.6rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1.25rem;
+      }
+
+      .badge-title {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 1rem;
+        background-color: var(--primary-subtle);
+        color: var(--primary-light);
+        border: 1px solid #bae6fd;
+        border-radius: 50px;
+        font-size: 0.88rem;
+        font-weight: 600;
+      }
+
+      .badge-edu {
+        background-color: var(--edu-bg);
+        color: var(--edu-text);
+        border-color: var(--edu-border);
+      }
+
+      /* ==========================================================================
+         Main Layout Container
+         ========================================================================== */
+      .container {
+        max-width: 1120px;
+        width: 100%;
+        margin: 2.5rem auto;
+        padding: 0 1.5rem;
+        flex: 1;
+      }
+
+      .section-heading {
+        font-size: 1.45rem;
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .section-heading i {
+        color: var(--primary-light);
+      }
+
+      .section-subtext {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin-top: -0.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* ==========================================================================
+         Educational Mode Spotlight Card
+         ========================================================================== */
+      .edu-spotlight {
+        background: linear-gradient(135deg, #fffdf5 0%, #fffbeb 100%);
+        border: 1px solid var(--edu-border);
+        border-left: 5px solid var(--edu-accent);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem 1.75rem;
+        margin-bottom: 3rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .edu-spotlight-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .edu-spotlight-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--edu-text);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .edu-badge-pill {
+        background: #fef3c7;
+        color: #b45309;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.2rem 0.65rem;
+        border-radius: 50px;
+        border: 1px solid #fde68a;
+      }
+
+      .edu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1rem;
+      }
+
+      .edu-grid-item {
+        background: #ffffff;
+        border: 1px solid #fef08a;
+        border-radius: var(--radius-md);
+        padding: 1rem;
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .edu-item-icon {
+        font-size: 1.3rem;
+        color: var(--edu-accent);
+        flex-shrink: 0;
+        margin-top: 0.15rem;
+      }
+
+      .edu-item-content h4 {
+        font-size: 0.92rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.25rem;
+      }
+
+      .edu-item-content p {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        line-height: 1.45;
+      }
+
+      /* ==========================================================================
+         Primary Tally Learning Tracks (2-Card Grid)
+         ========================================================================== */
+      .tracks-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        gap: 1.75rem;
+        margin-bottom: 3.5rem;
+      }
+
+      .track-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 2.25rem 2rem;
+        display: flex;
+        flex-direction: column;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .track-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-light), var(--primary-hover));
+        opacity: 0;
+        transition: var(--transition);
+      }
+
+      .track-card:hover {
+        transform: translateY(-5px);
+        border-color: #bae6fd;
+        box-shadow: var(--shadow-md);
+      }
+
+      .track-card:hover::before {
+        opacity: 1;
+      }
+
+      .track-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+      }
+
+      .track-icon {
+        width: 54px;
+        height: 54px;
+        background-color: var(--primary-subtle);
+        color: var(--primary-light);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+      }
+
+      .track-badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 0.3rem 0.75rem;
+        border-radius: 50px;
+        background-color: #f1f5f9;
+        color: var(--text-secondary);
+      }
+
+      .track-badge.adv {
+        background-color: #e0f2fe;
+        color: #0284c7;
+      }
+
+      .track-card h3 {
+        font-size: 1.45rem;
+        color: var(--primary);
+        font-weight: 800;
+        margin-bottom: 0.4rem;
+        letter-spacing: -0.01em;
+      }
+
+      .track-stats {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        color: var(--primary-light);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .track-desc {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .track-topics-list {
+        list-style: none;
+        margin-bottom: 2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .track-topics-list li {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .track-topics-list li i {
+        color: #10b981;
+        font-size: 0.85rem;
+        flex-shrink: 0;
+      }
+
+      .track-actions {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background-color: var(--primary-light);
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 0.8rem 1.4rem;
+        border-radius: var(--radius-sm);
+        transition: var(--transition);
+        flex: 1;
+      }
+
+      .btn:hover,
+      .btn:focus-visible {
+        background-color: var(--primary-hover);
+        box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+        outline: none;
+      }
+
+      /* ==========================================================================
+         Specialization Modules Grid (6 Pillars)
+         ========================================================================== */
+      .pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+        margin-bottom: 3.5rem;
+      }
+
+      .pillar-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        padding: 1.4rem;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+      }
+
+      .pillar-card:hover {
+        border-color: #bae6fd;
+        transform: translateY(-2px);
+      }
+
+      .pillar-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .pillar-icon {
+        width: 38px;
+        height: 38px;
+        background-color: var(--primary-subtle);
+        color: var(--primary-light);
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      .pillar-card h4 {
+        font-size: 1.02rem;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      .pillar-card p {
+        font-size: 0.88rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      /* ==========================================================================
+         Keyboard Shortcuts Master Table
+         ========================================================================== */
+      .table-card {
+        background: var(--bg-white);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 3.5rem;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+      }
+
+      th, td {
+        padding: 0.95rem 1.25rem;
+        text-align: left;
+        font-size: 0.92rem;
+      }
+
+      th {
+        background-color: #f8fafc;
+        color: var(--primary);
+        font-weight: 700;
+        border-bottom: 2px solid var(--border-color);
+      }
+
+      td {
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+
+      tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      tbody tr:nth-child(even) td {
+        background-color: #fbfcfe;
+      }
+
+      tbody tr:hover td {
+        background-color: var(--primary-subtle);
+      }
+
+      td.shortcut-key {
+        width: 180px;
+        white-space: nowrap;
+      }
+
+      td.adv {
+        color: var(--primary-hover);
+        font-weight: 600;
+      }
+
+      /* ==========================================================================
+         Footer
+         ========================================================================== */
+      .notes-footer {
+        background: var(--bg-white);
+        color: var(--text-secondary);
+        border-top: 1px solid var(--border-color);
+        padding: 2rem 1.5rem;
+        text-align: center;
+        margin-top: auto;
+        font-size: 0.9rem;
+      }
+
+      .notes-footer strong {
+        color: var(--primary);
+      }
+
+      .notes-footer p + p {
+        margin-top: 0.35rem;
+        font-size: 0.84rem;
+        color: var(--text-muted);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .container {
+          margin: 1.5rem auto;
+          padding: 0 1rem;
+        }
+
+        .main-header {
+          padding: 2rem 1rem;
+        }
+
+        .track-card {
+          padding: 1.5rem;
+        }
+
+        .edu-spotlight {
+          padding: 1.25rem 1rem;
+        }
+
+        table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+      }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="institution-name">GTEC Jain Keerti Education</div>
+        <h1>TallyPrime <span>Master Learning</span> Portal</h1>
+        <p class="sub-tagline">
+            Industry-grade accounting, GST &amp; TDS compliance, MIS financial reports, and banking tutorials — completely adapted for TallyPrime Educational Mode.
+        </p>
+        <div class="badge-group">
+            <span class="badge-title">
+                <i class="fa-solid fa-calculator"></i> TallyPrime 4.x / 3.x
+            </span>
+            <span class="badge-title badge-edu">
+                <i class="fa-solid fa-graduation-cap"></i> 100% Educational Mode Ready
+            </span>
+            <span class="badge-title">
+                <i class="fa-solid fa-book-open"></i> 91 Comprehensive Topics
+            </span>
+            <span class="badge-title" style="background-color: #f0fdf4; color: #166534; border-color: #bbf7d0;">
+                <i class="fa-solid fa-language"></i> English + Hinglish Dual Mode
+            </span>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container">
+
+        <!-- Educational Mode Notice Card -->
+        <section class="edu-spotlight">
+            <div class="edu-spotlight-header">
+                <div class="edu-spotlight-title">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>TallyPrime Free Educational Mode (EDU) Practice Standard</span>
+                </div>
+                <span class="edu-badge-pill">Zero Cost &bull; Free Student License</span>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-grid-item">
+                    <i class="fa-solid fa-power-off edu-item-icon"></i>
+                    <div class="edu-item-content">
+                        <h4>Startup Keystroke</h4>
+                        <p>Launch TallyPrime and press <kbd>T</kbd> to enter <strong>Continue in Educational Mode</strong> instantly without any license key.</p>
+                    </div>
+                </div>
+
+                <div class="edu-grid-item">
+                    <i class="fa-regular fa-calendar-check edu-item-icon"></i>
+                    <div class="edu-item-content">
+                        <h4>Strict Date Convention</h4>
+                        <p>All transactions in our notes strictly use <strong>1st, 2nd, and 31st</strong> (<kbd>F2</kbd>), fully bypassing Edu mode date limits.</p>
+                    </div>
+                </div>
+
+                <div class="edu-grid-item">
+                    <i class="fa-solid fa-receipt edu-item-icon"></i>
+                    <div class="edu-item-content">
+                        <h4>Offline Statutory Testing</h4>
+                        <p>Practice <strong>GST, E-Way Bill &amp; E-Invoice</strong> with offline JSON export simulation matching official tax algorithms.</p>
+                    </div>
+                </div>
+
+                <div class="edu-grid-item">
+                    <i class="fa-solid fa-building-columns edu-item-icon"></i>
+                    <div class="edu-item-content">
+                        <h4>Realistic Practice BRS</h4>
+                        <p>Learn <strong>Bank Reconciliation</strong> using manual clearance date entries and sample CSV/Excel statement imports.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Tracks Section Heading -->
+        <h2 class="section-heading">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Choose Your Learning Track</span>
+        </h2>
+        <p class="section-subtext">
+            Start from accounting bookkeeping fundamentals or dive directly into advanced taxation, payroll, and corporate MIS reporting.
+        </p>
+
+        <!-- Two Core Tally Tracks Grid -->
+        <section class="tracks-grid">
+
+            <!-- Basic Tally Prime Card -->
+            <article class="track-card">
+                <div class="track-top">
+                    <div class="track-icon">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <span class="track-badge">Foundation Track</span>
+                </div>
+                <h3>Basic Tally Prime</h3>
+                <div class="track-stats">
+                    <i class="fa-solid fa-folder-open"></i> 4 Modules &bull; 23 Classroom Topics
+                </div>
+                <p class="track-desc">
+                    Master the core foundations of accounting, company creation, chart of accounts, and recording day-to-day voucher entries.
+                </p>
+                <ul class="track-topics-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Accounting Fundamentals (Golden Rules &amp; Journal)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Tally Setup, Installation &amp; Company Creation</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Primary Accounting Vouchers (<kbd>F4</kbd> Contra, <kbd>F5</kbd> Payment, <kbd>F6</kbd> Receipt, <kbd>F7</kbd> Journal)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Purchase (<kbd>F9</kbd>) &amp; Sales (<kbd>F8</kbd>) Invoices</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Order Processing &amp; Debit/Credit Notes</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Day Book &amp; Basic Trial Balance Generation</li>
+                </ul>
+                <div class="track-actions">
+                    <a href="/Pages/basic-tally.html" class="btn">
+                        Open Basic Tally Notes <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Advanced Tally Prime Card -->
+            <article class="track-card">
+                <div class="track-top">
+                    <div class="track-icon">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <span class="track-badge adv">Professional Track</span>
+                </div>
+                <h3>Advanced Tally Prime</h3>
+                <div class="track-stats">
+                    <i class="fa-solid fa-folder-open"></i> 8 Modules &bull; 68 Advanced Topics
+                </div>
+                <p class="track-desc">
+                    Comprehensive corporate compliance course covering GST, TDS, Bank Reconciliation, Manufacturing BOM, Data Security, and executive MIS.
+                </p>
+                <ul class="track-topics-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Complete GST Accounting (CGST, SGST, IGST, RCM)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> E-Way Bill &amp; E-Invoicing JSON Offline Simulation</li>
+                    <li><i class="fa-solid fa-circle-check"></i> TDS Compliance (194C, 194J, 194I, 194H, Form 26Q)</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Cheque Book Setup, PDC Management &amp; BRS</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Executive MIS: Balance Sheet, P&amp;L, Cash Flow, Ratios</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Security Control, User Roles, TallyVault &amp; 3-2-1 Backups</li>
+                </ul>
+                <div class="track-actions">
+                    <a href="/Pages/advanced-tally.html" class="btn">
+                        Open Advanced Tally Notes <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Specialization Pillars -->
+        <h2 class="section-heading">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Core Industry Specializations Covered</span>
+        </h2>
+        <p class="section-subtext">
+            Every module provides practical, industry-tested accounting scenarios with exact Tally keystrokes.
+        </p>
+
+        <section class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon"><i class="fa-solid fa-receipt"></i></div>
+                    <h4>Voucher Operations</h4>
+                </div>
+                <p>Master Single and Double entry modes (<kbd>Ctrl + H</kbd>), Bill-wise settlements (Agst Ref), and multi-currency transactions.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h4>GST &amp; E-Invoicing</h4>
+                </div>
+                <p>Inward/Outward supplies, reverse charge (RCM), composite supplies, and offline GSTR-1, GSTR-3B triangulation.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon"><i class="fa-solid fa-landmark"></i></div>
+                    <h4>TDS Compliance</h4>
+                </div>
+                <p>Threshold monitoring, booking contractor &amp; professional fees, Challan ITNS 281 entries, and Form 26Q preparation.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h4>Banking &amp; BRS</h4>
+                </div>
+                <p>Cheque book auto-ranges, Post-Dated Cheque (PDC) registers, bounced instrument adjustment, and Bank Reconciliation.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4>MIS Financial Reports</h4>
+                </div>
+                <p>Comparative Balance Sheet (<kbd>Alt + C</kbd>), Profit &amp; Loss, Cash Flow Statements, Bills Receivable &amp; Payable ageing.</p>
+            </div>
+
+            <div class="pillar-card">
+                <div class="pillar-header">
+                    <div class="pillar-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4>Security &amp; Backups</h4>
+                </div>
+                <p>Role-Based Access Control, disallowing backdated entries, 128-bit TallyVault encryption, and automated data repair.</p>
+            </div>
+        </section>
+
+        <!-- Essential Keyboard Shortcuts -->
+        <h2 class="section-heading">
+            <i class="fa-solid fa-keyboard"></i>
+            <span>Essential TallyPrime Keyboard Shortcuts</span>
+        </h2>
+        <p class="section-subtext">
+            Industry professionals rely entirely on the keyboard. Master these essential keys:
+        </p>
+
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Shortcut</th>
+                        <th>Action / Function</th>
+                        <th>Context / Screen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="shortcut-key"><kbd>T</kbd></td>
+                        <td><strong>Continue in Educational Mode</strong></td>
+                        <td>Tally Startup Screen (No License Required)</td>
+                    </tr>
+                    <tr>
+                        <td class="shortcut-key"><kbd>Alt + G</kbd></td>
+                        <td><strong>Go To (Universal Search)</strong></td>
+                        <td>Anywhere in TallyPrime for instant reporting &amp; multitasking</td>
+                    </tr>
+                    <tr>
+                        <td class="shortcut-key"><kbd>Ctrl + H</kbd></td>
+                        <td><strong>Change Mode</strong></td>
+                        <td>Toggle Single Entry, Double Entry, Item/Accounting Invoice</td>
+                    </tr>
+                    <tr>
+                        <td class="shortcut-key"><kbd>F2</kbd></td>
+                        <td><strong>Change Date</strong></td>
+                        <td>In Edu mode, enter <code>1</code>, <code>2</code>, or <code>31</code></td>
+                    </tr>
+                    <tr>
+                        <td class="shortcut-key"><kbd>Alt + F2</kbd></td>
+                        <td><strong>Change Period</strong></td>
+                        <td>Set Financial Year window (e.g. <code>1-Apr-25</code> to <code>31-Mar-26</code>)</td>
+                    </tr>
+                    <tr>
+                        <td class="shortcut-key"><kbd>F4</kbd> to <kbd>F9</kbd></td>
+                        <td><strong>Voucher Types</strong></td>
+                        <td><kbd>F4</kbd> Contra &bull; <kbd>F5</kbd> Payment &bull; <kbd>F6</kbd> Receipt &bull; <kbd>F7</kbd> Journal &bull; <kbd>F8</kbd> Sales &bull; <kbd>F9</kbd> Purchase</td>
+                    </tr>
+                    <tr>
+                        <td class="shortcut-key"><kbd>Ctrl + A</kbd></td>
+                        <td><strong>Save / Accept Instantly</strong></td>
+                        <td>Accepts voucher, ledger, or configuration without pressing enter repeatedly</td>
+                    </tr>
+                    <tr>
+                        <td class="shortcut-key"><kbd>Alt + C</kbd></td>
+                        <td><strong>Create On-The-Fly</strong></td>
+                        <td>Creates new ledger, stock item, or tax head directly inside voucher fields</td>
+                    </tr>
+                    <tr>
+                        <td class="shortcut-key"><kbd>Alt + F5</kbd> / <kbd>Alt + F6</kbd></td>
+                        <td><strong>Debit Note / Credit Note</strong></td>
+                        <td>Purchase return (<kbd>Alt + F5</kbd>) and Sales return (<kbd>Alt + F6</kbd>)</td>
+                    </tr>
+                    <tr>
+                        <td class="shortcut-key"><kbd>Esc</kbd></td>
+                        <td><strong>Quit / Step Back</strong></td>
+                        <td>Returns to previous menu or Gateway of Tally</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tally Comparison Section -->
+        <h2 class="section-heading">
+            <i class="fa-solid fa-table-columns"></i>
+            <span>Basic vs. Advanced Tally Curriculum Comparison</span>
+        </h2>
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Curriculum Component</th>
+                        <th>Basic Tally Prime</th>
+                        <th>Advanced Tally Prime</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Target Level</strong></td>
+                        <td>Beginner &amp; Bookkeeper</td>
+                        <td class="adv">Senior Accountant &amp; Tax Consultant</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accounting Fundamentals</strong></td>
+                        <td>Golden Rules, Journal, Ledger</td>
+                        <td class="adv">Corporate Accounting &amp; Accrual Principles</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Voucher Entries</strong></td>
+                        <td>Standard Payment, Receipt, Contra, Journal</td>
+                        <td class="adv">Voucher Classes, Multi-Currency, Bill-wise Details</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inventory Management</strong></td>
+                        <td>Basic Stock Items &amp; Units</td>
+                        <td class="adv">Batches, Reorder Levels, Bill of Materials (BOM), POS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Statutory Taxation</strong></td>
+                        <td>Basic Introduction</td>
+                        <td class="adv">Full GST (E-Way/E-Invoice) &amp; TDS (Form 26Q) Compliance</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Banking Operations</strong></td>
+                        <td>Cash &amp; Bank entries</td>
+                        <td class="adv">Cheque Book Config, Post-Dated Cheques (PDC), BRS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Financial Reporting</strong></td>
+                        <td>Day Book &amp; Basic Trial Balance</td>
+                        <td class="adv">P&amp;L, Schedule III Balance Sheet, Cash Flow, Ratios</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Security &amp; Data Control</strong></td>
+                        <td>Basic Password Setup</td>
+                        <td class="adv">Role-Based Security, Tally Audit, TallyVault, 3-2-1 Backups</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="notes-footer">
+        <p>
+            &copy; 2025 GTEC Jain Keerti Education |
+            Notes Prepared by <strong>Anas Sir</strong>
+        </p>
+        <p>
+            Dedicated TallyPrime Educational Portal &bull; Free Educational Mode Compatible
+        </p>
+    </footer>
+
+</body>
+</html>

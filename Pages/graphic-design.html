@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Design Course | GTEC Jain Keerti</title>
+
+    <!-- Font Awesome 6.5.1 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      :root {
+        --bg-main: #f4f8fb;
+        --bg-card: #ffffff;
+        --bg-card-hover: #eef6fc;
+        --text-primary: #1e293b;
+        --text-muted: #64748b;
+        --primary-blue: #0284c7;
+        --primary-light: #e0f2fe;
+        --primary-hover: #0369a1;
+        --border-color: #e2e8f0;
+        --radius: 10px;
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(2, 132, 199, 0.08);
+        --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-primary);
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .main-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background-color: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        padding: 0.85rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: var(--shadow-sm);
+        max-width: 1000px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .main-header a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        transition: var(--transition);
+      }
+
+      .main-header a:hover { color: var(--primary-blue); }
+
+      .main-header .logo {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+        letter-spacing: -0.02em;
+      }
+
+      .container {
+        max-width: 850px;
+        width: 92%;
+        margin: 2rem auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+      }
+
+      .course-hero {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        padding: 2rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .course-hero .tag {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        background: #fdf2f8;
+        color: #db2777;
+        font-weight: 600;
+        font-size: 0.8rem;
+        border-radius: 50px;
+        margin-bottom: 0.8rem;
+        border: 1px solid #fbcfe8;
+      }
+
+      .course-hero h1 {
+        font-size: 1.8rem;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .course-hero p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .meta-item i {
+        color: var(--primary-blue);
+        font-size: 1.1rem;
+      }
+
+      .meta-item strong {
+        color: var(--text-primary);
+        display: block;
+      }
+
+      details {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      details[open] {
+        border-color: #bae6fd;
+        box-shadow: var(--shadow-md);
+      }
+
+      summary {
+        padding: 1.1rem 1.35rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+        transition: var(--transition);
+      }
+
+      summary::-webkit-details-marker { display: none; }
+
+      summary::after {
+        content: "+";
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--primary-blue);
+      }
+
+      details[open] summary::after { content: "−"; }
+
+      summary:hover {
+        background-color: var(--bg-card-hover);
+        color: var(--primary-blue);
+      }
+
+      details[open] summary {
+        border-bottom: 1px solid var(--border-color);
+        background-color: #f0f9ff;
+        color: var(--primary-hover);
+      }
+
+      details ul {
+        list-style: none;
+        padding: 0.75rem 0;
+        background-color: var(--bg-card);
+      }
+
+      details li {
+        padding: 0.65rem 1.5rem;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      details li i {
+        color: #10b981;
+        font-size: 0.85rem;
+      }
+
+      .notes-footer {
+        background-color: var(--bg-card);
+        border-top: 1px solid var(--border-color);
+        text-align: center;
+        padding: 1.25rem 1rem;
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-top: auto;
+      }
+
+      .notes-footer strong { color: var(--text-primary); }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="/index.html"><i class="fa-solid fa-arrow-left"></i> Home</a>
+        <a href="#" class="logo">Graphic Design Masterclass</a>
+        <a href="/Pages/basic-tally.html">Tally Courses <i class="fa-solid fa-arrow-right"></i></a>
+    </header>
+
+    <main class="container">
+        <section class="course-hero">
+            <span class="tag"><i class="fa-solid fa-palette"></i> Creative Arts &amp; Media</span>
+            <h1>Graphic Design &amp; Digital Visual Arts</h1>
+            <p>
+                A comprehensive industry-standard program covering Adobe Photoshop, Adobe Illustrator, CorelDRAW, typography, color theory, digital marketing branding, and print production workflows.
+            </p>
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <span>Duration</span>
+                        <strong>3 Months (120 Hrs)</strong>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <div>
+                        <span>Modules</span>
+                        <strong>6 Comprehensive Units</strong>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <i class="fa-solid fa-certificate"></i>
+                    <div>
+                        <span>Certification</span>
+                        <strong>Industry Certified</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Module 1 -->
+        <details open>
+            <summary>Module 1: Design Principles, Color Theory &amp; Typography</summary>
+            <ul>
+                <li><i class="fa-solid fa-circle-check"></i> Fundamentals of Graphic Design &amp; Composition</li>
+                <li><i class="fa-solid fa-circle-check"></i> Color Psychology, RGB vs. CMYK Color Spaces</li>
+                <li><i class="fa-solid fa-circle-check"></i> Typography, Font Hierarchy &amp; Pairing Techniques</li>
+                <li><i class="fa-solid fa-circle-check"></i> Grid Systems, White Space, and Visual Balance</li>
+            </ul>
+        </details>
+
+        <!-- Module 2 -->
+        <details>
+            <summary>Module 2: Adobe Photoshop (Photo Editing &amp; Raster Graphics)</summary>
+            <ul>
+                <li><i class="fa-solid fa-circle-check"></i> Photoshop Interface, Layers, Masks &amp; Selection Tools</li>
+                <li><i class="fa-solid fa-circle-check"></i> Photo Retouching, Skin Smoothing &amp; Frequency Separation</li>
+                <li><i class="fa-solid fa-circle-check"></i> Color Grading, Curves, Levels &amp; Blend Modes</li>
+                <li><i class="fa-solid fa-circle-check"></i> Social Media Creatives, YouTube Thumbnails &amp; Posters</li>
+            </ul>
+        </details>
+
+        <!-- Module 3 -->
+        <details>
+            <summary>Module 3: Adobe Illustrator (Vector Graphics &amp; Logo Design)</summary>
+            <ul>
+                <li><i class="fa-solid fa-circle-check"></i> Pen Tool Mastery, Anchor Points &amp; Bezier Curves</li>
+                <li><i class="fa-solid fa-circle-check"></i> Logo Design Principles, Brand Identity &amp; Style Guides</li>
+                <li><i class="fa-solid fa-circle-check"></i> Vector Illustrations, Icons, Badges &amp; Mascot Art</li>
+                <li><i class="fa-solid fa-circle-check"></i> Typography Artwork &amp; 3D Extrusion Tools</li>
+            </ul>
+        </details>
+
+        <!-- Module 4 -->
+        <details>
+            <summary>Module 4: CorelDRAW (Commercial Print &amp; Vector Art)</summary>
+            <ul>
+                <li><i class="fa-solid fa-circle-check"></i> Workspace, Pick Tool, Shape Tool &amp; Node Editing</li>
+                <li><i class="fa-solid fa-circle-check"></i> Visiting Cards, Letterheads, Envelopes &amp; Brochures</li>
+                <li><i class="fa-solid fa-circle-check"></i> Flex Banners, Signboards, Standees &amp; Packaging Boxes</li>
+                <li><i class="fa-solid fa-circle-check"></i> Pre-Press Preparation, Bleed, Crop Marks &amp; CMYK Separation</li>
+            </ul>
+        </details>
+
+        <!-- Module 5 -->
+        <details>
+            <summary>Module 5: Brand Identity &amp; Digital Marketing Assets</summary>
+            <ul>
+                <li><i class="fa-solid fa-circle-check"></i> Corporate Stationery &amp; Complete Brand Kit Design</li>
+                <li><i class="fa-solid fa-circle-check"></i> Social Media Carousel Ads, Stories &amp; Banner Sets</li>
+                <li><i class="fa-solid fa-circle-check"></i> Mockup Creation for T-Shirts, Mugs, Billboards &amp; Devices</li>
+                <li><i class="fa-solid fa-circle-check"></i> Export Formats (SVG, WebP, High-Res PDF, TIFF)</li>
+            </ul>
+        </details>
+
+        <!-- Module 6 -->
+        <details>
+            <summary>Module 6: Live Industry Projects &amp; Portfolio Development</summary>
+            <ul>
+                <li><i class="fa-solid fa-circle-check"></i> Real-World Client Project Case Study</li>
+                <li><i class="fa-solid fa-circle-check"></i> Building an Online Portfolio on Behance &amp; Dribbble</li>
+                <li><i class="fa-solid fa-circle-check"></i> Freelancing Guide: Finding Clients &amp; Pricing Your Work</li>
+                <li><i class="fa-solid fa-circle-check"></i> Viva &amp; Practical Assessment Preparation</li>
+            </ul>
+        </details>
+    </main>
+
+    <footer class="notes-footer">
+        <p>© 2025 GTEC Jain Keerti Education | Notes Prepared by <strong>Anas Sir</strong></p>
+    </footer>
+
+</body>
+</html>
