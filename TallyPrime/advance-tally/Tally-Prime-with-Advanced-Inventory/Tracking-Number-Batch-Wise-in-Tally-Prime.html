@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Tracking Number and Batch-Wifrom Inventory ka core business concept samjhega.</li>
+                    <li>Tracking Number and Batch Number ke beech ka fundamental difference identify karega.</li>
+                    <li>Purchafrom and Sales vouchers in Tracking Numbers link karega.</li>
+                    <li>Batch Numbers create karega and Manufacturing/Expiry dates maintain karega.</li>
+                    <li>Same stock item ke multiple active batches manage karega (FIFO vs FEFO).</li>
+                    <li>Specific batches from single or multiple lot sales execute karega.</li>
+                    <li>Verify Batch-wifrom stock balances and tracking movement reports in management and statutory tax reports.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Tracking Number vs Batch Number</h2>
+                <p>Advanced inventory management in goods ki movement and lot traceability ko maintain karne ke liye do powerful tracking tools ufrom are:</p>
+
+                <ul>
+                    <li><strong>Tracking Number:</strong> Ek unique reference jo inventory movement (inward/outward shipments) ko specific orders, delivery notes, or receipt notes ke saath link karta is.</li>
+                    <li><strong>Batch Number:</strong> Stock ke particular lot or manufacturing group ko identify karta hai jisme expiry dates, manufacturing dates, and quality parameters tied are (essential for Pharma, FMCG, Chemicals).</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Tracking Number</th>
+                            <th>Batch Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Main Focus</td>
+                            <td>Transaction &amp; shipment movement tracking</td>
+                            <td>Lot-wifrom stock &amp; shelf-life quality control</td>
+                        </tr>
+                        <tr>
+                            <td>Quantity Tracking</td>
+                            <td>Links movement quantity to billing</td>
+                            <td>Tracks physical stock divided across lots</td>
+                        </tr>
+                        <tr>
+                            <td>Expiry Date Support</td>
+                            <td>Not primary purpose</td>
+                            <td>Crucial (Mfg Date &amp; Expiry Date)</td>
+                        </tr>
+                        <tr>
+                            <td>Issuance Logic</td>
+                            <td>Reference linkage</td>
+                            <td>FIFO or FEFO (First Expiry, First Out)</td>
+                        </tr>
+                        <tr>
+                            <td>Primary Industry Use</td>
+                            <td>General trading, logistics, distribution</td>
+                            <td>Pharmaceuticals, Food &amp; Beverage, FMCG</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Rule:</strong><br>
+                    <strong>Tracking Number</strong> batata hai ki maal kahan from aaor and kahan gaor (Movement Reference).<br>
+                    <strong>Batch Number</strong> batata hai ki stock ka kaunsa manufacturing lot hai and uski expiry kab hai (Quality &amp; Lot Control).
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Configuration &amp; Feature Activation</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Pharma &amp; Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Enabling Inventory, Batch &amp; Tracking Features in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> on the Gateway of Tally.</li>
+                    <li>Set <strong>Maintain Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Integrate Accounts with Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Batches</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Maintain Expiry Dates for Batches</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Delivery Notes and Receipt Notes (Tracking Numbers)</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save settings.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Masters Configuration</h2>
+
+                <h3>1. Unit of Measurement</h3>
+                <ul>
+                    <li><strong>Symbol:</strong> <code>Nos</code> | <strong>Formal Name:</strong> <code>Numbers</code> | <strong>Decimal Places:</strong> <code>0</code></li>
+                </ul>
+
+                <h3>2. Stock Item Setup (Batch &amp; Expiry Enabled)</h3>
+                <ul>
+                    <li><strong>Stock Item Name:</strong> Vitamin Tablets | <strong>Unit:</strong> <code>Nos</code></li>
+                    <li><strong>Maintain in Batches?</strong> <code>Yes</code></li>
+                    <li><strong>Track Date of Manufacture?</strong> <code>Yes</code></li>
+                    <li><strong>Ufrom Expiry Dates?</strong> <code>Yes</code></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Purchase, Batch Setup &amp; Sales</h2>
+
+                <h3>Part A: Batch Purchafrom (Receipt Note / Purchafrom Invoice)</h3>
+                <ul>
+                    <li><strong>Batch B-001 (01-May-2026):</strong> Purchased 500 Nos Vitamin Tablets @ ₹10 from <em>Medi Distributors</em> &rarr; Mfg Date: 01-Apr-2026 | Expiry Date: 31-Mar-2027.</li>
+                    <li><strong>Batch B-002 (01-May-2026):</strong> Purchased 300 Nos Vitamin Tablets @ ₹11 from <em>Medi Distributors</em> &rarr; Mfg Date: 01-May-2026 | Expiry Date: 31-May-2027.</li>
+                    <li><strong>Total Stock Position:</strong> 800 Nos (Batch B-001: 500 | Batch B-002: 300).</li>
+                </ul>
+
+                <h3>Part B: Batch Sales &amp; Multiple Batch Selection</h3>
+                <ul>
+                    <li><strong>Single Batch Sale (02-May-2026):</strong> Sold 200 Nos to <em>City Medical Store</em> from <strong>Batch B-001</strong> &rarr; Remaining Balance: B-001 (300 Nos) | B-002 (300 Nos).</li>
+                    <li><strong>Multi-Batch Sale (Wellness Pharmacy):</strong> Requirement = 400 Nos. Becaufrom single batch has only 300, system automatically allocates: <strong>300 from Batch B-001 + 100 from Batch B-002</strong> &rarr; Final Balances: B-001 (0) | B-002 (200 Nos).</li>
+                </ul>
+
+                <h3>Part C: Expiry Management &amp; FEFO Concept</h3>
+                <blockquote>
+                    <strong>FEFO (First Expiry, First Out):</strong><br>
+                    Pharma and consumable industries in jis batch ki expiry date sabfrom pehle aati hai, us stock ko pehle issue/sell kior jata hai taaki expiration loss from bacha ja sake.
+                </blockquote>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Face Wash Batch &amp; Expiry Lab):</h3>
+                <ul>
+                    <li><strong>Stock Item:</strong> Face Wash (Unit: <em>Nos</em>, Maintain in Batches: Yes, Expiry Tracking: Yes).</li>
+                    <li><strong>Purchafrom 1 (01-Jun-2026):</strong> 500 Nos @ ₹100 &rarr; Batch: <code>FW-001</code> | Expiry: 31-May-2027.</li>
+                    <li><strong>Purchafrom 2 (01-Jun-2026):</strong> 300 Nos @ ₹105 &rarr; Batch: <code>FW-002</code> | Expiry: 31-Jul-2027.</li>
+                    <li><strong>Purchafrom 3 (02-Jul-2026):</strong> 400 Nos @ ₹110 &rarr; Batch: <code>FW-003</code> | Expiry: 31-Aug-2027.</li>
+                </ul>
+
+                <h3>Sales &amp; Return Execution Schedule:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer / Action</th>
+                            <th>Batch Assigned</th>
+                            <th>Quantity (Nos)</th>
+                            <th>Resulting Batch Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Sale to Glow Retail</td>
+                            <td>FW-001</td>
+                            <td>200</td>
+                            <td>FW-001: 300 | FW-002: 300 | FW-003: 400</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Sale to Beauty Mart</td>
+                            <td>FW-001</td>
+                            <td>150</td>
+                            <td>FW-001: 150 | FW-002: 300 | FW-003: 400</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Sale to Care Store</td>
+                            <td>FW-002</td>
+                            <td>100</td>
+                            <td>FW-001: 150 | FW-002: 200 | FW-003: 400</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Sales Return (Glow Retail)</td>
+                            <td>FW-001 (Original)</td>
+                            <td>+50 (Return)</td>
+                            <td>FW-001: 200 | FW-002: 200 | FW-003: 400</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary &amp; Batch Summary (Alt + G &rarr; Batch Summary):</strong> View lot-wifrom available quantities, manufacturing dates, and exact expiration timelines.</li>
+                    <li><strong>Stock Expiry Report:</strong> Track items nearing expiry or already expired to prevent obsolete stock dispatch.</li>
+                    <li><strong>Pending Bills / Tracking Reports:</strong> Reconcile movement references against financial invoices.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Creating separate stock items for each batch (e.g., <em>Face Wash B-001</em>, <em>Face Wash B-002</em>) instead of maintaining a single item with active batch allocations.</li>
+                    <li>Failing to link Sales Returns back to their correct original batch, breaking lot traceability.</li>
+                    <li>Ignoring expiry dates during sales fulfillment in perishable inventory categories.</li>
+                    <li>Confusing Tracking Numbers (movement references) with Batch Numbers (lot identities).</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Batch Number and Tracking Number in main difference kor hai?</strong><br>A: Tracking Number shipment/movement reference ko link karta hai, jabki Batch Number physical stock ke manufacturing lot and expiry ko identify karta is.</li>
+                    <li><strong>Q: Kor ek hi stock item ke multiple active batches ho sakte hain?</strong><br>A: Haan, business multiple shipments in alag-alag batches receive kar sakta hai and saare active batches parallelly maintain are.</li>
+                    <li><strong>Q: FEFO kor is?</strong><br>A: <strong>First Expiry, First Out</strong> &mdash; jis batch ki expiry date sabfrom pehle ho, ufrom pehle sale/issue karna.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Batch &amp; Tracking Golden Workflow:</strong><br>
+                    <code>Purchafrom Voucher &rarr; Assign Tracking Number &rarr; Create Batch Number &amp; Expiry Date &rarr; Sales Voucher &rarr; Allocate Specific Batch &rarr; Verify Batch Summary &amp; Expiry Reports</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Batch features, Expiry tracking, and Tracking Numbers enabled in F11</li>
+                    <li>Stock Item created with batch maintenance enabled</li>
+                    <li>Multiple purchases recorded with distinct batches and expiry dates</li>
+                    <li>Single and multi-batch sales executed successfully</li>
+                    <li>Sales returns mapped back to original purchafrom batches</li>
+                    <li>Batch Summary and Stock Expiry reports verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 2 complete karne ke baad student:</p>
+                <ul>
+                    <li>Tracking Number aur Batch-Wise Inventory ka core business concept samjhega.</li>
+                    <li>Tracking Number aur Batch Number ke beech ka fundamental difference identify karega.</li>
+                    <li>Purchase aur Sales vouchers mein Tracking Numbers link karega.</li>
+                    <li>Batch Numbers create karega aur Manufacturing/Expiry dates maintain karega.</li>
+                    <li>Same stock item ke multiple active batches manage karega (FIFO vs FEFO).</li>
+                    <li>Specific batches se single ya multiple lot sales execute karega.</li>
+                    <li>Batch-wise stock balances aur tracking movement reports verify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Tracking Number vs Batch Number</h2>
+                <p>Advanced inventory management mein goods ki movement aur lot traceability ko maintain karne ke liye do powerful tracking tools use hote hain:</p>
+
+                <ul>
+                    <li><strong>Tracking Number:</strong> Ek unique reference jo inventory movement (inward/outward shipments) ko specific orders, delivery notes, ya receipt notes ke saath link karta hai.</li>
+                    <li><strong>Batch Number:</strong> Stock ke particular lot ya manufacturing group ko identify karta hai jisme expiry dates, manufacturing dates, aur quality parameters tied hote hain (essential for Pharma, FMCG, Chemicals).</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Tracking Number</th>
+                            <th>Batch Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Main Focus</td>
+                            <td>Transaction &amp; shipment movement tracking</td>
+                            <td>Lot-wise stock &amp; shelf-life quality control</td>
+                        </tr>
+                        <tr>
+                            <td>Quantity Tracking</td>
+                            <td>Links movement quantity to billing</td>
+                            <td>Tracks physical stock divided across lots</td>
+                        </tr>
+                        <tr>
+                            <td>Expiry Date Support</td>
+                            <td>Not primary purpose</td>
+                            <td>Crucial (Mfg Date &amp; Expiry Date)</td>
+                        </tr>
+                        <tr>
+                            <td>Issuance Logic</td>
+                            <td>Reference linkage</td>
+                            <td>FIFO or FEFO (First Expiry, First Out)</td>
+                        </tr>
+                        <tr>
+                            <td>Primary Industry Use</td>
+                            <td>General trading, logistics, distribution</td>
+                            <td>Pharmaceuticals, Food &amp; Beverage, FMCG</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Rule:</strong><br>
+                    <strong>Tracking Number</strong> batata hai ki maal kahan se aaya aur kahan gaya (Movement Reference).<br>
+                    <strong>Batch Number</strong> batata hai ki stock ka kaunsa manufacturing lot hai aur uski expiry kab hai (Quality &amp; Lot Control).
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Configuration &amp; Feature Activation</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Pharma &amp; Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Enabling Inventory, Batch &amp; Tracking Features in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> on the Gateway of Tally.</li>
+                    <li>Set <strong>Maintain Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Integrate Accounts with Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Batches</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Maintain Expiry Dates for Batches</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Delivery Notes and Receipt Notes (Tracking Numbers)</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save settings.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Masters Configuration</h2>
+
+                <h3>1. Unit of Measurement</h3>
+                <ul>
+                    <li><strong>Symbol:</strong> <code>Nos</code> | <strong>Formal Name:</strong> <code>Numbers</code> | <strong>Decimal Places:</strong> <code>0</code></li>
+                </ul>
+
+                <h3>2. Stock Item Setup (Batch &amp; Expiry Enabled)</h3>
+                <ul>
+                    <li><strong>Stock Item Name:</strong> Vitamin Tablets | <strong>Unit:</strong> <code>Nos</code></li>
+                    <li><strong>Maintain in Batches?</strong> <code>Yes</code></li>
+                    <li><strong>Track Date of Manufacture?</strong> <code>Yes</code></li>
+                    <li><strong>Use Expiry Dates?</strong> <code>Yes</code></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Purchase, Batch Setup &amp; Sales</h2>
+
+                <h3>Part A: Batch Purchase (Receipt Note / Purchase Invoice)</h3>
+                <ul>
+                    <li><strong>Batch B-001 (01-May-2026):</strong> Purchased 500 Nos Vitamin Tablets @ ₹10 from <em>Medi Distributors</em> &rarr; Mfg Date: 01-Apr-2026 | Expiry Date: 31-Mar-2027.</li>
+                    <li><strong>Batch B-002 (01-May-2026):</strong> Purchased 300 Nos Vitamin Tablets @ ₹11 from <em>Medi Distributors</em> &rarr; Mfg Date: 01-May-2026 | Expiry Date: 31-May-2027.</li>
+                    <li><strong>Total Stock Position:</strong> 800 Nos (Batch B-001: 500 | Batch B-002: 300).</li>
+                </ul>
+
+                <h3>Part B: Batch Sales &amp; Multiple Batch Selection</h3>
+                <ul>
+                    <li><strong>Single Batch Sale (02-May-2026):</strong> Sold 200 Nos to <em>City Medical Store</em> from <strong>Batch B-001</strong> &rarr; Remaining Balance: B-001 (300 Nos) | B-002 (300 Nos).</li>
+                    <li><strong>Multi-Batch Sale (Wellness Pharmacy):</strong> Requirement = 400 Nos. Because single batch has only 300, system automatically allocates: <strong>300 from Batch B-001 + 100 from Batch B-002</strong> &rarr; Final Balances: B-001 (0) | B-002 (200 Nos).</li>
+                </ul>
+
+                <h3>Part C: Expiry Management &amp; FEFO Concept</h3>
+                <blockquote>
+                    <strong>FEFO (First Expiry, First Out):</strong><br>
+                    Pharma aur consumable industries mein jis batch ki expiry date sabse pehle aati hai, us stock ko pehle issue/sell kiya jata hai taaki expiration loss se bacha ja sake.
+                </blockquote>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Face Wash Batch &amp; Expiry Lab):</h3>
+                <ul>
+                    <li><strong>Stock Item:</strong> Face Wash (Unit: <em>Nos</em>, Maintain in Batches: Yes, Expiry Tracking: Yes).</li>
+                    <li><strong>Purchase 1 (01-Jun-2026):</strong> 500 Nos @ ₹100 &rarr; Batch: <code>FW-001</code> | Expiry: 31-May-2027.</li>
+                    <li><strong>Purchase 2 (01-Jun-2026):</strong> 300 Nos @ ₹105 &rarr; Batch: <code>FW-002</code> | Expiry: 31-Jul-2027.</li>
+                    <li><strong>Purchase 3 (02-Jul-2026):</strong> 400 Nos @ ₹110 &rarr; Batch: <code>FW-003</code> | Expiry: 31-Aug-2027.</li>
+                </ul>
+
+                <h3>Sales &amp; Return Execution Schedule:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer / Action</th>
+                            <th>Batch Assigned</th>
+                            <th>Quantity (Nos)</th>
+                            <th>Resulting Batch Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Sale to Glow Retail</td>
+                            <td>FW-001</td>
+                            <td>200</td>
+                            <td>FW-001: 300 | FW-002: 300 | FW-003: 400</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Sale to Beauty Mart</td>
+                            <td>FW-001</td>
+                            <td>150</td>
+                            <td>FW-001: 150 | FW-002: 300 | FW-003: 400</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Sale to Care Store</td>
+                            <td>FW-002</td>
+                            <td>100</td>
+                            <td>FW-001: 150 | FW-002: 200 | FW-003: 400</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Sales Return (Glow Retail)</td>
+                            <td>FW-001 (Original)</td>
+                            <td>+50 (Return)</td>
+                            <td>FW-001: 200 | FW-002: 200 | FW-003: 400</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary &amp; Batch Summary (Alt + G &rarr; Batch Summary):</strong> View lot-wise available quantities, manufacturing dates, and exact expiration timelines.</li>
+                    <li><strong>Stock Expiry Report:</strong> Track items nearing expiry or already expired to prevent obsolete stock dispatch.</li>
+                    <li><strong>Pending Bills / Tracking Reports:</strong> Reconcile movement references against financial invoices.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Creating separate stock items for each batch (e.g., <em>Face Wash B-001</em>, <em>Face Wash B-002</em>) instead of maintaining a single item with active batch allocations.</li>
+                    <li>Failing to link Sales Returns back to their correct original batch, breaking lot traceability.</li>
+                    <li>Ignoring expiry dates during sales fulfillment in perishable inventory categories.</li>
+                    <li>Confusing Tracking Numbers (movement references) with Batch Numbers (lot identities).</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Batch Number aur Tracking Number mein main difference kya hai?</strong><br>A: Tracking Number shipment/movement reference ko link karta hai, jabki Batch Number physical stock ke manufacturing lot aur expiry ko identify karta hai.</li>
+                    <li><strong>Q: Kya ek hi stock item ke multiple active batches ho sakte hain?</strong><br>A: Haan, business multiple shipments mein alag-alag batches receive kar sakta hai aur saare active batches parallelly maintain hote hain.</li>
+                    <li><strong>Q: FEFO kya hota hai?</strong><br>A: <strong>First Expiry, First Out</strong> &mdash; jis batch ki expiry date sabse pehle ho, use pehle sale/issue karna.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Batch &amp; Tracking Golden Workflow:</strong><br>
+                    <code>Purchase Voucher &rarr; Assign Tracking Number &rarr; Create Batch Number &amp; Expiry Date &rarr; Sales Voucher &rarr; Allocate Specific Batch &rarr; Verify Batch Summary &amp; Expiry Reports</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Batch features, Expiry tracking, and Tracking Numbers enabled in F11</li>
+                    <li>Stock Item created with batch maintenance enabled</li>
+                    <li>Multiple purchases recorded with distinct batches and expiry dates</li>
+                    <li>Single and multi-batch sales executed successfully</li>
+                    <li>Sales returns mapped back to original purchase batches</li>
+                    <li>Batch Summary and Stock Expiry reports verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>Understand the core principles and concepts of E-Invoice.</li>
+                    <li>Understand the operational differences between E-Invoice and normal GST Invoice.</li>
+                    <li>IRP (Invoice Registration Portal) ka role samjhega.</li>
+                    <li>Understand the core principles and concepts of IRN, QR Code and Digital Signature.</li>
+                    <li>Identify and categorize E-Invoice applicability correctly.</li>
+                    <li>TallyPrime in e-Invoice configuration kar payega.</li>
+                    <li>Configure master setups and ledger details for Masters ko e-Invoice ke liye.</li>
+                    <li>Sales invoice generate kar payega.</li>
+                    <li>IRN generate kar payega.</li>
+                    <li>E-Invoice print format samjhega.</li>
+                    <li>Cancelled invoice ka treatment samjhega.</li>
+                    <li>E-Invoice reports verify kar payega.</li>
+                </ul>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode e-Invoice Simulation:</strong>
+                    <ul>
+                        <li>Set <em>e-Invoicing Applicable</em> = <code>Yes</code> in <kbd>F11</kbd> Features.</li>
+                        <li>When recording a B2B sales invoice, enter e-Invoice bill details.</li>
+                        <li>Upon saving, export the offline e-Invoice JSON file (<kbd>Alt + E</kbd> &rarr; e-Invoice). This JSON matches the exact government portal schema!</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>Core Concept: E-Invoice, IRP &amp; Components</h2>
+                <p><strong>E-Invoice (Electronic Invoicing):</strong> B2B sales invoices and credit/debit notes ke data ko Invoice Registration Portal (IRP) par electronically transmit karke digital authentication, 64-character <strong>IRN</strong>, and digitally signed <strong>QR Code</strong> prapt karne ka standardized process is.</p>
+
+                <blockquote>
+                    <strong>Important Rule:</strong><br>
+                    E-Invoice ka matlab only PDF or electronic billing nahi hai; iska matlab government IRP portal from invoice data ka online authentication and unique <strong>IRN generation</strong> is.
+                </blockquote>
+
+                <h3>Core Components of an E-Invoice</h3>
+                <ul>
+                    <li><strong>IRN (Invoice Reference Number):</strong> 64-character ka unique cryptographic hash value jo IRP dwara generate is.</li>
+                    <li><strong>Digitally Signed QR Code:</strong> IRP dwara return kior gaor encrypted 2D barcode jisme Supplier/Buyer GSTIN, Invoice No., Date, Taxable Value, Total Tax, HSN, and IRN embedded is.</li>
+                    <li><strong>Digital Signature:</strong> IRP ka cryptographic authentication proof jo document validity establish karta is.</li>
+                    <li><strong>Ack N&amp; Ack Date:</strong> IRP portal par invoice register hone ka statutory timestamp.</li>
+                </ul>
+
+                <h3>Normal Invoice vs E-Invoice Comparison</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Normal Invoice</th>
+                            <th>E-Invoice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Created By</td>
+                            <td>Business Accounting Software</td>
+                            <td>Business Accounting Software</td>
+                        </tr>
+                        <tr>
+                            <td>GST IRP Validation</td>
+                            <td>No</td>
+                            <td>Yes (Online API validation)</td>
+                        </tr>
+                        <tr>
+                            <td>IRN (64-character hash)</td>
+                            <td>No</td>
+                            <td>Yes (Mandatory)</td>
+                        </tr>
+                        <tr>
+                            <td>Signed QR Code</td>
+                            <td>No (or static UPI QR)</td>
+                            <td>Yes (IRP Digitally Signed QR)</td>
+                        </tr>
+                        <tr>
+                            <td>Applicability</td>
+                            <td>All Registered/Unregistered dealers</td>
+                            <td>Turnover threshold cross karne wale B2B businesses</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Company Setup &amp; E-Invoice Feature Activation</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Enabling E-Invoice in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> &rarr; Set <strong>Enable Goods and Services Tax (GST)</strong> to <strong>Yes</strong>.</li>
+                    <li>Inside GST Details screen:
+                        <ul>
+                            <li>Set <strong>e-Invoicing applicable</strong> to <strong>Yes</strong>.</li>
+                            <li><strong>Applicable from:</strong> 01-Apr-2026.</li>
+                            <li><strong>Bill from Place:</strong> Mumbai.</li>
+                            <li><strong>Default period for e-Invoice report:</strong> 3 Days (or as required).</li>
+                            <li><strong>Send e-Way Bill details with e-Invoice:</strong> Yes (if applicable).</li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Mandatory Masters Configuration</h2>
+
+                <h3>Customer Master (Sundry Debtors):</h3>
+                <ul>
+                    <li><strong>Local B2B:</strong> Mumbai Retail Pvt Ltd &mdash; State: <em>Maharashtra</em> | Registration Type: <em>Regular</em> | Valid 15-digit GSTIN &amp; Pin Code.</li>
+                    <li><strong>Interstate B2B:</strong> Gujarat Electronics Pvt Ltd &mdash; State: <em>Gujarat</em> | Registration Type: <em>Regular</em> | Valid 15-digit GSTIN &amp; Pin Code.</li>
+                    <li><strong>Interstate B2B:</strong> Delhi Electronics &mdash; State: <em>Delhi</em> | Registration Type: <em>Regular</em> | Valid 15-digit GSTIN &amp; Pin Code.</li>
+                </ul>
+
+                <h3>Stock Item Master:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item Name</th>
+                            <th>Unit of Measure (UQC)</th>
+                            <th>HSN Code</th>
+                            <th>GST Rate</th>
+                            <th>Taxability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>NOS-NUMBERS</td>
+                            <td>8471</td>
+                            <td>18%</td>
+                            <td>Taxable</td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>NOS-NUMBERS</td>
+                            <td>8443</td>
+                            <td>18%</td>
+                            <td>Taxable</td>
+                        </tr>
+                        <tr>
+                            <td>Monitor</td>
+                            <td>NOS-NUMBERS</td>
+                            <td>8528</td>
+                            <td>18%</td>
+                            <td>Taxable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Practical Walkthrough: E-Invoice Generation in TallyPrime</h2>
+
+                <h3>Scenario 1: Interstate B2B Sales (Gujarat Electronics Pvt Ltd)</h3>
+                <p><strong>01-Apr-2026:</strong> Sold 10 Nos Laptops @ ₹50,000 = Taxable ₹5,00,000 + 18% IGST (₹90,000) = <strong>Invoice Total ₹5,90,000</strong>.</p>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F8 (Sales)</strong>.</li>
+                    <li>Select Party: <code>Gujarat Electronics Pvt Ltd</code> &rarr; Sales Ledger: <code>Sales - 18%</code>.</li>
+                    <li>Select Item: <code>Laptop</code> (10 Nos @ ₹50,000) &rarr; Select <code>IGST</code> (₹90,000).</li>
+                    <li>Set <strong>Provide e-Invoice details:</strong> <em>Yes</em> (Verify Bill-to and Ship-to details).</li>
+                    <li>Save voucher &rarr; Prompt appears: <strong>Generate e-Invoice? Yes/No</strong> &rarr; Select <strong>Yes</strong>.</li>
+                    <li>TallyPrime securely exchanges JSON payload with IRP via API credentials and fetches the <strong>64-character IRN, Ack No., and QR Code</strong>.</li>
+                </ol>
+
+                <h3>Scenario 2: Local B2B Sales (Mumbai Retail Pvt Ltd)</h3>
+                <p>Sold goods worth ₹5,00,000 + 18% GST (CGST ₹45,000 + SGST ₹45,000) = <strong>Total ₹5,90,000</strong>.</p>
+                <ul>
+                    <li>Process invoice through <strong>F8 (Sales)</strong> &rarr; Auto-generate IRN &rarr; Preview invoice to confirm embedded dynamic QR code and IRN print headers.</li>
+                </ul>
+
+                <h3>Scenario 3: High-Value Interstate Sales (Delhi Electronics)</h3>
+                <p>Sold goods worth ₹10,00,000 + 18% IGST (₹1,80,000) = <strong>Total ₹11,80,000</strong> &rarr; Generated simultaneous <strong>E-Invoice + E-Way Bill</strong>.</p>
+
+                <hr>
+
+                <h2>E-Invoice Cancellation &amp; Error Handling</h2>
+
+                <h3>Cancellation Protocol:</h3>
+                <ul>
+                    <li><strong>Time Window:</strong> E-Invoice ko IRP portal par generation ke <strong>24 ghante ke andar</strong> cancel kior ja sakta is.</li>
+                    <li><strong>No Re-generation on Same Invoice No.:</strong> Ek baar cancel hone ke baad same invoice number par new IRN generate nahi ho saktNew invoice number ke saath fresh entry karni padti is.</li>
+                    <li><strong>TallyPrime Steps:</strong> Open <strong>e-Invoice Report</strong> &rarr; Select voucher &rarr; Press <strong>F10 (Cancel IRN)</strong> &rarr; Select cancellation reason (e.g., <em>Wrong Customer / Data Entry Error</em>) &rarr; Send update to IRP.</li>
+                </ul>
+
+                <h3>Common Validation Errors &amp; Troubleshooting:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Error Description</th>
+                            <th>Root Cause</th>
+                            <th>Resolution in TallyPrime</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Invalid GSTIN / Inactive GSTIN</td>
+                            <td>Buyer GSTIN mistyped or cancelled</td>
+                            <td>Verify GSTIN on portal and alter Party Ledger</td>
+                        </tr>
+                        <tr>
+                            <td>Missing HSN Code / Invalid UQC</td>
+                            <td>Stock item master incomplete</td>
+                            <td>Enter 4/6/8-digit HSN and select standard UQC (e.g., NOS)</td>
+                        </tr>
+                        <tr>
+                            <td>Pin Code Mismatch with State</td>
+                            <td>Pin code does not belong to party state</td>
+                            <td>Correct dispatch/delivery pin code in address details</td>
+                        </tr>
+                        <tr>
+                            <td>Duplicate IRN Generated</td>
+                            <td>Same invoice number submitted again</td>
+                            <td>Change invoice numbering prefix/series</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Sequential Lab)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice Date</th>
+                            <th>Customer Name</th>
+                            <th>Destination State</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>Applicable GST</th>
+                            <th>E-Invoice Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Mumbai Retail Pvt Ltd</td>
+                            <td>Maharashtra (Local)</td>
+                            <td>3,00,000</td>
+                            <td>CGST ₹27,000 + SGST ₹27,000</td>
+                            <td>Generate IRN &amp; Print QR</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Delhi Electronics</td>
+                            <td>Delhi (Interstate)</td>
+                            <td>5,00,000</td>
+                            <td>IGST ₹90,000</td>
+                            <td>Generate IRN &amp; Print QR</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Gujarat Traders</td>
+                            <td>Gujarat (Interstate)</td>
+                            <td>8,00,000</td>
+                            <td>IGST ₹1,44,000</td>
+                            <td>Generate IRN &amp; E-Way Bill</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Level 2 Simulation Tasks:</h3>
+                <ul>
+                    <li>Configure 50 B2B sales invoices with multi-tier tax rates (18%, 12%, 5%).</li>
+                    <li>Perform bulk e-Invoice generation using <strong>Alt + Z (Exchange &rarr; Send for e-Invoice)</strong>.</li>
+                    <li>Identify failed vouchers in the <strong>e-Invoice Exception Report</strong>, resolve missing data, and send for re-generation.</li>
+                    <li>Execute cancellation for 1 erroneous invoice within the 24-hour validity window.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>e-Invoice Report (Alt + G &rarr; e-Invoice):</strong> Overview of <em>IRN Generated</em>, <em>Pending for Generation</em>, <em>Rejected by IRP</em>, and <em>Cancelled</em>.</li>
+                    <li><strong>e-Invoice Exception Report:</strong> Real-time listing of master-level errors preventing IRN creation.</li>
+                    <li><strong>Sales Register &amp; Print Preview:</strong> Confirm that the 64-character IRN and 2D QR Code render on the printed tax invoice document.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Issuing invoices to customers without printing the authenticated IRP QR code and IRN.</li>
+                    <li>Attempting to manually edit an invoice in Tally after an IRN has already been generated.</li>
+                    <li>Using dummy/incorrect HSN codes or non-standard Units of Measure.</li>
+                    <li>Confusing E-Invoice generation with monthly GST return filing.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: IRN ka full form kor hai and iski length kitni is?</strong><br>A: <strong>Invoice Reference Number</strong> &mdash; yeh 64-character ka unique alphanumeric hash code is.</li>
+                    <li><strong>Q: E-Invoice generate hone ke baad invoice cancel karne ki time limit kor hai?</strong><br>A: IRP portal par invoice ko generation ke <strong>24 ghante</strong> ke andar cancel kior ja sakta is.</li>
+                    <li><strong>Q: Kor B2C (unregistered consumers) transactions ke liye E-Invoice mandatory hai?</strong><br>A: Nahi, standard E-Invoice reporting provisions only <strong>B2B supplies, exports, and commercial B2B credit/debit notes</strong> par apply are.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>E-Invoice Golden Workflow:</strong><br>
+                    <code>Sales Voucher Creation (F8) &rarr; Data Validation &rarr; Send Payload to IRP (Alt+Z) &rarr; Receive IRN &amp; Signed QR Code &rarr; Print Tax Invoice with QR Header &rarr; Reconcile e-Invoice Report</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>E-Invoice feature activated and IRP credentials setup in TallyPrime</li>
+                    <li>Party GSTINs, Pin Codes, and Stock Item HSN codes configured</li>
+                    <li>Local and Interstate B2B sales invoices recorded</li>
+                    <li>Real-time IRN and QR Code generation executed</li>
+                    <li>IRN cancellation workflow and error handling practiced</li>
+                    <li>e-Invoice Reports and Exception Logs reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>E-Invoice ka concept samjhega.</li>
+                    <li>E-Invoice aur normal GST Invoice ka difference samjhega.</li>
+                    <li>IRP (Invoice Registration Portal) ka role samjhega.</li>
+                    <li>IRN, QR Code aur Digital Signature ka concept samjhega.</li>
+                    <li>E-Invoice applicability identify kar payega.</li>
+                    <li>TallyPrime mein e-Invoice configuration kar payega.</li>
+                    <li>Masters ko e-Invoice ke liye configure kar payega.</li>
+                    <li>Sales invoice generate kar payega.</li>
+                    <li>IRN generate kar payega.</li>
+                    <li>E-Invoice print format samjhega.</li>
+                    <li>Cancelled invoice ka treatment samjhega.</li>
+                    <li>E-Invoice reports verify kar payega.</li>
+                </ul>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode e-Invoice Simulation:</strong>
+                    <ul>
+                        <li>Set <em>e-Invoicing Applicable</em> = <code>Yes</code> in <kbd>F11</kbd> Features.</li>
+                        <li>When recording a B2B sales invoice, enter e-Invoice bill details.</li>
+                        <li>Upon saving, export the offline e-Invoice JSON file (<kbd>Alt + E</kbd> &rarr; e-Invoice). This JSON matches the exact government portal schema!</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>Core Concept: E-Invoice, IRP &amp; Components</h2>
+                <p><strong>E-Invoice (Electronic Invoicing):</strong> B2B sales invoices aur credit/debit notes ke data ko Invoice Registration Portal (IRP) par electronically transmit karke digital authentication, 64-character <strong>IRN</strong>, aur digitally signed <strong>QR Code</strong> prapt karne ka standardized process hai.</p>
+
+                <blockquote>
+                    <strong>Important Rule:</strong><br>
+                    E-Invoice ka matlab sirf PDF ya electronic billing nahi hai; iska matlab government IRP portal se invoice data ka online authentication aur unique <strong>IRN generation</strong> hai.
+                </blockquote>
+
+                <h3>Core Components of an E-Invoice</h3>
+                <ul>
+                    <li><strong>IRN (Invoice Reference Number):</strong> 64-character ka unique cryptographic hash value jo IRP dwara generate hota hai.</li>
+                    <li><strong>Digitally Signed QR Code:</strong> IRP dwara return kiya gaya encrypted 2D barcode jisme Supplier/Buyer GSTIN, Invoice No., Date, Taxable Value, Total Tax, HSN, aur IRN embedded hota hai.</li>
+                    <li><strong>Digital Signature:</strong> IRP ka cryptographic authentication proof jo document validity establish karta hai.</li>
+                    <li><strong>Ack N&amp; Ack Date:</strong> IRP portal par invoice register hone ka statutory timestamp.</li>
+                </ul>
+
+                <h3>Normal Invoice vs E-Invoice Comparison</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Normal Invoice</th>
+                            <th>E-Invoice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Created By</td>
+                            <td>Business Accounting Software</td>
+                            <td>Business Accounting Software</td>
+                        </tr>
+                        <tr>
+                            <td>GST IRP Validation</td>
+                            <td>No</td>
+                            <td>Yes (Online API validation)</td>
+                        </tr>
+                        <tr>
+                            <td>IRN (64-character hash)</td>
+                            <td>No</td>
+                            <td>Yes (Mandatory)</td>
+                        </tr>
+                        <tr>
+                            <td>Signed QR Code</td>
+                            <td>No (or static UPI QR)</td>
+                            <td>Yes (IRP Digitally Signed QR)</td>
+                        </tr>
+                        <tr>
+                            <td>Applicability</td>
+                            <td>All Registered/Unregistered dealers</td>
+                            <td>Turnover threshold cross karne wale B2B businesses</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Company Setup &amp; E-Invoice Feature Activation</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Enabling E-Invoice in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> &rarr; Set <strong>Enable Goods and Services Tax (GST)</strong> to <strong>Yes</strong>.</li>
+                    <li>Inside GST Details screen:
+                        <ul>
+                            <li>Set <strong>e-Invoicing applicable</strong> to <strong>Yes</strong>.</li>
+                            <li><strong>Applicable from:</strong> 01-Apr-2026.</li>
+                            <li><strong>Bill from Place:</strong> Mumbai.</li>
+                            <li><strong>Default period for e-Invoice report:</strong> 3 Days (or as required).</li>
+                            <li><strong>Send e-Way Bill details with e-Invoice:</strong> Yes (if applicable).</li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Mandatory Masters Configuration</h2>
+
+                <h3>Customer Master (Sundry Debtors):</h3>
+                <ul>
+                    <li><strong>Local B2B:</strong> Mumbai Retail Pvt Ltd &mdash; State: <em>Maharashtra</em> | Registration Type: <em>Regular</em> | Valid 15-digit GSTIN &amp; Pin Code.</li>
+                    <li><strong>Interstate B2B:</strong> Gujarat Electronics Pvt Ltd &mdash; State: <em>Gujarat</em> | Registration Type: <em>Regular</em> | Valid 15-digit GSTIN &amp; Pin Code.</li>
+                    <li><strong>Interstate B2B:</strong> Delhi Electronics &mdash; State: <em>Delhi</em> | Registration Type: <em>Regular</em> | Valid 15-digit GSTIN &amp; Pin Code.</li>
+                </ul>
+
+                <h3>Stock Item Master:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item Name</th>
+                            <th>Unit of Measure (UQC)</th>
+                            <th>HSN Code</th>
+                            <th>GST Rate</th>
+                            <th>Taxability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>NOS-NUMBERS</td>
+                            <td>8471</td>
+                            <td>18%</td>
+                            <td>Taxable</td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>NOS-NUMBERS</td>
+                            <td>8443</td>
+                            <td>18%</td>
+                            <td>Taxable</td>
+                        </tr>
+                        <tr>
+                            <td>Monitor</td>
+                            <td>NOS-NUMBERS</td>
+                            <td>8528</td>
+                            <td>18%</td>
+                            <td>Taxable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Practical Walkthrough: E-Invoice Generation in TallyPrime</h2>
+
+                <h3>Scenario 1: Interstate B2B Sales (Gujarat Electronics Pvt Ltd)</h3>
+                <p><strong>01-Apr-2026:</strong> Sold 10 Nos Laptops @ ₹50,000 = Taxable ₹5,00,000 + 18% IGST (₹90,000) = <strong>Invoice Total ₹5,90,000</strong>.</p>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F8 (Sales)</strong>.</li>
+                    <li>Select Party: <code>Gujarat Electronics Pvt Ltd</code> &rarr; Sales Ledger: <code>Sales - 18%</code>.</li>
+                    <li>Select Item: <code>Laptop</code> (10 Nos @ ₹50,000) &rarr; Select <code>IGST</code> (₹90,000).</li>
+                    <li>Set <strong>Provide e-Invoice details:</strong> <em>Yes</em> (Verify Bill-to and Ship-to details).</li>
+                    <li>Save voucher &rarr; Prompt appears: <strong>Generate e-Invoice? Yes/No</strong> &rarr; Select <strong>Yes</strong>.</li>
+                    <li>TallyPrime securely exchanges JSON payload with IRP via API credentials and fetches the <strong>64-character IRN, Ack No., and QR Code</strong>.</li>
+                </ol>
+
+                <h3>Scenario 2: Local B2B Sales (Mumbai Retail Pvt Ltd)</h3>
+                <p>Sold goods worth ₹5,00,000 + 18% GST (CGST ₹45,000 + SGST ₹45,000) = <strong>Total ₹5,90,000</strong>.</p>
+                <ul>
+                    <li>Process invoice through <strong>F8 (Sales)</strong> &rarr; Auto-generate IRN &rarr; Preview invoice to confirm embedded dynamic QR code and IRN print headers.</li>
+                </ul>
+
+                <h3>Scenario 3: High-Value Interstate Sales (Delhi Electronics)</h3>
+                <p>Sold goods worth ₹10,00,000 + 18% IGST (₹1,80,000) = <strong>Total ₹11,80,000</strong> &rarr; Generated simultaneous <strong>E-Invoice + E-Way Bill</strong>.</p>
+
+                <hr>
+
+                <h2>E-Invoice Cancellation &amp; Error Handling</h2>
+
+                <h3>Cancellation Protocol:</h3>
+                <ul>
+                    <li><strong>Time Window:</strong> E-Invoice ko IRP portal par generation ke <strong>24 ghante ke andar</strong> cancel kiya ja sakta hai.</li>
+                    <li><strong>No Re-generation on Same Invoice No.:</strong> Ek baar cancel hone ke baad same invoice number par new IRN generate nahi ho saktNew invoice number ke saath fresh entry karni padti hai.</li>
+                    <li><strong>TallyPrime Steps:</strong> Open <strong>e-Invoice Report</strong> &rarr; Select voucher &rarr; Press <strong>F10 (Cancel IRN)</strong> &rarr; Select cancellation reason (e.g., <em>Wrong Customer / Data Entry Error</em>) &rarr; Send update to IRP.</li>
+                </ul>
+
+                <h3>Common Validation Errors &amp; Troubleshooting:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Error Description</th>
+                            <th>Root Cause</th>
+                            <th>Resolution in TallyPrime</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Invalid GSTIN / Inactive GSTIN</td>
+                            <td>Buyer GSTIN mistyped or cancelled</td>
+                            <td>Verify GSTIN on portal and alter Party Ledger</td>
+                        </tr>
+                        <tr>
+                            <td>Missing HSN Code / Invalid UQC</td>
+                            <td>Stock item master incomplete</td>
+                            <td>Enter 4/6/8-digit HSN and select standard UQC (e.g., NOS)</td>
+                        </tr>
+                        <tr>
+                            <td>Pin Code Mismatch with State</td>
+                            <td>Pin code does not belong to party state</td>
+                            <td>Correct dispatch/delivery pin code in address details</td>
+                        </tr>
+                        <tr>
+                            <td>Duplicate IRN Generated</td>
+                            <td>Same invoice number submitted again</td>
+                            <td>Change invoice numbering prefix/series</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Sequential Lab)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice Date</th>
+                            <th>Customer Name</th>
+                            <th>Destination State</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>Applicable GST</th>
+                            <th>E-Invoice Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Mumbai Retail Pvt Ltd</td>
+                            <td>Maharashtra (Local)</td>
+                            <td>3,00,000</td>
+                            <td>CGST ₹27,000 + SGST ₹27,000</td>
+                            <td>Generate IRN &amp; Print QR</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Delhi Electronics</td>
+                            <td>Delhi (Interstate)</td>
+                            <td>5,00,000</td>
+                            <td>IGST ₹90,000</td>
+                            <td>Generate IRN &amp; Print QR</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Gujarat Traders</td>
+                            <td>Gujarat (Interstate)</td>
+                            <td>8,00,000</td>
+                            <td>IGST ₹1,44,000</td>
+                            <td>Generate IRN &amp; E-Way Bill</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Level 2 Simulation Tasks:</h3>
+                <ul>
+                    <li>Configure 50 B2B sales invoices with multi-tier tax rates (18%, 12%, 5%).</li>
+                    <li>Perform bulk e-Invoice generation using <strong>Alt + Z (Exchange &rarr; Send for e-Invoice)</strong>.</li>
+                    <li>Identify failed vouchers in the <strong>e-Invoice Exception Report</strong>, resolve missing data, and send for re-generation.</li>
+                    <li>Execute cancellation for 1 erroneous invoice within the 24-hour validity window.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>e-Invoice Report (Alt + G &rarr; e-Invoice):</strong> Overview of <em>IRN Generated</em>, <em>Pending for Generation</em>, <em>Rejected by IRP</em>, and <em>Cancelled</em>.</li>
+                    <li><strong>e-Invoice Exception Report:</strong> Real-time listing of master-level errors preventing IRN creation.</li>
+                    <li><strong>Sales Register &amp; Print Preview:</strong> Confirm that the 64-character IRN and 2D QR Code render on the printed tax invoice document.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Issuing invoices to customers without printing the authenticated IRP QR code and IRN.</li>
+                    <li>Attempting to manually edit an invoice in Tally after an IRN has already been generated.</li>
+                    <li>Using dummy/incorrect HSN codes or non-standard Units of Measure.</li>
+                    <li>Confusing E-Invoice generation with monthly GST return filing.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: IRN ka full form kya hai aur iski length kitni hoti hai?</strong><br>A: <strong>Invoice Reference Number</strong> &mdash; yeh 64-character ka unique alphanumeric hash code hota hai.</li>
+                    <li><strong>Q: E-Invoice generate hone ke baad invoice cancel karne ki time limit kya hai?</strong><br>A: IRP portal par invoice ko generation ke <strong>24 ghante</strong> ke andar cancel kiya ja sakta hai.</li>
+                    <li><strong>Q: Kya B2C (unregistered consumers) transactions ke liye E-Invoice mandatory hai?</strong><br>A: Nahi, standard E-Invoice reporting provisions sirf <strong>B2B supplies, exports, aur commercial B2B credit/debit notes</strong> par apply hote hain.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>E-Invoice Golden Workflow:</strong><br>
+                    <code>Sales Voucher Creation (F8) &rarr; Data Validation &rarr; Send Payload to IRP (Alt+Z) &rarr; Receive IRN &amp; Signed QR Code &rarr; Print Tax Invoice with QR Header &rarr; Reconcile e-Invoice Report</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>E-Invoice feature activated and IRP credentials setup in TallyPrime</li>
+                    <li>Party GSTINs, Pin Codes, and Stock Item HSN codes configured</li>
+                    <li>Local and Interstate B2B sales invoices recorded</li>
+                    <li>Real-time IRN and QR Code generation executed</li>
+                    <li>IRN cancellation workflow and error handling practiced</li>
+                    <li>e-Invoice Reports and Exception Logs reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Core Concept of TallyVault</h2>
+                <p><strong>TallyVault</strong> is an uncompromising cryptographic data protection mechanism in TallyPrime. It utilizes advanced <strong>AES (Advanced Encryption Standard)</strong> algorithms to encrypt the entire company database at the physical storage level.</p>
+
+                <h2>2. Standard Security vs. TallyVault</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Standard Security Control</th>
+                                <th>TallyVault</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Protection Level</strong></td>
+                                <td>Application-level password authentication.</td>
+                                <td>Deep file-system cryptographic database encryption.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Company Name in Select List</strong></td>
+                                <td>Visible in plain text (e.g. <em>National Trading Co.</em>).</td>
+                                <td><strong>Completely masked</strong> as asterisks (<code>**********</code>).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Folder Access</strong></td>
+                                <td>Raw XML/dat files can potentially be read by hex editors.</td>
+                                <td>Files are encrypted bytes; unreadable without the Vault Key.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Company Identification</strong></td>
+                                <td>Identified by Company Name &amp; 5-digit number (e.g. 10001).</td>
+                                <td>Identified <strong>strictly by 5-digit company folder number</strong>!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Enabling TallyVault on an Existing Company</h2>
+                <ol>
+                    <li>Press <kbd>Alt + K</kbd> (Company Menu) &rarr; Select <strong>TallyVault</strong>.</li>
+                    <li>Select the target company.</li>
+                    <li>Enter <strong>New TallyVault Password</strong> and Confirm Password.</li>
+                    <li>Tally displays a warning: <em>This will create a new encrypted copy of your company with a new folder number (e.g. 10002)!</em></li>
+                    <li>Accept the prompt. Tally generates the encrypted company copy.</li>
+                    <li>Verify that the original unencrypted folder can now be archived or deleted.</li>
+                </ol>
+
+                <div class="warning-box">
+                    <strong><i class="fa-solid fa-lock"></i> Unbreakable Encryption Warning:</strong>
+                    Tally Solutions has zero backdoor or decryption tools for lost TallyVault passwords. If the password is forgotten, the company data is permanently unrecoverable!
+                </div>
+
+                <h2>4. Interview Questions & Answers</h2>
+                <h3>Q1. How does a user open a TallyVault encrypted company from the Select Company list?</h3>
+                <p><strong>Ans:</strong> The company name appears as <code>**********</code>. The user identifies the company by its unique 5-digit folder number (e.g. <code>10005</code>), selects it, and enters the TallyVault password.</p>
+
+                <h3>Q2. Can TallyVault password be changed later?</h3>
+                <p><strong>Ans:</strong> Yes. Press <kbd>Alt + K</kbd> &rarr; TallyVault &rarr; Enter Current Vault Password &rarr; Provide New Vault Password.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Core Concept of TallyVault</h2>
+                <p><strong>TallyVault</strong> is an uncompromising cryptographic data protection mechanism in TallyPrime. It utilizes advanced <strong>AES (Advanced Encryption Standard)</strong> algorithms to encrypt the entire company database at the physical storage level.</p>
+
+                <h2>2. Standard Security vs. TallyVault</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Standard Security Control</th>
+                                <th>TallyVault</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Protection Level</strong></td>
+                                <td>Application-level password authentication.</td>
+                                <td>Deep file-system cryptographic database encryption.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Company Name in Select List</strong></td>
+                                <td>Visible in plain text (e.g. <em>National Trading Co.</em>).</td>
+                                <td><strong>Completely masked</strong> as asterisks (<code>**********</code>).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Folder Access</strong></td>
+                                <td>Raw XML/dat files can potentially be read by hex editors.</td>
+                                <td>Files are encrypted bytes; unreadable without the Vault Key.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Company Identification</strong></td>
+                                <td>Identified by Company Name &amp; 5-digit number (e.g. 10001).</td>
+                                <td>Identified <strong>strictly by 5-digit company folder number</strong>!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Enabling TallyVault on an Existing Company</h2>
+                <ol>
+                    <li>Press <kbd>Alt + K</kbd> (Company Menu) &rarr; Select <strong>TallyVault</strong>.</li>
+                    <li>Select the target company.</li>
+                    <li>Enter <strong>New TallyVault Password</strong> and Confirm Password.</li>
+                    <li>Tally displays a warning: <em>This will create a new encrypted copy of your company with a new folder number (e.g. 10002)!</em></li>
+                    <li>Accept the prompt. Tally generates the encrypted company copy.</li>
+                    <li>Verify that the original unencrypted folder can now be archived or deleted.</li>
+                </ol>
+
+                <div class="warning-box">
+                    <strong><i class="fa-solid fa-lock"></i> Unbreakable Encryption Warning:</strong>
+                    Tally Solutions has zero backdoor or decryption tools for lost TallyVault passwords. If the password is forgotten, the company data is permanently unrecoverable!
+                </div>
+
+                <h2>4. Interview Questions & Answers</h2>
+                <h3>Q1. How does a user open a TallyVault encrypted company from the Select Company list?</h3>
+                <p><strong>Ans:</strong> The company name appears as <code>**********</code>. The user identifies the company by its unique 5-digit folder number (e.g. <code>10005</code>), selects it, and enters the TallyVault password.</p>
+
+                <h3>Q2. Can TallyVault password be changed later?</h3>
+                <p><strong>Ans:</strong> Yes. Press <kbd>Alt + K</kbd> &rarr; TallyVault &rarr; Enter Current Vault Password &rarr; Provide New Vault Password.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

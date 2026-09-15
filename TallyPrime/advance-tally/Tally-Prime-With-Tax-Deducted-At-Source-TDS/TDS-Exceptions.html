@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Core Concept of TDS Exceptions</h2>
+                <p>In statutory tax administration, several scenarios deviate from standard flat-rate deduction rules. TallyPrime features automated exception rules for invalid/absent PANs, lower deduction certificates, and zero deduction declarations.</p>
+
+                <h2>2. Primary TDS Exceptions in TallyPrime</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exception Type</th>
+                                <th>Governing Section</th>
+                                <th>Rule &amp; Mechanics</th>
+                                <th>How Configured in Tally</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Deduction at Higher Rate (No PAN)</strong></td>
+                                <td>Section 206AA &amp; 206AB</td>
+                                <td>If deductee fails to provide PAN or is a non-filer, tax MUST be deducted at <strong>20%</strong> (or twice standard rate, whichever higher).</td>
+                                <td>Leave PAN field blank in Party Ledger; Tally auto-applies 20% on invoice.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lower Deduction Certificate</strong></td>
+                                <td>Section 197</td>
+                                <td>Assessee obtains official certificate from Assessing Officer authorizing deduction at lower rate (e.g., 2% instead of 10%).</td>
+                                <td>In Party Master &rarr; <em>Use Advanced TDS Entries</em> = Yes &rarr; Enter Certificate No. &amp; Valid Period.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Zero Deduction (Form 15G / 15H)</strong></td>
+                                <td>Section 197A</td>
+                                <td>Resident individuals submit self-declaration declaring estimated annual income is below taxable threshold.</td>
+                                <td>In Party Master &rarr; Set Zero Rate deduction under Section 197A.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Interview Questions & Answers</h2>
+                <h3>Q1. What is the statutory TDS rate under Section 206AA if a supplier fails to furnish their PAN?</h3>
+                <p><strong>Ans:</strong> 20% flat rate (or standard rate, whichever is higher).</p>
+
+                <h3>Q2. How is a Section 197 Lower Deduction Certificate tracked in TallyPrime?</h3>
+                <p><strong>Ans:</strong> Enable <em>Use Advanced TDS Entries</em> in Party Ledger, enter the Certificate Number issued by Income Tax Dept, specify the validity date range, and assign the sanctioned lower tax rate.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Core Concept of TDS Exceptions</h2>
+                <p>In statutory tax administration, several scenarios deviate from standard flat-rate deduction rules. TallyPrime features automated exception rules for invalid/absent PANs, lower deduction certificates, and zero deduction declarations.</p>
+
+                <h2>2. Primary TDS Exceptions in TallyPrime</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exception Type</th>
+                                <th>Governing Section</th>
+                                <th>Rule &amp; Mechanics</th>
+                                <th>How Configured in Tally</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Deduction at Higher Rate (No PAN)</strong></td>
+                                <td>Section 206AA &amp; 206AB</td>
+                                <td>If deductee fails to provide PAN or is a non-filer, tax MUST be deducted at <strong>20%</strong> (or twice standard rate, whichever higher).</td>
+                                <td>Leave PAN field blank in Party Ledger; Tally auto-applies 20% on invoice.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lower Deduction Certificate</strong></td>
+                                <td>Section 197</td>
+                                <td>Assessee obtains official certificate from Assessing Officer authorizing deduction at lower rate (e.g., 2% instead of 10%).</td>
+                                <td>In Party Master &rarr; <em>Use Advanced TDS Entries</em> = Yes &rarr; Enter Certificate No. &amp; Valid Period.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Zero Deduction (Form 15G / 15H)</strong></td>
+                                <td>Section 197A</td>
+                                <td>Resident individuals submit self-declaration declaring estimated annual income is below taxable threshold.</td>
+                                <td>In Party Master &rarr; Set Zero Rate deduction under Section 197A.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Interview Questions & Answers</h2>
+                <h3>Q1. What is the statutory TDS rate under Section 206AA if a supplier fails to furnish their PAN?</h3>
+                <p><strong>Ans:</strong> 20% flat rate (or standard rate, whichever is higher).</p>
+
+                <h3>Q2. How is a Section 197 Lower Deduction Certificate tracked in TallyPrime?</h3>
+                <p><strong>Ans:</strong> Enable <em>Use Advanced TDS Entries</em> in Party Ledger, enter the Certificate Number issued by Income Tax Dept, specify the validity date range, and assign the sanctioned lower tax rate.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

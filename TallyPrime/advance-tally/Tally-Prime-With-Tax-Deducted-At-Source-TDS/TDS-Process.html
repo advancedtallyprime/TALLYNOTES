@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Core Concept of the 4-Stage TDS Lifecycle</h2>
+                <p>Managing TDS in an enterprise involves a cyclical 4-stage compliance journey. TallyPrime automates each stage, eliminating arithmetic mistakes and regulatory penalties.</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Key Compliance Action</th>
+                                <th>Statutory Due Date</th>
+                                <th>Form / Challan Involved</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Stage 1: Deduction</strong></td>
+                                <td>Deduct tax while booking expense invoice (<kbd>F9</kbd>/<kbd>F7</kbd>) or making advance payment.</td>
+                                <td>Date of invoice booking or payment (whichever earlier)</td>
+                                <td>Journal / Purchase Voucher</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stage 2: Government Deposit</strong></td>
+                                <td>Deposit deducted tax to Central Government account via authorized banks.</td>
+                                <td><strong>7th of the following month</strong> (30th April for March deductions)</td>
+                                <td>Challan ITNS 281</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stage 3: Quarterly e-TDS Return</strong></td>
+                                <td>File electronic TDS statement detailing deductee PANs, payments, and challan BSR numbers.</td>
+                                <td><strong>31st of the month following the quarter</strong> (31-Jul, 31-Oct, 31-Jan, 31-May)</td>
+                                <td>Form 24Q (Salary) / Form 26Q (Non-Salary)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stage 4: Certificate Issuance</strong></td>
+                                <td>Download digitally signed TDS certificate from TRACES and furnish to deductee.</td>
+                                <td>Within 15 days from due date of return filing</td>
+                                <td>Form 16 (Salary) / Form 16A (Non-Salary)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>2. Consequences of Non-Compliance</h2>
+                <ul>
+                    <li><strong>Interest for Non-Deduction:</strong> 1% per month or part of a month from the date tax was deductible until deducted.</li>
+                    <li><strong>Interest for Late Deposit:</strong> 1.5% per month or part of a month from date of deduction until actual deposit date.</li>
+                    <li><strong>Disallowance of Expense (Section 40(a)(ia)):</strong> 30% of the expenditure is disallowed for computing taxable business profit if TDS is not deposited!</li>
+                    <li><strong>Late Filing Fee (Section 234E):</strong> ₹200 per day until the quarterly return is filed.</li>
+                </ul>
+
+                <h2>3. Interview Questions & Answers</h2>
+                <h3>Q1. What is the due date for depositing TDS deducted in the month of October?</h3>
+                <p><strong>Ans:</strong> 7th November. (TDS must always be deposited by the 7th of the following calendar month, except March which has a deadline of 30th April).</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Core Concept of the 4-Stage TDS Lifecycle</h2>
+                <p>Managing TDS in an enterprise involves a cyclical 4-stage compliance journey. TallyPrime automates each stage, eliminating arithmetic mistakes and regulatory penalties.</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Key Compliance Action</th>
+                                <th>Statutory Due Date</th>
+                                <th>Form / Challan Involved</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Stage 1: Deduction</strong></td>
+                                <td>Deduct tax while booking expense invoice (<kbd>F9</kbd>/<kbd>F7</kbd>) or making advance payment.</td>
+                                <td>Date of invoice booking or payment (whichever earlier)</td>
+                                <td>Journal / Purchase Voucher</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stage 2: Government Deposit</strong></td>
+                                <td>Deposit deducted tax to Central Government account via authorized banks.</td>
+                                <td><strong>7th of the following month</strong> (30th April for March deductions)</td>
+                                <td>Challan ITNS 281</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stage 3: Quarterly e-TDS Return</strong></td>
+                                <td>File electronic TDS statement detailing deductee PANs, payments, and challan BSR numbers.</td>
+                                <td><strong>31st of the month following the quarter</strong> (31-Jul, 31-Oct, 31-Jan, 31-May)</td>
+                                <td>Form 24Q (Salary) / Form 26Q (Non-Salary)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stage 4: Certificate Issuance</strong></td>
+                                <td>Download digitally signed TDS certificate from TRACES and furnish to deductee.</td>
+                                <td>Within 15 days from due date of return filing</td>
+                                <td>Form 16 (Salary) / Form 16A (Non-Salary)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>2. Consequences of Non-Compliance</h2>
+                <ul>
+                    <li><strong>Interest for Non-Deduction:</strong> 1% per month or part of a month from the date tax was deductible until deducted.</li>
+                    <li><strong>Interest for Late Deposit:</strong> 1.5% per month or part of a month from date of deduction until actual deposit date.</li>
+                    <li><strong>Disallowance of Expense (Section 40(a)(ia)):</strong> 30% of the expenditure is disallowed for computing taxable business profit if TDS is not deposited!</li>
+                    <li><strong>Late Filing Fee (Section 234E):</strong> ₹200 per day until the quarterly return is filed.</li>
+                </ul>
+
+                <h2>3. Interview Questions & Answers</h2>
+                <h3>Q1. What is the due date for depositing TDS deducted in the month of October?</h3>
+                <p><strong>Ans:</strong> 7th November. (TDS must always be deposited by the 7th of the following calendar month, except March which has a deadline of 30th April).</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

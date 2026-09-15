@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Point of Sale (POS) ka retail counter concept samjhega.</li>
+                    <li>Normal B2B Sales Invoice and POS Invoice ke beech ka difference identify karega.</li>
+                    <li>POS environment ke liye payment ledgers (Cash, Card, UPI) configure karega.</li>
+                    <li>Single payment modes (Cash, Card, UPI) record karega.</li>
+                    <li>Multiple payment modes (e.g., Cash + UPI + Card) ko ek hi POS invoice in allocate karega.</li>
+                    <li>Verify Discount apply karke net taxable value and GST calculation in management and statutory tax reports.</li>
+                    <li>Change/Balance returned handling and settlement reconciliation perform karega.</li>
+                    <li>POS sales ke baad Day Book, Sales Register, and Payment Ledgers reconcile karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Point of Sale (POS) &amp; Payment Modes</h2>
+                <p>Retail counter par customer from immediate product handover and same-time counter settlement (Cash/Card/UPI) ko record karne ke liye POS mode ufrom is:</p>
+
+                <ul>
+                    <div><strong>Point of Sale (POS):</strong> Retail environment jahan counter par billing and settlement synchronously complete is.</div>
+                    <div><strong>Single &amp; Multiple Payment Modes:</strong> Ek hi bill ko single tender (e.g., Cash only) or split tender (e.g., ₹2,000 Cash + ₹3,900 UPI) ke zariye settle karna.</div>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Normal Sales Invoice</th>
+                            <th>POS Invoice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Typical Environment</th>
+                            <td>Wholesale / B2B / Credit Trading</td>
+                            <td>Retail Store Counter (B2C)</td>
+                        </tr>
+                        <tr>
+                            <th>Settlement Timing</th>
+                            <td>Deferred / Credit / Bill-wifrom tracking</td>
+                            <td>Immediate Counter Settlement</td>
+                        </tr>
+                        <tr>
+                            <th>Payment Modes</th>
+                            <td>General Bank/Cash Ledger entry</td>
+                            <td>Dedicated POS modal for Cash, Card, UPI split</td>
+                        </tr>
+                        <tr>
+                            <th>Customer Management</th>
+                            <td>Mandatory party ledger details</td>
+                            <td>Walk-in customer / POS cash party mapping</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden POS Rule:</strong><br>
+                    <strong>Fully Settled POS Invoice Total</strong> = Cash Tender + Card Settlement + UPI Collection.<br>
+                    Payment mode badalne from stock quantity or GST rate par koi farak nahi padta; yeh only collection account ko alter karta is.
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Payment Ledgers Configuration</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Payment Ledgers Setup:</h3>
+                <ul>
+                    <li><code>Cash</code> &mdash; Under <em>Cash-in-Hand</em></li>
+                    <li><code>HDFC Bank A/c</code> &mdash; Under <em>Bank Accounts</em></li>
+                    <li><code>Card Settlement</code> &mdash; Under <em>Bank Accounts / Current Assets</em></li>
+                    <li><code>UPI Collection</code> &mdash; Under <em>Bank Accounts / Current Assets</em></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Single &amp; Multiple Payment Modes</h2>
+
+                <h3>Part A: Single Payment Mode (Cash / Card / UPI)</h3>
+                <ul>
+                    <li><strong>Cash Sale (Practical 1):</strong> Sold 2 Keyboards @ ₹1,000 = ₹2,000 + 18% GST (CGST ₹180 + SGST ₹180) = <strong>Invoice Total ₹2,360</strong>. Collected via <code>Cash</code>.</li>
+                    <li><strong>Card Settlement (Practical 2):</strong> Sold 1 Monitor @ ₹15,000 + 18% GST = <strong>Invoice Total ₹17,700</strong>. Settled via <code>Card Settlement</code>.</li>
+                    <li><strong>UPI Collection (Practical 3):</strong> Sold 1 Printer @ ₹20,000 + 18% GST = <strong>Invoice Total ₹23,600</strong>. Settled via <code>UPI Collection</code>.</li>
+                </ul>
+
+                <h3>Part B: Multiple Payment Modes on a Single Invoice</h3>
+                <ol>
+                    <div><strong>Scenario (Practical 4 &amp; 5):</strong> Customer buys 5 Keyboards @ ₹1,000 = ₹5,000 taxable + 18% GST (CGST ₹450 + SGST ₹450) = <strong>Total Invoice ₹5,900</strong>.</div>
+                    <div><strong>Split Tender Allocation:</strong> Customer pays ₹2,000 in <strong>Cash</strong> and the remaining ₹3,900 via <strong>UPI Collection</strong>.</div>
+                    <div><strong>TallyPrime Steps:</strong> Enter Sales Voucher (POS Mode) &rarr; Select items &rarr; In the POS Payment popup screen, allocate Cash = ₹2,000 and UPI Collection = ₹3,900 &rarr; Verify total equals ₹5,900 and save.</div>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Retail Counter Multi-Mode Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Items &amp; Quantities</th>
+                            <th>Gross Value (₹)</th>
+                            <th>GST @ 18% (₹)</th>
+                            <th>Invoice Total (₹)</th>
+                            <th>Payment Mode Breakdown</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Txn 1</td>
+                            <td>2 Keyboards @ ₹1,000</td>
+                            <td>2,000</td>
+                            <td>360</td>
+                            <td>2,360</td>
+                            <td>Cash: ₹2,360</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 2</td>
+                            <td>1 Monitor @ ₹15,000</td>
+                            <td>15,000</td>
+                            <td>2,700</td>
+                            <td>17,700</td>
+                            <td>Card: ₹17,700</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 3</td>
+                            <td>5 Keyboards @ ₹1,000</td>
+                            <td>5,000</td>
+                            <td>900</td>
+                            <td>5,900</td>
+                            <td>Cash: ₹2,000 | UPI: ₹3,900</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 4</td>
+                            <td>10 Moufrom @ ₹1,000</td>
+                            <td>10,000</td>
+                            <td>1,800</td>
+                            <td>11,800</td>
+                            <td>Cash: ₹2,800 | Card: ₹4,000 | UPI: ₹5,000</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 5</td>
+                            <td>2 Printers @ ₹20,000 (Less ₹4k Disc)</td>
+                            <td>36,000</td>
+                            <td>6,480</td>
+                            <td>42,480</td>
+                            <td>UPI: ₹42,480</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Sales Register:</strong> Reconcile daily retail POS bill totals and tax breakdowns.</li>
+                    <li><strong>Cash Book &amp; Bank/Payment Ledgers:</strong> Verify that collections across Cash, Card Settlement, and UPI Collection match physical drawer and gateway summaries.</li>
+                    <li><strong>Stock Summary:</strong> Confirm that retail units sold via POS are accurately deducted from closing stock.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Entering mismatched payment mode split totals that do not equal the final invoice grand total.</li>
+                    <li>Routing all retail collections through a single cash ledger instead of segregating Card and UPI accounts for gateway reconciliation.</li>
+                    <li>Forgetting to apply promotional trade discounts before computing GST taxable values.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <div><strong>Q: Kor ek hi POS invoice in multiple payment modes ufrom kiye ja sakte hain?</strong><br>A: Haan, split tender feature ke zariye customer cash, card, and UPI ka combination ufrom karke ek hi bill settle kar sakta is.</div>
+                    <div><strong>Q: Payment mode badalne from kor inventory stock quantity par koi asar padta hai?</strong><br>A: Nahi, payment mode only financial collection ledger ko select karta hai; physical stock item ki sale quantity from deduct is.</div>
+                    <div><strong>Q: POS transaction normal sales invoice from kaifrom alag hai?</strong><br>A: POS counter-level immediate settlement ke liye designed hai, jabki normal invoice credit/B2B billing and bill-wifrom tracking ke liye is.</div>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>POS Golden Workflow:</strong><br>
+                    <code>Open POS Sales Voucher &rarr; Scan Items &rarr; Apply Discount (if any) &rarr; Verify Tax Calculation &rarr; Allocate Split Payments (Cash/Card/UPI) &rarr; Reconcile Registers</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>POS feature and separate payment ledgers (Cash, Card, UPI) configured</li>
+                    <li>Single payment mode invoices (Cash, Card, UPI) successfully recorded</li>
+                    <li>Multiple payment mode split allocations executed on retail bills</li>
+                    <li>Discounted POS billing and GST calculations verified</li>
+                    <li>Sales Register, Cash Book, and Payment Collection ledgers reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 11 complete karne ke baad student:</p>
+                <ul>
+                    <li>Point of Sale (POS) ka retail counter concept samjhega.</li>
+                    <li>Normal B2B Sales Invoice aur POS Invoice ke beech ka difference identify karega.</li>
+                    <li>POS environment ke liye payment ledgers (Cash, Card, UPI) configure karega.</li>
+                    <li>Single payment modes (Cash, Card, UPI) record karega.</li>
+                    <li>Multiple payment modes (e.g., Cash + UPI + Card) ko ek hi POS invoice mein allocate karega.</li>
+                    <li>Discount apply karke net taxable value aur GST calculation verify karega.</li>
+                    <li>Change/Balance returned handling aur settlement reconciliation perform karega.</li>
+                    <li>POS sales ke baad Day Book, Sales Register, aur Payment Ledgers reconcile karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Point of Sale (POS) &amp; Payment Modes</h2>
+                <p>Retail counter par customer se immediate product handover aur same-time counter settlement (Cash/Card/UPI) ko record karne ke liye POS mode use hota hai:</p>
+
+                <ul>
+                    <div><strong>Point of Sale (POS):</strong> Retail environment jahan counter par billing aur settlement synchronously complete hoti hai.</div>
+                    <div><strong>Single &amp; Multiple Payment Modes:</strong> Ek hi bill ko single tender (e.g., Cash only) ya split tender (e.g., ₹2,000 Cash + ₹3,900 UPI) ke zariye settle karna.</div>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Normal Sales Invoice</th>
+                            <th>POS Invoice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Typical Environment</th>
+                            <td>Wholesale / B2B / Credit Trading</td>
+                            <td>Retail Store Counter (B2C)</td>
+                        </tr>
+                        <tr>
+                            <th>Settlement Timing</th>
+                            <td>Deferred / Credit / Bill-wise tracking</td>
+                            <td>Immediate Counter Settlement</td>
+                        </tr>
+                        <tr>
+                            <th>Payment Modes</th>
+                            <td>General Bank/Cash Ledger entry</td>
+                            <td>Dedicated POS modal for Cash, Card, UPI split</td>
+                        </tr>
+                        <tr>
+                            <th>Customer Management</th>
+                            <td>Mandatory party ledger details</td>
+                            <td>Walk-in customer / POS cash party mapping</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden POS Rule:</strong><br>
+                    <strong>Fully Settled POS Invoice Total</strong> = Cash Tender + Card Settlement + UPI Collection.<br>
+                    Payment mode badalne se stock quantity ya GST rate par koi farak nahi padta; yeh sirf collection account ko alter karta hai.
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Payment Ledgers Configuration</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Payment Ledgers Setup:</h3>
+                <ul>
+                    <li><code>Cash</code> &mdash; Under <em>Cash-in-Hand</em></li>
+                    <li><code>HDFC Bank A/c</code> &mdash; Under <em>Bank Accounts</em></li>
+                    <li><code>Card Settlement</code> &mdash; Under <em>Bank Accounts / Current Assets</em></li>
+                    <li><code>UPI Collection</code> &mdash; Under <em>Bank Accounts / Current Assets</em></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Single &amp; Multiple Payment Modes</h2>
+
+                <h3>Part A: Single Payment Mode (Cash / Card / UPI)</h3>
+                <ul>
+                    <li><strong>Cash Sale (Practical 1):</strong> Sold 2 Keyboards @ ₹1,000 = ₹2,000 + 18% GST (CGST ₹180 + SGST ₹180) = <strong>Invoice Total ₹2,360</strong>. Collected via <code>Cash</code>.</li>
+                    <li><strong>Card Settlement (Practical 2):</strong> Sold 1 Monitor @ ₹15,000 + 18% GST = <strong>Invoice Total ₹17,700</strong>. Settled via <code>Card Settlement</code>.</li>
+                    <li><strong>UPI Collection (Practical 3):</strong> Sold 1 Printer @ ₹20,000 + 18% GST = <strong>Invoice Total ₹23,600</strong>. Settled via <code>UPI Collection</code>.</li>
+                </ul>
+
+                <h3>Part B: Multiple Payment Modes on a Single Invoice</h3>
+                <ol>
+                    <div><strong>Scenario (Practical 4 &amp; 5):</strong> Customer buys 5 Keyboards @ ₹1,000 = ₹5,000 taxable + 18% GST (CGST ₹450 + SGST ₹450) = <strong>Total Invoice ₹5,900</strong>.</div>
+                    <div><strong>Split Tender Allocation:</strong> Customer pays ₹2,000 in <strong>Cash</strong> and the remaining ₹3,900 via <strong>UPI Collection</strong>.</div>
+                    <div><strong>TallyPrime Steps:</strong> Enter Sales Voucher (POS Mode) &rarr; Select items &rarr; In the POS Payment popup screen, allocate Cash = ₹2,000 and UPI Collection = ₹3,900 &rarr; Verify total equals ₹5,900 and save.</div>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Retail Counter Multi-Mode Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Items &amp; Quantities</th>
+                            <th>Gross Value (₹)</th>
+                            <th>GST @ 18% (₹)</th>
+                            <th>Invoice Total (₹)</th>
+                            <th>Payment Mode Breakdown</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Txn 1</td>
+                            <td>2 Keyboards @ ₹1,000</td>
+                            <td>2,000</td>
+                            <td>360</td>
+                            <td>2,360</td>
+                            <td>Cash: ₹2,360</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 2</td>
+                            <td>1 Monitor @ ₹15,000</td>
+                            <td>15,000</td>
+                            <td>2,700</td>
+                            <td>17,700</td>
+                            <td>Card: ₹17,700</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 3</td>
+                            <td>5 Keyboards @ ₹1,000</td>
+                            <td>5,000</td>
+                            <td>900</td>
+                            <td>5,900</td>
+                            <td>Cash: ₹2,000 | UPI: ₹3,900</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 4</td>
+                            <td>10 Mouse @ ₹1,000</td>
+                            <td>10,000</td>
+                            <td>1,800</td>
+                            <td>11,800</td>
+                            <td>Cash: ₹2,800 | Card: ₹4,000 | UPI: ₹5,000</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 5</td>
+                            <td>2 Printers @ ₹20,000 (Less ₹4k Disc)</td>
+                            <td>36,000</td>
+                            <td>6,480</td>
+                            <td>42,480</td>
+                            <td>UPI: ₹42,480</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Sales Register:</strong> Reconcile daily retail POS bill totals and tax breakdowns.</li>
+                    <li><strong>Cash Book &amp; Bank/Payment Ledgers:</strong> Verify that collections across Cash, Card Settlement, and UPI Collection match physical drawer and gateway summaries.</li>
+                    <li><strong>Stock Summary:</strong> Confirm that retail units sold via POS are accurately deducted from closing stock.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Entering mismatched payment mode split totals that do not equal the final invoice grand total.</li>
+                    <li>Routing all retail collections through a single cash ledger instead of segregating Card and UPI accounts for gateway reconciliation.</li>
+                    <li>Forgetting to apply promotional trade discounts before computing GST taxable values.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <div><strong>Q: Kya ek hi POS invoice mein multiple payment modes use kiye ja sakte hain?</strong><br>A: Haan, split tender feature ke zariye customer cash, card, aur UPI ka combination use karke ek hi bill settle kar sakta hai.</div>
+                    <div><strong>Q: Payment mode badalne se kya inventory stock quantity par koi asar padta hai?</strong><br>A: Nahi, payment mode sirf financial collection ledger ko select karta hai; physical stock item ki sale quantity se deduct hota hai.</div>
+                    <div><strong>Q: POS transaction normal sales invoice se kaise alag hai?</strong><br>A: POS counter-level immediate settlement ke liye designed hai, jabki normal invoice credit/B2B billing aur bill-wise tracking ke liye hoti hai.</div>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>POS Golden Workflow:</strong><br>
+                    <code>Open POS Sales Voucher &rarr; Scan Items &rarr; Apply Discount (if any) &rarr; Verify Tax Calculation &rarr; Allocate Split Payments (Cash/Card/UPI) &rarr; Reconcile Registers</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>POS feature and separate payment ledgers (Cash, Card, UPI) configured</li>
+                    <li>Single payment mode invoices (Cash, Card, UPI) successfully recorded</li>
+                    <li>Multiple payment mode split allocations executed on retail bills</li>
+                    <li>Discounted POS billing and GST calculations verified</li>
+                    <li>Sales Register, Cash Book, and Payment Collection ledgers reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

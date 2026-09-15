@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <ul>
+                    <li><strong>Interest Calculation:</strong> An automated tracking feature in TallyPrime that calculates interest on outstanding receivables (debtors), payables (creditors), bank loans, or advances based on pre-configured interest rates and time periods.</li>
+                    <li>
+                        <strong>Two Main Applications:</strong>
+                        <ul>
+                            <li><strong>Outstanding / Bill-wise Interest:</strong> Charging interest to customers on overdue bills (e.g., late payment penalties) or tracking interest payable to suppliers for delayed settlements.</li>
+                            <li><strong>Ledger Balance Interest:</strong> Calculating interest on simple loan balances or bank deposits over time.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Accounting Mechanism:</strong> To record calculated interest into financial ledgers, debit or credit interest using Debit Notes or Credit Notes (or Debit/Credit Note Voucher Classes configured for Interest).</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Enabling Interest Calculation in TallyPrime</h2>
+
+                <h3>Step A: Enable Feature at Company Level</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Interest Calculation</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Enable Interest Parameters in Ledger Masters</h3>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Ledger</strong> &rarr; Select Party (e.g., Keerti Computers or Bank Loan A/c).</li>
+                    <li>Set <strong>Activate Interest Calculation?</strong> to <strong>Yes</strong>.</li>
+                    <li>
+                        Configure Interest Parameters:
+                        <ul>
+                            <li><strong>Calculate Interest Transaction-by-Transaction?</strong> Set to <strong>Yes</strong> (for Bill-wise interest).</li>
+                            <li><strong>Include Transactions date for interest calculation?</strong> Choose options for Amount Added / Amount Deducted.</li>
+                            <li><strong>Rate:</strong> Enter interest percentage (e.g., 12% or 18%).</li>
+                            <li>
+                                <strong>Interest Style / Period:</strong> Select calculation calendar:
+                                <ul>
+                                    <li>30-Day Month</li>
+                                    <li>365-Day Year</li>
+                                    <li>Calendar Month</li>
+                                    <li>Calendar Year</li>
+                                </ul>
+                            </li>
+                            <li><strong>Calculate Interest From:</strong> Date of Amount or Effective Date of Transaction / Due Date.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Setting Up Voucher Classes for Automated Interest Adjustment</h2>
+                <p>To post calculated interest directly into ledgers using Debit or Credit Notes:</p>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Debit Note</strong> (for charging interest to debtors) or <strong>Credit Note</strong> (for interest payable).</li>
+                    <li>Type Class Name: <code>Simple Interest</code>.</li>
+                    <li>Set <strong>Use Class for Interest Accounting?</strong> to <strong>Yes</strong>.</li>
+                    <li>Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Setup Ledger Masters &amp; Interest Rates</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Party / Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Interest Rate</th>
+                            <th>Interest Style</th>
+                            <th>Calculate From</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Keerti Computers</td>
+                            <td>Sundry Debtors</td>
+                            <td>18% p.a.</td>
+                            <td>365-Day Year</td>
+                            <td>Due date of invoice (Credit period: 30 days)</td>
+                        </tr>
+                        <tr>
+                            <td>Sushant Infotech</td>
+                            <td>Sundry Debtors</td>
+                            <td>12% p.a.</td>
+                            <td>Calendar Year</td>
+                            <td>Bill Date</td>
+                        </tr>
+                        <tr>
+                            <td>HDFC Bank Loan A/c</td>
+                            <td>Secured Loans</td>
+                            <td>10% p.a.</td>
+                            <td>365-Day Year</td>
+                            <td>Ledger Balance Date</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Recording Transactions &amp; Outstanding Bills</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Party / Ledger</th>
+                            <th>Amount (₹)</th>
+                            <th>Bill Ref &amp; Due Date</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Keerti Computers</td>
+                            <td>1,00,000</td>
+                            <td>INV-101 (Due: 30 days &rarr; 1-May)</td>
+                            <td>Being credit sales made</td>
+                        </tr>
+                        <tr>
+                            <td>1-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Sushant Infotech</td>
+                            <td>50,000</td>
+                            <td>INV-102 (Immediate due)</td>
+                            <td>Being credit sales made</td>
+                        </tr>
+                        <tr>
+                            <td>1-Apr</td>
+                            <td>Receipt (F6)</td>
+                            <td>HDFC Bank Loan</td>
+                            <td>5,00,000</td>
+                            <td>—</td>
+                            <td>Being term loan amount received</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 3: Calculating Interest accrued on 31-May</h3>
+                <ul>
+                    <li>
+                        <strong>Keerti Computers (Overdue Interest):</strong><br>
+                        Invoice Date: 1-Apr | Due Date: 1-May | Calculation Date: 31-May<br>
+                        Overdue Days: 30 days (from 1-May to 31-May)<br>
+                        Interest = (₹1,00,000 &times; 18 &times; 30) / (365 &times; 100) = <strong>₹1,479.45</strong>
+                    </li>
+                    <li>
+                        <strong>Sushant Infotech (Interest from Bill Date):</strong><br>
+                        Outstanding Period: 1-Apr to 31-May (60 days)<br>
+                        Interest = (₹50,000 &times; 12 &times; 60) / (365 &times; 100) = <strong>₹986.30</strong>
+                    </li>
+                    <li>
+                        <strong>HDFC Bank Loan (Bank Interest Payable):</strong><br>
+                        Balance Period: 1-Apr to 31-May (61 days)<br>
+                        Interest = (₹5,00,000 &times; 10 &times; 61) / (365 &times; 100) = <strong>₹8,356.16</strong>
+                    </li>
+                </ul>
+
+                <h3>Part 4: Booking Interest via Debit / Journal Note (Alt + F5 / F7)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type &amp; Class</th>
+                            <th>Debit Ledger (Receiver / Expense)</th>
+                            <th>Credit Ledger (Giver / Income)</th>
+                            <th>Amount (₹)</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Debit Note (Simple Interest)</td>
+                            <td>Keerti Computers</td>
+                            <td>Interest Received A/c</td>
+                            <td>1,479.45</td>
+                            <td>Being late payment interest charged on INV-101</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Debit Note (Simple Interest)</td>
+                            <td>Sushant Infotech</td>
+                            <td>Interest Received A/c</td>
+                            <td>986.30</td>
+                            <td>Being interest charged on overdue balance</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Journal (F7)</td>
+                            <td>Interest Paid A/c</td>
+                            <td>HDFC Bank Loan A/c</td>
+                            <td>8,356.16</td>
+                            <td>Being bank loan interest accrued for April-May</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Report Verification</h2>
+
+                <h3>1. View Interest Calculation Reports:</h3>
+                <ul>
+                    <li><strong>Navigation Path:</strong> Press <strong>Alt + G (Go To)</strong> &rarr; Type <strong>Interest Calculations</strong> &rarr; Select <strong>Interest Receivable</strong> or <strong>Interest Payable</strong>.</li>
+                    <li><strong>Alternative Path:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Interest Calculations</strong> &rarr; <strong>Ledger / Group</strong>.</li>
+                </ul>
+
+                <h3>2. Period Selection in Reports:</h3>
+                <ul>
+                    <li>Inside the Interest Calculation report screen, press <strong>F2 (Period)</strong> to set the period (e.g., 1-Apr to 31-May) to see exact daily interest breakdowns.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <ul>
+                    <li><strong>Interest Calculation:</strong> An automated tracking feature in TallyPrime that calculates interest on outstanding receivables (debtors), payables (creditors), bank loans, or advances based on pre-configured interest rates and time periods.</li>
+                    <li>
+                        <strong>Two Main Applications:</strong>
+                        <ul>
+                            <li><strong>Outstanding / Bill-wise Interest:</strong> Charging interest to customers on overdue bills (e.g., late payment penalties) or tracking interest payable to suppliers for delayed settlements.</li>
+                            <li><strong>Ledger Balance Interest:</strong> Calculating interest on simple loan balances or bank deposits over time.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Accounting Mechanism:</strong> To record calculated interest into financial ledgers, debit or credit interest using Debit Notes or Credit Notes (or Debit/Credit Note Voucher Classes configured for Interest).</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Enabling Interest Calculation in TallyPrime</h2>
+
+                <h3>Step A: Enable Feature at Company Level</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Interest Calculation</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Enable Interest Parameters in Ledger Masters</h3>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Ledger</strong> &rarr; Select Party (e.g., Keerti Computers or Bank Loan A/c).</li>
+                    <li>Set <strong>Activate Interest Calculation?</strong> to <strong>Yes</strong>.</li>
+                    <li>
+                        Configure Interest Parameters:
+                        <ul>
+                            <li><strong>Calculate Interest Transaction-by-Transaction?</strong> Set to <strong>Yes</strong> (for Bill-wise interest).</li>
+                            <li><strong>Include Transactions date for interest calculation?</strong> Choose options for Amount Added / Amount Deducted.</li>
+                            <li><strong>Rate:</strong> Enter interest percentage (e.g., 12% or 18%).</li>
+                            <li>
+                                <strong>Interest Style / Period:</strong> Select calculation calendar:
+                                <ul>
+                                    <li>30-Day Month</li>
+                                    <li>365-Day Year</li>
+                                    <li>Calendar Month</li>
+                                    <li>Calendar Year</li>
+                                </ul>
+                            </li>
+                            <li><strong>Calculate Interest From:</strong> Date of Amount or Effective Date of Transaction / Due Date.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Setting Up Voucher Classes for Automated Interest Adjustment</h2>
+                <p>To post calculated interest directly into ledgers using Debit or Credit Notes:</p>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Debit Note</strong> (for charging interest to debtors) or <strong>Credit Note</strong> (for interest payable).</li>
+                    <li>Type Class Name: <code>Simple Interest</code>.</li>
+                    <li>Set <strong>Use Class for Interest Accounting?</strong> to <strong>Yes</strong>.</li>
+                    <li>Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Setup Ledger Masters &amp; Interest Rates</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Party / Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Interest Rate</th>
+                            <th>Interest Style</th>
+                            <th>Calculate From</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Keerti Computers</td>
+                            <td>Sundry Debtors</td>
+                            <td>18% p.a.</td>
+                            <td>365-Day Year</td>
+                            <td>Due date of invoice (Credit period: 30 days)</td>
+                        </tr>
+                        <tr>
+                            <td>Sushant Infotech</td>
+                            <td>Sundry Debtors</td>
+                            <td>12% p.a.</td>
+                            <td>Calendar Year</td>
+                            <td>Bill Date</td>
+                        </tr>
+                        <tr>
+                            <td>HDFC Bank Loan A/c</td>
+                            <td>Secured Loans</td>
+                            <td>10% p.a.</td>
+                            <td>365-Day Year</td>
+                            <td>Ledger Balance Date</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Recording Transactions &amp; Outstanding Bills</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Party / Ledger</th>
+                            <th>Amount (₹)</th>
+                            <th>Bill Ref &amp; Due Date</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Keerti Computers</td>
+                            <td>1,00,000</td>
+                            <td>INV-101 (Due: 30 days &rarr; 1-May)</td>
+                            <td>Being credit sales made</td>
+                        </tr>
+                        <tr>
+                            <td>1-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Sushant Infotech</td>
+                            <td>50,000</td>
+                            <td>INV-102 (Immediate due)</td>
+                            <td>Being credit sales made</td>
+                        </tr>
+                        <tr>
+                            <td>1-Apr</td>
+                            <td>Receipt (F6)</td>
+                            <td>HDFC Bank Loan</td>
+                            <td>5,00,000</td>
+                            <td>—</td>
+                            <td>Being term loan amount received</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 3: Calculating Interest accrued on 31-May</h3>
+                <ul>
+                    <li>
+                        <strong>Keerti Computers (Overdue Interest):</strong><br>
+                        Invoice Date: 1-Apr | Due Date: 1-May | Calculation Date: 31-May<br>
+                        Overdue Days: 30 days (from 1-May to 31-May)<br>
+                        Interest = (₹1,00,000 &times; 18 &times; 30) / (365 &times; 100) = <strong>₹1,479.45</strong>
+                    </li>
+                    <li>
+                        <strong>Sushant Infotech (Interest from Bill Date):</strong><br>
+                        Outstanding Period: 1-Apr to 31-May (60 days)<br>
+                        Interest = (₹50,000 &times; 12 &times; 60) / (365 &times; 100) = <strong>₹986.30</strong>
+                    </li>
+                    <li>
+                        <strong>HDFC Bank Loan (Bank Interest Payable):</strong><br>
+                        Balance Period: 1-Apr to 31-May (61 days)<br>
+                        Interest = (₹5,00,000 &times; 10 &times; 61) / (365 &times; 100) = <strong>₹8,356.16</strong>
+                    </li>
+                </ul>
+
+                <h3>Part 4: Booking Interest via Debit / Journal Note (Alt + F5 / F7)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type &amp; Class</th>
+                            <th>Debit Ledger (Receiver / Expense)</th>
+                            <th>Credit Ledger (Giver / Income)</th>
+                            <th>Amount (₹)</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Debit Note (Simple Interest)</td>
+                            <td>Keerti Computers</td>
+                            <td>Interest Received A/c</td>
+                            <td>1,479.45</td>
+                            <td>Being late payment interest charged on INV-101</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Debit Note (Simple Interest)</td>
+                            <td>Sushant Infotech</td>
+                            <td>Interest Received A/c</td>
+                            <td>986.30</td>
+                            <td>Being interest charged on overdue balance</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Journal (F7)</td>
+                            <td>Interest Paid A/c</td>
+                            <td>HDFC Bank Loan A/c</td>
+                            <td>8,356.16</td>
+                            <td>Being bank loan interest accrued for April-May</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Report Verification</h2>
+
+                <h3>1. View Interest Calculation Reports:</h3>
+                <ul>
+                    <li><strong>Navigation Path:</strong> Press <strong>Alt + G (Go To)</strong> &rarr; Type <strong>Interest Calculations</strong> &rarr; Select <strong>Interest Receivable</strong> or <strong>Interest Payable</strong>.</li>
+                    <li><strong>Alternative Path:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Interest Calculations</strong> &rarr; <strong>Ledger / Group</strong>.</li>
+                </ul>
+
+                <h3>2. Period Selection in Reports:</h3>
+                <ul>
+                    <li>Inside the Interest Calculation report screen, press <strong>F2 (Period)</strong> to set the period (e.g., 1-Apr to 31-May) to see exact daily interest breakdowns.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

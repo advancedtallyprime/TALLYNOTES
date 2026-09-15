@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Understand the core principles and concepts of GST purchafrom transaction.</li>
+                    <li>Understand the core principles and concepts of GST sales transaction.</li>
+                    <li>Understand the operational differences between Taxable value and invoice value.</li>
+                    <li>Identify and categorize CGST + SGST and IGST correctly.</li>
+                    <li>Local purchase/sale and interstate purchase/sale record kar payega.</li>
+                    <li>Configure master setups and ledger details for Purchafrom Ledger and Sales Ledger.</li>
+                    <li>Party Ledger in GST details maintain kar payega.</li>
+                    <li>Configure master setups and ledger details for Stock Item in GST rate/HSN details.</li>
+                    <li>TallyPrime in GST purchafrom invoice enter kar payega.</li>
+                    <li>TallyPrime in GST sales invoice enter kar payega.</li>
+                    <li>GST amount calculate and verify kar payega.</li>
+                    <li>Purchafrom par Input Tax Credit ka basic impact samjhega.</li>
+                    <li>Sales par Output GST ka basic impact samjhega.</li>
+                    <li>GST reports from transaction verify kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Day 1 ka Quick Recap</h2>
+                <p>Day 1 in humne <strong>ABC Traders</strong> ki company create ki thi.</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Company</td>
+                            <td>ABC Traders</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>Maharashtra</td>
+                        </tr>
+                        <tr>
+                            <td>FY</td>
+                            <td>2026&ndash;27</td>
+                        </tr>
+                        <tr>
+                            <td>GST</td>
+                            <td>Enabled</td>
+                        </tr>
+                        <tr>
+                            <td>Registration</td>
+                            <td>Regular</td>
+                        </tr>
+                        <tr>
+                            <td>GSTIN</td>
+                            <td>27AAAAA0000A1Z5 &mdash; Dummy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <p>Ab Day 2 in isi company in actual GST transactions record karenge.</p>
+
+                <hr>
+
+                <h2>GST Accounting ka Basic Concept</h2>
+                <p>GST accounting ko samajhne ke liye do important sides hain:</p>
+                <ul>
+                    <li>
+                        <strong>Purchafrom Side:</strong> Business jab GST pay karke goods/services purchafrom karta hai, eligible conditions ke subject to GST amount Input Tax Credit (ITC) ke roop in relevant ho sakta is.
+                        <br><em>Example:</em> Purchafrom = ₹10,000 | GST @18% = ₹1,800 | Invoice = ₹11,80Yahan ₹1,800 purchafrom side ka GST component is.
+                    </li>
+                    <li>
+                        <strong>Sales Side:</strong> Business jab taxable goods/services sell karta hai, applicable GST customer from collect karta is.
+                        <br><em>Example:</em> Sales = ₹20,000 | GST @18% = ₹3,600 | Customer from = ₹23,60Yahan ₹3,600 output GST liability ka component ho sakta is.
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h2>Purchafrom GST vs Sales GST</h2>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Purchase</th>
+                            <th>Sales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Business kor karta hai?</td>
+                            <td>Goods/Services kharidta hai</td>
+                            <td>Goods/Services bechta hai</td>
+                        </tr>
+                        <tr>
+                            <td>GST ka basic effect</td>
+                            <td>Input GST</td>
+                            <td>Output GST</td>
+                        </tr>
+                        <tr>
+                            <td>Example</td>
+                            <td>Purchafrom ₹10,000 + GST</td>
+                            <td>Sale ₹20,000 + GST</td>
+                        </tr>
+                        <tr>
+                            <td>GST @18%</td>
+                            <td>₹1,800</td>
+                            <td>₹3,600</td>
+                        </tr>
+                        <tr>
+                            <td>Invoice Total</td>
+                            <td>₹11,800</td>
+                            <td>₹23,600</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Easy Formula:</strong><br>
+                    Purchase: Purchafrom Value + Input GST = Invoice Value<br>
+                    Sales: Sales Value + Output GST = Invoice Value
+                </blockquote>
+
+                <hr>
+
+                <h2>Intra-State vs Inter-State Concepts</h2>
+                <ul>
+                    <li>
+                        <strong>Intra-State Purchase:</strong> Supplier and buyer same State in are.
+                        <br><em>Example:</em> ABC Traders (Maharashtra) purchases from XYZ Suppliers (Maharashtra).
+                        <br>Taxable Value = ₹10,000 | GST @18% &rarr; CGST (9%) = ₹900, SGST (9%) = ₹900 | Invoice Value = ₹11,800.
+                    </li>
+                    <li>
+                        <strong>Inter-State Purchase:</strong> Supplier dusre State ka is.
+                        <br><em>Example:</em> ABC Traders (Maharashtra) purchases from Delhi Suppliers (Delhi).
+                        <br>Taxable Value = ₹10,000 | GST @18% &rarr; IGST = ₹1,800 | Invoice Value = ₹11,800.
+                    </li>
+                    <li>
+                        <strong>Intra-State Sales:</strong> Same State ke customer ko sale karna.
+                        <br><em>Example:</em> ABC Traders (Maharashtra) sells to Maharashtra Customer.
+                        <br>Taxable Value = ₹20,000 | GST @18% &rarr; CGST (9%) = ₹1,800, SGST (9%) = ₹1,800 | Invoice Value = ₹23,600.
+                    </li>
+                    <li>
+                        <strong>Inter-State Sales:</strong> Other State ke customer ko sale karna.
+                        <br><em>Example:</em> ABC Traders (Maharashtra) sells to Gujarat Customer.
+                        <br>Taxable Value = ₹20,000 | GST @18% &rarr; IGST = ₹3,600 | Invoice Value = ₹23,600.
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h2>Important Accounting Flow</h2>
+                <p><strong>Purchafrom Flow:</strong> Supplier &rarr; ABC Traders &rarr; Purchafrom Value + GST &rarr; Input GST &rarr; Eligible ITC (subject to rules)</p>
+                <p><strong>Sales Flow:</strong> ABC Traders &rarr; Customer &rarr; Sales Value + GST &rarr; Output GST &rarr; Tax Liability</p>
+
+                <hr>
+
+                <h2>Master Creation &amp; Configurations</h2>
+
+                <h3>Ledgers to Create:</h3>
+                <ul>
+                    <li>Cash &amp; HDFC Bank</li>
+                    <li>Purchafrom - 18% (Under Purchafrom Accounts)</li>
+                    <li>Sales - 18% (Under Sales Accounts)</li>
+                    <li>Tax Ledgers: CGST Input, SGST Input, IGST Input, CGST Output, SGST Output, IGST Output (Under Duties &amp; Taxes)</li>
+                    <li>Parties: XYZ Suppliers, Delhi Suppliers, Maharashtra Customer, Gujarat Customer</li>
+                </ul>
+
+                <h3>Stock Group &amp; Stock Items:</h3>
+                <p><strong>Stock Group:</strong> Electronics</p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Unit</th>
+                            <th>GST Rate</th>
+                            <th>HSN &mdash; Practice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LED Monitor 24 Inch</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                        <tr>
+                            <td>Wireless Keyboard</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                        <tr>
+                            <td>Wireless Mouse</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                        <tr>
+                            <td>USB Keyboard</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                        <tr>
+                            <td>Bluetooth Speaker</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <p><em>Note: HSN codes ko actual business ufrom from pehle applicable classification ke according verify execute.</em></p>
+
+                <h3>Party Ledger GST Configurations:</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Party Name</th>
+                            <th>Group (Under)</th>
+                            <th>State</th>
+                            <th>Registration Type</th>
+                            <th>GSTIN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>XYZ Suppliers</td>
+                            <td>Sundry Creditors</td>
+                            <td>Maharashtra</td>
+                            <td>Regular</td>
+                            <td>Dummy Practice GSTIN</td>
+                        </tr>
+                        <tr>
+                            <td>Delhi Suppliers</td>
+                            <td>Sundry Creditors</td>
+                            <td>Delhi</td>
+                            <td>Regular</td>
+                            <td>Dummy Practice GSTIN</td>
+                        </tr>
+                        <tr>
+                            <td>Maharashtra Customer</td>
+                            <td>Sundry Debtors</td>
+                            <td>Maharashtra</td>
+                            <td>Regular</td>
+                            <td>Dummy Practice GSTIN</td>
+                        </tr>
+                        <tr>
+                            <td>Gujarat Customer</td>
+                            <td>Sundry Debtors</td>
+                            <td>Gujarat</td>
+                            <td>Regular</td>
+                            <td>Dummy Practice GSTIN</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Practical Walkthroughs</h2>
+
+                <h3>Practical 1 &mdash; Local GST Purchafrom (01-Apr-2026)</h3>
+                <p>Purchased 10 LED Monitors @ ₹10,000 each from XYZ Suppliers (Maharashtra).</p>
+                <ul>
+                    <li>Taxable Purchafrom Value = ₹1,00,000</li>
+                    <li>CGST @ 9% = ₹9,000 | SGST @ 9% = ₹9,000 | Total Invoice = ₹1,18,000</li>
+                    <li><strong>Steps:</strong> Press <strong>F9</strong> &rarr; Select Date <code>01-Apr-2026</code> &rarr; Party: <code>XYZ Suppliers</code> &rarr; Purchafrom Ledger: <code>Purchafrom - 18%</code> &rarr; Item: <code>LED Monitor 24 Inch</code> (10 Nos @ ₹10,000) &rarr; Add CGST &amp; SGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 2 &mdash; Interstate GST Purchafrom (02-Apr-2026)</h3>
+                <p>Purchased 20 Wireless Keyboards @ ₹2,000 each from Delhi Suppliers (Delhi).</p>
+                <ul>
+                    <li>Taxable Purchafrom Value = ₹40,000</li>
+                    <li>IGST @ 18% = ₹7,200 | Total Invoice = ₹47,200</li>
+                    <li><strong>Steps:</strong> Press <strong>F9</strong> &rarr; Select Date <code>02-Apr-2026</code> &rarr; Party: <code>Delhi Suppliers</code> &rarr; Purchafrom Ledger: <code>Purchafrom - 18%</code> &rarr; Item: <code>Wireless Keyboard</code> (20 Nos @ ₹2,000) &rarr; Add IGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 3 &mdash; Local GST Sales (01-Apr-2026)</h3>
+                <p>Sold 5 LED Monitors @ ₹15,000 each to Maharashtra Customer (Maharashtra).</p>
+                <ul>
+                    <li>Taxable Sales Value = ₹75,000</li>
+                    <li>CGST @ 9% = ₹6,750 | SGST @ 9% = ₹6,750 | Total Invoice = ₹88,500</li>
+                    <li><strong>Steps:</strong> Press <strong>F8</strong> &rarr; Select Date <code>01-Apr-2026</code> &rarr; Party: <code>Maharashtra Customer</code> &rarr; Sales Ledger: <code>Sales - 18%</code> &rarr; Item: <code>LED Monitor 24 Inch</code> (5 Nos @ ₹15,000) &rarr; Add CGST &amp; SGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 4 &mdash; Interstate GST Sales (02-Apr-2026)</h3>
+                <p>Sold 10 Wireless Mice @ ₹1,500 each to Gujarat Customer (Gujarat).</p>
+                <ul>
+                    <li>Taxable Sales Value = ₹15,000</li>
+                    <li>IGST @ 18% = ₹2,700 | Total Invoice = ₹17,700</li>
+                    <li><strong>Steps:</strong> Press <strong>F8</strong> &rarr; Select Date <code>02-Apr-2026</code> &rarr; Party: <code>Gujarat Customer</code> &rarr; Sales Ledger: <code>Sales - 18%</code> &rarr; Item: <code>Wireless Mouse</code> (10 Nos @ ₹1,500) &rarr; Add IGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Four Transactions &mdash; Summary View</h2>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Party</th>
+                            <th>State Relation</th>
+                            <th>Taxable</th>
+                            <th>GST</th>
+                            <th>Invoice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchase</td>
+                            <td>XYZ Suppliers</td>
+                            <td>Local</td>
+                            <td>₹1,00,000</td>
+                            <td>CGST ₹9,000 + SGST ₹9,000</td>
+                            <td>₹1,18,000</td>
+                        </tr>
+                        <tr>
+                            <td>02-Apr</td>
+                            <td>Purchase</td>
+                            <td>Delhi Suppliers</td>
+                            <td>Interstate</td>
+                            <td>₹40,000</td>
+                            <td>IGST ₹7,200</td>
+                            <td>₹47,200</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Local</td>
+                            <td>₹75,000</td>
+                            <td>CGST ₹6,750 + SGST ₹6,750</td>
+                            <td>₹88,500</td>
+                        </tr>
+                        <tr>
+                            <td>02-Apr</td>
+                            <td>Sales</td>
+                            <td>Gujarat Customer</td>
+                            <td>Interstate</td>
+                            <td>₹15,000</td>
+                            <td>IGST ₹2,700</td>
+                            <td>₹17,700</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Total Input vs Output Tax Summary:</h3>
+                <ul>
+                    <li><strong>Total Input GST:</strong> ₹9,000 (CGST) + ₹9,000 (SGST) + ₹7,200 (IGST) = <strong>₹25,200</strong></li>
+                    <li><strong>Total Output GST:</strong> ₹6,750 (CGST) + ₹6,750 (SGST) + ₹2,700 (IGST) = <strong>₹16,200</strong></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practice Exercises</h2>
+
+                <h3>Practice Set &mdash; Level 1</h3>
+                <ol>
+                    <li><strong>01-May-2026 (Purchase):</strong> 20 Wireless Keyboards @ ₹2,500 from XYZ Suppliers (Local, 18%).</li>
+                    <li><strong>01-May-2026 (Purchase):</strong> 10 Bluetooth Speakers @ ₹4,000 from Delhi Suppliers (Interstate, 18%).</li>
+                    <li><strong>02-May-2026 (Purchase):</strong> 30 Wireless Mice @ ₹1,000 from XYZ Suppliers (Local, 18%).</li>
+                    <li><strong>02-May-2026 (Sale):</strong> 10 Wireless Keyboards @ ₹3,500 to Maharashtra Customer (Local, 18%).</li>
+                    <li><strong>31-May-2026 (Sale):</strong> 15 Bluetooth Speakers @ ₹5,500 to Gujarat Customer (Interstate, 18%).</li>
+                </ol>
+
+                <h3>Practice Set &mdash; Level 2</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction</th>
+                            <th>Party</th>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Rate</th>
+                            <th>GST</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Purchase</td>
+                            <td>XYZ Suppliers</td>
+                            <td>LED Monitor</td>
+                            <td>5</td>
+                            <td>₹11,000</td>
+                            <td>18%</td>
+                            <td>Local</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Purchase</td>
+                            <td>Delhi Suppliers</td>
+                            <td>USB Keyboard</td>
+                            <td>25</td>
+                            <td>₹1,200</td>
+                            <td>18%</td>
+                            <td>Interstate</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jun</td>
+                            <td>Sale</td>
+                            <td>Maharashtra Customer</td>
+                            <td>LED Monitor</td>
+                            <td>3</td>
+                            <td>₹16,000</td>
+                            <td>18%</td>
+                            <td>Local</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jun</td>
+                            <td>Sale</td>
+                            <td>Gujarat Customer</td>
+                            <td>USB Keyboard</td>
+                            <td>10</td>
+                            <td>₹1,800</td>
+                            <td>18%</td>
+                            <td>Interstate</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Purchase</td>
+                            <td>XYZ Suppliers</td>
+                            <td>Bluetooth Speaker</td>
+                            <td>8</td>
+                            <td>₹3,500</td>
+                            <td>18%</td>
+                            <td>Local</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Sale</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Bluetooth Speaker</td>
+                            <td>5</td>
+                            <td>₹5,000</td>
+                            <td>18%</td>
+                            <td>Local</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Common Mistakes &amp; FAQs</h2>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li><strong>Party State Wrong:</strong> Supplier/Customer ka State galat choofrom karna GST calculation ko corrupt kar deta is.</li>
+                    <li><strong>Voucher Confusion:</strong> Purchafrom (F9) and Sales (F8) in galat voucher type select karna.</li>
+                    <li><strong>Wrong Tax Selection:</strong> Same-state in IGST or different-state in CGST/SGST ufrom karna.</li>
+                    <li><strong>Taxable Value vs Invoice Value:</strong> Taxable value par tax calculate is, invoice total par nahi.</li>
+                    <li><strong>Forcing GST Manually:</strong> Taxes manually overwrite karne ke bajaye configuration masters check execute.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Local purchase/sale in kaunsa tax lagega?</strong><br>A: CGST + SGST (Central + State GST).</li>
+                    <li><strong>Q: Interstate purchase/sale in kaunsa tax lagega?</strong><br>A: IGST (Integrated GST).</li>
+                    <li><strong>Q: GST calculate karne ka formula kor hai?</strong><br>A: <code>GST = Taxable Value &times; GST Rate &divide; 100</code>.</li>
+                    <li><strong>Q: Agar TallyPrime in GST auto calculate na ho toh kor check execute?</strong><br>A: Check Company State, Party State, Registration Type, GSTIN, Stock Item HSN &amp; Rate, and Voucher configuration.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+                
+                <h3>Golden Rules:</h3>
+                <ol>
+                    <li>Purchafrom = F9 | Sales = F8</li>
+                    <li>Purchafrom GST = Input Side | Sales GST = Output Side</li>
+                    <li>Same-State = CGST + SGST | Different-State = IGST</li>
+                    <li>Taxable Value + GST = Invoice Value</li>
+                    <li>GST = Taxable Value &times; Rate &divide; 100</li>
+                </ol>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Purchafrom &amp; Sales Ledgers created &amp; configured</li>
+                    <li>Party Ledgers created with accurate States &amp; GSTINs</li>
+                    <li>Stock Items created with HSN &amp; GST rates</li>
+                    <li>Local &amp; Interstate Purchases and Sales recorded</li>
+                    <li>CGST, SGST, IGST calculations and invoice totals verified</li>
+                    <li>Purchafrom Register, Sales Register, and GST Reports reviewed</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>GST purchase transaction ka concept samjhega.</li>
+                    <li>GST sales transaction ka concept samjhega.</li>
+                    <li>Taxable value aur invoice value ka difference samjhega.</li>
+                    <li>CGST + SGST aur IGST identify kar payega.</li>
+                    <li>Local purchase/sale aur interstate purchase/sale record kar payega.</li>
+                    <li>Purchase Ledger aur Sales Ledger configure kar payega.</li>
+                    <li>Party Ledger mein GST details maintain kar payega.</li>
+                    <li>Stock Item mein GST rate/HSN details configure kar payega.</li>
+                    <li>TallyPrime mein GST purchase invoice enter kar payega.</li>
+                    <li>TallyPrime mein GST sales invoice enter kar payega.</li>
+                    <li>GST amount calculate aur verify kar payega.</li>
+                    <li>Purchase par Input Tax Credit ka basic impact samjhega.</li>
+                    <li>Sales par Output GST ka basic impact samjhega.</li>
+                    <li>GST reports se transaction verify kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Day 1 ka Quick Recap</h2>
+                <p>Day 1 mein humne <strong>ABC Traders</strong> ki company create ki thi.</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Company</td>
+                            <td>ABC Traders</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>Maharashtra</td>
+                        </tr>
+                        <tr>
+                            <td>FY</td>
+                            <td>2026&ndash;27</td>
+                        </tr>
+                        <tr>
+                            <td>GST</td>
+                            <td>Enabled</td>
+                        </tr>
+                        <tr>
+                            <td>Registration</td>
+                            <td>Regular</td>
+                        </tr>
+                        <tr>
+                            <td>GSTIN</td>
+                            <td>27AAAAA0000A1Z5 &mdash; Dummy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <p>Ab Day 2 mein isi company mein actual GST transactions record karenge.</p>
+
+                <hr>
+
+                <h2>GST Accounting ka Basic Concept</h2>
+                <p>GST accounting ko samajhne ke liye do important sides hain:</p>
+                <ul>
+                    <li>
+                        <strong>Purchase Side:</strong> Business jab GST pay karke goods/services purchase karta hai, eligible conditions ke subject to GST amount Input Tax Credit (ITC) ke roop mein relevant ho sakta hai.
+                        <br><em>Example:</em> Purchase = ₹10,000 | GST @18% = ₹1,800 | Invoice = ₹11,80Yahan ₹1,800 purchase side ka GST component hai.
+                    </li>
+                    <li>
+                        <strong>Sales Side:</strong> Business jab taxable goods/services sell karta hai, applicable GST customer se collect karta hai.
+                        <br><em>Example:</em> Sales = ₹20,000 | GST @18% = ₹3,600 | Customer se = ₹23,60Yahan ₹3,600 output GST liability ka component ho sakta hai.
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h2>Purchase GST vs Sales GST</h2>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Purchase</th>
+                            <th>Sales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Business kya karta hai?</td>
+                            <td>Goods/Services kharidta hai</td>
+                            <td>Goods/Services bechta hai</td>
+                        </tr>
+                        <tr>
+                            <td>GST ka basic effect</td>
+                            <td>Input GST</td>
+                            <td>Output GST</td>
+                        </tr>
+                        <tr>
+                            <td>Example</td>
+                            <td>Purchase ₹10,000 + GST</td>
+                            <td>Sale ₹20,000 + GST</td>
+                        </tr>
+                        <tr>
+                            <td>GST @18%</td>
+                            <td>₹1,800</td>
+                            <td>₹3,600</td>
+                        </tr>
+                        <tr>
+                            <td>Invoice Total</td>
+                            <td>₹11,800</td>
+                            <td>₹23,600</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Easy Formula:</strong><br>
+                    Purchase: Purchase Value + Input GST = Invoice Value<br>
+                    Sales: Sales Value + Output GST = Invoice Value
+                </blockquote>
+
+                <hr>
+
+                <h2>Intra-State vs Inter-State Concepts</h2>
+                <ul>
+                    <li>
+                        <strong>Intra-State Purchase:</strong> Supplier aur buyer same State mein hote hain.
+                        <br><em>Example:</em> ABC Traders (Maharashtra) purchases from XYZ Suppliers (Maharashtra).
+                        <br>Taxable Value = ₹10,000 | GST @18% &rarr; CGST (9%) = ₹900, SGST (9%) = ₹900 | Invoice Value = ₹11,800.
+                    </li>
+                    <li>
+                        <strong>Inter-State Purchase:</strong> Supplier dusre State ka hota hai.
+                        <br><em>Example:</em> ABC Traders (Maharashtra) purchases from Delhi Suppliers (Delhi).
+                        <br>Taxable Value = ₹10,000 | GST @18% &rarr; IGST = ₹1,800 | Invoice Value = ₹11,800.
+                    </li>
+                    <li>
+                        <strong>Intra-State Sales:</strong> Same State ke customer ko sale karna.
+                        <br><em>Example:</em> ABC Traders (Maharashtra) sells to Maharashtra Customer.
+                        <br>Taxable Value = ₹20,000 | GST @18% &rarr; CGST (9%) = ₹1,800, SGST (9%) = ₹1,800 | Invoice Value = ₹23,600.
+                    </li>
+                    <li>
+                        <strong>Inter-State Sales:</strong> Other State ke customer ko sale karna.
+                        <br><em>Example:</em> ABC Traders (Maharashtra) sells to Gujarat Customer.
+                        <br>Taxable Value = ₹20,000 | GST @18% &rarr; IGST = ₹3,600 | Invoice Value = ₹23,600.
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h2>Important Accounting Flow</h2>
+                <p><strong>Purchase Flow:</strong> Supplier &rarr; ABC Traders &rarr; Purchase Value + GST &rarr; Input GST &rarr; Eligible ITC (subject to rules)</p>
+                <p><strong>Sales Flow:</strong> ABC Traders &rarr; Customer &rarr; Sales Value + GST &rarr; Output GST &rarr; Tax Liability</p>
+
+                <hr>
+
+                <h2>Master Creation &amp; Configurations</h2>
+
+                <h3>Ledgers to Create:</h3>
+                <ul>
+                    <li>Cash &amp; HDFC Bank</li>
+                    <li>Purchase - 18% (Under Purchase Accounts)</li>
+                    <li>Sales - 18% (Under Sales Accounts)</li>
+                    <li>Tax Ledgers: CGST Input, SGST Input, IGST Input, CGST Output, SGST Output, IGST Output (Under Duties &amp; Taxes)</li>
+                    <li>Parties: XYZ Suppliers, Delhi Suppliers, Maharashtra Customer, Gujarat Customer</li>
+                </ul>
+
+                <h3>Stock Group &amp; Stock Items:</h3>
+                <p><strong>Stock Group:</strong> Electronics</p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Unit</th>
+                            <th>GST Rate</th>
+                            <th>HSN &mdash; Practice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LED Monitor 24 Inch</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                        <tr>
+                            <td>Wireless Keyboard</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                        <tr>
+                            <td>Wireless Mouse</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                        <tr>
+                            <td>USB Keyboard</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                        <tr>
+                            <td>Bluetooth Speaker</td>
+                            <td>Nos</td>
+                            <td>18%</td>
+                            <td>Practice HSN</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <p><em>Note: HSN codes ko actual business use se pehle applicable classification ke according verify karein.</em></p>
+
+                <h3>Party Ledger GST Configurations:</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Party Name</th>
+                            <th>Group (Under)</th>
+                            <th>State</th>
+                            <th>Registration Type</th>
+                            <th>GSTIN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>XYZ Suppliers</td>
+                            <td>Sundry Creditors</td>
+                            <td>Maharashtra</td>
+                            <td>Regular</td>
+                            <td>Dummy Practice GSTIN</td>
+                        </tr>
+                        <tr>
+                            <td>Delhi Suppliers</td>
+                            <td>Sundry Creditors</td>
+                            <td>Delhi</td>
+                            <td>Regular</td>
+                            <td>Dummy Practice GSTIN</td>
+                        </tr>
+                        <tr>
+                            <td>Maharashtra Customer</td>
+                            <td>Sundry Debtors</td>
+                            <td>Maharashtra</td>
+                            <td>Regular</td>
+                            <td>Dummy Practice GSTIN</td>
+                        </tr>
+                        <tr>
+                            <td>Gujarat Customer</td>
+                            <td>Sundry Debtors</td>
+                            <td>Gujarat</td>
+                            <td>Regular</td>
+                            <td>Dummy Practice GSTIN</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Practical Walkthroughs</h2>
+
+                <h3>Practical 1 &mdash; Local GST Purchase (01-Apr-2026)</h3>
+                <p>Purchased 10 LED Monitors @ ₹10,000 each from XYZ Suppliers (Maharashtra).</p>
+                <ul>
+                    <li>Taxable Purchase Value = ₹1,00,000</li>
+                    <li>CGST @ 9% = ₹9,000 | SGST @ 9% = ₹9,000 | Total Invoice = ₹1,18,000</li>
+                    <li><strong>Steps:</strong> Press <strong>F9</strong> &rarr; Select Date <code>01-Apr-2026</code> &rarr; Party: <code>XYZ Suppliers</code> &rarr; Purchase Ledger: <code>Purchase - 18%</code> &rarr; Item: <code>LED Monitor 24 Inch</code> (10 Nos @ ₹10,000) &rarr; Add CGST &amp; SGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 2 &mdash; Interstate GST Purchase (02-Apr-2026)</h3>
+                <p>Purchased 20 Wireless Keyboards @ ₹2,000 each from Delhi Suppliers (Delhi).</p>
+                <ul>
+                    <li>Taxable Purchase Value = ₹40,000</li>
+                    <li>IGST @ 18% = ₹7,200 | Total Invoice = ₹47,200</li>
+                    <li><strong>Steps:</strong> Press <strong>F9</strong> &rarr; Select Date <code>02-Apr-2026</code> &rarr; Party: <code>Delhi Suppliers</code> &rarr; Purchase Ledger: <code>Purchase - 18%</code> &rarr; Item: <code>Wireless Keyboard</code> (20 Nos @ ₹2,000) &rarr; Add IGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 3 &mdash; Local GST Sales (01-Apr-2026)</h3>
+                <p>Sold 5 LED Monitors @ ₹15,000 each to Maharashtra Customer (Maharashtra).</p>
+                <ul>
+                    <li>Taxable Sales Value = ₹75,000</li>
+                    <li>CGST @ 9% = ₹6,750 | SGST @ 9% = ₹6,750 | Total Invoice = ₹88,500</li>
+                    <li><strong>Steps:</strong> Press <strong>F8</strong> &rarr; Select Date <code>01-Apr-2026</code> &rarr; Party: <code>Maharashtra Customer</code> &rarr; Sales Ledger: <code>Sales - 18%</code> &rarr; Item: <code>LED Monitor 24 Inch</code> (5 Nos @ ₹15,000) &rarr; Add CGST &amp; SGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 4 &mdash; Interstate GST Sales (02-Apr-2026)</h3>
+                <p>Sold 10 Wireless Mice @ ₹1,500 each to Gujarat Customer (Gujarat).</p>
+                <ul>
+                    <li>Taxable Sales Value = ₹15,000</li>
+                    <li>IGST @ 18% = ₹2,700 | Total Invoice = ₹17,700</li>
+                    <li><strong>Steps:</strong> Press <strong>F8</strong> &rarr; Select Date <code>02-Apr-2026</code> &rarr; Party: <code>Gujarat Customer</code> &rarr; Sales Ledger: <code>Sales - 18%</code> &rarr; Item: <code>Wireless Mouse</code> (10 Nos @ ₹1,500) &rarr; Add IGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Four Transactions &mdash; Summary View</h2>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Party</th>
+                            <th>State Relation</th>
+                            <th>Taxable</th>
+                            <th>GST</th>
+                            <th>Invoice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchase</td>
+                            <td>XYZ Suppliers</td>
+                            <td>Local</td>
+                            <td>₹1,00,000</td>
+                            <td>CGST ₹9,000 + SGST ₹9,000</td>
+                            <td>₹1,18,000</td>
+                        </tr>
+                        <tr>
+                            <td>02-Apr</td>
+                            <td>Purchase</td>
+                            <td>Delhi Suppliers</td>
+                            <td>Interstate</td>
+                            <td>₹40,000</td>
+                            <td>IGST ₹7,200</td>
+                            <td>₹47,200</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Local</td>
+                            <td>₹75,000</td>
+                            <td>CGST ₹6,750 + SGST ₹6,750</td>
+                            <td>₹88,500</td>
+                        </tr>
+                        <tr>
+                            <td>02-Apr</td>
+                            <td>Sales</td>
+                            <td>Gujarat Customer</td>
+                            <td>Interstate</td>
+                            <td>₹15,000</td>
+                            <td>IGST ₹2,700</td>
+                            <td>₹17,700</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Total Input vs Output Tax Summary:</h3>
+                <ul>
+                    <li><strong>Total Input GST:</strong> ₹9,000 (CGST) + ₹9,000 (SGST) + ₹7,200 (IGST) = <strong>₹25,200</strong></li>
+                    <li><strong>Total Output GST:</strong> ₹6,750 (CGST) + ₹6,750 (SGST) + ₹2,700 (IGST) = <strong>₹16,200</strong></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practice Exercises</h2>
+
+                <h3>Practice Set &mdash; Level 1</h3>
+                <ol>
+                    <li><strong>01-May-2026 (Purchase):</strong> 20 Wireless Keyboards @ ₹2,500 from XYZ Suppliers (Local, 18%).</li>
+                    <li><strong>01-May-2026 (Purchase):</strong> 10 Bluetooth Speakers @ ₹4,000 from Delhi Suppliers (Interstate, 18%).</li>
+                    <li><strong>02-May-2026 (Purchase):</strong> 30 Wireless Mice @ ₹1,000 from XYZ Suppliers (Local, 18%).</li>
+                    <li><strong>02-May-2026 (Sale):</strong> 10 Wireless Keyboards @ ₹3,500 to Maharashtra Customer (Local, 18%).</li>
+                    <li><strong>31-May-2026 (Sale):</strong> 15 Bluetooth Speakers @ ₹5,500 to Gujarat Customer (Interstate, 18%).</li>
+                </ol>
+
+                <h3>Practice Set &mdash; Level 2</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction</th>
+                            <th>Party</th>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Rate</th>
+                            <th>GST</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Purchase</td>
+                            <td>XYZ Suppliers</td>
+                            <td>LED Monitor</td>
+                            <td>5</td>
+                            <td>₹11,000</td>
+                            <td>18%</td>
+                            <td>Local</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Purchase</td>
+                            <td>Delhi Suppliers</td>
+                            <td>USB Keyboard</td>
+                            <td>25</td>
+                            <td>₹1,200</td>
+                            <td>18%</td>
+                            <td>Interstate</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jun</td>
+                            <td>Sale</td>
+                            <td>Maharashtra Customer</td>
+                            <td>LED Monitor</td>
+                            <td>3</td>
+                            <td>₹16,000</td>
+                            <td>18%</td>
+                            <td>Local</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jun</td>
+                            <td>Sale</td>
+                            <td>Gujarat Customer</td>
+                            <td>USB Keyboard</td>
+                            <td>10</td>
+                            <td>₹1,800</td>
+                            <td>18%</td>
+                            <td>Interstate</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Purchase</td>
+                            <td>XYZ Suppliers</td>
+                            <td>Bluetooth Speaker</td>
+                            <td>8</td>
+                            <td>₹3,500</td>
+                            <td>18%</td>
+                            <td>Local</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Sale</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Bluetooth Speaker</td>
+                            <td>5</td>
+                            <td>₹5,000</td>
+                            <td>18%</td>
+                            <td>Local</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Common Mistakes &amp; FAQs</h2>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li><strong>Party State Wrong:</strong> Supplier/Customer ka State galat choose karna GST calculation ko corrupt kar deta hai.</li>
+                    <li><strong>Voucher Confusion:</strong> Purchase (F9) aur Sales (F8) mein galat voucher type select karna.</li>
+                    <li><strong>Wrong Tax Selection:</strong> Same-state mein IGST ya different-state mein CGST/SGST use karna.</li>
+                    <li><strong>Taxable Value vs Invoice Value:</strong> Taxable value par tax calculate hota hai, invoice total par nahi.</li>
+                    <li><strong>Forcing GST Manually:</strong> Taxes manually overwrite karne ke bajaye configuration masters check karein.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Local purchase/sale mein kaunsa tax lagega?</strong><br>A: CGST + SGST (Central + State GST).</li>
+                    <li><strong>Q: Interstate purchase/sale mein kaunsa tax lagega?</strong><br>A: IGST (Integrated GST).</li>
+                    <li><strong>Q: GST calculate karne ka formula kya hai?</strong><br>A: <code>GST = Taxable Value &times; GST Rate &divide; 100</code>.</li>
+                    <li><strong>Q: Agar TallyPrime mein GST auto calculate na ho toh kya check karein?</strong><br>A: Check Company State, Party State, Registration Type, GSTIN, Stock Item HSN &amp; Rate, aur Voucher configuration.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+                
+                <h3>Golden Rules:</h3>
+                <ol>
+                    <li>Purchase = F9 | Sales = F8</li>
+                    <li>Purchase GST = Input Side | Sales GST = Output Side</li>
+                    <li>Same-State = CGST + SGST | Different-State = IGST</li>
+                    <li>Taxable Value + GST = Invoice Value</li>
+                    <li>GST = Taxable Value &times; Rate &divide; 100</li>
+                </ol>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Purchase &amp; Sales Ledgers created &amp; configured</li>
+                    <li>Party Ledgers created with accurate States &amp; GSTINs</li>
+                    <li>Stock Items created with HSN &amp; GST rates</li>
+                    <li>Local &amp; Interstate Purchases and Sales recorded</li>
+                    <li>CGST, SGST, IGST calculations and invoice totals verified</li>
+                    <li>Purchase Register, Sales Register, and GST Reports reviewed</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

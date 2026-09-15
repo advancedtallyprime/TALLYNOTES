@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Core Concept of Security Control</h2>
+                <p><strong>Security Control</strong> in TallyPrime is an enterprise-level governance framework that prevents unauthorized access, safeguards confidential financial data, enforces internal segregation of duties, and ensures compliance with statutory auditing standards.</p>
+
+                <h2>2. Need for Security Control in Multi-User Environments</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Security Risk Without Control</th>
+                                <th>Business Consequence</th>
+                                <th>TallyPrime Security Control Solution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Unrestricted Ledger Alteration</td>
+                                <td>Staff can modify bank account details, vendor balances, or past vouchers.</td>
+                                <td>Role-based permissions disallowing alteration of backdated vouchers and masters.</td>
+                            </tr>
+                            <tr>
+                                <td>Leakage of Confidential Profit Margins</td>
+                                <td>Sales clerks can view company Net Profit, Balance Sheet, and owner drawing accounts.</td>
+                                <td>Restrict access so data-entry operators can only access Sales and Receipt vouchers.</td>
+                            </tr>
+                            <tr>
+                                <td>Accidental Company Deletion</td>
+                                <td>Any user can accidentally delete company data folder or reset numbers.</td>
+                                <td>Administrator-only privilege required for company configuration and deletion.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Security Architecture in TallyPrime</h2>
+                <ul>
+                    <li><strong>Company Administrator:</strong> Super-user with uninhibited access to all financial reports, audit trails, and user management.</li>
+                    <li><strong>Security User Roles:</strong> Granular permissions defined per function (e.g., <em>Accountant</em>, <em>Billing Clerk</em>, <em>Inventory Storekeeper</em>, <em>Statutory Auditor</em>).</li>
+                    <li><strong>User Accounts:</strong> Individual logins with unique usernames, encrypted passwords, and optional Tally.NET remote IDs.</li>
+                    <li><strong>Tally Vault:</strong> Independent cryptographic encryption scrambling the company database at file-system level.</li>
+                </ul>
+
+                <h2>4. Interview Questions & Answers</h2>
+                <h3>Q1. Can a regular user alter a company's financial year if Security Control is active?</h3>
+                <p><strong>Ans:</strong> No. Only the Company Administrator possessing administrative credentials can alter company parameters, financial years, or security policies.</p>
+
+                <h3>Q2. What is the principle of "Segregation of Duties" in TallyPrime?</h3>
+                <p><strong>Ans:</strong> It ensures that no single user has end-to-end control over a transaction; for instance, a purchase clerk can enter purchase orders, but only an authorized accountant can record payment disbursements.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Core Concept of Security Control</h2>
+                <p><strong>Security Control</strong> in TallyPrime is an enterprise-level governance framework that prevents unauthorized access, safeguards confidential financial data, enforces internal segregation of duties, and ensures compliance with statutory auditing standards.</p>
+
+                <h2>2. Need for Security Control in Multi-User Environments</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Security Risk Without Control</th>
+                                <th>Business Consequence</th>
+                                <th>TallyPrime Security Control Solution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Unrestricted Ledger Alteration</td>
+                                <td>Staff can modify bank account details, vendor balances, or past vouchers.</td>
+                                <td>Role-based permissions disallowing alteration of backdated vouchers and masters.</td>
+                            </tr>
+                            <tr>
+                                <td>Leakage of Confidential Profit Margins</td>
+                                <td>Sales clerks can view company Net Profit, Balance Sheet, and owner drawing accounts.</td>
+                                <td>Restrict access so data-entry operators can only access Sales and Receipt vouchers.</td>
+                            </tr>
+                            <tr>
+                                <td>Accidental Company Deletion</td>
+                                <td>Any user can accidentally delete company data folder or reset numbers.</td>
+                                <td>Administrator-only privilege required for company configuration and deletion.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Security Architecture in TallyPrime</h2>
+                <ul>
+                    <li><strong>Company Administrator:</strong> Super-user with uninhibited access to all financial reports, audit trails, and user management.</li>
+                    <li><strong>Security User Roles:</strong> Granular permissions defined per function (e.g., <em>Accountant</em>, <em>Billing Clerk</em>, <em>Inventory Storekeeper</em>, <em>Statutory Auditor</em>).</li>
+                    <li><strong>User Accounts:</strong> Individual logins with unique usernames, encrypted passwords, and optional Tally.NET remote IDs.</li>
+                    <li><strong>Tally Vault:</strong> Independent cryptographic encryption scrambling the company database at file-system level.</li>
+                </ul>
+
+                <h2>4. Interview Questions & Answers</h2>
+                <h3>Q1. Can a regular user alter a company's financial year if Security Control is active?</h3>
+                <p><strong>Ans:</strong> No. Only the Company Administrator possessing administrative credentials can alter company parameters, financial years, or security policies.</p>
+
+                <h3>Q2. What is the principle of "Segregation of Duties" in TallyPrime?</h3>
+                <p><strong>Ans:</strong> It ensures that no single user has end-to-end control over a transaction; for instance, a purchase clerk can enter purchase orders, but only an authorized accountant can record payment disbursements.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

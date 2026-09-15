@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <ul>
+                    <li><strong>Multi-Currency:</strong> An advanced feature in TallyPrime that allows businesses operating internationally to record transactions (purchases, sales, receipts, payments) in foreign currencies while maintaining accounting ledgers and reports in the <strong>Base Currency</strong> (e.g., ₹ INR).</li>
+                    <li><strong>Exchange Rate:</strong> The conversion rate between a foreign currency and your base currency on a specific date.</li>
+                    <li><strong>Forex Gain / Loss:</strong> Due to exchange rate fluctuations between the date of transaction (e.g., Sales Invoice) and the date of settlement (e.g., Receipt), a business incurs a foreign exchange gain or loss. TallyPrime tracks these differences under <strong>Unadjusted Forex Gain/Loss</strong> until adjusted via a Journal Voucher.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Setting Up Multi-Currency in TallyPrime</h2>
+
+                <h3>Step A: Creating Currency Masters</h3>
+                <ol>
+                    <li>Press <strong>Alt + G</strong> (Go To) &rarr; <strong>Create Master</strong> &rarr; <strong>Currency</strong>.</li>
+                    <li>
+                        Fill in the Currency Details:
+                        <ul>
+                            <li><strong>Symbol:</strong> <code>$</code> <em>(or use ASCII codes: Alt+0128 for €, Alt+156 for £)</em></li>
+                            <li><strong>Formal Name:</strong> <code>US Dollars</code></li>
+                            <li><strong>ISO Currency Code:</strong> <code>USD</code></li>
+                            <li><strong>Number of Decimal Places:</strong> <code>2</code></li>
+                            <li><strong>Word representing amount after decimal:</strong> <code>Cents</code></li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Defining Rates of Exchange</h3>
+                <ol>
+                    <li>Press <strong>Alt + G</strong> &rarr; <strong>Alter Master</strong> &rarr; <strong>Rates of Exchange</strong>.</li>
+                    <li>Specify the Exchange Rates for required dates:</li>
+                </ol>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Currency</th>
+                            <th>Specified Rate (Buying Rate)</th>
+                            <th>Specified Rate (Selling Rate)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1-Apr</strong></td>
+                            <td><strong>USD ($)</strong></td>
+                            <td>₹82.00 / $</td>
+                            <td>₹83.00 / $</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-May</strong></td>
+                            <td><strong>USD ($)</strong></td>
+                            <td>₹84.00 / $</td>
+                            <td>₹85.00 / $</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>3. Setting Up Forex Gain/Loss Journal Voucher Class</h2>
+                <p>To automate and cleanly adjust exchange rate gains or losses:</p>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Journal</strong>.</li>
+                    <li>Scroll to <strong>Name of Class</strong> and type: <code>Forex Gain Or Loss</code>.</li>
+                    <li>Set <strong>Use Class for Forex Gain/Loss Adjustments?</strong> to <strong>Yes</strong>.</li>
+                    <li>Select the <strong>Forex Gain/Loss Ledger</strong> (Created under <em>Indirect Income / Indirect Expenses</em>).</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set (International Business Cycle)</h2>
+
+                <h3>Part 1: Record Foreign Currency Transactions</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Party Ledger</th>
+                            <th>Foreign Currency Details</th>
+                            <th>Base Currency Equivalent</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1-Apr</strong></td>
+                            <td><strong>Sales (<code>F8</code>)</strong></td>
+                            <td>Global Tech USA (Debtor)</td>
+                            <td><strong>$10,000 @ ₹83.00/$</strong> <em>(Invoice: <code>EXP-01</code>)</em></td>
+                            <td>₹8,30,000</td>
+                            <td>Being goods exported to US client</td>
+                        </tr>
+                        <tr>
+                            <td><strong>01-Apr</strong></td>
+                            <td><strong>Purchase (<code>F9</code>)</strong></td>
+                            <td>Apex Imports UK (Creditors)</td>
+                            <td><strong>$5,000 @ ₹82.00/$</strong> <em>(Invoice: <code>IMP-101</code>)</em></td>
+                            <td>₹4,10,000</td>
+                            <td>Being raw materials imported</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-May</strong></td>
+                            <td><strong>Receipt (<code>F6</code>)</strong></td>
+                            <td>Global Tech USA</td>
+                            <td><strong>$10,000 @ ₹85.00/$</strong> <em>(Agst Ref: <code>EXP-01</code>)</em></td>
+                            <td>₹8,50,000</td>
+                            <td>Being payment received from client</td>
+                        </tr>
+                        <tr>
+                            <td><strong>01-May</strong></td>
+                            <td><strong>Payment (<code>F5</code>)</strong></td>
+                            <td>Apex Imports UK</td>
+                            <td><strong>$5,000 @ ₹84.00/$</strong> <em>(Agst Ref: <code>IMP-101</code>)</em></td>
+                            <td>₹4,20,000</td>
+                            <td>Being payment made to supplier</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Calculating Forex Gain / Loss</h3>
+                <ul>
+                    <li>
+                        <strong>On Sales Settlement (Global Tech USA):</strong>
+                        <ul>
+                            <li>Invoice Value (1-Apr): <strong>$10,000 &times; ₹83 = ₹8,30,000</strong></li>
+                            <li>Receipt Value (1-May): <strong>$10,000 &times; ₹85 = ₹8,50,000</strong></li>
+                            <li><strong>Result:</strong> <strong>₹20,000 FOREX GAIN</strong> (Income)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>On Purchase Settlement (Apex Imports UK):</strong>
+                        <ul>
+                            <li>Invoice Value (01-Apr): <strong>$5,000 &times; ₹82 = ₹4,10,000</strong></li>
+                            <li>Payment Value (01-May): <strong>$5,000 &times; ₹84 = ₹4,20,000</strong></li>
+                            <li><strong>Result:</strong> <strong>₹10,000 FOREX LOSS</strong> (Expense)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Part 3: Adjusting Forex Gain/Loss (<code>F7</code> Journal Voucher)</h3>
+                <ol>
+                    <li>Go to <strong>Vouchers</strong> &rarr; Press <strong>F7 (Journal)</strong>.</li>
+                    <li>Select Class: <strong><code>Forex Gain Or Loss</code></strong>.</li>
+                    <li>Select Party Ledger: <strong>Global Tech USA</strong> &rarr; Tally automatically pulls the unadjusted balance of <strong>₹20,000 (Cr)</strong>.</li>
+                    <li>Select Party Ledger: <strong>Apex Imports UK</strong> &rarr; Tally automatically pulls the unadjusted balance of <strong>₹10,000 (Dr)</strong>.</li>
+                    <li>Save with <strong>Ctrl + A</strong> to transfer net forex variance to Profit &amp; Loss A/c.</li>
+                </ol>
+
+                <hr>
+
+                <h2>5. Report Verification</h2>
+                <ul>
+                    <li>
+                        <strong>Unadjusted Forex Gains / Losses:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Balance Sheet</strong> &rarr; Look for <strong>Unadjusted Forex Gain/Loss</strong> under Assets or Liabilities.
+                    </li>
+                    <li>
+                        <strong>Multi-Currency Ledger &amp; Reports:</strong><br>
+                        Open any Party Ledger (e.g., <em>Global Tech USA</em>) &rarr; Press <strong>F12 (Configure)</strong> &rarr; Set <strong>Show Multi-Currency details?</strong> to <strong>Yes</strong> to view transactions both in Foreign Currency ($) and Base Currency (₹).
+                    </li>
+                    <li>
+                        <strong>Forex Transactions Analysis Report:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Analysis &amp; Verification</strong> &rarr; <strong>Voucher Verification</strong> &rarr; <strong>Forex Transactions</strong>.
+                    </li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <ul>
+                    <li><strong>Multi-Currency:</strong> An advanced feature in TallyPrime that allows businesses operating internationally to record transactions (purchases, sales, receipts, payments) in foreign currencies while maintaining accounting ledgers and reports in the <strong>Base Currency</strong> (e.g., ₹ INR).</li>
+                    <li><strong>Exchange Rate:</strong> The conversion rate between a foreign currency and your base currency on a specific date.</li>
+                    <li><strong>Forex Gain / Loss:</strong> Due to exchange rate fluctuations between the date of transaction (e.g., Sales Invoice) and the date of settlement (e.g., Receipt), a business incurs a foreign exchange gain or loss. TallyPrime tracks these differences under <strong>Unadjusted Forex Gain/Loss</strong> until adjusted via a Journal Voucher.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Setting Up Multi-Currency in TallyPrime</h2>
+
+                <h3>Step A: Creating Currency Masters</h3>
+                <ol>
+                    <li>Press <strong>Alt + G</strong> (Go To) &rarr; <strong>Create Master</strong> &rarr; <strong>Currency</strong>.</li>
+                    <li>
+                        Fill in the Currency Details:
+                        <ul>
+                            <li><strong>Symbol:</strong> <code>$</code> <em>(or use ASCII codes: Alt+0128 for €, Alt+156 for £)</em></li>
+                            <li><strong>Formal Name:</strong> <code>US Dollars</code></li>
+                            <li><strong>ISO Currency Code:</strong> <code>USD</code></li>
+                            <li><strong>Number of Decimal Places:</strong> <code>2</code></li>
+                            <li><strong>Word representing amount after decimal:</strong> <code>Cents</code></li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Defining Rates of Exchange</h3>
+                <ol>
+                    <li>Press <strong>Alt + G</strong> &rarr; <strong>Alter Master</strong> &rarr; <strong>Rates of Exchange</strong>.</li>
+                    <li>Specify the Exchange Rates for required dates:</li>
+                </ol>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Currency</th>
+                            <th>Specified Rate (Buying Rate)</th>
+                            <th>Specified Rate (Selling Rate)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1-Apr</strong></td>
+                            <td><strong>USD ($)</strong></td>
+                            <td>₹82.00 / $</td>
+                            <td>₹83.00 / $</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-May</strong></td>
+                            <td><strong>USD ($)</strong></td>
+                            <td>₹84.00 / $</td>
+                            <td>₹85.00 / $</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>3. Setting Up Forex Gain/Loss Journal Voucher Class</h2>
+                <p>To automate and cleanly adjust exchange rate gains or losses:</p>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Journal</strong>.</li>
+                    <li>Scroll to <strong>Name of Class</strong> and type: <code>Forex Gain Or Loss</code>.</li>
+                    <li>Set <strong>Use Class for Forex Gain/Loss Adjustments?</strong> to <strong>Yes</strong>.</li>
+                    <li>Select the <strong>Forex Gain/Loss Ledger</strong> (Created under <em>Indirect Income / Indirect Expenses</em>).</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set (International Business Cycle)</h2>
+
+                <h3>Part 1: Record Foreign Currency Transactions</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Party Ledger</th>
+                            <th>Foreign Currency Details</th>
+                            <th>Base Currency Equivalent</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1-Apr</strong></td>
+                            <td><strong>Sales (<code>F8</code>)</strong></td>
+                            <td>Global Tech USA (Debtor)</td>
+                            <td><strong>$10,000 @ ₹83.00/$</strong> <em>(Invoice: <code>EXP-01</code>)</em></td>
+                            <td>₹8,30,000</td>
+                            <td>Being goods exported to US client</td>
+                        </tr>
+                        <tr>
+                            <td><strong>01-Apr</strong></td>
+                            <td><strong>Purchase (<code>F9</code>)</strong></td>
+                            <td>Apex Imports UK (Creditors)</td>
+                            <td><strong>$5,000 @ ₹82.00/$</strong> <em>(Invoice: <code>IMP-101</code>)</em></td>
+                            <td>₹4,10,000</td>
+                            <td>Being raw materials imported</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-May</strong></td>
+                            <td><strong>Receipt (<code>F6</code>)</strong></td>
+                            <td>Global Tech USA</td>
+                            <td><strong>$10,000 @ ₹85.00/$</strong> <em>(Agst Ref: <code>EXP-01</code>)</em></td>
+                            <td>₹8,50,000</td>
+                            <td>Being payment received from client</td>
+                        </tr>
+                        <tr>
+                            <td><strong>01-May</strong></td>
+                            <td><strong>Payment (<code>F5</code>)</strong></td>
+                            <td>Apex Imports UK</td>
+                            <td><strong>$5,000 @ ₹84.00/$</strong> <em>(Agst Ref: <code>IMP-101</code>)</em></td>
+                            <td>₹4,20,000</td>
+                            <td>Being payment made to supplier</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Calculating Forex Gain / Loss</h3>
+                <ul>
+                    <li>
+                        <strong>On Sales Settlement (Global Tech USA):</strong>
+                        <ul>
+                            <li>Invoice Value (1-Apr): <strong>$10,000 &times; ₹83 = ₹8,30,000</strong></li>
+                            <li>Receipt Value (1-May): <strong>$10,000 &times; ₹85 = ₹8,50,000</strong></li>
+                            <li><strong>Result:</strong> <strong>₹20,000 FOREX GAIN</strong> (Income)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>On Purchase Settlement (Apex Imports UK):</strong>
+                        <ul>
+                            <li>Invoice Value (01-Apr): <strong>$5,000 &times; ₹82 = ₹4,10,000</strong></li>
+                            <li>Payment Value (01-May): <strong>$5,000 &times; ₹84 = ₹4,20,000</strong></li>
+                            <li><strong>Result:</strong> <strong>₹10,000 FOREX LOSS</strong> (Expense)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Part 3: Adjusting Forex Gain/Loss (<code>F7</code> Journal Voucher)</h3>
+                <ol>
+                    <li>Go to <strong>Vouchers</strong> &rarr; Press <strong>F7 (Journal)</strong>.</li>
+                    <li>Select Class: <strong><code>Forex Gain Or Loss</code></strong>.</li>
+                    <li>Select Party Ledger: <strong>Global Tech USA</strong> &rarr; Tally automatically pulls the unadjusted balance of <strong>₹20,000 (Cr)</strong>.</li>
+                    <li>Select Party Ledger: <strong>Apex Imports UK</strong> &rarr; Tally automatically pulls the unadjusted balance of <strong>₹10,000 (Dr)</strong>.</li>
+                    <li>Save with <strong>Ctrl + A</strong> to transfer net forex variance to Profit &amp; Loss A/c.</li>
+                </ol>
+
+                <hr>
+
+                <h2>5. Report Verification</h2>
+                <ul>
+                    <li>
+                        <strong>Unadjusted Forex Gains / Losses:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Balance Sheet</strong> &rarr; Look for <strong>Unadjusted Forex Gain/Loss</strong> under Assets or Liabilities.
+                    </li>
+                    <li>
+                        <strong>Multi-Currency Ledger &amp; Reports:</strong><br>
+                        Open any Party Ledger (e.g., <em>Global Tech USA</em>) &rarr; Press <strong>F12 (Configure)</strong> &rarr; Set <strong>Show Multi-Currency details?</strong> to <strong>Yes</strong> to view transactions both in Foreign Currency ($) and Base Currency (₹).
+                    </li>
+                    <li>
+                        <strong>Forex Transactions Analysis Report:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Analysis &amp; Verification</strong> &rarr; <strong>Voucher Verification</strong> &rarr; <strong>Forex Transactions</strong>.
+                    </li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

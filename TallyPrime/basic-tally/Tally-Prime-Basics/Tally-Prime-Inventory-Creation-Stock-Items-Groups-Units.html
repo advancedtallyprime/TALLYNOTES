@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Concept</h2>
+                <p><strong>Inventory</strong> in Tally Prime means managing your physical goods/stock. This section allows you to create:</p>
+                <ul>
+                    <li><strong>Stock Groups</strong> (categories of items)</li>
+                    <li><strong>Units of Measure</strong> (how you measure items)</li>
+                    <li><strong>Stock Items</strong> (actual products you buy and sell)</li>
+                </ul>
+                <p>This feature is used when your business deals with goods (trading or manufacturing).</p>
+
+                <hr>
+
+                <h2>Use Case & Real Life Practice</h2>
+                <ul>
+                    <li><strong>Use Case</strong>: Businesses that buy and sell products need to track stock quantity, value, and movement.</li>
+                    <li>
+                        <strong>Real Life Examples</strong>:
+                        <ul>
+                            <li>A mobile shop tracks different models of phones.</li>
+                            <li>A grocery store tracks rice, oil, spices.</li>
+                            <li>A stationery shop tracks notebooks, pens, files.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Benefit</strong>: Tally automatically reduces stock when you sell and increases when you purchase.</p>
+
+                <hr>
+
+                <h2>Step-by-Step Guidance (Verbal Instructions)</h2>
+
+                <h3>1. Create Stock Group</h3>
+                <ol>
+                    <li>Gateway of Tally &rarr; <strong>Create</strong> &rarr; <strong>Stock Group</strong></li>
+                    <li>
+                        Enter:
+                        <ul>
+                            <li><strong>Name</strong>: e.g., “Mobiles”, “Groceries”, “Stationery”</li>
+                            <li><strong>Under</strong>: Primary or another group</li>
+                        </ul>
+                    </li>
+                    <li>Accept.</li>
+                </ol>
+
+                <h3>2. Create Unit of Measure</h3>
+                <ol>
+                    <li>Gateway &rarr; <strong>Create</strong> &rarr; <strong>Unit</strong></li>
+                    <li>
+                        Enter:
+                        <ul>
+                            <li><strong>Symbol</strong>: Nos, Kg, Box, Pcs, Dozen</li>
+                            <li><strong>Formal Name</strong>: Numbers, Kilograms, etc.</li>
+                        </ul>
+                    </li>
+                    <li>Accept.</li>
+                </ol>
+
+                <h3>3. Create Stock Item</h3>
+                <ol>
+                    <li>Gateway &rarr; <strong>Create</strong> &rarr; <strong>Stock Item</strong></li>
+                    <li>
+                        Enter:
+                        <ul>
+                            <li><strong>Name</strong>: e.g., “Redmi Note 12”</li>
+                            <li><strong>Under</strong>: Select proper Stock Group</li>
+                            <li><strong>Units</strong>: Select unit (Nos)</li>
+                            <li>
+                                <strong>Rate</strong>:
+                                <ul>
+                                    <li>Purchase Price (optional)</li>
+                                    <li>Sales Price (optional)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Opening Balance</strong>: Quantity + Rate (if any)</li>
+                        </ul>
+                    </li>
+                    <li>Accept.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Example</h2>
+                <p><strong>Stock Group</strong>: Electronics<br>
+                <strong>Unit</strong>: Nos</p>
+
+                <p><strong>Stock Items</strong>:</p>
+                <ol>
+                    <li>
+                        <strong>Dell Laptop</strong>
+                        <ul>
+                            <li>Under: Electronics</li>
+                            <li>Units: Nos</li>
+                            <li>Purchase Price: ₹38,000</li>
+                            <li>Sales Price: ₹45,000</li>
+                            <li>Opening Qty: 5 Nos @ ₹37,000</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Wireless Mouse</strong>
+                        <ul>
+                            <li>Under: Electronics</li>
+                            <li>Units: Nos</li>
+                            <li>Purchase Price: ₹350</li>
+                            <li>Sales Price: ₹550</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2>Practice Set for Students</h2>
+                <p><strong>Create the following in your Practice Company</strong>:</p>
+
+                <!-- <p><strong>A. Stock Groups</strong>:</p>
+                <ol>
+                    <li>Electronics</li>
+                    <li>Accessories</li>
+                </ol>
+
+                <p><strong>B. Units</strong>:</p>
+                <ol>
+                    <li>Nos (Numbers)</li>
+                    <li>Box</li>
+                </ol>
+
+                <p><strong>C. Stock Items</strong>:</p>
+                <ol>
+                    <li>
+                        <strong>HP Laptop</strong>
+                        <ul>
+                            <li>Group: Electronics</li>
+                            <li>Unit: Nos</li>
+                            <li>Purchase Rate: ₹42,000</li>
+                            <li>Sales Rate: ₹48,000</li>
+                            <li>Opening Stock: 3 Nos @ ₹41,000</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>USB Cable</strong>
+                        <ul>
+                            <li>Group: Accessories</li>
+                            <li>Unit: Nos</li>
+                            <li>Purchase Rate: ₹80</li>
+                            <li>Sales Rate: ₹150</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Notebook</strong>
+                        <ul>
+                            <li>Group: Stationery (create new group)</li>
+                            <li>Unit: Nos</li>
+                            <li>Opening Stock: 50 Nos @ ₹40</li>
+                        </ul>
+                    </li>
+                </ol> -->
+            <div class="table-responsive">
+<table>
+    <caption>Inventory Information</caption>
+
+    <thead>
+        <tr>
+            <th>Group</th>
+            <th>Category</th>
+            <th>Stock Item</th>
+            <th>Purchase Price (₹)</th>
+            <th>Sales Price (₹)</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td rowspan="6">CPU</td>
+            <td rowspan="2">HCL</td>
+            <td>486 Dx4</td>
+            <td>7,000</td>
+            <td>9,000</td>
+            <td>6</td>
+        </tr>
+
+        <tr>
+            <td>386 Dx4</td>
+            <td>5,000</td>
+            <td>7,000</td>
+            <td>6</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">IBM</td>
+            <td>P1-300</td>
+            <td>10,000</td>
+            <td>12,000</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td>P2-300</td>
+            <td>12,000</td>
+            <td>14,000</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Compaq</td>
+            <td>Laptop A100</td>
+            <td>50,000</td>
+            <td>55,000</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td>Laptop B200</td>
+            <td>55,000</td>
+            <td>60,000</td>
+            <td>2</td>
+        </tr>
+
+        <tr>
+            <td rowspan="4">MONITORS</td>
+            <td rowspan="2">ViewSonic</td>
+            <td>15" Color Monitor</td>
+            <td>5,000</td>
+            <td>7,000</td>
+            <td>2</td>
+        </tr>
+
+        <tr>
+            <td>21" Color Monitor</td>
+            <td>5,500</td>
+            <td>7,500</td>
+            <td>5</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Microtech</td>
+            <td>15" Monochrome Monitor</td>
+            <td>3,000</td>
+            <td>5,000</td>
+            <td>6</td>
+        </tr>
+
+        <tr>
+            <td>21" Monochrome Monitor</td>
+            <td>3,500</td>
+            <td>5,500</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td rowspan="4">Printer</td>
+            <td rowspan="2">HP</td>
+            <td>HP610</td>
+            <td>5,600</td>
+            <td>7,600</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td>HP810</td>
+            <td>8,100</td>
+            <td>10,100</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Epson</td>
+            <td>Epson400</td>
+            <td>4,500</td>
+            <td>6,500</td>
+            <td>7</td>
+        </tr>
+
+        <tr>
+            <td>Epson800</td>
+            <td>4,000</td>
+            <td>6,000</td>
+            <td>6</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+            </div>
+                <p><strong>Verification</strong>:<br>
+                Go to <strong>Display</strong> &rarr; <strong>Inventory Info</strong> &rarr; <strong>Stock Items</strong> and check all items.</p>
+
+                <hr>
+
+                <h2>Connection to Next Topic</h2>
+                <p>Now that you have created <strong>Ledgers</strong> and <strong>Stock Items</strong>, you are fully ready to record transactions using <strong>Vouchers</strong> (Receipt, Payment, Sales, Purchase, etc.).</p>
+                <p>In Sales and Purchase vouchers, you will use both <strong>Ledgers</strong> (for party name and sales/purchase account) and <strong>Stock Items</strong> (for quantity and rate).</p>
+            </section>
+             
+
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Concept (अवधारणा एवं मूल सिद्धांत)</h2>
+                <p><strong>Inventory</strong> in Tally Prime means managing your physical goods/stock. This section allows you to create:</p>
+                <ul>
+                    <li><strong>Stock Groups</strong> (categories of items)</li>
+                    <li><strong>Units of Measure</strong> (how you measure items)</li>
+                    <li><strong>Stock Items</strong> (actual products you buy and sell)</li>
+                </ul>
+                <p>This feature is used when your business deals with goods (trading or manufacturing).</p>
+
+                <hr>
+
+                <h2>Use Case & Real Life Practice</h2>
+                <ul>
+                    <li><strong>Use Case</strong>: Businesses that buy and sell products need to track stock quantity, value, and movement.</li>
+                    <li>
+                        <strong>Real Life Examples</strong>:
+                        <ul>
+                            <li>A mobile shop tracks different models of phones.</li>
+                            <li>A grocery store tracks rice, oil, spices.</li>
+                            <li>A stationery shop tracks notebooks, pens, files.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Benefit</strong>: Tally automatically reduces stock when you sell and increases when you purchase.</p>
+
+                <hr>
+
+                <h2>Step-by-Step Guidance (स्टेप-बाय-स्टेप प्रक्रिया)</h2>
+
+                <h3>1. Create Stock Group</h3>
+                <ol>
+                    <li>Gateway of Tally &rarr; <strong>Create</strong> &rarr; <strong>Stock Group</strong></li>
+                    <li>
+                        Enter:
+                        <ul>
+                            <li><strong>Name</strong>: e.g., “Mobiles”, “Groceries”, “Stationery”</li>
+                            <li><strong>Under</strong>: Primary or another group</li>
+                        </ul>
+                    </li>
+                    <li>Accept.</li>
+                </ol>
+
+                <h3>2. Create Unit of Measure</h3>
+                <ol>
+                    <li>Gateway &rarr; <strong>Create</strong> &rarr; <strong>Unit</strong></li>
+                    <li>
+                        Enter:
+                        <ul>
+                            <li><strong>Symbol</strong>: Nos, Kg, Box, Pcs, Dozen</li>
+                            <li><strong>Formal Name</strong>: Numbers, Kilograms, etc.</li>
+                        </ul>
+                    </li>
+                    <li>Accept.</li>
+                </ol>
+
+                <h3>3. Create Stock Item</h3>
+                <ol>
+                    <li>Gateway &rarr; <strong>Create</strong> &rarr; <strong>Stock Item</strong></li>
+                    <li>
+                        Enter:
+                        <ul>
+                            <li><strong>Name</strong>: e.g., “Redmi Note 12”</li>
+                            <li><strong>Under</strong>: Select proper Stock Group</li>
+                            <li><strong>Units</strong>: Select unit (Nos)</li>
+                            <li>
+                                <strong>Rate</strong>:
+                                <ul>
+                                    <li>Purchase Price (optional)</li>
+                                    <li>Sales Price (optional)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Opening Balance</strong>: Quantity + Rate (if any)</li>
+                        </ul>
+                    </li>
+                    <li>Accept.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Example</h2>
+                <p><strong>Stock Group</strong>: Electronics<br>
+                <strong>Unit</strong>: Nos</p>
+
+                <p><strong>Stock Items</strong>:</p>
+                <ol>
+                    <li>
+                        <strong>Dell Laptop</strong>
+                        <ul>
+                            <li>Under: Electronics</li>
+                            <li>Units: Nos</li>
+                            <li>Purchase Price: ₹38,000</li>
+                            <li>Sales Price: ₹45,000</li>
+                            <li>Opening Qty: 5 Nos @ ₹37,000</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Wireless Mouse</strong>
+                        <ul>
+                            <li>Under: Electronics</li>
+                            <li>Units: Nos</li>
+                            <li>Purchase Price: ₹350</li>
+                            <li>Sales Price: ₹550</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <hr>
+
+                <h2>Students ke liye Practical Practice Set</h2>
+                <p><strong>Create the following in your Practice Company</strong>:</p>
+
+                <!-- <p><strong>A. Stock Groups</strong>:</p>
+                <ol>
+                    <li>Electronics</li>
+                    <li>Accessories</li>
+                </ol>
+
+                <p><strong>B. Units</strong>:</p>
+                <ol>
+                    <li>Nos (Numbers)</li>
+                    <li>Box</li>
+                </ol>
+
+                <p><strong>C. Stock Items</strong>:</p>
+                <ol>
+                    <li>
+                        <strong>HP Laptop</strong>
+                        <ul>
+                            <li>Group: Electronics</li>
+                            <li>Unit: Nos</li>
+                            <li>Purchase Rate: ₹42,000</li>
+                            <li>Sales Rate: ₹48,000</li>
+                            <li>Opening Stock: 3 Nos @ ₹41,000</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>USB Cable</strong>
+                        <ul>
+                            <li>Group: Accessories</li>
+                            <li>Unit: Nos</li>
+                            <li>Purchase Rate: ₹80</li>
+                            <li>Sales Rate: ₹150</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Notebook</strong>
+                        <ul>
+                            <li>Group: Stationery (create new group)</li>
+                            <li>Unit: Nos</li>
+                            <li>Opening Stock: 50 Nos @ ₹40</li>
+                        </ul>
+                    </li>
+                </ol> -->
+            <div class="table-responsive">
+<table>
+    <caption>Inventory Information</caption>
+
+    <thead>
+        <tr>
+            <th>Group</th>
+            <th>Category</th>
+            <th>Stock Item</th>
+            <th>Purchase Price (₹)</th>
+            <th>Sales Price (₹)</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+            <td rowspan="6">CPU</td>
+            <td rowspan="2">HCL</td>
+            <td>486 Dx4</td>
+            <td>7,000</td>
+            <td>9,000</td>
+            <td>6</td>
+        </tr>
+
+        <tr>
+            <td>386 Dx4</td>
+            <td>5,000</td>
+            <td>7,000</td>
+            <td>6</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">IBM</td>
+            <td>P1-300</td>
+            <td>10,000</td>
+            <td>12,000</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td>P2-300</td>
+            <td>12,000</td>
+            <td>14,000</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Compaq</td>
+            <td>Laptop A100</td>
+            <td>50,000</td>
+            <td>55,000</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td>Laptop B200</td>
+            <td>55,000</td>
+            <td>60,000</td>
+            <td>2</td>
+        </tr>
+
+        <tr>
+            <td rowspan="4">MONITORS</td>
+            <td rowspan="2">ViewSonic</td>
+            <td>15" Color Monitor</td>
+            <td>5,000</td>
+            <td>7,000</td>
+            <td>2</td>
+        </tr>
+
+        <tr>
+            <td>21" Color Monitor</td>
+            <td>5,500</td>
+            <td>7,500</td>
+            <td>5</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Microtech</td>
+            <td>15" Monochrome Monitor</td>
+            <td>3,000</td>
+            <td>5,000</td>
+            <td>6</td>
+        </tr>
+
+        <tr>
+            <td>21" Monochrome Monitor</td>
+            <td>3,500</td>
+            <td>5,500</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td rowspan="4">Printer</td>
+            <td rowspan="2">HP</td>
+            <td>HP610</td>
+            <td>5,600</td>
+            <td>7,600</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td>HP810</td>
+            <td>8,100</td>
+            <td>10,100</td>
+            <td>4</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">Epson</td>
+            <td>Epson400</td>
+            <td>4,500</td>
+            <td>6,500</td>
+            <td>7</td>
+        </tr>
+
+        <tr>
+            <td>Epson800</td>
+            <td>4,000</td>
+            <td>6,000</td>
+            <td>6</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+            </div>
+                <p><strong>Verification</strong>:<br>
+                Go to <strong>Display</strong> &rarr; <strong>Inventory Info</strong> &rarr; <strong>Stock Items</strong> and check all items.</p>
+
+                <hr>
+
+                <h2>Connection to Next Topic</h2>
+                <p>Now that you have created <strong>Ledgers</strong> and <strong>Stock Items</strong>, you are fully ready to record transactions using <strong>Vouchers</strong> (Receipt, Payment, Sales, Purchase, etc.).</p>
+                <p>In Sales and Purchase vouchers, you will use both <strong>Ledgers</strong> (for party name and sales/purchase account) and <strong>Stock Items</strong> (for quantity and rate).</p>
+            </section>
+             
+
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/course-data.js"></script>
+    <script src="/TallyPrime/scripts/shared.js"></script>
+</body>
+</html>

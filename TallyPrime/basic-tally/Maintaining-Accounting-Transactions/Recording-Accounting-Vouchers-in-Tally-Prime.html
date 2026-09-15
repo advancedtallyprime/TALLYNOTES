@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Concept</h2>
+                <p><strong>Vouchers</strong> are the digital documents used to record all business transactions in Tally Prime. Every financial activity must be entered through a proper voucher.</p>
+                <p>Tally Prime has different voucher types for different kinds of transactions. This ensures accuracy, easy tracking, and automatic generation of financial reports.</p>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> TallyPrime Educational Mode Voucher Guide:</strong>
+                    <ul>
+                        <li>Launch TallyPrime and press <kbd>T</kbd> for <strong>Educational Mode</strong>.</li>
+                        <li>Voucher dates can <strong>ONLY be saved on 1st, 2nd, and 31st</strong>. Press <kbd>F2</kbd> (Date) on any voucher and enter <code>1</code> or <code>2</code>.</li>
+                        <li>Press <kbd>Ctrl + H</kbd> (Change Mode) to toggle between Single Entry (Cash/Bank) and Double Entry (Dr/Cr).</li>
+                        <li>Press <kbd>Alt + F2</kbd> (Period) to ensure your date window is set from <code>1-Apr-2025</code> to <code>31-Mar-2026</code>.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>Use Case & Real Life Practice</h2>
+                <ul>
+                    <li><strong>Use Case</strong>: To systematically record daily business activities like receiving money, making payments, selling goods, etc.</li>
+                    <li>
+                        <strong>Real Life Examples</strong>:
+                        <ul>
+                            <li>A retail shop owner records cash sales using Sales Voucher and money received from customers using Receipt Voucher.</li>
+                            <li>A small factory owner records purchases, payments to suppliers, and salary payments.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>Why Vouchers are Important?</strong></p>
+                <ul>
+                    <li>Maintains complete audit trail.</li>
+                    <li>Helps in error-free accounting.</li>
+                    <li>Automatically updates ledgers, stock, and financial statements.</li>
+                    <li>Required for GST compliance.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Step-by-Step Guidance (General Method)</h2>
+                <ol>
+                    <li>Open your Company in Tally Prime.</li>
+                    <li>From <strong>Gateway of Tally</strong>, press the shortcut key of the required voucher (e.g., F6 for Receipt).</li>
+                    <li>Change <strong>Date</strong> if needed (Press <strong>F2</strong>).</li>
+                    <li>Select the appropriate <strong>Ledger Accounts</strong>.</li>
+                    <li>Enter <strong>Amount</strong>.</li>
+                    <li>If the transaction involves inventory, select <strong>Stock Item</strong>, Quantity, and Rate.</li>
+                    <li>Write a clear <strong>Narration</strong> (e.g., “Being amount received from Rahul”).</li>
+                    <li>Press <strong>Enter</strong> till it asks to <strong>Accept</strong> &rarr; Press <strong>Y</strong> or click <strong>Accept</strong>.</li>
+                </ol>
+
+                <p><strong>Common Keys Used in Vouchers</strong>:</p>
+                <ul>
+                    <li><strong>F2</strong> &rarr; Change Date</li>
+                    <li><strong>F12</strong> &rarr; Configuration</li>
+                    <li><strong>Ctrl + A</strong> &rarr; Accept</li>
+                    <li><strong>Esc</strong> &rarr; Quit / Back</li>
+                </ul>
+
+                <hr>
+
+                <h2>Types of Vouchers (Summary Table)</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Voucher</th>
+                            <th>Shortcut</th>
+                            <th>Main Use</th>
+                            <th>Debit Side</th>
+                            <th>Credit Side</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Receipt</td>
+                            <td>F6</td>
+                            <td>Money Received</td>
+                            <td>Cash / Bank</td>
+                            <td>Party / Income</td>
+                        </tr>
+                        <tr>
+                            <td>Payment</td>
+                            <td>F5</td>
+                            <td>Money Paid</td>
+                            <td>Party / Expense</td>
+                            <td>Cash / Bank</td>
+                        </tr>
+                        <tr>
+                            <td>Contra</td>
+                            <td>F4</td>
+                            <td>Cash-Bank Transfer</td>
+                            <td>Bank / Cash</td>
+                            <td>Cash / Bank</td>
+                        </tr>
+                        <tr>
+                            <td>Sales</td>
+                            <td>F8</td>
+                            <td>Sale of Goods</td>
+                            <td>Customer</td>
+                            <td>Sales A/c</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase</td>
+                            <td>F9</td>
+                            <td>Purchase of Goods</td>
+                            <td>Purchase A/c</td>
+                            <td>Supplier</td>
+                        </tr>
+                        <tr>
+                            <td>Debit Note</td>
+                            <td>Ctrl + F9</td>
+                            <td>Purchase Return</td>
+                            <td>Supplier</td>
+                            <td>Purchase Returns</td>
+                        </tr>
+                        <tr>
+                            <td>Credit Note</td>
+                            <td>Ctrl + F8</td>
+                            <td>Sales Return</td>
+                            <td>Sales Returns</td>
+                            <td>Customer</td>
+                        </tr>
+                        <tr>
+                            <td>Journal</td>
+                            <td>F7</td>
+                            <td>Adjustments &amp; Provisions</td>
+                            <td>Various</td>
+                            <td>Various</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Example</h2>
+                <ul>
+                    <li><strong>Date</strong>: 05-04-2025</li>
+                    <li>
+                        <strong>Transaction</strong>: Received ₹25,000 from customer “Amit” in cash.
+                        <ul>
+                            <li>Voucher: Receipt (F6)</li>
+                            <li>Debit: Cash in Hand ₹25,000</li>
+                            <li>Credit: Amit ₹25,000</li>
+                            <li>Narration: “Received cash from Amit against invoice no. 101”</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h2>Practice Set for Students</h2>
+                <ol>
+                    <li>Record <strong>5 different transactions</strong> using any vouchers (use ledgers and stock items you created earlier).</li>
+                    <li>
+                        After recording, check:
+                        <ul>
+                            <li><strong>Display &rarr; Day Book</strong></li>
+                            <li><strong>Display &rarr; Account Books &rarr; Cash/Bank Book</strong></li>
+                            <li><strong>Display &rarr; Trial Balance</strong></li>
+                        </ul>
+                    </li>
+                    <li>Try deleting one wrong entry and re-enter it correctly.</li>
+                </ol>
+
+                <p><strong>Challenge</strong>: Record one full day’s transactions (minimum 8 entries) covering receipt, payment, sales, and contra.</p>
+
+                <hr>
+
+                <h2>Connection to Next Topics</h2>
+                <p>We will now study each voucher in detail one by one, starting with <strong>Receipt Voucher</strong>. You will use the same <strong>Ledgers</strong> and <strong>Stock Items</strong> created in the Basics section while recording these vouchers.</p>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Concept (अवधारणा एवं मूल सिद्धांत)</h2>
+                <p><strong>Vouchers</strong> are the digital documents used to record all business transactions in Tally Prime. Every financial activity must be entered through a proper voucher.</p>
+                <p>Tally Prime has different voucher types for different kinds of transactions. This ensures accuracy, easy tracking, and automatic generation of financial reports.</p>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> TallyPrime Educational Mode Voucher Guide:</strong>
+                    <ul>
+                        <li>TallyPrime start karein aur <strong>Educational Mode</strong> ke liye <kbd>T</kbd> press karein.</li>
+                        <li>Voucher dates <strong>ONLY 1st, 2nd aur 31st ko hi save kiye ja sakte hain</strong>. Press <kbd>F2</kbd> (Date) on any voucher and enter <code>1</code> or <code>2</code>.</li>
+                        <li>Press <kbd>Ctrl + H</kbd> (Change Mode) to toggle between Single Entry (Cash/Bank) and Double Entry (Dr/Cr).</li>
+                        <li>Date window set karne ke liye <kbd>Alt + F2</kbd> (Period) press karein from <code>1-Apr-2025</code> to <code>31-Mar-2026</code>.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>Use Case & Real Life Practice</h2>
+                <ul>
+                    <li><strong>Use Case</strong>: To systematically record daily business activities like receiving money, making payments, selling goods, etc.</li>
+                    <li>
+                        <strong>Real Life Examples</strong>:
+                        <ul>
+                            <li>A retail shop owner records cash sales using Sales Voucher and money received from customers using Receipt Voucher.</li>
+                            <li>A small factory owner records purchases, payments to suppliers, and salary payments.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>Why Vouchers are Important?</strong></p>
+                <ul>
+                    <li>Maintains complete audit trail.</li>
+                    <li>Helps in error-free accounting.</li>
+                    <li>Automatically updates ledgers, stock, and financial statements.</li>
+                    <li>Required for GST compliance.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Step-by-Step Guidance (General Method)</h2>
+                <ol>
+                    <li>Open your Company in Tally Prime.</li>
+                    <li>From <strong>Gateway of Tally</strong>, press the shortcut key of the required voucher (e.g., F6 for Receipt).</li>
+                    <li>Change <strong>Date</strong> if needed (Press <strong>F2</strong>).</li>
+                    <li>Select the appropriate <strong>Ledger Accounts</strong>.</li>
+                    <li>Enter <strong>Amount</strong>.</li>
+                    <li>If the transaction involves inventory, select <strong>Stock Item</strong>, Quantity, and Rate.</li>
+                    <li>Write a clear <strong>Narration</strong> (e.g., “Being amount received from Rahul”).</li>
+                    <li>Press <strong>Enter</strong> till it asks to <strong>Accept</strong> &rarr; Press <strong>Y</strong> or click <strong>Accept</strong>.</li>
+                </ol>
+
+                <p><strong>Common Keys Used in Vouchers</strong>:</p>
+                <ul>
+                    <li><strong>F2</strong> &rarr; Change Date</li>
+                    <li><strong>F12</strong> &rarr; Configuration</li>
+                    <li><strong>Ctrl + A</strong> &rarr; Accept</li>
+                    <li><strong>Esc</strong> &rarr; Quit / Back</li>
+                </ul>
+
+                <hr>
+
+                <h2>Types of Vouchers (Summary Table)</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Voucher</th>
+                            <th>Shortcut</th>
+                            <th>Main Use</th>
+                            <th>Debit Side</th>
+                            <th>Credit Side</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Receipt</td>
+                            <td>F6</td>
+                            <td>Money Received</td>
+                            <td>Cash / Bank</td>
+                            <td>Party / Income</td>
+                        </tr>
+                        <tr>
+                            <td>Payment</td>
+                            <td>F5</td>
+                            <td>Money Paid</td>
+                            <td>Party / Expense</td>
+                            <td>Cash / Bank</td>
+                        </tr>
+                        <tr>
+                            <td>Contra</td>
+                            <td>F4</td>
+                            <td>Cash-Bank Transfer</td>
+                            <td>Bank / Cash</td>
+                            <td>Cash / Bank</td>
+                        </tr>
+                        <tr>
+                            <td>Sales</td>
+                            <td>F8</td>
+                            <td>Sale of Goods</td>
+                            <td>Customer</td>
+                            <td>Sales A/c</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase</td>
+                            <td>F9</td>
+                            <td>Purchase of Goods</td>
+                            <td>Purchase A/c</td>
+                            <td>Supplier</td>
+                        </tr>
+                        <tr>
+                            <td>Debit Note</td>
+                            <td>Ctrl + F9</td>
+                            <td>Purchase Return</td>
+                            <td>Supplier</td>
+                            <td>Purchase Returns</td>
+                        </tr>
+                        <tr>
+                            <td>Credit Note</td>
+                            <td>Ctrl + F8</td>
+                            <td>Sales Return</td>
+                            <td>Sales Returns</td>
+                            <td>Customer</td>
+                        </tr>
+                        <tr>
+                            <td>Journal</td>
+                            <td>F7</td>
+                            <td>Adjustments &amp; Provisions</td>
+                            <td>Various</td>
+                            <td>Various</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Example</h2>
+                <ul>
+                    <li><strong>Date</strong>: 05-04-2025</li>
+                    <li>
+                        <strong>Transaction</strong>: Received ₹25,000 from customer “Amit” in cash.
+                        <ul>
+                            <li>Voucher: Receipt (F6)</li>
+                            <li>Debit: Cash in Hand ₹25,000</li>
+                            <li>Credit: Amit ₹25,000</li>
+                            <li>Narration: “Received cash from Amit against invoice no. 101”</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h2>Students ke liye Practical Practice Set</h2>
+                <ol>
+                    <li>Record <strong>5 different transactions</strong> using any vouchers (use ledgers and stock items you created earlier).</li>
+                    <li>
+                        After recording, check:
+                        <ul>
+                            <li><strong>Display &rarr; Day Book</strong></li>
+                            <li><strong>Display &rarr; Account Books &rarr; Cash/Bank Book</strong></li>
+                            <li><strong>Display &rarr; Trial Balance</strong></li>
+                        </ul>
+                    </li>
+                    <li>Try deleting one wrong entry and re-enter it correctly.</li>
+                </ol>
+
+                <p><strong>Challenge</strong>: Record one full day’s transactions (minimum 8 entries) covering receipt, payment, sales, and contra.</p>
+
+                <hr>
+
+                <h2>Connection to Next Topics</h2>
+                <p>We will now study each voucher in detail one by one, starting with <strong>Receipt Voucher</strong>. You will use the same <strong>Ledgers</strong> and <strong>Stock Items</strong> created in the Basics section while recording these vouchers.</p>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/course-data.js"></script>
+    <script src="/TallyPrime/scripts/shared.js"></script>
+</body>
+</html>

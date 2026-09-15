@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Actual Quantity and Billed Quantity ke beech ka fundamental difference samjhega.</li>
+                    <li>Same transaction in physical movement (Actual Qty) and commercial charging (Billed Qty) ko separately enter karega.</li>
+                    <li>Free/Bonus quantities (e.g., Buy 10 Get 1 Free) ka inventory and effective cost par impact samjhega.</li>
+                    <li>Purchafrom and Sales in <code>Actual &gt; Billed</code> (Excess/Free) and <code>Actual &lt; Billed</code> (Short Receipt/Short Dispatch) scenarios record karega.</li>
+                    <li>Inventory physical stock movement and invoice value calculation ke relation ko master karega.</li>
+                    <li>Verify Purchase/Sales registers and Stock Summary from actual vs billed quantities in management and statutory tax reports.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Actual Quantity vs Billed Quantity</h2>
+                <p>Advanced inventory management in yeh ensure karna zaroori is ki warehoufrom in physically kitna maal aaya/gaor (Actual) and invoice par kitne units ka bill bana (Billed):</p>
+
+                <ul>
+                    <li><strong>Actual Quantity:</strong> Warehoufrom in physically receive or dispatch hone wali exact units (Inventory ledger impact).</li>
+                    <li><strong>Billed Quantity:</strong> Invoice par customer or vendor dwara charge kiye jaane wali units (Financial/Billing ledger impact).</li>
+                </ul>
+
+                <h3>Comparison &amp; Scenarios Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario Type</th>
+                            <th>Billed Quantity</th>
+                            <th>Actual Quantity</th>
+                            <th>Difference Meaning / Business Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Normal Transaction</td>
+                            <td>100 Nos</td>
+                            <td>100 Nos</td>
+                            <td>No difference; standard purchafrom or sale.</td>
+                        </tr>
+                        <tr>
+                            <td>Free / Bonus Qty (Actual &gt; Billed)</td>
+                            <td>100 Nos</td>
+                            <td>110 Nos</td>
+                            <td>10 units received free as promotional bonus. Effective unit cost decreases.</td>
+                        </tr>
+                        <tr>
+                            <td>Short Receipt / Short Dispatch (Actual &lt; Billed)</td>
+                            <td>100 Nos</td>
+                            <td>95 Nos</td>
+                            <td>5 units short in transit or skipped during loading. Claims/adjustments required.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Rule:</strong><br>
+                    <strong>Actual Quantity</strong> hamesha physical stock inventory balance ko update karti is.<br>
+                    <strong>Billed Quantity</strong> hamesha financial invoice value and party ledger amount ko compute karti is.
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Configuration &amp; Feature Activation</h2>
+                <p>TallyPrime in separate actual and billed quantities enter karne ke liye invoice configuration in appropriate feature enabled hona chahiye (<em>Ufrom separate actual and billed quantities in invoices</em>).</p>
+
+                <h3>Practice Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>Inventory:</strong> Enabled</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Free Quantity &amp; Short Receipts</h2>
+
+                <h3>Part A: Purchafrom with Free Quantity (Actual &gt; Billed)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Purchased 100 Printers @ ₹8,000 from <em>Tech Supplier</em> under a promotional scheme where supplier gives 10 Printers completely free. Total physical units received = 110.</li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Purchafrom (F9)</strong> &rarr; Select Party: <code>Tech Supplier</code> &rarr; Item: <code>Printer</code>.</li>
+                    <li>Enter <strong>Billed Qty: 100</strong>, Rate: <strong>₹8,000</strong>, and enter <strong>Actual Qty: 110</strong>.</li>
+                    <li><strong>Financial Impact:</strong> Invoice basic value is calculated on 100 units (₹8,00,000), while physical stock ledger increases by 110 units, lowering the effective purchafrom cost per unit (₹8,00,000 &divide; 110 = ₹7,272.73).</li>
+                </ol>
+
+                <h3>Part B: Purchafrom with Short Receipt (Actual &lt; Billed)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Supplier invoice states 200 Moufrom @ ₹500 = ₹1,00,000, but physical verification reveals only 190 Moufrom were delivered.</li>
+                    <li><strong>TallyPrime Steps:</strong> In Purchafrom Voucher, enter <strong>Billed Qty: 200</strong> and <strong>Actual Qty: 190</strong> at rate ₹500.</li>
+                    <li><strong>Result:</strong> Party ledger gets credited for the full billed invoice value (₹1,00,000), while physical stock increases by 190 units, leaving a 10-unit discrepancy to be resolved via debit note or vendor credit.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Mixed Actual &amp; Billed Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Item Name</th>
+                            <th>Billed Qty</th>
+                            <th>Actual Qty</th>
+                            <th>Rate (₹)</th>
+                            <th>Expected Stock Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Purchafrom 1 (Bonus)</td>
+                            <td>Printer</td>
+                            <td>100</td>
+                            <td>110</td>
+                            <td>8,000</td>
+                            <td>Stock increases by 110 units</td>
+                        </tr>
+                        <tr>
+                            <td>Purchafrom 2 (Bonus)</td>
+                            <td>Keyboard</td>
+                            <td>50</td>
+                            <td>55</td>
+                            <td>1,000</td>
+                            <td>Stock increases by 55 units</td>
+                        </tr>
+                        <tr>
+                            <td>Purchafrom 3 (Short)</td>
+                            <td>Mouse</td>
+                            <td>200</td>
+                            <td>190</td>
+                            <td>500</td>
+                            <td>Stock increases by 190 units</td>
+                        </tr>
+                        <tr>
+                            <td>Sales 1 (Promotional)</td>
+                            <td>Printer</td>
+                            <td>20</td>
+                            <td>22</td>
+                            <td>10,000</td>
+                            <td>Stock decreases by 22 units</td>
+                        </tr>
+                        <tr>
+                            <td>Sales 2 (Short Dispatch)</td>
+                            <td>Mouse</td>
+                            <td>100</td>
+                            <td>95</td>
+                            <td>700</td>
+                            <td>Stock decreases by 95 units</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Purchafrom Register &amp; Sales Register:</strong> Check column splits showing Billed Quantity vs Actual Quantity alongside invoice values.</li>
+                    <li><strong>Stock Summary:</strong> Confirm that inventory closing balances reflect physical Actual Quantities rather than billed line items.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Entering equal actual and billed quantities out of habit, ignoring promotional free items or short shipments.</li>
+                    <li>Calculating inventory valuation based solely on billed quantities, leading to distorted unit cost averages.</li>
+                    <li>Confusing a short receipt (Actual &lt; Billed) with a standard purchafrom return entry.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Actual Quantity and Billed Quantity in mukhor antar kor hai?</strong><br>A: Actual Quantity warehoufrom in aane or jaane wale physical stock ko represent karti hai, jabki Billed Quantity invoice par charge kiye jaane wale units is.</li>
+                    <li><strong>Q: Free quantity milne par effective cost per unit par kor asar padta hai?</strong><br>A: Total invoice value ko jab zyaada actual units from divide kior jaata hai, toh effective acquisition cost per unit kam ho jaati is.</li>
+                    <li><strong>Q: Kor yeh feature sales transactions in also ufrom ho sakta hai?</strong><br>A: Haan, jab business apne customers ko bonus or promotional free units dispatch karta hai, tab Sales voucher in also yeh ufrom is.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Actual vs Billed Golden Workflow:</strong><br>
+                    <code>Record Voucher (Purchase/Sales) &rarr; Enter Billed Qty (For Financial Valuation) &rarr; Enter Actual Qty (For Physical Stock) &rarr; Verify Effective Unit Cost &rarr; Reconcile Stock Summary</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Actual vs Billed quantity concept understood</li>
+                    <li>Purchafrom entries with free/bonus quantities (Actual &gt; Billed) recorded</li>
+                    <li>Purchafrom entries with short receipts (Actual &lt; Billed) recorded</li>
+                    <li>Sales dispatch entries with promotional free items practiced</li>
+                    <li>Purchase/Sales registers and Stock Summary reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 8 complete karne ke baad student:</p>
+                <ul>
+                    <li>Actual Quantity aur Billed Quantity ke beech ka fundamental difference samjhega.</li>
+                    <li>Same transaction mein physical movement (Actual Qty) aur commercial charging (Billed Qty) ko separately enter karega.</li>
+                    <li>Free/Bonus quantities (e.g., Buy 10 Get 1 Free) ka inventory aur effective cost par impact samjhega.</li>
+                    <li>Purchase aur Sales mein <code>Actual &gt; Billed</code> (Excess/Free) aur <code>Actual &lt; Billed</code> (Short Receipt/Short Dispatch) scenarios record karega.</li>
+                    <li>Inventory physical stock movement aur invoice value calculation ke relation ko master karega.</li>
+                    <li>Purchase/Sales registers aur Stock Summary se actual vs billed quantities verify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Actual Quantity vs Billed Quantity</h2>
+                <p>Advanced inventory management mein yeh ensure karna zaroori hota hai ki warehouse mein physically kitna maal aaya/gaya (Actual) aur invoice par kitne units ka bill bana (Billed):</p>
+
+                <ul>
+                    <li><strong>Actual Quantity:</strong> Warehouse mein physically receive ya dispatch hone wali exact units (Inventory ledger impact).</li>
+                    <li><strong>Billed Quantity:</strong> Invoice par customer ya vendor dwara charge kiye jaane wali units (Financial/Billing ledger impact).</li>
+                </ul>
+
+                <h3>Comparison &amp; Scenarios Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario Type</th>
+                            <th>Billed Quantity</th>
+                            <th>Actual Quantity</th>
+                            <th>Difference Meaning / Business Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Normal Transaction</td>
+                            <td>100 Nos</td>
+                            <td>100 Nos</td>
+                            <td>No difference; standard purchase or sale.</td>
+                        </tr>
+                        <tr>
+                            <td>Free / Bonus Qty (Actual &gt; Billed)</td>
+                            <td>100 Nos</td>
+                            <td>110 Nos</td>
+                            <td>10 units received free as promotional bonus. Effective unit cost decreases.</td>
+                        </tr>
+                        <tr>
+                            <td>Short Receipt / Short Dispatch (Actual &lt; Billed)</td>
+                            <td>100 Nos</td>
+                            <td>95 Nos</td>
+                            <td>5 units short in transit or skipped during loading. Claims/adjustments required.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Rule:</strong><br>
+                    <strong>Actual Quantity</strong> hamesha physical stock inventory balance ko update karti hai.<br>
+                    <strong>Billed Quantity</strong> hamesha financial invoice value aur party ledger amount ko compute karti hai.
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Configuration &amp; Feature Activation</h2>
+                <p>TallyPrime mein separate actual aur billed quantities enter karne ke liye invoice configuration mein appropriate feature enabled hona chahiye (<em>Use separate actual and billed quantities in invoices</em>).</p>
+
+                <h3>Practice Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>Inventory:</strong> Enabled</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Free Quantity &amp; Short Receipts</h2>
+
+                <h3>Part A: Purchase with Free Quantity (Actual &gt; Billed)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Purchased 100 Printers @ ₹8,000 from <em>Tech Supplier</em> under a promotional scheme where supplier gives 10 Printers completely free. Total physical units received = 110.</li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Purchase (F9)</strong> &rarr; Select Party: <code>Tech Supplier</code> &rarr; Item: <code>Printer</code>.</li>
+                    <li>Enter <strong>Billed Qty: 100</strong>, Rate: <strong>₹8,000</strong>, and enter <strong>Actual Qty: 110</strong>.</li>
+                    <li><strong>Financial Impact:</strong> Invoice basic value is calculated on 100 units (₹8,00,000), while physical stock ledger increases by 110 units, lowering the effective purchase cost per unit (₹8,00,000 &divide; 110 = ₹7,272.73).</li>
+                </ol>
+
+                <h3>Part B: Purchase with Short Receipt (Actual &lt; Billed)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Supplier invoice states 200 Mouse @ ₹500 = ₹1,00,000, but physical verification reveals only 190 Mouse were delivered.</li>
+                    <li><strong>TallyPrime Steps:</strong> In Purchase Voucher, enter <strong>Billed Qty: 200</strong> and <strong>Actual Qty: 190</strong> at rate ₹500.</li>
+                    <li><strong>Result:</strong> Party ledger gets credited for the full billed invoice value (₹1,00,000), while physical stock increases by 190 units, leaving a 10-unit discrepancy to be resolved via debit note or vendor credit.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Mixed Actual &amp; Billed Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Item Name</th>
+                            <th>Billed Qty</th>
+                            <th>Actual Qty</th>
+                            <th>Rate (₹)</th>
+                            <th>Expected Stock Impact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Purchase 1 (Bonus)</td>
+                            <td>Printer</td>
+                            <td>100</td>
+                            <td>110</td>
+                            <td>8,000</td>
+                            <td>Stock increases by 110 units</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase 2 (Bonus)</td>
+                            <td>Keyboard</td>
+                            <td>50</td>
+                            <td>55</td>
+                            <td>1,000</td>
+                            <td>Stock increases by 55 units</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase 3 (Short)</td>
+                            <td>Mouse</td>
+                            <td>200</td>
+                            <td>190</td>
+                            <td>500</td>
+                            <td>Stock increases by 190 units</td>
+                        </tr>
+                        <tr>
+                            <td>Sales 1 (Promotional)</td>
+                            <td>Printer</td>
+                            <td>20</td>
+                            <td>22</td>
+                            <td>10,000</td>
+                            <td>Stock decreases by 22 units</td>
+                        </tr>
+                        <tr>
+                            <td>Sales 2 (Short Dispatch)</td>
+                            <td>Mouse</td>
+                            <td>100</td>
+                            <td>95</td>
+                            <td>700</td>
+                            <td>Stock decreases by 95 units</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Purchase Register &amp; Sales Register:</strong> Check column splits showing Billed Quantity vs Actual Quantity alongside invoice values.</li>
+                    <li><strong>Stock Summary:</strong> Confirm that inventory closing balances reflect physical Actual Quantities rather than billed line items.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Entering equal actual and billed quantities out of habit, ignoring promotional free items or short shipments.</li>
+                    <li>Calculating inventory valuation based solely on billed quantities, leading to distorted unit cost averages.</li>
+                    <li>Confusing a short receipt (Actual &lt; Billed) with a standard purchase return entry.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Actual Quantity aur Billed Quantity mein mukhya antar kya hai?</strong><br>A: Actual Quantity warehouse mein aane ya jaane wale physical stock ko represent karti hai, jabki Billed Quantity invoice par charge kiye jaane wale units hoti hai.</li>
+                    <li><strong>Q: Free quantity milne par effective cost per unit par kya asar padta hai?</strong><br>A: Total invoice value ko jab zyaada actual units se divide kiya jaata hai, toh effective acquisition cost per unit kam ho jaati hai.</li>
+                    <li><strong>Q: Kya yeh feature sales transactions mein bhi use ho sakta hai?</strong><br>A: Haan, jab business apne customers ko bonus ya promotional free units dispatch karta hai, tab Sales voucher mein bhi yeh use hota hai.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Actual vs Billed Golden Workflow:</strong><br>
+                    <code>Record Voucher (Purchase/Sales) &rarr; Enter Billed Qty (For Financial Valuation) &rarr; Enter Actual Qty (For Physical Stock) &rarr; Verify Effective Unit Cost &rarr; Reconcile Stock Summary</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Actual vs Billed quantity concept understood</li>
+                    <li>Purchase entries with free/bonus quantities (Actual &gt; Billed) recorded</li>
+                    <li>Purchase entries with short receipts (Actual &lt; Billed) recorded</li>
+                    <li>Sales dispatch entries with promotional free items practiced</li>
+                    <li>Purchase/Sales registers and Stock Summary reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

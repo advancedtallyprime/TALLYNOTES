@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <ul>
+                    <li><strong>Scenario Management:</strong> A business management feature in TallyPrime used to perform "What-If" Analysis and forecasting without altering actual financial ledgers or accounts.</li>
+                    <li><strong>Provisional / Non-Posting Vouchers:</strong> Scenarios rely on non-posting voucher types—specifically Optional Vouchers and Memorandum Vouchers—to incorporate estimated or unverified future figures into financial reports.</li>
+                </ul>
+
+                <p><strong>Why Use Scenarios?</strong></p>
+                <ul>
+                    <li>Evaluate potential future financial states (e.g., forecasting next quarter’s Profit &amp; Loss if sales drop by 10%).</li>
+                    <li>Measure the impact of provisional incomes or expenses before bills are finalized.</li>
+                    <li>Prepare management forecasts and budgets for stakeholders without affecting auditing records.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Non-Posting Voucher Types Used in Scenarios</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Voucher Type</th>
+                            <th>Purpose / Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Optional Voucher</strong></td>
+                            <td>Any standard voucher (Sales, Purchase, Payment) marked as Optional (Ctrl + L). It does not post to accounting registers until regularized.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Memorandum Voucher (F10)</strong></td>
+                            <td>A temporary ledger entry used to record provisional estimates, reminders, or un-vouched advances.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reversing Journal (F10)</strong></td>
+                            <td>A special voucher type that posts figures automatically up to a specific date and reverses automatically thereafter.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>3. Setting Up Scenario Management in TallyPrime</h2>
+
+                <h3>Step A: Enable Scenario Management</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Ensure accounting features are active.</li>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>Scenario</strong> (or press <strong>Alt + G</strong> &rarr; <strong>Create Master</strong> &rarr; <strong>Scenario</strong>).</li>
+                </ol>
+
+                <h3>Step B: Configure the Scenario Master</h3>
+                <ol>
+                    <li><strong>Name:</strong> Enter a clear name (e.g., Q2 Projected Forecast or Provisional Invoicing).</li>
+                    <li>
+                        <strong>Include:</strong>
+                        <ul>
+                            <li><strong>Actuals:</strong> Set to <strong>Yes</strong> (includes existing actual financial data as the baseline).</li>
+                            <li><strong>Exclude Optional Vouchers:</strong> Set to <strong>No</strong> (so optional vouchers are included in calculations).</li>
+                            <li><strong>Include Voucher Types:</strong> Select non-posting voucher types to factor in (e.g., Memorandum, Reversing Journals, or Optional Sales).</li>
+                        </ul>
+                    </li>
+                    <li>Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Create Scenario Master</h3>
+                <ul>
+                    <li><strong>Scenario Name:</strong> Provisional Sales Forecast</li>
+                    <li><strong>Includes Actuals:</strong> Yes</li>
+                    <li><strong>Vouchers Included:</strong> Optional Sales, Memorandum</li>
+                </ul>
+
+                <h3>Part 2: Record Non-Posting Vouchers</h3>
+                
+                <p><strong>Entry 1: Optional Sales Voucher</strong></p>
+                <ol>
+                    <li>Go to <strong>Vouchers</strong> &rarr; Press <strong>F8</strong> (Sales).</li>
+                    <li>Press <strong>Ctrl + L</strong> (Optional) &mdash; notice the tag "OPTIONAL" appears at the top.</li>
+                    <li>
+                        Record a prospective order:
+                        <ul>
+                            <li>Party: Keerti Computers</li>
+                            <li>Item: 10 &times; Laptop A100 @ ₹45,000 = ₹4,50,000</li>
+                        </ul>
+                    </li>
+                    <li>Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <p><strong>Entry 2: Memorandum Voucher</strong></p>
+                <ol>
+                    <li>Go to <strong>Vouchers</strong> &rarr; Press <strong>F10</strong> (Other Vouchers) &rarr; Select <strong>Memorandum Voucher</strong>.</li>
+                    <li>
+                        Record an estimated provisional consultation fee expected next month:
+                        <ul>
+                            <li>Debit: Legal &amp; Professional Fees A/c &mdash; ₹35,000</li>
+                            <li>Credit: Provision for Legal Fees &mdash; ₹35,000</li>
+                        </ul>
+                    </li>
+                    <li>Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <h3>Part 3: Comparative Analysis (Actual vs. Scenario)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Report Metric</th>
+                            <th>Baseline Actuals (₹)</th>
+                            <th>Provisional / Non-Posting Entries (₹)</th>
+                            <th>Projected Scenario Figure (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Net Sales Revenue</strong></td>
+                            <td>12,50,000</td>
+                            <td>+4,50,000 (Optional Sales)</td>
+                            <td>17,00,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indirect Expenses</strong></td>
+                            <td>2,10,000</td>
+                            <td>+35,000 (Memorandum Entry)</td>
+                            <td>2,45,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Projected Net Profit</strong></td>
+                            <td>10,40,000</td>
+                            <td>+4,15,000 (Net Gain)</td>
+                            <td>14,55,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Report Verification &amp; Comparative Analysis</h2>
+
+                <h3>How to View Scenarios in Financial Statements:</h3>
+                <ol>
+                    <li>Open any main report: <strong>Gateway of Tally</strong> &rarr; <strong>Profit &amp; Loss A/c</strong> (or Balance Sheet).</li>
+                    <li>Press <strong>Alt + C</strong> (New Column).</li>
+                    <li>
+                        In the column setup screen:
+                        <ul>
+                            <li><strong>Period:</strong> Select the required date range.</li>
+                            <li><strong>Method of Showing Types:</strong> Select your scenario name (e.g., <em>Provisional Sales Forecast</em>).</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Compare:</h3>
+                <p>TallyPrime displays two side-by-side columns:</p>
+                <ul>
+                    <li><strong>Column 1:</strong> Actuals (Your official auditing figures).</li>
+                    <li><strong>Column 2:</strong> Scenario Projections (Your actuals combined with what-if non-posting entries).</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <ul>
+                    <li><strong>Scenario Management:</strong> A business management feature in TallyPrime used to perform "What-If" Analysis and forecasting without altering actual financial ledgers or accounts.</li>
+                    <li><strong>Provisional / Non-Posting Vouchers:</strong> Scenarios rely on non-posting voucher types—specifically Optional Vouchers and Memorandum Vouchers—to incorporate estimated or unverified future figures into financial reports.</li>
+                </ul>
+
+                <p><strong>Why Use Scenarios?</strong></p>
+                <ul>
+                    <li>Evaluate potential future financial states (e.g., forecasting next quarter’s Profit &amp; Loss if sales drop by 10%).</li>
+                    <li>Measure the impact of provisional incomes or expenses before bills are finalized.</li>
+                    <li>Prepare management forecasts and budgets for stakeholders without affecting auditing records.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Non-Posting Voucher Types Used in Scenarios</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Voucher Type</th>
+                            <th>Purpose / Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Optional Voucher</strong></td>
+                            <td>Any standard voucher (Sales, Purchase, Payment) marked as Optional (Ctrl + L). It does not post to accounting registers until regularized.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Memorandum Voucher (F10)</strong></td>
+                            <td>A temporary ledger entry used to record provisional estimates, reminders, or un-vouched advances.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reversing Journal (F10)</strong></td>
+                            <td>A special voucher type that posts figures automatically up to a specific date and reverses automatically thereafter.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>3. Setting Up Scenario Management in TallyPrime</h2>
+
+                <h3>Step A: Enable Scenario Management</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Ensure accounting features are active.</li>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>Scenario</strong> (or press <strong>Alt + G</strong> &rarr; <strong>Create Master</strong> &rarr; <strong>Scenario</strong>).</li>
+                </ol>
+
+                <h3>Step B: Configure the Scenario Master</h3>
+                <ol>
+                    <li><strong>Name:</strong> Enter a clear name (e.g., Q2 Projected Forecast or Provisional Invoicing).</li>
+                    <li>
+                        <strong>Include:</strong>
+                        <ul>
+                            <li><strong>Actuals:</strong> Set to <strong>Yes</strong> (includes existing actual financial data as the baseline).</li>
+                            <li><strong>Exclude Optional Vouchers:</strong> Set to <strong>No</strong> (so optional vouchers are included in calculations).</li>
+                            <li><strong>Include Voucher Types:</strong> Select non-posting voucher types to factor in (e.g., Memorandum, Reversing Journals, or Optional Sales).</li>
+                        </ul>
+                    </li>
+                    <li>Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Create Scenario Master</h3>
+                <ul>
+                    <li><strong>Scenario Name:</strong> Provisional Sales Forecast</li>
+                    <li><strong>Includes Actuals:</strong> Yes</li>
+                    <li><strong>Vouchers Included:</strong> Optional Sales, Memorandum</li>
+                </ul>
+
+                <h3>Part 2: Record Non-Posting Vouchers</h3>
+                
+                <p><strong>Entry 1: Optional Sales Voucher</strong></p>
+                <ol>
+                    <li>Go to <strong>Vouchers</strong> &rarr; Press <strong>F8</strong> (Sales).</li>
+                    <li>Press <strong>Ctrl + L</strong> (Optional) &mdash; notice the tag "OPTIONAL" appears at the top.</li>
+                    <li>
+                        Record a prospective order:
+                        <ul>
+                            <li>Party: Keerti Computers</li>
+                            <li>Item: 10 &times; Laptop A100 @ ₹45,000 = ₹4,50,000</li>
+                        </ul>
+                    </li>
+                    <li>Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <p><strong>Entry 2: Memorandum Voucher</strong></p>
+                <ol>
+                    <li>Go to <strong>Vouchers</strong> &rarr; Press <strong>F10</strong> (Other Vouchers) &rarr; Select <strong>Memorandum Voucher</strong>.</li>
+                    <li>
+                        Record an estimated provisional consultation fee expected next month:
+                        <ul>
+                            <li>Debit: Legal &amp; Professional Fees A/c &mdash; ₹35,000</li>
+                            <li>Credit: Provision for Legal Fees &mdash; ₹35,000</li>
+                        </ul>
+                    </li>
+                    <li>Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <h3>Part 3: Comparative Analysis (Actual vs. Scenario)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Report Metric</th>
+                            <th>Baseline Actuals (₹)</th>
+                            <th>Provisional / Non-Posting Entries (₹)</th>
+                            <th>Projected Scenario Figure (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Net Sales Revenue</strong></td>
+                            <td>12,50,000</td>
+                            <td>+4,50,000 (Optional Sales)</td>
+                            <td>17,00,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Indirect Expenses</strong></td>
+                            <td>2,10,000</td>
+                            <td>+35,000 (Memorandum Entry)</td>
+                            <td>2,45,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Projected Net Profit</strong></td>
+                            <td>10,40,000</td>
+                            <td>+4,15,000 (Net Gain)</td>
+                            <td>14,55,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Report Verification &amp; Comparative Analysis</h2>
+
+                <h3>How to View Scenarios in Financial Statements:</h3>
+                <ol>
+                    <li>Open any main report: <strong>Gateway of Tally</strong> &rarr; <strong>Profit &amp; Loss A/c</strong> (or Balance Sheet).</li>
+                    <li>Press <strong>Alt + C</strong> (New Column).</li>
+                    <li>
+                        In the column setup screen:
+                        <ul>
+                            <li><strong>Period:</strong> Select the required date range.</li>
+                            <li><strong>Method of Showing Types:</strong> Select your scenario name (e.g., <em>Provisional Sales Forecast</em>).</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Compare:</h3>
+                <p>TallyPrime displays two side-by-side columns:</p>
+                <ul>
+                    <li><strong>Column 1:</strong> Actuals (Your official auditing figures).</li>
+                    <li><strong>Column 2:</strong> Scenario Projections (Your actuals combined with what-if non-posting entries).</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

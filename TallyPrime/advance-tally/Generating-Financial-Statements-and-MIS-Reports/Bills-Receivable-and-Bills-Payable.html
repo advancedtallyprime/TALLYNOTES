@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Core Concept</h2>
+                <p><strong>Bills Receivable</strong> represents pending invoice payments due from customers (Sundry Debtors), while <strong>Bills Payable</strong> represents outstanding obligations due to suppliers (Sundry Creditors). Managing these outstandings is essential for maintaining liquidity and minimizing bad debts.</p>
+
+                <h2>2. Outstandings Navigation in TallyPrime</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-clock-rotate-left"></i> Fast Navigation:</strong>
+                    Gateway of Tally &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Outstandings</strong>.
+                    <br>Shortcuts:
+                    <ul>
+                        <li><kbd>Alt + G</kbd> &rarr; Type <strong>Bills Receivable</strong></li>
+                        <li><kbd>Alt + G</kbd> &rarr; Type <strong>Bills Payable</strong></li>
+                    </ul>
+                </div>
+
+                <h2>3. Ageing Analysis (Overdue Slab Tracking)</h2>
+                <p>Not all pending bills carry equal risk. An invoice overdue by 5 days is normal; an invoice overdue by 120 days requires aggressive recovery action.</p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Party Name</th>
+                                <th>Total Pending</th>
+                                <th>0 - 30 Days</th>
+                                <th>31 - 60 Days</th>
+                                <th>61 - 90 Days</th>
+                                <th>&gt; 90 Days (High Risk)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Zenith Enterprises</td>
+                                <td>₹1,20,000</td>
+                                <td>₹80,000</td>
+                                <td>₹40,000</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Metro Retail Hub</td>
+                                <td>₹3,50,000</td>
+                                <td>-</td>
+                                <td>₹1,00,000</td>
+                                <td>₹1,50,000</td>
+                                <td>₹1,00,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>How to Configure Ageing Analysis in Tally:</h3>
+                <ol>
+                    <li>Open <strong>Bills Receivable</strong> report.</li>
+                    <li>Press <kbd>F6</kbd> (Age-wise).</li>
+                    <li>Choose <strong>Ageing by Due Date</strong> or <strong>Ageing by Bill Date</strong>.</li>
+                    <li>Define age slabs: <code>0 to 30</code>, <code>30 to 60</code>, <code>60 to 90</code>, <code>&gt; 90</code> days.</li>
+                </ol>
+
+                <h2>4. Sending Automated Reminder Letters</h2>
+                <ol>
+                    <li>In Bills Outstanding, select target debtor.</li>
+                    <li>Press <kbd>Ctrl + P</kbd> (Print) &rarr; Select <strong>Reminder Letter</strong>.</li>
+                    <li>Tally generates a formal payment reminder letter with company header, outstanding bill references, overdue interest clauses, and bank remittance details ready to email or print.</li>
+                </ol>
+
+                <h2>5. Interview Questions & Answers</h2>
+                <h3>Q1. Which key is used to settle multiple outstanding bills simultaneously in TallyPrime?</h3>
+                <p><strong>Ans:</strong> In Outstandings report, select bills using <kbd>Spacebar</kbd>, then press <kbd>Alt + B</kbd> (Settle Bills). Tally automatically creates a pre-filled Receipt or Payment voucher.</p>
+
+                <h3>Q2. What is the difference between Ageing by Bill Date vs. Ageing by Due Date?</h3>
+                <p><strong>Ans:</strong> <em>Ageing by Bill Date</em> calculates overdue days starting from the original invoice date. <em>Ageing by Due Date</em> starts counting overdue days only after the allowed credit period (e.g. 30 days credit) expires.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <p><strong>Bills Receivable</strong> represents pending invoice payments due from customers (Sundry Debtors), while <strong>Bills Payable</strong> represents outstanding obligations due to suppliers (Sundry Creditors). Managing these outstandings is essential for maintaining liquidity and minimizing bad debts.</p>
+
+                <h2>2. Outstandings Navigation in TallyPrime</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-clock-rotate-left"></i> Fast Navigation:</strong>
+                    Gateway of Tally &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Outstandings</strong>.
+                    <br>Shortcuts:
+                    <ul>
+                        <li><kbd>Alt + G</kbd> &rarr; Type <strong>Bills Receivable</strong></li>
+                        <li><kbd>Alt + G</kbd> &rarr; Type <strong>Bills Payable</strong></li>
+                    </ul>
+                </div>
+
+                <h2>3. Ageing Analysis (Overdue Slab Tracking)</h2>
+                <p>Not all pending bills carry equal risk. An invoice overdue by 5 days is normal; an invoice overdue by 120 days requires aggressive recovery action.</p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Party Name</th>
+                                <th>Total Pending</th>
+                                <th>0 - 30 Days</th>
+                                <th>31 - 60 Days</th>
+                                <th>61 - 90 Days</th>
+                                <th>&gt; 90 Days (High Risk)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Zenith Enterprises</td>
+                                <td>₹1,20,000</td>
+                                <td>₹80,000</td>
+                                <td>₹40,000</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Metro Retail Hub</td>
+                                <td>₹3,50,000</td>
+                                <td>-</td>
+                                <td>₹1,00,000</td>
+                                <td>₹1,50,000</td>
+                                <td>₹1,00,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>How to Configure Ageing Analysis in Tally:</h3>
+                <ol>
+                    <li>Open <strong>Bills Receivable</strong> report.</li>
+                    <li>Press <kbd>F6</kbd> (Age-wise).</li>
+                    <li>Choose <strong>Ageing by Due Date</strong> or <strong>Ageing by Bill Date</strong>.</li>
+                    <li>Define age slabs: <code>0 to 30</code>, <code>30 to 60</code>, <code>60 to 90</code>, <code>&gt; 90</code> days.</li>
+                </ol>
+
+                <h2>4. Sending Automated Reminder Letters</h2>
+                <ol>
+                    <li>In Bills Outstanding, select target debtor.</li>
+                    <li>Press <kbd>Ctrl + P</kbd> (Print) &rarr; Select <strong>Reminder Letter</strong>.</li>
+                    <li>Tally generates a formal payment reminder letter with company header, outstanding bill references, overdue interest clauses, and bank remittance details ready to email or print.</li>
+                </ol>
+
+                <h2>5. Interview Questions & Answers</h2>
+                <h3>Q1. Which key is used to settle multiple outstanding bills simultaneously in TallyPrime?</h3>
+                <p><strong>Ans:</strong> In Outstandings report, select bills using <kbd>Spacebar</kbd>, then press <kbd>Alt + B</kbd> (Settle Bills). Tally automatically creates a pre-filled Receipt or Payment voucher.</p>
+
+                <h3>Q2. What is the difference between Ageing by Bill Date vs. Ageing by Due Date?</h3>
+                <p><strong>Ans:</strong> <em>Ageing by Bill Date</em> calculates overdue days starting from the original invoice date. <em>Ageing by Due Date</em> starts counting overdue days only after the allowed credit period (e.g. 30 days credit) expires.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

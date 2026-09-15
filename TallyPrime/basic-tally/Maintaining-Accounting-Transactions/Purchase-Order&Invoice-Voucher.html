@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <ul>
+                    <li><strong>Purchase Order (PO):</strong> A formal commitment placed with a supplier to purchase goods at a specified rate and future date. It tracks pending orders without affecting accounting ledgers or stock balances directly.</li>
+                    <li><strong>Purchase Invoice (F9):</strong> The financial voucher recording the actual bill and receipt of goods, which directly updates stock and accounting ledgers.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>The TallyPrime Purchase Cycle:</strong><br>
+                    <code>Purchase Order (Ctrl + F9)</code> &rarr; <code>Receipt Note / Goods Inward (Alt + F9)*</code> &rarr; <code>Purchase Invoice (F9)</code><br>
+                    <em>*(Note: Linking PO directly to Invoice is standard when Receipt Notes aren't used)*</em>.
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Purchase Order & Invoice Guide:</strong>
+                    <ul>
+                        <li>Enable Order Processing in <kbd>F11</kbd> &rarr; Enable Purchase Order Processing = <code>Yes</code>.</li>
+                        <li>Open Purchase Order via <kbd>Ctrl + F9</kbd> (or <kbd>F10</kbd> Other Vouchers &rarr; Purchase Order).</li>
+                        <li>Enter PO on <code>01-May</code> with Due On date as <code>01-May</code> or <code>02-May</code>.</li>
+                        <li>When recording Purchase Invoice (<kbd>F9</kbd>) on <code>02-May</code>, select the Order No. from Order Details to auto-fill all items!</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. Feature Activation in TallyPrime</h2>
+
+                <h3>Step A: Enable Order Processing</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Purchase Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Sales Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Activate Voucher Type (If Inactive)</h3>
+                <ul>
+                    <li><strong>Method 1 (Fastest):</strong> Go to <strong>Vouchers</strong> &rarr; Press <strong>F10 (Other Vouchers)</strong> &rarr; Select <strong>Purchase Order</strong> (Shortcut: <strong>Ctrl + F4</strong>). When prompted to activate, press <strong>Y</strong> or select <strong>Yes</strong>.</li>
+                    <li><strong>Method 2:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Purchase Order</strong> &rarr; Set <strong>Activate this Voucher Type</strong> to <strong>Yes</strong> &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>3. How to Record Vouchers</h2>
+
+                <h3>Recording Purchase Orders (<code>Ctrl + F9</code> )</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>Ctrl + F9</strong> (Purchase Order).</li>
+                    <li>Select <strong>Party A/c Name</strong> (Supplier).</li>
+                    <li>Enter <strong>Order No.</strong></li>
+                    <li>Select the <strong>Purchase Ledger</strong>.</li>
+                    <li>Select <strong>Stock Item</strong>, enter <strong>Due On</strong> date, <strong>Quantity</strong>, and <strong>Rate</strong>.</li>
+                    <li>Enter Narration: <code>BEING ORDER PLACED</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Recording Purchase Invoices (<code>F9</code>)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F9</strong> (Purchase).</li>
+                    <li>Enter <strong>Supplier Invoice No.</strong> and Invoice Date.</li>
+                    <li>Select <strong>Party A/c Name</strong>.</li>
+                    <li>In the <strong>Order Details</strong> screen, select the corresponding <strong>Order No.</strong> (item details will auto-fill).</li>
+                    <li>Enter Narration: <code>Being goods purchased on credit</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Record Purchase Orders (<code>Ctrl + F9</code>)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Order No.</th>
+                            <th>Company Name (Supplier)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>May 1</strong></td>
+                            <td><strong>Sun/101</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>3<br><br>2</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 2</strong></td>
+                            <td><strong>Sun/102</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>3<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 31</strong></td>
+                            <td><strong>M/101</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>5<br><br>5</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 2</strong></td>
+                            <td><strong>A/101</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>2<br><br>1</td>
+                            <td>15” Color Monitor<br><br>21” Monochrome Monitor</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 31</strong></td>
+                            <td><strong>M/102</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>2<br><br>2<br><br>1<br><br>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300<br><br>Laptop-A100<br><br>Laptop-B200<br><br>HP-810</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sep 2</strong></td>
+                            <td><strong>A/102</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>4<br><br>4<br><br>3<br><br>4<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor<br><br>15” Color Monitor<br><br>Laptop A100</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 1</strong></td>
+                            <td><strong>M/103</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>3<br><br>2<br><br>2<br><br>2</td>
+                            <td>386Dx4<br><br>21” Monochrome Monitor<br><br>15” Monochrome Monitor<br><br>21” Color Monitor</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2</strong></td>
+                            <td><strong>A/103</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>2<br><br>2<br><br>3</td>
+                            <td>Epson 400<br><br>HP-610<br><br>Laptop B200</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Record Purchase Invoices (<code>F9</code>)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Supplier Invoice No.</th>
+                            <th>Company Name (Supplier)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>May 1</strong></td>
+                            <td><strong>P-101</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>3<br><br>2</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 2</strong></td>
+                            <td><strong>P-102</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>3<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 31</strong></td>
+                            <td><strong>P-103</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>5<br><br>5</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 2</strong></td>
+                            <td><strong>P-104</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>2<br><br>1</td>
+                            <td>15” Color Monitor<br><br>21” Monochrome Monitor</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 31</strong></td>
+                            <td><strong>P-105</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>2<br><br>2<br><br>1<br><br>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300<br><br>Laptop-A100<br><br>Laptop-B200<br><br>HP-810</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sep 2</strong></td>
+                            <td><strong>P-106</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>4<br><br>4<br><br>3<br><br>4<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor<br><br>15” Color Monitor<br><br>Laptop A100</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 1</strong></td>
+                            <td><strong>P-107</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>3<br><br>2<br><br>2<br><br>2</td>
+                            <td>386Dx4<br><br>21” Monochrome Monitor<br><br>15” Monochrome Monitor<br><br>21” Color Monitor</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2</strong></td>
+                            <td><strong>P-108</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>2<br><br>2<br><br>3</td>
+                            <td>Epson 400<br><br>HP-610<br><br>Laptop B200</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking, Deleting &amp; Modifying Vouchers</h2>
+
+                <h3>To Check / Delete / Modify Purchase Orders:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Inventory Books</strong> &rarr; <strong>Purchase Orders Book</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Purchase Order Book</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to view or modify. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Purchase Invoices:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Purchase Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Purchase Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to edit details or press <strong>Alt + D</strong> to delete.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <ul>
+                    <li><strong>Purchase Order (PO):</strong> A formal commitment placed with a supplier to purchase goods at a specified rate and future date. It tracks pending orders without affecting accounting ledgers or stock balances directly.</li>
+                    <li><strong>Purchase Invoice (F9):</strong> The financial voucher recording the actual bill and receipt of goods, which directly updates stock and accounting ledgers.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>The TallyPrime Purchase Cycle:</strong><br>
+                    <code>Purchase Order (Ctrl + F9)</code> &rarr; <code>Receipt Note / Goods Inward (Alt + F9)*</code> &rarr; <code>Purchase Invoice (F9)</code><br>
+                    <em>*(Note: Linking PO directly to Invoice is standard when Receipt Notes aren't used)*</em>.
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Purchase Order & Invoice Guide:</strong>
+                    <ul>
+                        <li>Enable Order Processing in <kbd>F11</kbd> &rarr; Enable Purchase Order Processing = <code>Yes</code>.</li>
+                        <li>Open Purchase Order via <kbd>Ctrl + F9</kbd> (or <kbd>F10</kbd> Other Vouchers &rarr; Purchase Order).</li>
+                        <li>Enter PO on <code>01-May</code> with Due On date as <code>01-May</code> or <code>02-May</code>.</li>
+                        <li>When recording Purchase Invoice (<kbd>F9</kbd>) on <code>02-May</code>, select the Order No. from Order Details to auto-fill all items!</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. Feature Activation in TallyPrime</h2>
+
+                <h3>Step A: Enable Order Processing</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Purchase Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Sales Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Activate Voucher Type (If Inactive)</h3>
+                <ul>
+                    <li><strong>Method 1 (Fastest):</strong> Go to <strong>Vouchers</strong> &rarr; Press <strong>F10 (Other Vouchers)</strong> &rarr; Select <strong>Purchase Order</strong> (Shortcut: <strong>Ctrl + F4</strong>). When prompted to activate, press <strong>Y</strong> or select <strong>Yes</strong>.</li>
+                    <li><strong>Method 2:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Purchase Order</strong> &rarr; Set <strong>Activate this Voucher Type</strong> to <strong>Yes</strong> &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>3. How to Record Vouchers</h2>
+
+                <h3>Recording Purchase Orders (<code>Ctrl + F9</code> )</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>Ctrl + F9</strong> (Purchase Order).</li>
+                    <li>Select <strong>Party A/c Name</strong> (Supplier).</li>
+                    <li>Enter <strong>Order No.</strong></li>
+                    <li>Select the <strong>Purchase Ledger</strong>.</li>
+                    <li>Select <strong>Stock Item</strong>, enter <strong>Due On</strong> date, <strong>Quantity</strong>, and <strong>Rate</strong>.</li>
+                    <li>Enter Narration: <code>BEING ORDER PLACED</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Recording Purchase Invoices (<code>F9</code>)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F9</strong> (Purchase).</li>
+                    <li>Enter <strong>Supplier Invoice No.</strong> and Invoice Date.</li>
+                    <li>Select <strong>Party A/c Name</strong>.</li>
+                    <li>In the <strong>Order Details</strong> screen, select the corresponding <strong>Order No.</strong> (item details will auto-fill).</li>
+                    <li>Enter Narration: <code>Being goods purchased on credit</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Record Purchase Orders (<code>Ctrl + F9</code>)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Order No.</th>
+                            <th>Company Name (Supplier)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>May 1</strong></td>
+                            <td><strong>Sun/101</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>3<br><br>2</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 2</strong></td>
+                            <td><strong>Sun/102</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>3<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 31</strong></td>
+                            <td><strong>M/101</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>5<br><br>5</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 2</strong></td>
+                            <td><strong>A/101</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>2<br><br>1</td>
+                            <td>15” Color Monitor<br><br>21” Monochrome Monitor</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 31</strong></td>
+                            <td><strong>M/102</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>2<br><br>2<br><br>1<br><br>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300<br><br>Laptop-A100<br><br>Laptop-B200<br><br>HP-810</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sep 2</strong></td>
+                            <td><strong>A/102</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>4<br><br>4<br><br>3<br><br>4<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor<br><br>15” Color Monitor<br><br>Laptop A100</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 1</strong></td>
+                            <td><strong>M/103</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>3<br><br>2<br><br>2<br><br>2</td>
+                            <td>386Dx4<br><br>21” Monochrome Monitor<br><br>15” Monochrome Monitor<br><br>21” Color Monitor</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2</strong></td>
+                            <td><strong>A/103</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>2<br><br>2<br><br>3</td>
+                            <td>Epson 400<br><br>HP-610<br><br>Laptop B200</td>
+                            <td>BEING ORDER PLACED</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Record Purchase Invoices (<code>F9</code>)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Supplier Invoice No.</th>
+                            <th>Company Name (Supplier)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>May 1</strong></td>
+                            <td><strong>P-101</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>3<br><br>2</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 2</strong></td>
+                            <td><strong>P-102</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>3<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 31</strong></td>
+                            <td><strong>P-103</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>5<br><br>5</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 2</strong></td>
+                            <td><strong>P-104</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>2<br><br>1</td>
+                            <td>15” Color Monitor<br><br>21” Monochrome Monitor</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 31</strong></td>
+                            <td><strong>P-105</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>2<br><br>2<br><br>1<br><br>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300<br><br>Laptop-A100<br><br>Laptop-B200<br><br>HP-810</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sep 2</strong></td>
+                            <td><strong>P-106</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>4<br><br>4<br><br>3<br><br>4<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor<br><br>15” Color Monitor<br><br>Laptop A100</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 1</strong></td>
+                            <td><strong>P-107</strong></td>
+                            <td>Mahendra Info Tech</td>
+                            <td>3<br><br>2<br><br>2<br><br>2</td>
+                            <td>386Dx4<br><br>21” Monochrome Monitor<br><br>15” Monochrome Monitor<br><br>21” Color Monitor</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2</strong></td>
+                            <td><strong>P-108</strong></td>
+                            <td>Anil Info Tech</td>
+                            <td>2<br><br>2<br><br>3</td>
+                            <td>Epson 400<br><br>HP-610<br><br>Laptop B200</td>
+                            <td>Being goods purchased on credit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking, Deleting &amp; Modifying Vouchers</h2>
+
+                <h3>To Check / Delete / Modify Purchase Orders:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Inventory Books</strong> &rarr; <strong>Purchase Orders Book</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Purchase Order Book</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to view or modify. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Purchase Invoices:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Purchase Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Purchase Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to edit details or press <strong>Alt + D</strong> to delete.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/course-data.js"></script>
+    <script src="/TallyPrime/scripts/shared.js"></script>
+</body>
+</html>

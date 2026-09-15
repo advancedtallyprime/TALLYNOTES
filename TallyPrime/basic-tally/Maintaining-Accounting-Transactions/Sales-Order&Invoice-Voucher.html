@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <ul>
+                    <li><strong>Sales Order (SO):</strong> A formal commitment received from a customer to buy goods at a specified rate and future date. It tracks pending customer orders without affecting accounting ledgers or stock balances directly.</li>
+                    <li><strong>Sales Invoice (F8):</strong> The financial voucher recording the actual bill and dispatch of goods, which directly updates stock and accounting ledgers.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>The TallyPrime Sales Cycle:</strong><br>
+                    <code>Sales Order (Ctrl + F8)</code> &rarr; <code>Delivery Note / Goods Outward (Alt + F8)*</code> &rarr; <code>Sales Invoice (F8)</code><br>
+                    <em>*(Note: Linking SO directly to Invoice is standard when Delivery Notes aren't used)*</em>.
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Sales Order & Invoice Guide:</strong>
+                    <ul>
+                        <li>Enable Sales Order Processing in <kbd>F11</kbd> Features = <code>Yes</code>.</li>
+                        <li>Press <kbd>Ctrl + F8</kbd> (or <kbd>F10</kbd> &rarr; Sales Order) and record order on <code>01-Apr</code>.</li>
+                        <li>Press <kbd>F8</kbd> (Sales Invoice) on <code>02-Apr</code> and select the Sales Order number to track pending orders.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. Feature Activation in TallyPrime</h2>
+
+                <h3>Step A: Enable Order Processing</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Purchase Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Sales Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Activate Voucher Type (If Inactive)</h3>
+                <ul>
+                    <li><strong>Method 1 (Fastest):</strong> Go to <strong>Vouchers</strong> &rarr; Press <strong>F10 (Other Vouchers)</strong> &rarr; Select <strong>Sales Order</strong> (Shortcut: <strong>Ctrl + F5</strong>). When prompted to activate, press <strong>Y</strong> or select <strong>Yes</strong>.</li>
+                    <li><strong>Method 2:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Sales Order</strong> &rarr; Set <strong>Activate this Voucher Type</strong> to <strong>Yes</strong> &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>3. How to Record Vouchers</h2>
+
+                <h3>Recording Sales Orders (<code>Ctrl + F8</code>)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>Ctrl + F8</strong> (Sales Order).</li>
+                    <li>Select <strong>Party A/c Name</strong> (Customer).</li>
+                    <li>Enter <strong>Order No.</strong></li>
+                    <li>Select the <strong>Sales Ledger</strong>.</li>
+                    <li>Select <strong>Stock Item</strong>, enter <strong>Due On</strong> date, <strong>Quantity</strong>, and <strong>Rate</strong>.</li>
+                    <li>Enter Narration: <code>being order received</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Recording Sales Invoices (<code>F8</code>)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F8</strong> (Sales).</li>
+                    <li>Select <strong>Party A/c Name</strong>.</li>
+                    <li>In the <strong>Order Details</strong> screen, select the corresponding <strong>Order No.</strong> (item details will auto-fill).</li>
+                    <li>Enter <strong>Reference No.</strong></li>
+                    <li>Enter Narration: <code>Being goods sold on credit</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Record Sales Orders (<code>Ctrl + F8</code>)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Order No.</th>
+                            <th>Company Name (Customer)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>April 1</strong></td>
+                            <td><strong>KCI/101</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>3<br><br>2</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>April 2</strong></td>
+                            <td><strong>TTL/101</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>3<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 31</strong></td>
+                            <td><strong>SAK/101</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>5<br><br>5</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>June 2</strong></td>
+                            <td><strong>KCI/102</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>2<br><br>1</td>
+                            <td>15” Color Monitor<br><br>21” Mono. Monitor</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 31</strong></td>
+                            <td><strong>SAK/102</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>2<br><br>2<br><br>1<br><br>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300<br><br>Laptop-A100<br><br>Laptop-B200<br><br>HP-810</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aug 2</strong></td>
+                            <td><strong>TTL/102</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>4<br><br>4<br><br>3<br><br>4<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor<br><br>15” Color Monitor<br><br>Laptop A100</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 1</strong></td>
+                            <td><strong>KCI/103</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>3<br><br>2<br><br>2<br><br>2</td>
+                            <td>386Dx4<br><br>21” Mono Monitor<br><br>15” Mono Monitor<br><br>21” Color Monitor</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2</strong></td>
+                            <td><strong>TTL/103</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>2<br><br>2<br><br>3</td>
+                            <td>Epson 400<br><br>HP-610<br><br>Laptop B 200</td>
+                            <td>being order received</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Record Sales Invoices (<code>F8</code>)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Reference No.</th>
+                            <th>Company Name (Customer)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>April 1</strong></td>
+                            <td><strong>S-101</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>3<br><br>2</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>April 2</strong></td>
+                            <td><strong>S-102</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>3<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 31</strong></td>
+                            <td><strong>S-103</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>5<br><br>5</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>June 2</strong></td>
+                            <td><strong>S-104</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>2<br><br>1</td>
+                            <td>15” Color Monitor<br><br>21” Mono. Monitor</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 31</strong></td>
+                            <td><strong>S-105</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>2<br><br>2<br><br>1<br><br>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300<br><br>Laptop-A100<br><br>Laptop-B200<br><br>HP-810</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aug 2</strong></td>
+                            <td><strong>S-106</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>4<br><br>4<br><br>3<br><br>4<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor<br><br>15” Color Monitor<br><br>Laptop A100</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 1</strong></td>
+                            <td><strong>S-107</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>3<br><br>2<br><br>2<br><br>2</td>
+                            <td>386Dx4<br><br>21” Mono Monitor<br><br>15” Mono Monitor<br><br>21” Color Monitor</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2</strong></td>
+                            <td><strong>S-108</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>2<br><br>2<br><br>3</td>
+                            <td>Epson 400<br><br>HP-610<br><br>Laptop B 200</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking, Deleting &amp; Modifying Vouchers</h2>
+
+                <h3>To Check / Delete / Modify Sales Orders:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Inventory Books</strong> &rarr; <strong>Sales Orders Book</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Sales Order Book</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to view or modify. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Sales Invoices:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Sales Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Sales Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to edit details or press <strong>Alt + D</strong> to delete.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <ul>
+                    <li><strong>Sales Order (SO):</strong> A formal commitment received from a customer to buy goods at a specified rate and future date. It tracks pending customer orders without affecting accounting ledgers or stock balances directly.</li>
+                    <li><strong>Sales Invoice (F8):</strong> The financial voucher recording the actual bill and dispatch of goods, which directly updates stock and accounting ledgers.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>The TallyPrime Sales Cycle:</strong><br>
+                    <code>Sales Order (Ctrl + F8)</code> &rarr; <code>Delivery Note / Goods Outward (Alt + F8)*</code> &rarr; <code>Sales Invoice (F8)</code><br>
+                    <em>*(Note: Linking SO directly to Invoice is standard when Delivery Notes aren't used)*</em>.
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Sales Order & Invoice Guide:</strong>
+                    <ul>
+                        <li>Enable Sales Order Processing in <kbd>F11</kbd> Features = <code>Yes</code>.</li>
+                        <li>Press <kbd>Ctrl + F8</kbd> (or <kbd>F10</kbd> &rarr; Sales Order) and record order on <code>01-Apr</code>.</li>
+                        <li>Press <kbd>F8</kbd> (Sales Invoice) on <code>02-Apr</code> and select the Sales Order number to track pending orders.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. Feature Activation in TallyPrime</h2>
+
+                <h3>Step A: Enable Order Processing</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Purchase Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Sales Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Activate Voucher Type (If Inactive)</h3>
+                <ul>
+                    <li><strong>Method 1 (Fastest):</strong> Go to <strong>Vouchers</strong> &rarr; Press <strong>F10 (Other Vouchers)</strong> &rarr; Select <strong>Sales Order</strong> (Shortcut: <strong>Ctrl + F5</strong>). When prompted to activate, press <strong>Y</strong> or select <strong>Yes</strong>.</li>
+                    <li><strong>Method 2:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Sales Order</strong> &rarr; Set <strong>Activate this Voucher Type</strong> to <strong>Yes</strong> &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>3. How to Record Vouchers</h2>
+
+                <h3>Recording Sales Orders (<code>Ctrl + F8</code>)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>Ctrl + F8</strong> (Sales Order).</li>
+                    <li>Select <strong>Party A/c Name</strong> (Customer).</li>
+                    <li>Enter <strong>Order No.</strong></li>
+                    <li>Select the <strong>Sales Ledger</strong>.</li>
+                    <li>Select <strong>Stock Item</strong>, enter <strong>Due On</strong> date, <strong>Quantity</strong>, and <strong>Rate</strong>.</li>
+                    <li>Enter Narration: <code>being order received</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Recording Sales Invoices (<code>F8</code>)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F8</strong> (Sales).</li>
+                    <li>Select <strong>Party A/c Name</strong>.</li>
+                    <li>In the <strong>Order Details</strong> screen, select the corresponding <strong>Order No.</strong> (item details will auto-fill).</li>
+                    <li>Enter <strong>Reference No.</strong></li>
+                    <li>Enter Narration: <code>Being goods sold on credit</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Record Sales Orders (<code>Ctrl + F8</code>)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Order No.</th>
+                            <th>Company Name (Customer)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>April 1</strong></td>
+                            <td><strong>KCI/101</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>3<br><br>2</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>April 2</strong></td>
+                            <td><strong>TTL/101</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>3<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 31</strong></td>
+                            <td><strong>SAK/101</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>5<br><br>5</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>June 2</strong></td>
+                            <td><strong>KCI/102</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>2<br><br>1</td>
+                            <td>15” Color Monitor<br><br>21” Mono. Monitor</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 31</strong></td>
+                            <td><strong>SAK/102</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>2<br><br>2<br><br>1<br><br>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300<br><br>Laptop-A100<br><br>Laptop-B200<br><br>HP-810</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aug 2</strong></td>
+                            <td><strong>TTL/102</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>4<br><br>4<br><br>3<br><br>4<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor<br><br>15” Color Monitor<br><br>Laptop A100</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 1</strong></td>
+                            <td><strong>KCI/103</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>3<br><br>2<br><br>2<br><br>2</td>
+                            <td>386Dx4<br><br>21” Mono Monitor<br><br>15” Mono Monitor<br><br>21” Color Monitor</td>
+                            <td>being order received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2</strong></td>
+                            <td><strong>TTL/103</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>2<br><br>2<br><br>3</td>
+                            <td>Epson 400<br><br>HP-610<br><br>Laptop B 200</td>
+                            <td>being order received</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Record Sales Invoices (<code>F8</code>)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Reference No.</th>
+                            <th>Company Name (Customer)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>April 1</strong></td>
+                            <td><strong>S-101</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>3<br><br>2</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>April 2</strong></td>
+                            <td><strong>S-102</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>3<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>May 31</strong></td>
+                            <td><strong>S-103</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>5<br><br>5</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>June 2</strong></td>
+                            <td><strong>S-104</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>2<br><br>1</td>
+                            <td>15” Color Monitor<br><br>21” Mono. Monitor</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>July 31</strong></td>
+                            <td><strong>S-105</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>2<br><br>2<br><br>1<br><br>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300<br><br>Laptop-A100<br><br>Laptop-B200<br><br>HP-810</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aug 2</strong></td>
+                            <td><strong>S-106</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>4<br><br>4<br><br>3<br><br>4<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor<br><br>15” Color Monitor<br><br>Laptop A100</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 1</strong></td>
+                            <td><strong>S-107</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>3<br><br>2<br><br>2<br><br>2</td>
+                            <td>386Dx4<br><br>21” Mono Monitor<br><br>15” Mono Monitor<br><br>21” Color Monitor</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oct 2</strong></td>
+                            <td><strong>S-108</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>2<br><br>2<br><br>3</td>
+                            <td>Epson 400<br><br>HP-610<br><br>Laptop B 200</td>
+                            <td>Being goods sold on credit</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking, Deleting &amp; Modifying Vouchers</h2>
+
+                <h3>To Check / Delete / Modify Sales Orders:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Inventory Books</strong> &rarr; <strong>Sales Orders Book</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Sales Order Book</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to view or modify. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Sales Invoices:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Sales Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Sales Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to edit details or press <strong>Alt + D</strong> to delete.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/course-data.js"></script>
+    <script src="/TallyPrime/scripts/shared.js"></script>
+</body>
+</html>

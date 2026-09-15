@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Additional Cost ka concept and purchafrom inventory costing par uska impact samjhega.</li>
+                    <li>Freight, carriage, loading, and insurance jefrom additional expenses ko raw material cost ke sath relate karega.</li>
+                    <li>Bill of Materials (BOM) ka business purpofrom and component-wifrom structure samjhega.</li>
+                    <li>Simple and multi-component BOM create karega.</li>
+                    <li>Manufacturing entries (Stock Journal) in BOM-based consumption and production record karega.</li>
+                    <li>Verify Raw material consumption and finished goods production ke baad inventory impact in management and statutory tax reports.</li>
+                    <li>Additional Cost and BOM ko ek complete manufacturing scenario in combine karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Additional Cost (Landed Cost) &amp; BOM</h2>
+                <p>Advanced inventory and manufacturing operations in goods ki proper costing and production planning ke liye do key tools ufrom are:</p>
+
+                <ul>
+                    <li><strong>Additional Cost Details:</strong> Purchafrom invoice ke basic bafrom price ke alawa goods ko warehoufrom tak lane in incur hone wale expenses (Freight, Loading, Insurance, etc.) ko effective inventory cost in factor karna.</li>
+                    <li><strong>Bill of Materials (BOM):</strong> Ek finished product ko manufacture karne ke liye required raw materials and components ki predefined quantity-wifrom list (Recipe).</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Additional Cost (Landed Cost)</th>
+                            <th>Bill of Materials (BOM)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Focus</td>
+                            <td>Accurate purchafrom valuation &amp; pricing</td>
+                            <td>Production recipe &amp; material consumption</td>
+                        </tr>
+                        <tr>
+                            <td>Stage of Application</td>
+                            <td>At the time of purchafrom / receipt</td>
+                            <td>At the time of manufacturing / production</td>
+                        </tr>
+                        <tr>
+                            <td>Ledgers Involved</td>
+                            <td>Direct/Indirect Expenfrom ledgers (Freight, Loading)</td>
+                            <td>Raw Material and Finished Stock items</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Impact</td>
+                            <td>Increases effective cost per unit of inventory</td>
+                            <td>Consumes raw materials and generates finished goods</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Manufacturing Rule:</strong><br>
+                    <strong>Landed Cost</strong> = Purchafrom Basic Price + Direct Acquisition Expenses.<br>
+                    <strong>BOM</strong> = Raw Material Components &rarr; Production Process &rarr; Finished Goods.
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Feature Activation</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Manufacturing | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Enabling Inventory &amp; Manufacturing Features in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> on the Gateway of Tally.</li>
+                    <li>Set <strong>Maintain Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Integrate Accounts with Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Ensure <strong>Ufrom Manufacturing Journal / Materials Out</strong> features are enabled.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save settings.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Masters Configuration</h2>
+
+                <h3>1. Units of Measurement</h3>
+                <ul>
+                    <li><code>Nos</code> (Numbers), <code>Kg</code> (Kilograms), <code>Ltr</code> (Litres)</li>
+                </ul>
+
+                <h3>2. Additional Cost Ledgers (Under Direct Expenses):</h3>
+                <ul>
+                    <li><code>Freight Charges</code>, <code>Loading Charges</code>, <code>Insurance Charges</code></li>
+                </ul>
+
+                <h3>3. Stock Items Setup (Raw Materials &amp; Finished Goods):</h3>
+                <ul>
+                    <li><strong>Raw Materials:</strong> Wood (Kg), Steel Legs (Nos), Screws (Nos), Polish (Ltr), Packing Material (Nos).</li>
+                    <li><strong>Finished Product:</strong> Office Chair (Nos) &mdash; <em>BOM attached with component structure.</em></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Additional Cost &amp; BOM Manufacturing</h2>
+
+                <h3>Part A: Additional Cost (Landed Cost Calculation)</h3>
+                <p><strong>Purchafrom Scenario:</strong> Purchased 1,000 Kg Steel Sheet @ ₹100/Kg = ₹1,00,000 from <em>Steel Suppliers</em>.</p>
+                <ul>
+                    <li><strong>Additional Expenses:</strong> Freight = ₹5,000 | Loading = ₹2,000 | Insurance = ₹1,000 (Total = ₹8,000).</li>
+                    <li><strong>Total Landed Cost:</strong> ₹1,00,000 + ₹8,000 = ₹1,08,000.</li>
+                    <li><strong>Effective Landed Cost Per Unit:</strong> ₹1,08,000 &divide; 1,000 Kg = <strong>₹108 / Kg</strong>.</li>
+                    <li><strong>TallyPrime Steps:</strong> Pass Purchafrom Voucher (F9) &rarr; Select item &amp; rate &rarr; Allocate additional expenfrom ledgers to distribute purchafrom cost across inventory valuation.</li>
+                </ul>
+
+                <h3>Part B: Bill of Materials (BOM) Setup for Office Chair</h3>
+                <p><strong>BOM Structure for 1 Office Chair:</strong></p>
+                <ul>
+                    <li>Wood: 3 Kg</li>
+                    <li>Steel Legs: 5 Nos</li>
+                    <li>Screws: 15 Nos</li>
+                    <li>Polish: 0.25 Ltr</li>
+                    <li>Packing Material: 1 No</li>
+                </ul>
+
+                <h3>Part C: Manufacturing Entry (Production of 100 Office Chairs)</h3>
+                <ol>
+                    <li>Go to <strong>Vouchers</strong> &rarr; Press <strong>Alt + F7 (Stock Journal / Manufacturing Journal)</strong>.</li>
+                    <li>Select Finished Product: <code>Office Chair</code> &rarr; Quantity to produce: <strong>100 Nos</strong>.</li>
+                    <li>Select BOM name. TallyPrime automatically computes raw material consumption:
+                        <ul>
+                            <li>Wood: 300 Kg (3 &times; 100)</li>
+                            <li>Steel Legs: 500 Nos (5 &times; 100)</li>
+                            <div>Screws: 1,500 Nos (15 &times; 100)</div>
+                            <li>Polish: 25 Ltr (0.25 &times; 100)</li>
+                            <li>Packing Material: 100 Nos (1 &times; 100)</li>
+                        </ul>
+                    </li>
+                    <li>Save voucher &rarr; Raw material stocks decreafrom automatically while finished goods inventory increases by 100 Nos.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Furniture Manufacturing Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Raw Material / Component</th>
+                            <th>Purchafrom Quantity</th>
+                            <th>Basic Purchafrom Rate (₹)</th>
+                            <th>Additional Freight / Expenfrom (₹)</th>
+                            <th>Effective Landed Cost (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Wood</td>
+                            <td>500 Kg</td>
+                            <td>180 / Kg</td>
+                            <td>4,000</td>
+                            <td>94,000 (94 / Kg)</td>
+                        </tr>
+                        <tr>
+                            <td>Steel Legs</td>
+                            <td>500 Nos</td>
+                            <td>250 / No</td>
+                            <td>2,500</td>
+                            <td>1,27,500 (255 / No)</td>
+                        </tr>
+                        <tr>
+                            <td>Screws</td>
+                            <td>2,000 Nos</td>
+                            <td>2 / No</td>
+                            <td>500</td>
+                            <td>4,500 (2.25 / No)</td>
+                        </tr>
+                        <tr>
+                            <td>Polish</td>
+                            <td>100 Ltr</td>
+                            <td>350 / Ltr</td>
+                            <td>1,500</td>
+                            <td>36,500 (365 / Ltr)</td>
+                        </tr>
+                        <tr>
+                            <td>Packing Material</td>
+                            <td>500 Nos</td>
+                            <td>10 / No</td>
+                            <td>0</td>
+                            <td>5,000 (10 / No)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Production Task:</h3>
+                <ul>
+                    <li>Produce <strong>100 Office Chairs</strong> using the defined BOM.</li>
+                    <li>Verify closing balances of raw materials and finished goods in Stock Summary.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Verify inward purchafrom values, landed cost valuations, raw material consumption, and finished goods closing stock.</li>
+                    <li><strong>Stock Journal Registers:</strong> Track production batches and material issue/receipt logs.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Forgetting to add freight and direct acquisition expenses to purchafrom invoices, leading to understated inventory valuation.</li>
+                    <li>Unit mismatches between BOM components and raw material masters (e.g., Kg vs Grams).</li>
+                    <li>Failing to link the correct BOM name during Stock Journal manufacturing entry.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <div><strong>Q: Landed Cost kor is?</strong><br>A: Purchafrom price in freight, loading and insurance jefrom direct expenses add karne ke baad nikli hui effective per-unit cost.</div>
+                    <li><strong>Q: BOM ka real business ufrom kor hai?</strong><br>A: Finished goods produce karne ke liye required raw materials ki exact recipe maintain karna and automatic consumption track karna.</li>
+                    <li><strong>Q: Manufacturing entry pass karne par stock par kor impact padta hai?</strong><br>A: Raw materials ki quantity minus ho jaati hai and finished product ki quantity plus ho jaati is.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Additional Cost &amp; BOM Golden Workflow:</strong><br>
+                    <code>Purchafrom Entry (F9) + Additional Expenses &rarr; Effective Landed Cost &rarr; Define BOM Structure &rarr; Stock Journal Manufacturing Entry (Alt+F7) &rarr; Reconcile Consumption &amp; Production Closing Stock</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Additional expenfrom ledgers created under Direct Expenses</li>
+                    <li>Purchafrom landed cost calculation and allocation mastered</li>
+                    <li>Bill of Materials (BOM) created for finished items</li>
+                    <li>Manufacturing stock journals executed for material consumption</li>
+                    <li>Stock Summary and raw material balances verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 5 complete karne ke baad student:</p>
+                <ul>
+                    <li>Additional Cost ka concept aur purchase inventory costing par uska impact samjhega.</li>
+                    <li>Freight, carriage, loading, aur insurance jese additional expenses ko raw material cost ke sath relate karega.</li>
+                    <li>Bill of Materials (BOM) ka business purpose aur component-wise structure samjhega.</li>
+                    <li>Simple aur multi-component BOM create karega.</li>
+                    <li>Manufacturing entries (Stock Journal) mein BOM-based consumption aur production record karega.</li>
+                    <li>Raw material consumption aur finished goods production ke baad inventory impact verify karega.</li>
+                    <li>Additional Cost aur BOM ko ek complete manufacturing scenario mein combine karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Additional Cost (Landed Cost) &amp; BOM</h2>
+                <p>Advanced inventory aur manufacturing operations mein goods ki proper costing aur production planning ke liye do key tools use hote hain:</p>
+
+                <ul>
+                    <li><strong>Additional Cost Details:</strong> Purchase invoice ke basic base price ke alawa goods ko warehouse tak lane mein incur hone wale expenses (Freight, Loading, Insurance, etc.) ko effective inventory cost mein factor karna.</li>
+                    <li><strong>Bill of Materials (BOM):</strong> Ek finished product ko manufacture karne ke liye required raw materials aur components ki predefined quantity-wise list (Recipe).</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Additional Cost (Landed Cost)</th>
+                            <th>Bill of Materials (BOM)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Focus</td>
+                            <td>Accurate purchase valuation &amp; pricing</td>
+                            <td>Production recipe &amp; material consumption</td>
+                        </tr>
+                        <tr>
+                            <td>Stage of Application</td>
+                            <td>At the time of purchase / receipt</td>
+                            <td>At the time of manufacturing / production</td>
+                        </tr>
+                        <tr>
+                            <td>Ledgers Involved</td>
+                            <td>Direct/Indirect Expense ledgers (Freight, Loading)</td>
+                            <td>Raw Material and Finished Stock items</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Impact</td>
+                            <td>Increases effective cost per unit of inventory</td>
+                            <td>Consumes raw materials and generates finished goods</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Manufacturing Rule:</strong><br>
+                    <strong>Landed Cost</strong> = Purchase Basic Price + Direct Acquisition Expenses.<br>
+                    <strong>BOM</strong> = Raw Material Components &rarr; Production Process &rarr; Finished Goods.
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Feature Activation</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Manufacturing | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Enabling Inventory &amp; Manufacturing Features in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> on the Gateway of Tally.</li>
+                    <li>Set <strong>Maintain Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Integrate Accounts with Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Ensure <strong>Use Manufacturing Journal / Materials Out</strong> features are enabled.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save settings.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Masters Configuration</h2>
+
+                <h3>1. Units of Measurement</h3>
+                <ul>
+                    <li><code>Nos</code> (Numbers), <code>Kg</code> (Kilograms), <code>Ltr</code> (Litres)</li>
+                </ul>
+
+                <h3>2. Additional Cost Ledgers (Under Direct Expenses):</h3>
+                <ul>
+                    <li><code>Freight Charges</code>, <code>Loading Charges</code>, <code>Insurance Charges</code></li>
+                </ul>
+
+                <h3>3. Stock Items Setup (Raw Materials &amp; Finished Goods):</h3>
+                <ul>
+                    <li><strong>Raw Materials:</strong> Wood (Kg), Steel Legs (Nos), Screws (Nos), Polish (Ltr), Packing Material (Nos).</li>
+                    <li><strong>Finished Product:</strong> Office Chair (Nos) &mdash; <em>BOM attached with component structure.</em></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Additional Cost &amp; BOM Manufacturing</h2>
+
+                <h3>Part A: Additional Cost (Landed Cost Calculation)</h3>
+                <p><strong>Purchase Scenario:</strong> Purchased 1,000 Kg Steel Sheet @ ₹100/Kg = ₹1,00,000 from <em>Steel Suppliers</em>.</p>
+                <ul>
+                    <li><strong>Additional Expenses:</strong> Freight = ₹5,000 | Loading = ₹2,000 | Insurance = ₹1,000 (Total = ₹8,000).</li>
+                    <li><strong>Total Landed Cost:</strong> ₹1,00,000 + ₹8,000 = ₹1,08,000.</li>
+                    <li><strong>Effective Landed Cost Per Unit:</strong> ₹1,08,000 &divide; 1,000 Kg = <strong>₹108 / Kg</strong>.</li>
+                    <li><strong>TallyPrime Steps:</strong> Pass Purchase Voucher (F9) &rarr; Select item &amp; rate &rarr; Allocate additional expense ledgers to distribute purchase cost across inventory valuation.</li>
+                </ul>
+
+                <h3>Part B: Bill of Materials (BOM) Setup for Office Chair</h3>
+                <p><strong>BOM Structure for 1 Office Chair:</strong></p>
+                <ul>
+                    <li>Wood: 3 Kg</li>
+                    <li>Steel Legs: 5 Nos</li>
+                    <li>Screws: 15 Nos</li>
+                    <li>Polish: 0.25 Ltr</li>
+                    <li>Packing Material: 1 No</li>
+                </ul>
+
+                <h3>Part C: Manufacturing Entry (Production of 100 Office Chairs)</h3>
+                <ol>
+                    <li>Go to <strong>Vouchers</strong> &rarr; Press <strong>Alt + F7 (Stock Journal / Manufacturing Journal)</strong>.</li>
+                    <li>Select Finished Product: <code>Office Chair</code> &rarr; Quantity to produce: <strong>100 Nos</strong>.</li>
+                    <li>Select BOM name. TallyPrime automatically computes raw material consumption:
+                        <ul>
+                            <li>Wood: 300 Kg (3 &times; 100)</li>
+                            <li>Steel Legs: 500 Nos (5 &times; 100)</li>
+                            <div>Screws: 1,500 Nos (15 &times; 100)</div>
+                            <li>Polish: 25 Ltr (0.25 &times; 100)</li>
+                            <li>Packing Material: 100 Nos (1 &times; 100)</li>
+                        </ul>
+                    </li>
+                    <li>Save voucher &rarr; Raw material stocks decrease automatically while finished goods inventory increases by 100 Nos.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Furniture Manufacturing Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Raw Material / Component</th>
+                            <th>Purchase Quantity</th>
+                            <th>Basic Purchase Rate (₹)</th>
+                            <th>Additional Freight / Expense (₹)</th>
+                            <th>Effective Landed Cost (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Wood</td>
+                            <td>500 Kg</td>
+                            <td>180 / Kg</td>
+                            <td>4,000</td>
+                            <td>94,000 (94 / Kg)</td>
+                        </tr>
+                        <tr>
+                            <td>Steel Legs</td>
+                            <td>500 Nos</td>
+                            <td>250 / No</td>
+                            <td>2,500</td>
+                            <td>1,27,500 (255 / No)</td>
+                        </tr>
+                        <tr>
+                            <td>Screws</td>
+                            <td>2,000 Nos</td>
+                            <td>2 / No</td>
+                            <td>500</td>
+                            <td>4,500 (2.25 / No)</td>
+                        </tr>
+                        <tr>
+                            <td>Polish</td>
+                            <td>100 Ltr</td>
+                            <td>350 / Ltr</td>
+                            <td>1,500</td>
+                            <td>36,500 (365 / Ltr)</td>
+                        </tr>
+                        <tr>
+                            <td>Packing Material</td>
+                            <td>500 Nos</td>
+                            <td>10 / No</td>
+                            <td>0</td>
+                            <td>5,000 (10 / No)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Production Task:</h3>
+                <ul>
+                    <li>Produce <strong>100 Office Chairs</strong> using the defined BOM.</li>
+                    <li>Verify closing balances of raw materials and finished goods in Stock Summary.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Verify inward purchase values, landed cost valuations, raw material consumption, and finished goods closing stock.</li>
+                    <li><strong>Stock Journal Registers:</strong> Track production batches and material issue/receipt logs.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Forgetting to add freight and direct acquisition expenses to purchase invoices, leading to understated inventory valuation.</li>
+                    <li>Unit mismatches between BOM components and raw material masters (e.g., Kg vs Grams).</li>
+                    <li>Failing to link the correct BOM name during Stock Journal manufacturing entry.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <div><strong>Q: Landed Cost kya hoti hai?</strong><br>A: Purchase price mein freight, loading aur insurance jese direct expenses add karne ke baad nikli hui effective per-unit cost.</div>
+                    <li><strong>Q: BOM ka real business use kya hai?</strong><br>A: Finished goods produce karne ke liye required raw materials ki exact recipe maintain karna aur automatic consumption track karna.</li>
+                    <li><strong>Q: Manufacturing entry pass karne par stock par kya impact padta hai?</strong><br>A: Raw materials ki quantity minus ho jaati hai aur finished product ki quantity plus ho jaati hai.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Additional Cost &amp; BOM Golden Workflow:</strong><br>
+                    <code>Purchase Entry (F9) + Additional Expenses &rarr; Effective Landed Cost &rarr; Define BOM Structure &rarr; Stock Journal Manufacturing Entry (Alt+F7) &rarr; Reconcile Consumption &amp; Production Closing Stock</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Additional expense ledgers created under Direct Expenses</li>
+                    <li>Purchase landed cost calculation and allocation mastered</li>
+                    <li>Bill of Materials (BOM) created for finished items</li>
+                    <li>Manufacturing stock journals executed for material consumption</li>
+                    <li>Stock Summary and raw material balances verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

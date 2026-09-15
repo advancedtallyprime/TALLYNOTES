@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Core Concept</h2>
+                <p>Data corruption can occasionally occur due to abrupt power failure during voucher writing, improper network disconnection, or physical storage bad sectors. TallyPrime includes an internal <strong>Data Repair Utility</strong> that rebuilds corrupted indexing files and restores database integrity.</p>
+
+                <h2>2. Common Symptoms of Data Damage</h2>
+                <ul>
+                    <li>Error messages such as <em>"Memory access violation"</em>, <em>"Data file damaged"</em>, or <em>"Exiting TallyPrime"</em> upon opening a company.</li>
+                    <li>Discrepancies in Trial Balance totals with no corresponding unposted transactions.</li>
+                    <li>Negative cash or duplicate voucher numbers appearing after an unexpected system shutdown.</li>
+                </ul>
+
+                <h2>3. Step-by-Step Data Repair Procedure</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-wrench"></i> Navigation:</strong>
+                    Press <kbd>Alt + Y</kbd> (Data Menu) &rarr; Select <strong>Repair</strong>.
+                </div>
+
+                <ol>
+                    <li>Ensure all client systems have closed Tally in a multi-user LAN environment.</li>
+                    <li>Press <kbd>Alt + Y</kbd> &rarr; <strong>Repair</strong>.</li>
+                    <li>Select the damaged company (it may display status as <em>"Needs Repair"</em> or <em>"Damaged"</em>).</li>
+                    <li>Set <strong>Backup company data before repair?</strong> to <strong>Yes</strong> (Tally automatically backs up the file before touching it).</li>
+                    <li>Press <kbd>Enter</kbd> to initiate the repair scan.</li>
+                    <li>Tally scans data tables, repairs damaged pointers, rebuilds B-Tree indexing, and displays a success notification upon completion.</li>
+                </ol>
+
+                <h3>Advanced "Zero Data Rewrite" Shortcut:</h3>
+                <p>If the standard menu repair cannot fix deeply corrupted data, launch TallyPrime and press <kbd>Ctrl + Alt + R</kbd> from the Select Company screen to invoke the <strong>Forced Data Rewrite (Zero Repair)</strong>.</p>
+
+                <h2>4. Interview Questions & Answers</h2>
+                <h3>Q1. What is the shortcut key for Forced Rewrite / Repair in TallyPrime?</h3>
+                <p><strong>Ans:</strong> <kbd>Ctrl + Alt + R</kbd> from the Select Company screen.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <p>Data corruption can occasionally occur due to abrupt power failure during voucher writing, improper network disconnection, or physical storage bad sectors. TallyPrime includes an internal <strong>Data Repair Utility</strong> that rebuilds corrupted indexing files and restores database integrity.</p>
+
+                <h2>2. Common Symptoms of Data Damage</h2>
+                <ul>
+                    <li>Error messages such as <em>"Memory access violation"</em>, <em>"Data file damaged"</em>, or <em>"Exiting TallyPrime"</em> upon opening a company.</li>
+                    <li>Discrepancies in Trial Balance totals with no corresponding unposted transactions.</li>
+                    <li>Negative cash or duplicate voucher numbers appearing after an unexpected system shutdown.</li>
+                </ul>
+
+                <h2>3. Step-by-Step Data Repair Procedure</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-wrench"></i> Navigation:</strong>
+                    Press <kbd>Alt + Y</kbd> (Data Menu) &rarr; Select <strong>Repair</strong>.
+                </div>
+
+                <ol>
+                    <li>Ensure all client systems have closed Tally in a multi-user LAN environment.</li>
+                    <li>Press <kbd>Alt + Y</kbd> &rarr; <strong>Repair</strong>.</li>
+                    <li>Select the damaged company (it may display status as <em>"Needs Repair"</em> or <em>"Damaged"</em>).</li>
+                    <li>Set <strong>Backup company data before repair?</strong> to <strong>Yes</strong> (Tally automatically backs up the file before touching it).</li>
+                    <li>Press <kbd>Enter</kbd> to initiate the repair scan.</li>
+                    <li>Tally scans data tables, repairs damaged pointers, rebuilds B-Tree indexing, and displays a success notification upon completion.</li>
+                </ol>
+
+                <h3>Advanced "Zero Data Rewrite" Shortcut:</h3>
+                <p>If the standard menu repair cannot fix deeply corrupted data, launch TallyPrime and press <kbd>Ctrl + Alt + R</kbd> from the Select Company screen to invoke the <strong>Forced Data Rewrite (Zero Repair)</strong>.</p>
+
+                <h2>4. Interview Questions & Answers</h2>
+                <h3>Q1. What is the shortcut key for Forced Rewrite / Repair in TallyPrime?</h3>
+                <p><strong>Ans:</strong> <kbd>Ctrl + Alt + R</kbd> from the Select Company screen.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

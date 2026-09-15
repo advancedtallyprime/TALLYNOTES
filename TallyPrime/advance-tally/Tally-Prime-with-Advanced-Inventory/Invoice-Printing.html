@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 12 — Invoice Printing in TallyPrime</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle">Day 12 — Invoice Printing in TallyPrime</h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Invoice printing ka exact purpofrom and accounting data from uska relation samjhega.</li>
+                    <li>Sales and Purchafrom invoices ko correctly print and preview karega.</li>
+                    <li>Invoice printing configuration master karega (Company details, Buyer info, HSN/SAC, GST breakup).</li>
+                    <li>Discount, Tax calculation, and Grand Totals ko professional layout in print karwayega.</li>
+                    <li>Multiple copies, Company Logo, Bank Details, Terms & Conditions, and Authorised Signatory add karega.</li>
+                    <li>Print Preview and Final Print ke beech ka difference identify karega.</li>
+                    <li>PDF / Digital Export based invoice sharing workflow perform karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Invoice Printing vs Print Configuration</h2>
+                <p>Accounting software in voucher enter karna only first step is. Customer or vendor ko formal legal document provide karne ke liye invoice ko physical print, preview, or digital PDF export ke zariye share kior jata hai:</p>
+
+                <ul>
+                    <div><strong>Invoice Printing:</strong> Save kiye gaye sales or purchafrom voucher ko printer or file format in render karna.</div>
+                    <div><strong>Print Configuration:</strong> Yeh define karna ki printed document par kaunsi fields appear hongi, kitni copies print hongi, and layout kaisa dikhega.</div>
+                </ul>
+
+                <h3>Comparison &amp; Structure Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Accounting Voucher Data</th>
+                            <th>Print Configuration / Layout</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Primary Focus</th>
+                            <td>Financial debit/credit entry &amp; tax ledgers</td>
+                            <td>Visual presentation &amp; statutory disclosures</td>
+                        </tr>
+                        <tr>
+                            <th>Data Storage</th>
+                            <td>Stored permanently in databafrom books</td>
+                            <td>Applied dynamically during output rendering</td>
+                        </tr>
+                        <tr>
+                            <th>Customization</th>
+                            <td>Modified via voucher alteration</td>
+                            <td>Controlled via Print Settings (F12 / Configuration)</td>
+                        </tr>
+                        <tr>
+                            <th>Impact of Hiding Field</th>
+                            <td>Data remains safe in ledger books</td>
+                            <td>Field becomes invisible on printed hardcopy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Invoice Rule:</strong><br>
+                    <strong>Voucher Entry &ne; Final Printed Invoice</strong><br>
+                    Print configuration change karne from accounting ledger data modify nahi hota; yeh only output layout ko alter karta is. Hamesha final print dene from pehle <strong>Print Preview</strong> check execute.
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Company Setup &amp; Customer Masters</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>GST:</strong> Enabled</li>
+                </ul>
+
+                <h3>Required Master Setup:</h3>
+                <ul>
+                    <li><strong>Customer Master:</strong> Reliance Retail Store (Sundry Debtors, State: <em>Maharashtra</em>, Registration: <em>Regular</em>, Valid Practice GSTIN configured).</li>
+                    <li><strong>Stock Items:</strong> Keyboard (₹1,000, 18% GST), Moufrom (₹500, 18% GST), Monitor (₹10,000, 18% GST).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Simple Printing &amp; Configuration</h2>
+
+                <h3>Part A: Simple Sales Invoice Printing (Practical 1 &amp; 2)</h3>
+                <ol>
+                    <li><strong>Recording Sale:</strong> Pass Sales Voucher (F8) &rarr; Party: <code>Reliance Retail Store</code> &rarr; Keyboard (2 &times; ₹1,000) + Moufrom (2 &times; ₹500) = Taxable Value ₹3,000 + GST 18% (CGST ₹270 + SGST ₹270) = <strong>Invoice Total ₹3,540</strong>. Save voucher.</li>
+                    <li><strong>Print Preview:</strong> Press <strong>Ctrl + P</strong> (or Print option) &rarr; Select <em>Preview</em> to inspect header details, customer address, HSN codes, and tax breakdowns before committing to paper.</li>
+                </ol>
+
+                <h3>Part B: Professional Invoice Layout Configuration</h3>
+                <ol>
+                    <li><strong>Company Logo &amp; Bank Details:</strong> Enable company logo path in company features and include HDFC Bank collection details in the invoice footer.</li>
+                    <li><strong>Terms &amp; Conditions:</strong> Add standard commercial clauses (e.g., <em>"Goods once sold will be subject to company return policy."</em>).</li>
+                    <li><strong>Multiple Copies:</strong> Configure print settings to generate 2 copies automatically (<em>Original for Recipient</em> and <em>Duplicate for Transporter/Supplier</em>).</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Professional GST Invoice Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice Ref</th>
+                            <th>Customer Name</th>
+                            <th>Items &amp; Quantities</th>
+                            <th>Discount (₹)</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>GST @ 18% (₹)</th>
+                            <th>Invoice Total (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>INV-001</td>
+                            <td>Reliance Retail Store</td>
+                            <td>2 Keyboards + 2 Mouse</td>
+                            <td>0</td>
+                            <td>3,000</td>
+                            <td>540</td>
+                            <td>3,540</td>
+                        </tr>
+                        <tr>
+                            <td>INV-002</td>
+                            <td>Metro Office Solutions</td>
+                            <td>10 Keyboards + 10 Moufrom + 5 Monitors</td>
+                            <td>5,000</td>
+                            <td>67,000</td>
+                            <td>12,060</td>
+                            <td>79,060</td>
+                        </tr>
+                        <tr>
+                            <td>POS-011</td>
+                            <td>Walk-in Retail Customer</td>
+                            <td>2 Keyboards (Cash POS)</td>
+                            <td>0</td>
+                            <td>2,000</td>
+                            <td>360</td>
+                            <td>2,360</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Print Quality Verification Checklist:</h3>
+                <ul>
+                    <li><strong>Header:</strong> Company Trade Name, Complete Address, Valid 15-digit GSTIN, and Logo proportions.</li>
+                    <li><strong>Buyer Section:</strong> Customer Legal Name, Billing Address, State Code, and GSTIN.</li>
+                    <li><strong>Item Table:</strong> Correct Item Descriptions, HSN/SAC codes, Quantities, Rates, and Line Discounts.</li>
+                    <li><strong>Tax Breakup:</strong> Accurate separation of CGST, SGST, or IGST rates and monetary amounts.</li>
+                    <li><strong>Footer:</strong> Bank Account details, Terms &amp; Conditions, and Authorised Signatory box.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Printing and dispatching invoices directly without reviewing the <strong>Print Preview</strong> screen for formatting overflows.</li>
+                    <li>Failing to configure HSN/SAC codes in stock item masters, resulting in blank HSN columns on tax invoices.</li>
+                    <li>Confusing multiple printed copies with duplicate accounting voucher entries in TallyPrime.</li>
+                    <li>Using oversized image files for company logos, distorting the invoice header layout.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <div><strong>Q: Kor print configuration change karne from accounting entry modify ho jaati hai?</strong><br>A: Nahi, print settings only visual layout and output fields ko control karti hain; underlying financial ledger data safe rehta is.</div>
+                    <div><strong>Q: HSN code print nahi ho raha hai, iska kor karan ho sakta hai?</strong><br>A: Stock item master in HSN code missing ho sakta hai, or print configuration in HSN display option disabled ho sakta is.</div>
+                    <div><strong>Q: Kor TallyPrime from invoice ko direct PDF format in export kior ja sakta hai?</strong><br>A: Haan, Alt + E (Export) or Print screen ke zariye digital PDF format in output save karke email or WhatsApp par share kior ja sakta is.</div>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Invoice Printing Golden Workflow:</strong><br>
+                    <code>Record Sales Voucher (F8) &rarr; Configure Print Options (F12 / Layout) &rarr; Check Print Preview (Ctrl+P) &rarr; Verify HSN, GST Breakup &amp; Totals &rarr; Print Hardcopy / Export Digital PDF</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Invoice printing vs configuration concepts mastered</li>
+                    <li>Sales and POS invoices successfully recorded and printed</li>
+                    <li>Company logo, bank details, and terms &amp; conditions configured in footer</li>
+                    <li>HSN codes and CGST/SGST tax breakups verified on print layouts</li>
+                    <li>Multiple copies and PDF digital export workflows executed</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 12 ke end tak student:</p>
+                <ul>
+                    <li>Invoice printing ka exact purpose aur accounting data se uska relation samjhega.</li>
+                    <li>Sales aur Purchase invoices ko correctly print aur preview karega.</li>
+                    <li>Invoice printing configuration master karega (Company details, Buyer info, HSN/SAC, GST breakup).</li>
+                    <li>Discount, Tax calculation, aur Grand Totals ko professional layout mein print karwayega.</li>
+                    <li>Multiple copies, Company Logo, Bank Details, Terms & Conditions, aur Authorised Signatory add karega.</li>
+                    <li>Print Preview aur Final Print ke beech ka difference identify karega.</li>
+                    <li>PDF / Digital Export based invoice sharing workflow perform karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Invoice Printing vs Print Configuration</h2>
+                <p>Accounting software mein voucher enter karna sirf first step hai. Customer ya vendor ko formal legal document provide karne ke liye invoice ko physical print, preview, ya digital PDF export ke zariye share kiya jata hai:</p>
+
+                <ul>
+                    <div><strong>Invoice Printing:</strong> Save kiye gaye sales ya purchase voucher ko printer ya file format mein render karna.</div>
+                    <div><strong>Print Configuration:</strong> Yeh define karna ki printed document par kaunsi fields appear hongi, kitni copies print hongi, aur layout kaisa dikhega.</div>
+                </ul>
+
+                <h3>Comparison &amp; Structure Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Accounting Voucher Data</th>
+                            <th>Print Configuration / Layout</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Primary Focus</th>
+                            <td>Financial debit/credit entry &amp; tax ledgers</td>
+                            <td>Visual presentation &amp; statutory disclosures</td>
+                        </tr>
+                        <tr>
+                            <th>Data Storage</th>
+                            <td>Stored permanently in database books</td>
+                            <td>Applied dynamically during output rendering</td>
+                        </tr>
+                        <tr>
+                            <th>Customization</th>
+                            <td>Modified via voucher alteration</td>
+                            <td>Controlled via Print Settings (F12 / Configuration)</td>
+                        </tr>
+                        <tr>
+                            <th>Impact of Hiding Field</th>
+                            <td>Data remains safe in ledger books</td>
+                            <td>Field becomes invisible on printed hardcopy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Invoice Rule:</strong><br>
+                    <strong>Voucher Entry &ne; Final Printed Invoice</strong><br>
+                    Print configuration change karne se accounting ledger data modify nahi hota; yeh sirf output layout ko alter karta hai. Hamesha final print dene se pehle <strong>Print Preview</strong> check karein.
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Company Setup &amp; Customer Masters</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>GST:</strong> Enabled</li>
+                </ul>
+
+                <h3>Required Master Setup:</h3>
+                <ul>
+                    <li><strong>Customer Master:</strong> Reliance Retail Store (Sundry Debtors, State: <em>Maharashtra</em>, Registration: <em>Regular</em>, Valid Practice GSTIN configured).</li>
+                    <li><strong>Stock Items:</strong> Keyboard (₹1,000, 18% GST), Mouse (₹500, 18% GST), Monitor (₹10,000, 18% GST).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Simple Printing &amp; Configuration</h2>
+
+                <h3>Part A: Simple Sales Invoice Printing (Practical 1 &amp; 2)</h3>
+                <ol>
+                    <li><strong>Recording Sale:</strong> Pass Sales Voucher (F8) &rarr; Party: <code>Reliance Retail Store</code> &rarr; Keyboard (2 &times; ₹1,000) + Mouse (2 &times; ₹500) = Taxable Value ₹3,000 + GST 18% (CGST ₹270 + SGST ₹270) = <strong>Invoice Total ₹3,540</strong>. Save voucher.</li>
+                    <li><strong>Print Preview:</strong> Press <strong>Ctrl + P</strong> (or Print option) &rarr; Select <em>Preview</em> to inspect header details, customer address, HSN codes, and tax breakdowns before committing to paper.</li>
+                </ol>
+
+                <h3>Part B: Professional Invoice Layout Configuration</h3>
+                <ol>
+                    <li><strong>Company Logo &amp; Bank Details:</strong> Enable company logo path in company features and include HDFC Bank collection details in the invoice footer.</li>
+                    <li><strong>Terms &amp; Conditions:</strong> Add standard commercial clauses (e.g., <em>"Goods once sold will be subject to company return policy."</em>).</li>
+                    <li><strong>Multiple Copies:</strong> Configure print settings to generate 2 copies automatically (<em>Original for Recipient</em> and <em>Duplicate for Transporter/Supplier</em>).</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Professional GST Invoice Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice Ref</th>
+                            <th>Customer Name</th>
+                            <th>Items &amp; Quantities</th>
+                            <th>Discount (₹)</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>GST @ 18% (₹)</th>
+                            <th>Invoice Total (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>INV-001</td>
+                            <td>Reliance Retail Store</td>
+                            <td>2 Keyboards + 2 Mouse</td>
+                            <td>0</td>
+                            <td>3,000</td>
+                            <td>540</td>
+                            <td>3,540</td>
+                        </tr>
+                        <tr>
+                            <td>INV-002</td>
+                            <td>Metro Office Solutions</td>
+                            <td>10 Keyboards + 10 Mouse + 5 Monitors</td>
+                            <td>5,000</td>
+                            <td>67,000</td>
+                            <td>12,060</td>
+                            <td>79,060</td>
+                        </tr>
+                        <tr>
+                            <td>POS-011</td>
+                            <td>Walk-in Retail Customer</td>
+                            <td>2 Keyboards (Cash POS)</td>
+                            <td>0</td>
+                            <td>2,000</td>
+                            <td>360</td>
+                            <td>2,360</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Print Quality Verification Checklist:</h3>
+                <ul>
+                    <li><strong>Header:</strong> Company Trade Name, Complete Address, Valid 15-digit GSTIN, and Logo proportions.</li>
+                    <li><strong>Buyer Section:</strong> Customer Legal Name, Billing Address, State Code, and GSTIN.</li>
+                    <li><strong>Item Table:</strong> Correct Item Descriptions, HSN/SAC codes, Quantities, Rates, and Line Discounts.</li>
+                    <li><strong>Tax Breakup:</strong> Accurate separation of CGST, SGST, or IGST rates and monetary amounts.</li>
+                    <li><strong>Footer:</strong> Bank Account details, Terms &amp; Conditions, and Authorised Signatory box.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Printing and dispatching invoices directly without reviewing the <strong>Print Preview</strong> screen for formatting overflows.</li>
+                    <li>Failing to configure HSN/SAC codes in stock item masters, resulting in blank HSN columns on tax invoices.</li>
+                    <li>Confusing multiple printed copies with duplicate accounting voucher entries in TallyPrime.</li>
+                    <li>Using oversized image files for company logos, distorting the invoice header layout.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <div><strong>Q: Kya print configuration change karne se accounting entry modify ho jaati hai?</strong><br>A: Nahi, print settings sirf visual layout aur output fields ko control karti hain; underlying financial ledger data safe rehta hai.</div>
+                    <div><strong>Q: HSN code print nahi ho raha hai, iska kya karan ho sakta hai?</strong><br>A: Stock item master mein HSN code missing ho sakta hai, ya print configuration mein HSN display option disabled ho sakta hai.</div>
+                    <div><strong>Q: Kya TallyPrime se invoice ko direct PDF format mein export kiya ja sakta hai?</strong><br>A: Haan, Alt + E (Export) ya Print screen ke zariye digital PDF format mein output save karke email ya WhatsApp par share kiya ja sakta hai.</div>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Invoice Printing Golden Workflow:</strong><br>
+                    <code>Record Sales Voucher (F8) &rarr; Configure Print Options (F12 / Layout) &rarr; Check Print Preview (Ctrl+P) &rarr; Verify HSN, GST Breakup &amp; Totals &rarr; Print Hardcopy / Export Digital PDF</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Invoice printing vs configuration concepts mastered</li>
+                    <li>Sales and POS invoices successfully recorded and printed</li>
+                    <li>Company logo, bank details, and terms &amp; conditions configured in footer</li>
+                    <li>HSN codes and CGST/SGST tax breakups verified on print layouts</li>
+                    <li>Multiple copies and PDF digital export workflows executed</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

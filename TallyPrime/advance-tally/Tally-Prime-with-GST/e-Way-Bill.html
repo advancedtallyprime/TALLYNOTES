@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical lab ke end tak student:</p>
+                <ul>
+                    <li>Understand the core principles and concepts of E-Way Bill.</li>
+                    <li>E-Way Bill applicability identify karega.</li>
+                    <li>Understand the operational differences between Invoice and E-Way Bill.</li>
+                    <li>Part-A and Part-B samjhega.</li>
+                    <li>TallyPrime in E-Way Bill enable karega.</li>
+                    <li>Understand the core principles and concepts of E-Way Bill portal/API setup.</li>
+                    <li>Local and interstate transaction ke liye E-Way Bill details enter karega.</li>
+                    <li>Sales invoice from E-Way Bill generate karega.</li>
+                    <li>Purchafrom transaction ke liye E-Way Bill handle karega.</li>
+                    <li>Delivery Note from E-Way Bill generate karega.</li>
+                    <li>Stock/branch transfer ka E-Way Bill practice karega.</li>
+                    <li>Transporter details maintain karega.</li>
+                    <li>Vehicle number update karega.</li>
+                    <li>E-Way Bill cancel karega.</li>
+                    <li>Verify E-Way Bill report in management and statutory tax reports.</li>
+                    <li>Offline E-Way Bill JSON export karega.</li>
+                    <li>Bulk E-Way Bill generation ka workflow practice karega.</li>
+                    <li>Common E-Way Bill errors troubleshoot karega.</li>
+                </ul>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode E-Way Bill Simulation:</strong>
+                    <ul>
+                        <li>Set <em>Provide E-Way Bill Details</em> = <code>Yes</code> in sales invoice (<kbd>F8</kbd>).</li>
+                        <li>Enter Transporter ID and Vehicle Number.</li>
+                        <li>When Tally prompts <em>Generate e-Way Bill now?</em>, in Educational Mode click <strong>Export JSON</strong>.</li>
+                        <li>Tally exports the standard official JSON data file without needing a paid API connection!</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>Core Concept: Invoice vs E-Way Bill &amp; Parts</h2>
+                
+                <p><strong>E-Way Bill:</strong> Goods movement ke liye electronic document hai jo GST compliance ke antargat specific value threshold ke upar transport hone wale goods ke liye generate kior jata is.</p>
+
+                <h3>Invoice vs E-Way Bill Comparison</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Tax Invoice</th>
+                            <th>E-Way Bill</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Main Purpose</td>
+                            <td>Supply / Accounting documentation</td>
+                            <td>Goods movement authentication</td>
+                        </tr>
+                        <tr>
+                            <td>GST Calculation</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Goods Details</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Transport Details</td>
+                            <td>Limited / Optional</td>
+                            <td>Mandatory</td>
+                        </tr>
+                        <tr>
+                            <td>Vehicle Details</td>
+                            <td>Not always</td>
+                            <td>Mandatory in Part-B</td>
+                        </tr>
+                        <tr>
+                            <td>EWB Number</td>
+                            <td>No</td>
+                            <td>Yes (12-digit unique number)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Rule:</strong><br>
+                    <strong>Tax Invoice</strong> supply ko document karta hai; <strong>E-Way Bill</strong> goods ke physical movement ko authenticate karta is.
+                </blockquote>
+
+                <h3>E-Way Bill ke Main Components</h3>
+                <ul>
+                    <li><strong>Part-A:</strong> Supplier &amp; Recipient GSTIN, Dispatch From &amp; Ship To address, Invoice N&amp; Date, Value of Goods, HSN Code, and Tax details.</li>
+                    <li><strong>Part-B:</strong> Transporter Name &amp; ID, Mode of Transport (Road/Rail/Air/Ship), Vehicle Number, Document/LR Number, and Approximate Distance (KM).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Company &amp; Masters Configuration</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Local Customer:</strong> Mumbai Retail Pvt Ltd (Sundry Debtors, Maharashtra)</li>
+                    <li><strong>Interstate Customer:</strong> Gujarat Electronics Pvt Ltd (Sundry Debtors, Gujarat)</li>
+                    <li><strong>Transporter:</strong> FastTrack Logistics (Sundry Creditors / Transporter ID)</li>
+                    <li><strong>Stock Item:</strong> LED Monitor (Unit: <em>Nos</em>, GST @ 18%, Opening: 100 Nos @ ₹8,000 = ₹8,00,000)</li>
+                </ul>
+
+                <h3>E-Way Bill Feature Activation in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) &rarr; Set <strong>Enable Goods and Services Tax (GST)</strong> to <strong>Yes</strong>.</li>
+                    <li>In GST Details screen:
+                        <ul>
+                            <li>Set <strong>e-Way Bill applicable</strong> to <strong>Yes</strong>.</li>
+                            <li>Enter <strong>Applicable from</strong> date.</li>
+                            <li>Set <strong>Threshold limit includes:</strong> <em>Invoice value</em>.</li>
+                            <li><strong>Threshold limit for intrastate:</strong> ₹50,000.</li>
+                            <li><strong>Threshold limit for interstate:</strong> ₹50,000.</li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Practical Walkthroughs in TallyPrime</h2>
+
+                <h3>Practical 1 &mdash; Local Sales with E-Way Bill (F8: Sales)</h3>
+                <p><strong>01-Aug-2026:</strong> Sold 20 Nos LED Monitors @ ₹5,000 to Mumbai Retail Pvt Ltd (Local).</p>
+                <ul>
+                    <li>Taxable Value = ₹1,00,000 | CGST @ 9% = ₹9,000 | SGST @ 9% = ₹9,000 | Invoice Total = <strong>₹1,18,000</strong></li>
+                    <li><strong>E-Way Bill Details (Ctrl + I &rarr; e-Way Bill Details):</strong> Dispatch From: <em>ABC Traders</em> | Ship To: <em>Mumbai Retail Pvt Ltd</em> | Mode: <em>Road</em> | Distance: <em>100 KM</em> | Transporter: <em>FastTrack Logistics</em> | Vehicle No.: <em>MH12AB1234</em>.</li>
+                    <li>Save voucher &rarr; Online E-Way Bill prompt: <strong>Yes</strong> &rarr; TallyPrime fetches and prints the 12-digit E-Way Bill number!</li>
+                </ul>
+
+                <h3>Practical 2 &mdash; Interstate Sales with E-Way Bill (F8: Sales)</h3>
+                <p><strong>05-Aug-2026:</strong> Sold 40 Nos LED Monitors @ ₹5,000 to Gujarat Electronics Pvt Ltd (Interstate).</p>
+                <ul>
+                    <li>Taxable Value = ₹2,00,000 | IGST @ 18% = ₹36,000 | Invoice Total = <strong>₹2,36,000</strong></li>
+                    <li><strong>E-Way Bill Details:</strong> Mode: <em>Road</em> | Distance: <em>550 KM</em> | Transporter: <em>FastTrack Logistics</em> | Vehicle No.: <em>GJ01CD5678</em>.</li>
+                    <li>Save voucher and generate interstate E-Way Bill online.</li>
+                </ul>
+
+                <h3>Practical 3 &mdash; Purchafrom / Inward Supply E-Way Bill (F9: Purchase)</h3>
+                <p><strong>08-Aug-2026:</strong> Purchased goods worth ₹1,50,000 + 18% IGST (₹27,000) = ₹1,77,000 from Gujarat Supplier.</p>
+                <ul>
+                    <li>Provide transporter details and Vehicle N<code>GJ01EF4567</code> (Distance: 500 KM) inside the Purchafrom Voucher to track inward movement.</li>
+                </ul>
+
+                <h3>Practical 4 &mdash; Delivery Note &amp; Branch Stock Transfer</h3>
+                <ul>
+                    <li><strong>Delivery Note (Alt + F9):</strong> Customer dispatch before sales invoicing (e.g., 10 LED Monitors to AhmedabadE-Way Bill is generated directly through the Delivery Note voucher.</li>
+                    <li><strong>Branch Transfer:</strong> Transferring 10 Nos LED Monitors (₹80,000) from Mumbai Warehoufrom to Pune WarehousRecord via Delivery Note with transport details to generate an internal stock-transfer E-Way Bill.</li>
+                </ul>
+
+                <hr>
+
+                <h2>E-Way Bill Lifecycle Management (Update, Cancel &amp; Offline Export)</h2>
+
+                <h3>Updating Vehicle Number / Part-B:</h3>
+                <ol>
+                    <li>If a vehicle breaks down or transshipment occurs, open <strong>e-Way Bill Report</strong>.</li>
+                    <li>Select the transaction &rarr; Press <strong>Update Part-B</strong>.</li>
+                    <li>Enter New Vehicle N(e.g., <code>MH14XY9876</code>) and Reason for Change.</li>
+                    <li>Send/upload update to portal.</li>
+                </ol>
+
+                <h3>Cancelling an Incorrect E-Way Bill:</h3>
+                <blockquote>
+                    <strong>Important Rule:</strong><br>
+                    Ek baar generate hua E-Way Bill <strong>edit nahi kior ja sakta</strongAgar details galat enter ho jayein, toh ufrom portal/Tally from <strong>Cancel</strong> karke fresh E-Way Bill generate karna padta is.
+                </blockquote>
+
+                <h3>Offline Bulk Generation via JSON Export:</h3>
+                <ol>
+                    <li>Go to <strong>Alt + Z (Exchange)</strong> &rarr; <strong>Send for e-Way Bill</strong>.</li>
+                    <li>Select pending transactions using <strong>Spacebar</strong>.</li>
+                    <li>Press <strong>X (Offline Export)</strong> to export the data into a <strong>JSON file</strong>.</li>
+                    <li>Login to <code>ewaybillgst.gov.in</code> &rarr; <em>e-Way Bill &rarr; Generate Bulk</em> &rarr; Upload JSON file.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Sequential Lab)</h3>
+                <ol>
+                    <li><strong>01-Aug:</strong> Local sale ₹60,000 to Mumbai Retail (Vehicle: <code>MH12AB1234</code>, Distance: 80 KM).</li>
+                    <li><strong>03-Aug:</strong> Interstate sale ₹1,00,000 to Gujarat Electronics (Vehicle: <code>GJ01AB1234</code>, Distance: 500 KM).</li>
+                    <li><strong>05-Aug:</strong> Interstate sale ₹2,00,000 to Delhi Electronics (Vehicle: <code>DL01AB9876</code>, Distance: 1,400 KM).</li>
+                    <li><strong>08-Aug:</strong> Inward purchafrom ₹1,50,000 from Gujarat Supplier (Vehicle: <code>GJ05XY4567</code>).</li>
+                    <li><strong>01-Aug:</strong> Delivery Note for 10 Nos LED Monitors (₹80,000) dispatched to Pune.</li>
+                    <li><strong>02-Aug:</strong> Stock transfer ₹90,000 from Mumbai to Pune Warehouse.</li>
+                    <li><strong>02-Aug:</strong> Sale of ₹1,20,000 &rarr; Update vehicle from <code>MH14CD5678</code> to <code>MH12XY9876</code>.</li>
+                    <li><strong>31-Aug:</strong> Generated wrong E-Way Bill &rarr; Practice Cancellation and Regeneration workflow.</li>
+                </ol>
+
+                <h3>Bulk Invoicing Practice Schedule:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice No.</th>
+                            <th>Invoice Value (₹)</th>
+                            <th>Supply Type</th>
+                            <th>Destination</th>
+                            <th>E-Way Bill Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>INV-001</td>
+                            <td>80,000</td>
+                            <td>Local</td>
+                            <td>Thane</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-002</td>
+                            <td>1,20,000</td>
+                            <td>Interstate</td>
+                            <td>Surat</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-003</td>
+                            <td>75,000</td>
+                            <td>Local</td>
+                            <td>Nashik</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-004</td>
+                            <td>2,00,000</td>
+                            <td>Interstate</td>
+                            <td>Ahmedabad</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-005</td>
+                            <td>90,000</td>
+                            <td>Local</td>
+                            <td>Pune</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-006</td>
+                            <td>1,50,000</td>
+                            <td>Interstate</td>
+                            <td>Jaipur</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-007</td>
+                            <td>65,000</td>
+                            <td>Local</td>
+                            <td>Nagpur</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-008</td>
+                            <td>1,80,000</td>
+                            <td>Interstate</td>
+                            <td>Delhi</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-009</td>
+                            <td>1,10,000</td>
+                            <td>Local</td>
+                            <td>Kolhapur</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-010</td>
+                            <td>2,50,000</td>
+                            <td>Interstate</td>
+                            <td>Bangalore</td>
+                            <td>Generated</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Troubleshooting &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>e-Way Bill Report (Alt + G &rarr; e-Way Bill):</strong> Displays Pending for Generation, Generated, Part-B Pending, Rejected, and Cancelled lists.</li>
+                    <li><strong>GST Tax Analysis (Ctrl + O):</strong> Verify taxable values, HSN codes, and tax rates prior to generation.</li>
+                    <li><strong>Sales Register:</strong> Ensure E-Way Bill number and QR code print on the tax invoice.</li>
+                </ul>
+
+                <h3>Common Troubleshooting Errors:</h3>
+                <ul>
+                    <li><strong>Invalid GSTIN / Pin Code Mismatch:</strong> Recipient ka Pin code and State match hona mandatory is.</li>
+                    <li><strong>Part-B Pending:</strong> E-Way Bill tab tak fully valid nahi hota jab tak Vehicle Number or Transporter Doc Nenter na ho.</li>
+                    <li><strong>Attempting to Edit Generated EWB:</strong> Always cancel and re-generate instead of modifying the invoice number.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: E-Way Bill kis transactions par mandatory hai?</strong><br>A: Consignment value ₹50,000 from zyada hone par goods ke transport movement ke liye mandatory is.</li>
+                    <li><strong>Q: Kor services ke liye E-Way Bill generate is?</strong><br>A: Nahi, E-Way Bill only physical goods ke movement ke liye is.</li>
+                    <li><strong>Q: Vehicle breakdown hone par kor execute?</strong><br>A: E-Way Bill report in jakar <strong>Update Part-B</strong> option from new vehicle number update execute.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>E-Way Bill Golden Workflow:</strong><br>
+                    <code>Create Invoice / Delivery Note &rarr; Enter Transport &amp; Vehicle Details &rarr; Save Voucher &rarr; Generate E-Way Bill Online / Offline JSON &rarr; Verify 12-Digit EWB Number &rarr; Reconcile Report</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>E-Way Bill feature and threshold limits configured</li>
+                    <li>Party GSTINs, Pin Codes, and Transporter IDs setup</li>
+                    <li>Local &amp; Interstate Sales E-Way Bills generated</li>
+                    <li>Purchafrom and Delivery Note movement E-Way Bills recorded</li>
+                    <li>Part-B vehicle updates executed</li>
+                    <li>E-Way Bill cancellation and offline bulk JSON export completed</li>
+                    <li>E-Way Bill reports reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical lab ke end tak student:</p>
+                <ul>
+                    <li>E-Way Bill ka concept samjhega.</li>
+                    <li>E-Way Bill applicability identify karega.</li>
+                    <li>Invoice aur E-Way Bill ka difference samjhega.</li>
+                    <li>Part-A aur Part-B samjhega.</li>
+                    <li>TallyPrime mein E-Way Bill enable karega.</li>
+                    <li>E-Way Bill portal/API setup ka concept samjhega.</li>
+                    <li>Local aur interstate transaction ke liye E-Way Bill details enter karega.</li>
+                    <li>Sales invoice se E-Way Bill generate karega.</li>
+                    <li>Purchase transaction ke liye E-Way Bill handle karega.</li>
+                    <li>Delivery Note se E-Way Bill generate karega.</li>
+                    <li>Stock/branch transfer ka E-Way Bill practice karega.</li>
+                    <li>Transporter details maintain karega.</li>
+                    <li>Vehicle number update karega.</li>
+                    <li>E-Way Bill cancel karega.</li>
+                    <li>E-Way Bill report verify karega.</li>
+                    <li>Offline E-Way Bill JSON export karega.</li>
+                    <li>Bulk E-Way Bill generation ka workflow practice karega.</li>
+                    <li>Common E-Way Bill errors troubleshoot karega.</li>
+                </ul>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode E-Way Bill Simulation:</strong>
+                    <ul>
+                        <li>Set <em>Provide E-Way Bill Details</em> = <code>Yes</code> in sales invoice (<kbd>F8</kbd>).</li>
+                        <li>Enter Transporter ID and Vehicle Number.</li>
+                        <li>When Tally prompts <em>Generate e-Way Bill now?</em>, in Educational Mode click <strong>Export JSON</strong>.</li>
+                        <li>Tally exports the standard official JSON data file without needing a paid API connection!</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>Core Concept: Invoice vs E-Way Bill &amp; Parts</h2>
+                
+                <p><strong>E-Way Bill:</strong> Goods movement ke liye electronic document hai jo GST compliance ke antargat specific value threshold ke upar transport hone wale goods ke liye generate kiya jata hai.</p>
+
+                <h3>Invoice vs E-Way Bill Comparison</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Tax Invoice</th>
+                            <th>E-Way Bill</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Main Purpose</td>
+                            <td>Supply / Accounting documentation</td>
+                            <td>Goods movement authentication</td>
+                        </tr>
+                        <tr>
+                            <td>GST Calculation</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Goods Details</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Transport Details</td>
+                            <td>Limited / Optional</td>
+                            <td>Mandatory</td>
+                        </tr>
+                        <tr>
+                            <td>Vehicle Details</td>
+                            <td>Not always</td>
+                            <td>Mandatory in Part-B</td>
+                        </tr>
+                        <tr>
+                            <td>EWB Number</td>
+                            <td>No</td>
+                            <td>Yes (12-digit unique number)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Rule:</strong><br>
+                    <strong>Tax Invoice</strong> supply ko document karta hai; <strong>E-Way Bill</strong> goods ke physical movement ko authenticate karta hai.
+                </blockquote>
+
+                <h3>E-Way Bill ke Main Components</h3>
+                <ul>
+                    <li><strong>Part-A:</strong> Supplier &amp; Recipient GSTIN, Dispatch From &amp; Ship To address, Invoice N&amp; Date, Value of Goods, HSN Code, aur Tax details.</li>
+                    <li><strong>Part-B:</strong> Transporter Name &amp; ID, Mode of Transport (Road/Rail/Air/Ship), Vehicle Number, Document/LR Number, aur Approximate Distance (KM).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Company &amp; Masters Configuration</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Local Customer:</strong> Mumbai Retail Pvt Ltd (Sundry Debtors, Maharashtra)</li>
+                    <li><strong>Interstate Customer:</strong> Gujarat Electronics Pvt Ltd (Sundry Debtors, Gujarat)</li>
+                    <li><strong>Transporter:</strong> FastTrack Logistics (Sundry Creditors / Transporter ID)</li>
+                    <li><strong>Stock Item:</strong> LED Monitor (Unit: <em>Nos</em>, GST @ 18%, Opening: 100 Nos @ ₹8,000 = ₹8,00,000)</li>
+                </ul>
+
+                <h3>E-Way Bill Feature Activation in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) &rarr; Set <strong>Enable Goods and Services Tax (GST)</strong> to <strong>Yes</strong>.</li>
+                    <li>In GST Details screen:
+                        <ul>
+                            <li>Set <strong>e-Way Bill applicable</strong> to <strong>Yes</strong>.</li>
+                            <li>Enter <strong>Applicable from</strong> date.</li>
+                            <li>Set <strong>Threshold limit includes:</strong> <em>Invoice value</em>.</li>
+                            <li><strong>Threshold limit for intrastate:</strong> ₹50,000.</li>
+                            <li><strong>Threshold limit for interstate:</strong> ₹50,000.</li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Practical Walkthroughs in TallyPrime</h2>
+
+                <h3>Practical 1 &mdash; Local Sales with E-Way Bill (F8: Sales)</h3>
+                <p><strong>01-Aug-2026:</strong> Sold 20 Nos LED Monitors @ ₹5,000 to Mumbai Retail Pvt Ltd (Local).</p>
+                <ul>
+                    <li>Taxable Value = ₹1,00,000 | CGST @ 9% = ₹9,000 | SGST @ 9% = ₹9,000 | Invoice Total = <strong>₹1,18,000</strong></li>
+                    <li><strong>E-Way Bill Details (Ctrl + I &rarr; e-Way Bill Details):</strong> Dispatch From: <em>ABC Traders</em> | Ship To: <em>Mumbai Retail Pvt Ltd</em> | Mode: <em>Road</em> | Distance: <em>100 KM</em> | Transporter: <em>FastTrack Logistics</em> | Vehicle No.: <em>MH12AB1234</em>.</li>
+                    <li>Save voucher &rarr; Online E-Way Bill prompt: <strong>Yes</strong> &rarr; TallyPrime fetches and prints the 12-digit E-Way Bill number!</li>
+                </ul>
+
+                <h3>Practical 2 &mdash; Interstate Sales with E-Way Bill (F8: Sales)</h3>
+                <p><strong>05-Aug-2026:</strong> Sold 40 Nos LED Monitors @ ₹5,000 to Gujarat Electronics Pvt Ltd (Interstate).</p>
+                <ul>
+                    <li>Taxable Value = ₹2,00,000 | IGST @ 18% = ₹36,000 | Invoice Total = <strong>₹2,36,000</strong></li>
+                    <li><strong>E-Way Bill Details:</strong> Mode: <em>Road</em> | Distance: <em>550 KM</em> | Transporter: <em>FastTrack Logistics</em> | Vehicle No.: <em>GJ01CD5678</em>.</li>
+                    <li>Save voucher and generate interstate E-Way Bill online.</li>
+                </ul>
+
+                <h3>Practical 3 &mdash; Purchase / Inward Supply E-Way Bill (F9: Purchase)</h3>
+                <p><strong>08-Aug-2026:</strong> Purchased goods worth ₹1,50,000 + 18% IGST (₹27,000) = ₹1,77,000 from Gujarat Supplier.</p>
+                <ul>
+                    <li>Provide transporter details and Vehicle N<code>GJ01EF4567</code> (Distance: 500 KM) inside the Purchase Voucher to track inward movement.</li>
+                </ul>
+
+                <h3>Practical 4 &mdash; Delivery Note &amp; Branch Stock Transfer</h3>
+                <ul>
+                    <li><strong>Delivery Note (Alt + F9):</strong> Customer dispatch before sales invoicing (e.g., 10 LED Monitors to AhmedabadE-Way Bill is generated directly through the Delivery Note voucher.</li>
+                    <li><strong>Branch Transfer:</strong> Transferring 10 Nos LED Monitors (₹80,000) from Mumbai Warehouse to Pune WarehousRecord via Delivery Note with transport details to generate an internal stock-transfer E-Way Bill.</li>
+                </ul>
+
+                <hr>
+
+                <h2>E-Way Bill Lifecycle Management (Update, Cancel &amp; Offline Export)</h2>
+
+                <h3>Updating Vehicle Number / Part-B:</h3>
+                <ol>
+                    <li>If a vehicle breaks down or transshipment occurs, open <strong>e-Way Bill Report</strong>.</li>
+                    <li>Select the transaction &rarr; Press <strong>Update Part-B</strong>.</li>
+                    <li>Enter New Vehicle N(e.g., <code>MH14XY9876</code>) and Reason for Change.</li>
+                    <li>Send/upload update to portal.</li>
+                </ol>
+
+                <h3>Cancelling an Incorrect E-Way Bill:</h3>
+                <blockquote>
+                    <strong>Important Rule:</strong><br>
+                    Ek baar generate hua E-Way Bill <strong>edit nahi kiya ja sakta</strongAgar details galat enter ho jayein, toh use portal/Tally se <strong>Cancel</strong> karke fresh E-Way Bill generate karna padta hai.
+                </blockquote>
+
+                <h3>Offline Bulk Generation via JSON Export:</h3>
+                <ol>
+                    <li>Go to <strong>Alt + Z (Exchange)</strong> &rarr; <strong>Send for e-Way Bill</strong>.</li>
+                    <li>Select pending transactions using <strong>Spacebar</strong>.</li>
+                    <li>Press <strong>X (Offline Export)</strong> to export the data into a <strong>JSON file</strong>.</li>
+                    <li>Login to <code>ewaybillgst.gov.in</code> &rarr; <em>e-Way Bill &rarr; Generate Bulk</em> &rarr; Upload JSON file.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Sequential Lab)</h3>
+                <ol>
+                    <li><strong>01-Aug:</strong> Local sale ₹60,000 to Mumbai Retail (Vehicle: <code>MH12AB1234</code>, Distance: 80 KM).</li>
+                    <li><strong>03-Aug:</strong> Interstate sale ₹1,00,000 to Gujarat Electronics (Vehicle: <code>GJ01AB1234</code>, Distance: 500 KM).</li>
+                    <li><strong>05-Aug:</strong> Interstate sale ₹2,00,000 to Delhi Electronics (Vehicle: <code>DL01AB9876</code>, Distance: 1,400 KM).</li>
+                    <li><strong>08-Aug:</strong> Inward purchase ₹1,50,000 from Gujarat Supplier (Vehicle: <code>GJ05XY4567</code>).</li>
+                    <li><strong>01-Aug:</strong> Delivery Note for 10 Nos LED Monitors (₹80,000) dispatched to Pune.</li>
+                    <li><strong>02-Aug:</strong> Stock transfer ₹90,000 from Mumbai to Pune Warehouse.</li>
+                    <li><strong>02-Aug:</strong> Sale of ₹1,20,000 &rarr; Update vehicle from <code>MH14CD5678</code> to <code>MH12XY9876</code>.</li>
+                    <li><strong>31-Aug:</strong> Generated wrong E-Way Bill &rarr; Practice Cancellation and Regeneration workflow.</li>
+                </ol>
+
+                <h3>Bulk Invoicing Practice Schedule:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice No.</th>
+                            <th>Invoice Value (₹)</th>
+                            <th>Supply Type</th>
+                            <th>Destination</th>
+                            <th>E-Way Bill Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>INV-001</td>
+                            <td>80,000</td>
+                            <td>Local</td>
+                            <td>Thane</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-002</td>
+                            <td>1,20,000</td>
+                            <td>Interstate</td>
+                            <td>Surat</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-003</td>
+                            <td>75,000</td>
+                            <td>Local</td>
+                            <td>Nashik</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-004</td>
+                            <td>2,00,000</td>
+                            <td>Interstate</td>
+                            <td>Ahmedabad</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-005</td>
+                            <td>90,000</td>
+                            <td>Local</td>
+                            <td>Pune</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-006</td>
+                            <td>1,50,000</td>
+                            <td>Interstate</td>
+                            <td>Jaipur</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-007</td>
+                            <td>65,000</td>
+                            <td>Local</td>
+                            <td>Nagpur</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-008</td>
+                            <td>1,80,000</td>
+                            <td>Interstate</td>
+                            <td>Delhi</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-009</td>
+                            <td>1,10,000</td>
+                            <td>Local</td>
+                            <td>Kolhapur</td>
+                            <td>Generated</td>
+                        </tr>
+                        <tr>
+                            <td>INV-010</td>
+                            <td>2,50,000</td>
+                            <td>Interstate</td>
+                            <td>Bangalore</td>
+                            <td>Generated</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Troubleshooting &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>e-Way Bill Report (Alt + G &rarr; e-Way Bill):</strong> Displays Pending for Generation, Generated, Part-B Pending, Rejected, and Cancelled lists.</li>
+                    <li><strong>GST Tax Analysis (Ctrl + O):</strong> Verify taxable values, HSN codes, and tax rates prior to generation.</li>
+                    <li><strong>Sales Register:</strong> Ensure E-Way Bill number and QR code print on the tax invoice.</li>
+                </ul>
+
+                <h3>Common Troubleshooting Errors:</h3>
+                <ul>
+                    <li><strong>Invalid GSTIN / Pin Code Mismatch:</strong> Recipient ka Pin code aur State match hona mandatory hai.</li>
+                    <li><strong>Part-B Pending:</strong> E-Way Bill tab tak fully valid nahi hota jab tak Vehicle Number ya Transporter Doc Nenter na ho.</li>
+                    <li><strong>Attempting to Edit Generated EWB:</strong> Always cancel and re-generate instead of modifying the invoice number.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: E-Way Bill kis transactions par mandatory hai?</strong><br>A: Consignment value ₹50,000 se zyada hone par goods ke transport movement ke liye mandatory hota hai.</li>
+                    <li><strong>Q: Kya services ke liye E-Way Bill generate hota hai?</strong><br>A: Nahi, E-Way Bill sirf physical goods ke movement ke liye hota hai.</li>
+                    <li><strong>Q: Vehicle breakdown hone par kya karein?</strong><br>A: E-Way Bill report mein jakar <strong>Update Part-B</strong> option se new vehicle number update karein.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>E-Way Bill Golden Workflow:</strong><br>
+                    <code>Create Invoice / Delivery Note &rarr; Enter Transport &amp; Vehicle Details &rarr; Save Voucher &rarr; Generate E-Way Bill Online / Offline JSON &rarr; Verify 12-Digit EWB Number &rarr; Reconcile Report</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>E-Way Bill feature and threshold limits configured</li>
+                    <li>Party GSTINs, Pin Codes, and Transporter IDs setup</li>
+                    <li>Local &amp; Interstate Sales E-Way Bills generated</li>
+                    <li>Purchase and Delivery Note movement E-Way Bills recorded</li>
+                    <li>Part-B vehicle updates executed</li>
+                    <li>E-Way Bill cancellation and offline bulk JSON export completed</li>
+                    <li>E-Way Bill reports reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

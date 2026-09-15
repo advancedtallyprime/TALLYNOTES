@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Core Concept</h2>
+                <p>The <strong>Purchase Register</strong> provides a comprehensive month-by-month and invoice-by-invoice audit trail of all goods and services procured by the enterprise. It plays an indispensable role in tracking Input Tax Credit (ITC), supplier invoice reconciliation, and inventory valuation.</p>
+
+                <h2>2. Accessing &amp; Customizing Purchase Register</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-cart-shopping"></i> Navigation:</strong>
+                    Gateway of Tally &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Purchase Register</strong>.
+                    <br>Shortcut: <kbd>Alt + G</kbd> &rarr; Type <strong>Purchase Register</strong>.
+                </div>
+
+                <h2>3. Advanced Columnar View in Purchase Register</h2>
+                <p>By pressing <kbd>F8</kbd> (Columnar) inside the Purchase Register, users can extract a multi-column procurement report:</p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Supplier Invoice No.</th>
+                                <th>Party Name</th>
+                                <th>Supplier GSTIN</th>
+                                <th>Gross Value</th>
+                                <th>CGST</th>
+                                <th>SGST</th>
+                                <th>IGST</th>
+                                <th>Total Bill Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>02-Oct-2025</td>
+                                <td>INV-9021</td>
+                                <td>Apex Distributors</td>
+                                <td>29AABCA1234F1Z5</td>
+                                <td>₹1,00,000</td>
+                                <td>₹9,000</td>
+                                <td>₹9,000</td>
+                                <td>-</td>
+                                <td>₹1,18,000</td>
+                            </tr>
+                            <tr>
+                                <td>01-Oct-2025</td>
+                                <td>DL-7782</td>
+                                <td>Global Tech Importers</td>
+                                <td>27AABCG8899K1Z2</td>
+                                <td>₹2,50,000</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>₹45,000</td>
+                                <td>₹2,95,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>4. Reconciling with GSTR-2B</h2>
+                <ol>
+                    <li>Export Purchase Register to Excel via <kbd>Alt + E</kbd>.</li>
+                    <li>Download auto-drafted <strong>GSTR-2B</strong> from the GST Portal.</li>
+                    <li>Match Supplier GSTIN, Invoice Numbers, and Tax amounts to ensure eligible Input Tax Credit (ITC) is claimed without risk of notice under Section 16(2)(aa).</li>
+                </ol>
+
+                <h2>5. Interview Questions & Answers</h2>
+                <h3>Q1. Which shortcut key enables the Columnar format in the Purchase Register?</h3>
+                <p><strong>Ans:</strong> <kbd>F8</kbd> (Columnar) activates the multi-column register displaying separate tax, freight, and discount columns.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <p>The <strong>Purchase Register</strong> provides a comprehensive month-by-month and invoice-by-invoice audit trail of all goods and services procured by the enterprise. It plays an indispensable role in tracking Input Tax Credit (ITC), supplier invoice reconciliation, and inventory valuation.</p>
+
+                <h2>2. Accessing &amp; Customizing Purchase Register</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-cart-shopping"></i> Navigation:</strong>
+                    Gateway of Tally &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Purchase Register</strong>.
+                    <br>Shortcut: <kbd>Alt + G</kbd> &rarr; Type <strong>Purchase Register</strong>.
+                </div>
+
+                <h2>3. Advanced Columnar View in Purchase Register</h2>
+                <p>By pressing <kbd>F8</kbd> (Columnar) inside the Purchase Register, users can extract a multi-column procurement report:</p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Supplier Invoice No.</th>
+                                <th>Party Name</th>
+                                <th>Supplier GSTIN</th>
+                                <th>Gross Value</th>
+                                <th>CGST</th>
+                                <th>SGST</th>
+                                <th>IGST</th>
+                                <th>Total Bill Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>02-Oct-2025</td>
+                                <td>INV-9021</td>
+                                <td>Apex Distributors</td>
+                                <td>29AABCA1234F1Z5</td>
+                                <td>₹1,00,000</td>
+                                <td>₹9,000</td>
+                                <td>₹9,000</td>
+                                <td>-</td>
+                                <td>₹1,18,000</td>
+                            </tr>
+                            <tr>
+                                <td>01-Oct-2025</td>
+                                <td>DL-7782</td>
+                                <td>Global Tech Importers</td>
+                                <td>27AABCG8899K1Z2</td>
+                                <td>₹2,50,000</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>₹45,000</td>
+                                <td>₹2,95,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>4. Reconciling with GSTR-2B</h2>
+                <ol>
+                    <li>Export Purchase Register to Excel via <kbd>Alt + E</kbd>.</li>
+                    <li>Download auto-drafted <strong>GSTR-2B</strong> from the GST Portal.</li>
+                    <li>Match Supplier GSTIN, Invoice Numbers, and Tax amounts to ensure eligible Input Tax Credit (ITC) is claimed without risk of notice under Section 16(2)(aa).</li>
+                </ol>
+
+                <h2>5. Interview Questions & Answers</h2>
+                <h3>Q1. Which shortcut key enables the Columnar format in the Purchase Register?</h3>
+                <p><strong>Ans:</strong> <kbd>F8</kbd> (Columnar) activates the multi-column register displaying separate tax, freight, and discount columns.</p>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

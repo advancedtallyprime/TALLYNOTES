@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <h2>Introduction</h2>
+                <p>
+                    As businesses grow, recording every transaction directly in the main books becomes difficult and time-consuming.
+                    Accounting uses <strong>Subsidiary Books</strong> and <strong>Control Accounts</strong> to improve accuracy,
+                    reduce errors, save time, and strengthen internal control.
+                </p>
+
+                <p>Examples of high-volume transactions include:</p>
+                <ul>
+                    <li>100 credit sales daily</li>
+                    <li>50 credit purchases daily</li>
+                    <li>Multiple cash receipts and payments</li>
+                </ul>
+
+                <p>
+                    In TallyPrime, subsidiary books are maintained automatically through vouchers, while control accounts are generated through ledger grouping and reporting.
+                </p>
+
+                <h2>What Are Subsidiary Books?</h2>
+                <p>
+                    Subsidiary Books are specialized accounting books used to record similar types of transactions separately before posting them to the ledger.
+                </p>
+
+                <h3>Example</h3>
+                <ul>
+                    <li>Credit Sales → Sales Book</li>
+                    <li>Credit Purchases → Purchase Book</li>
+                    <li>Cash Receipts → Cash Book</li>
+                    <li>Returns → Return Books</li>
+                </ul>
+
+                <h2>Why Are Subsidiary Books Used?</h2>
+                <ol>
+                    <li><strong>Saves Time</strong> – Different employees can maintain different books.</li>
+                    <li><strong>Reduces Errors</strong> – Transactions are grouped logically.</li>
+                    <li><strong>Better Internal Control</strong> – Responsibilities are divided among staff.</li>
+                    <li><strong>Faster Ledger Posting</strong> – Totals can be transferred periodically.</li>
+                    <li><strong>Easy Reporting</strong> – Quick access to sales, purchases, and returns.</li>
+                </ol>
+
+                <h2>Types of Subsidiary Books</h2>
+                <ul>
+                    <li>Purchase Book</li>
+                    <li>Sales Book</li>
+                    <li>Purchase Return Book</li>
+                    <li>Sales Return Book</li>
+                    <li>Cash Book</li>
+                    <li>Bills Receivable Book</li>
+                    <li>Bills Payable Book</li>
+                    <li>Journal Proper</li>
+                </ul>
+
+                <h2>1. Purchase Book</h2>
+                <p>Records all <strong>credit purchases of goods</strong>.</p>
+
+                <h3>Important</h3>
+                <p>Only credit purchases of trading goods are entered.</p>
+                <p>Not recorded:</p>
+                <ul>
+                    <li>Cash purchases</li>
+                    <li>Asset purchases</li>
+                </ul>
+
+                <h3>Real-Life Example</h3>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>Supplier</th>
+                            <th>Invoice No</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>XYZ Suppliers</td>
+                            <td>101</td>
+                            <td>₹50,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Accounting Entry</h3>
+                <pre><code>Purchase A/c Dr ₹50,000
+To XYZ Suppliers ₹50,000</code></pre>
+
+                <h3>TallyPrime Entry</h3>
+                <p>Gateway of Tally → Vouchers → Purchase Voucher (F9)</p>
+
+                <h2>2. Sales Book</h2>
+                <p>Records all credit sales of goods.</p>
+
+                <h3>Real-Life Example</h3>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Invoice No</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Raj Stores</td>
+                            <td>201</td>
+                            <td>₹30,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Accounting Entry</h3>
+                <pre><code>Raj Stores A/c Dr ₹30,000
+To Sales A/c ₹30,000</code></pre>
+
+                <h2>3. Purchase Return Book</h2>
+                <p>Records goods returned to suppliers. Also called <strong>Returns Outward Book</strong>.</p>
+
+                <h3>Accounting Entry</h3>
+                <pre><code>XYZ Suppliers A/c Dr ₹5,000
+To Purchase Return A/c ₹5,000</code></pre>
+
+                <p>Voucher Used: <strong>Debit Note (Ctrl+F9)</strong></p>
+
+                <h2>4. Sales Return Book</h2>
+                <p>Records goods returned by customers. Also called <strong>Returns Inward Book</strong>.</p>
+
+                <h3>Accounting Entry</h3>
+                <pre><code>Sales Return A/c Dr ₹2,000
+To Raj Stores A/c ₹2,000</code></pre>
+
+                <p>Voucher Used: <strong>Credit Note (Ctrl+F8)</strong></p>
+
+                <h2>5. Cash Book</h2>
+                <p>Records all cash and bank transactions and acts as both a journal and ledger.</p>
+
+                <h3>TallyPrime Vouchers</h3>
+                <ul>
+                    <li>Receipt Voucher (F6)</li>
+                    <li>Payment Voucher (F5)</li>
+                    <li>Contra Voucher (F4)</li>
+                </ul>
+
+                <h3>Example</h3>
+                <pre><code>Bank A/c Dr ₹50,000
+To Cash A/c ₹50,000</code></pre>
+
+                <h2>6. Bills Receivable Book</h2>
+                <p>Records bills accepted by customers for future payment.</p>
+
+                <h3>Use Cases</h3>
+                <ul>
+                    <li>Wholesale Trade</li>
+                    <li>Manufacturing</li>
+                    <li>Export Businesses</li>
+                </ul>
+
+                <h2>7. Bills Payable Book</h2>
+                <p>Records bills accepted by the business for future payment.</p>
+
+                <h2>8. Journal Proper</h2>
+                <p>Records transactions not entered in any other subsidiary book.</p>
+
+                <h3>Examples</h3>
+                <ul>
+                    <li>Depreciation Entries</li>
+                    <li>Outstanding Expenses</li>
+                    <li>Rectification Entries</li>
+                    <li>Adjustment Entries</li>
+                </ul>
+
+                <h2>Practical Workflow of Subsidiary Books in TallyPrime</h2>
+                <ul>
+                    <li><strong>Sales Department:</strong> Sales Voucher</li>
+                    <li><strong>Purchase Department:</strong> Purchase Voucher</li>
+                    <li><strong>Cashier:</strong> Receipt, Payment and Contra Vouchers</li>
+                    <li><strong>Accounts Department:</strong> Journal Voucher, Debit Note and Credit Note</li>
+                </ul>
+
+                <h2>What Are Control Accounts?</h2>
+                <p>
+                    A Control Account is a summary account maintained in the General Ledger that shows the total balance of many individual accounts.
+                </p>
+
+                <h2>Why Control Accounts Are Needed</h2>
+                <p>
+                    Businesses may have hundreds of customers and suppliers. Control accounts provide summarized information for quick decision-making.
+                </p>
+
+                <h2>Types of Control Accounts</h2>
+                <ul>
+                    <li>Debtors Control Account</li>
+                    <li>Creditors Control Account</li>
+                    <li>Inventory Control Account</li>
+                    <li>Fixed Asset Control Account</li>
+                </ul>
+
+                <h2>Debtors Control Account</h2>
+                <p>Summarizes all customer balances.</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>Raj Stores</td>
+                            <td>₹20,000</td>
+                        </tr>
+                        <tr>
+                            <td>Vijay Traders</td>
+                            <td>₹15,000</td>
+                        </tr>
+                        <tr>
+                            <td>Mehta Enterprises</td>
+                            <td>₹10,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p><strong>Total Debtors Control Balance = ₹45,000</strong></p>
+
+                <h2>Creditors Control Account</h2>
+                <p>Summarizes supplier balances.</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Supplier</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>XYZ Suppliers</td>
+                            <td>₹30,000</td>
+                        </tr>
+                        <tr>
+                            <td>Kumar Traders</td>
+                            <td>₹25,000</td>
+                        </tr>
+                        <tr>
+                            <td>National Distributors</td>
+                            <td>₹20,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p><strong>Total Creditors Control Balance = ₹75,000</strong></p>
+
+                <h2>Inventory Control Account</h2>
+                <p>Tracks total stock value.</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Item</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>₹1,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>₹50,000</td>
+                        </tr>
+                        <tr>
+                            <td>Accessories</td>
+                            <td>₹25,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p><strong>Total Stock Value = ₹1,75,000</strong></p>
+
+                <h2>Control Accounts in TallyPrime</h2>
+                <ul>
+                    <li>Sundry Debtors Group</li>
+                    <li>Sundry Creditors Group</li>
+                    <li>Stock Summary</li>
+                    <li>Group Summary Reports</li>
+                </ul>
+
+                <h2>Real-World Business Case Study</h2>
+                <h3>ABC Electronics</h3>
+
+                <ul>
+                    <li>Credit Purchases: ₹15,00,000</li>
+                    <li>Credit Sales: ₹22,00,000</li>
+                    <li>Customer Returns: ₹50,000</li>
+                    <li>Supplier Returns: ₹25,000</li>
+                    <li>Cash Collections: ₹18,00,000</li>
+                </ul>
+
+                <p>Management reviews:</p>
+
+                <ul>
+                    <li>Debtors Control: ₹4,00,000 Outstanding</li>
+                    <li>Creditors Control: ₹3,50,000 Outstanding</li>
+                    <li>Inventory Control: ₹12,00,000 Stock</li>
+                </ul>
+
+                <h2>Best Practices for Subsidiary Books in TallyPrime</h2>
+                <ul>
+                    <li>Create customers under Sundry Debtors.</li>
+                    <li>Create suppliers under Sundry Creditors.</li>
+                    <li>Record transactions daily.</li>
+                    <li>Use correct voucher types.</li>
+                    <li>Reconcile debtors, creditors, bank accounts, and inventory monthly.</li>
+                    <li>Review outstanding reports regularly.</li>
+                </ul>
+
+                <h3>Voucher Reference</h3>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Voucher</th>
+                        </tr>
+                        <tr>
+                            <td>Purchase</td>
+                            <td>F9</td>
+                        </tr>
+                        <tr>
+                            <td>Sales</td>
+                            <td>F8</td>
+                        </tr>
+                        <tr>
+                            <td>Receipt</td>
+                            <td>F6</td>
+                        </tr>
+                        <tr>
+                            <td>Payment</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td>Contra</td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td>Journal</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td>Debit Note</td>
+                            <td>Ctrl+F9</td>
+                        </tr>
+                        <tr>
+                            <td>Credit Note</td>
+                            <td>Ctrl+F8</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2>Common Mistakes Students Make</h2>
+                <ul>
+                    <li>Recording asset purchases in the Purchase Book.</li>
+                    <li>Recording cash sales in the Sales Book concept.</li>
+                    <li>Ignoring Debit Notes and Credit Notes.</li>
+                    <li>Not checking debtor and creditor balances.</li>
+                </ul>
+
+                <h2>Interview Questions</h2>
+
+                <h3>What are Subsidiary Books?</h3>
+                <p>Books maintained to record similar transactions separately before posting to ledger accounts.</p>
+
+                <h3>Why are Subsidiary Books maintained?</h3>
+                <p>To save time, reduce errors, improve control, and simplify accounting.</p>
+
+                <h3>What is a Control Account?</h3>
+                <p>A summary account showing the total of several individual ledger accounts.</p>
+
+                <h3>What is a Debtors Control Account?</h3>
+                <p>An account that summarizes all customer balances.</p>
+
+                <h3>What is a Creditors Control Account?</h3>
+                <p>An account that summarizes all supplier balances.</p>
+
+                <h3>Which voucher records Sales Returns in TallyPrime?</h3>
+                <p>Credit Note Voucher (Ctrl + F8).</p>
+
+                <h3>Which voucher records Purchase Returns?</h3>
+                <p>Debit Note Voucher (Ctrl + F9).</p>
+
+                <h2>Summary</h2>
+                <p>
+                    <strong>Subsidiary Books</strong> divide accounting work into specialized books such as Purchase Book,
+                    Sales Book, Return Books, Cash Book, Bills Books, and Journal Proper. They improve efficiency,
+                    accuracy, and internal control.
+                </p>
+
+                <p>
+                    <strong>Control Accounts</strong> provide summarized balances of customers, suppliers, inventory,
+                    and other groups, enabling management to monitor business performance quickly.
+                </p>
+
+                <p>
+                    In <strong>TallyPrime</strong>, these concepts are implemented through voucher entries, ledger groups,
+                    inventory management, and reports, helping businesses maintain accurate records and make informed decisions.
+                </p>
+        
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <h2>Introduction</h2>
+                <p>
+                    As businesses grow, recording every transaction directly in the main books becomes difficult and time-consuming.
+                    Accounting uses <strong>Subsidiary Books</strong> and <strong>Control Accounts</strong> to improve accuracy,
+                    reduce errors, save time, and strengthen internal control.
+                </p>
+
+                <p>Examples of high-volume transactions include:</p>
+                <ul>
+                    <li>100 credit sales daily</li>
+                    <li>50 credit purchases daily</li>
+                    <li>Multiple cash receipts and payments</li>
+                </ul>
+
+                <p>
+                    In TallyPrime, subsidiary books are maintained automatically through vouchers, while control accounts are generated through ledger grouping and reporting.
+                </p>
+
+                <h2>What Are Subsidiary Books?</h2>
+                <p>
+                    Subsidiary Books are specialized accounting books used to record similar types of transactions separately before posting them to the ledger.
+                </p>
+
+                <h3>Example</h3>
+                <ul>
+                    <li>Credit Sales → Sales Book</li>
+                    <li>Credit Purchases → Purchase Book</li>
+                    <li>Cash Receipts → Cash Book</li>
+                    <li>Returns → Return Books</li>
+                </ul>
+
+                <h2>Why Are Subsidiary Books Used?</h2>
+                <ol>
+                    <li><strong>Saves Time</strong> – Different employees can maintain different books.</li>
+                    <li><strong>Reduces Errors</strong> – Transactions are grouped logically.</li>
+                    <li><strong>Better Internal Control</strong> – Responsibilities are divided among staff.</li>
+                    <li><strong>Faster Ledger Posting</strong> – Totals can be transferred periodically.</li>
+                    <li><strong>Easy Reporting</strong> – Quick access to sales, purchases, and returns.</li>
+                </ol>
+
+                <h2>Types of Subsidiary Books</h2>
+                <ul>
+                    <li>Purchase Book</li>
+                    <li>Sales Book</li>
+                    <li>Purchase Return Book</li>
+                    <li>Sales Return Book</li>
+                    <li>Cash Book</li>
+                    <li>Bills Receivable Book</li>
+                    <li>Bills Payable Book</li>
+                    <li>Journal Proper</li>
+                </ul>
+
+                <h2>1. Purchase Book</h2>
+                <p>Records all <strong>credit purchases of goods</strong>.</p>
+
+                <h3>Important</h3>
+                <p>Only credit purchases of trading goods are entered.</p>
+                <p>Not recorded:</p>
+                <ul>
+                    <li>Cash purchases</li>
+                    <li>Asset purchases</li>
+                </ul>
+
+                <h3>Real-Life Example</h3>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>Supplier</th>
+                            <th>Invoice No</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>XYZ Suppliers</td>
+                            <td>101</td>
+                            <td>₹50,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Accounting Entry</h3>
+                <pre><code>Purchase A/c Dr ₹50,000
+To XYZ Suppliers ₹50,000</code></pre>
+
+                <h3>TallyPrime Entry</h3>
+                <p>Gateway of Tally → Vouchers → Purchase Voucher (F9)</p>
+
+                <h2>2. Sales Book</h2>
+                <p>Records all credit sales of goods.</p>
+
+                <h3>Real-Life Example</h3>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Invoice No</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Raj Stores</td>
+                            <td>201</td>
+                            <td>₹30,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h3>Accounting Entry</h3>
+                <pre><code>Raj Stores A/c Dr ₹30,000
+To Sales A/c ₹30,000</code></pre>
+
+                <h2>3. Purchase Return Book</h2>
+                <p>Records goods returned to suppliers. Also called <strong>Returns Outward Book</strong>.</p>
+
+                <h3>Accounting Entry</h3>
+                <pre><code>XYZ Suppliers A/c Dr ₹5,000
+To Purchase Return A/c ₹5,000</code></pre>
+
+                <p>Voucher Used: <strong>Debit Note (Ctrl+F9)</strong></p>
+
+                <h2>4. Sales Return Book</h2>
+                <p>Records goods returned by customers. Also called <strong>Returns Inward Book</strong>.</p>
+
+                <h3>Accounting Entry</h3>
+                <pre><code>Sales Return A/c Dr ₹2,000
+To Raj Stores A/c ₹2,000</code></pre>
+
+                <p>Voucher Used: <strong>Credit Note (Ctrl+F8)</strong></p>
+
+                <h2>5. Cash Book</h2>
+                <p>Records all cash and bank transactions and acts as both a journal and ledger.</p>
+
+                <h3>TallyPrime Vouchers</h3>
+                <ul>
+                    <li>Receipt Voucher (F6)</li>
+                    <li>Payment Voucher (F5)</li>
+                    <li>Contra Voucher (F4)</li>
+                </ul>
+
+                <h3>Example</h3>
+                <pre><code>Bank A/c Dr ₹50,000
+To Cash A/c ₹50,000</code></pre>
+
+                <h2>6. Bills Receivable Book</h2>
+                <p>Records bills accepted by customers for future payment.</p>
+
+                <h3>Use Cases</h3>
+                <ul>
+                    <li>Wholesale Trade</li>
+                    <li>Manufacturing</li>
+                    <li>Export Businesses</li>
+                </ul>
+
+                <h2>7. Bills Payable Book</h2>
+                <p>Records bills accepted by the business for future payment.</p>
+
+                <h2>8. Journal Proper</h2>
+                <p>Records transactions not entered in any other subsidiary book.</p>
+
+                <h3>Examples</h3>
+                <ul>
+                    <li>Depreciation Entries</li>
+                    <li>Outstanding Expenses</li>
+                    <li>Rectification Entries</li>
+                    <li>Adjustment Entries</li>
+                </ul>
+
+                <h2>Practical Workflow of Subsidiary Books in TallyPrime</h2>
+                <ul>
+                    <li><strong>Sales Department:</strong> Sales Voucher</li>
+                    <li><strong>Purchase Department:</strong> Purchase Voucher</li>
+                    <li><strong>Cashier:</strong> Receipt, Payment and Contra Vouchers</li>
+                    <li><strong>Accounts Department:</strong> Journal Voucher, Debit Note and Credit Note</li>
+                </ul>
+
+                <h2>What Are Control Accounts?</h2>
+                <p>
+                    A Control Account is a summary account maintained in the General Ledger that shows the total balance of many individual accounts.
+                </p>
+
+                <h2>Why Control Accounts Are Needed</h2>
+                <p>
+                    Businesses may have hundreds of customers and suppliers. Control accounts provide summarized information for quick decision-making.
+                </p>
+
+                <h2>Types of Control Accounts</h2>
+                <ul>
+                    <li>Debtors Control Account</li>
+                    <li>Creditors Control Account</li>
+                    <li>Inventory Control Account</li>
+                    <li>Fixed Asset Control Account</li>
+                </ul>
+
+                <h2>Debtors Control Account</h2>
+                <p>Summarizes all customer balances.</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>Raj Stores</td>
+                            <td>₹20,000</td>
+                        </tr>
+                        <tr>
+                            <td>Vijay Traders</td>
+                            <td>₹15,000</td>
+                        </tr>
+                        <tr>
+                            <td>Mehta Enterprises</td>
+                            <td>₹10,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p><strong>Total Debtors Control Balance = ₹45,000</strong></p>
+
+                <h2>Creditors Control Account</h2>
+                <p>Summarizes supplier balances.</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Supplier</th>
+                            <th>Amount</th>
+                        </tr>
+                        <tr>
+                            <td>XYZ Suppliers</td>
+                            <td>₹30,000</td>
+                        </tr>
+                        <tr>
+                            <td>Kumar Traders</td>
+                            <td>₹25,000</td>
+                        </tr>
+                        <tr>
+                            <td>National Distributors</td>
+                            <td>₹20,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p><strong>Total Creditors Control Balance = ₹75,000</strong></p>
+
+                <h2>Inventory Control Account</h2>
+                <p>Tracks total stock value.</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Item</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>₹1,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>₹50,000</td>
+                        </tr>
+                        <tr>
+                            <td>Accessories</td>
+                            <td>₹25,000</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <p><strong>Total Stock Value = ₹1,75,000</strong></p>
+
+                <h2>Control Accounts in TallyPrime</h2>
+                <ul>
+                    <li>Sundry Debtors Group</li>
+                    <li>Sundry Creditors Group</li>
+                    <li>Stock Summary</li>
+                    <li>Group Summary Reports</li>
+                </ul>
+
+                <h2>Real-World Business Case Study</h2>
+                <h3>ABC Electronics</h3>
+
+                <ul>
+                    <li>Credit Purchases: ₹15,00,000</li>
+                    <li>Credit Sales: ₹22,00,000</li>
+                    <li>Customer Returns: ₹50,000</li>
+                    <li>Supplier Returns: ₹25,000</li>
+                    <li>Cash Collections: ₹18,00,000</li>
+                </ul>
+
+                <p>Management reviews:</p>
+
+                <ul>
+                    <li>Debtors Control: ₹4,00,000 Outstanding</li>
+                    <li>Creditors Control: ₹3,50,000 Outstanding</li>
+                    <li>Inventory Control: ₹12,00,000 Stock</li>
+                </ul>
+
+                <h2>Best Practices for Subsidiary Books in TallyPrime</h2>
+                <ul>
+                    <li>Create customers under Sundry Debtors.</li>
+                    <li>Create suppliers under Sundry Creditors.</li>
+                    <li>Record transactions daily.</li>
+                    <li>Use correct voucher types.</li>
+                    <li>Reconcile debtors, creditors, bank accounts, and inventory monthly.</li>
+                    <li>Review outstanding reports regularly.</li>
+                </ul>
+
+                <h3>Voucher Reference</h3>
+                <div class="table-responsive">
+                    <table>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Voucher</th>
+                        </tr>
+                        <tr>
+                            <td>Purchase</td>
+                            <td>F9</td>
+                        </tr>
+                        <tr>
+                            <td>Sales</td>
+                            <td>F8</td>
+                        </tr>
+                        <tr>
+                            <td>Receipt</td>
+                            <td>F6</td>
+                        </tr>
+                        <tr>
+                            <td>Payment</td>
+                            <td>F5</td>
+                        </tr>
+                        <tr>
+                            <td>Contra</td>
+                            <td>F4</td>
+                        </tr>
+                        <tr>
+                            <td>Journal</td>
+                            <td>F7</td>
+                        </tr>
+                        <tr>
+                            <td>Debit Note</td>
+                            <td>Ctrl+F9</td>
+                        </tr>
+                        <tr>
+                            <td>Credit Note</td>
+                            <td>Ctrl+F8</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h2>Common Mistakes Students Make</h2>
+                <ul>
+                    <li>Recording asset purchases in the Purchase Book.</li>
+                    <li>Recording cash sales in the Sales Book concept.</li>
+                    <li>Ignoring Debit Notes and Credit Notes.</li>
+                    <li>Not checking debtor and creditor balances.</li>
+                </ul>
+
+                <h2>Interview Questions</h2>
+
+                <h3>What are Subsidiary Books?</h3>
+                <p>Books maintained to record similar transactions separately before posting to ledger accounts.</p>
+
+                <h3>Why are Subsidiary Books maintained?</h3>
+                <p>To save time, reduce errors, improve control, and simplify accounting.</p>
+
+                <h3>What is a Control Account?</h3>
+                <p>A summary account showing the total of several individual ledger accounts.</p>
+
+                <h3>What is a Debtors Control Account?</h3>
+                <p>An account that summarizes all customer balances.</p>
+
+                <h3>What is a Creditors Control Account?</h3>
+                <p>An account that summarizes all supplier balances.</p>
+
+                <h3>Which voucher records Sales Returns in TallyPrime?</h3>
+                <p>Credit Note Voucher (Ctrl + F8).</p>
+
+                <h3>Which voucher records Purchase Returns?</h3>
+                <p>Debit Note Voucher (Ctrl + F9).</p>
+
+                <h2>Summary (अध्याय का सार)</h2>
+                <p>
+                    <strong>Subsidiary Books</strong> divide accounting work into specialized books such as Purchase Book,
+                    Sales Book, Return Books, Cash Book, Bills Books, and Journal Proper. They improve efficiency,
+                    accuracy, and internal control.
+                </p>
+
+                <p>
+                    <strong>Control Accounts</strong> provide summarized balances of customers, suppliers, inventory,
+                    and other groups, enabling management to monitor business performance quickly.
+                </p>
+
+                <p>
+                    In <strong>TallyPrime</strong>, these concepts are implemented through voucher entries, ledger groups,
+                    inventory management, and reports, helping businesses maintain accurate records and make informed decisions.
+                </p>
+        
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/course-data.js"></script>
+    <script src="/TallyPrime/scripts/shared.js"></script>
+</body>
+</html>

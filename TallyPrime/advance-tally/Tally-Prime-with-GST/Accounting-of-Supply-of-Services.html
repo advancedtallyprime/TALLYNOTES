@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Understand the operational differences between Goods and Services accounting.</li>
+                    <li>Supply of Services ka GST concept samjhega.</li>
+                    <li>Service Income Ledger create karega.</li>
+                    <li>SAC understand the fundamentals of.</li>
+                    <li>Service par GST calculate karega.</li>
+                    <li>Local service invoice enter karega.</li>
+                    <li>Interstate service invoice enter karega.</li>
+                    <li>B2B and B2C service transaction samjhega.</li>
+                    <li>Service advance ka accounting karega.</li>
+                    <li>Service invoice ke against receipt record karega.</li>
+                    <li>Service credit note ka practical karega.</li>
+                    <li>Verify Service outstanding in management and statutory tax reports.</li>
+                    <li>Verify GST Tax Analysis in management and statutory tax reports.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Goods vs Services &amp; SAC</h2>
+                
+                <p><strong>Supply of Services:</strong> Jab business customer ko koi service (consultancy, IT support, maintenance, legal, advertising, etc.) provide karta hai, us transaction ko service supply ke framework in account kior jata is.</p>
+
+                <h3>Goods vs Services Comparison</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Basis</th>
+                            <th>Goods</th>
+                            <th>Services</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nature</td>
+                            <td>Physical items</td>
+                            <td>Activities / Facilities / Intangible</td>
+                        </tr>
+                        <tr>
+                            <td>Inventory Track</td>
+                            <td>Usually maintained</td>
+                            <td>Usually not maintained</td>
+                        </tr>
+                        <tr>
+                            <td>Item Setup</td>
+                            <td>Stock Item commonly used</td>
+                            <td>Service Ledger / Accounting Invoice</td>
+                        </tr>
+                        <tr>
+                            <td>Classification Code</td>
+                            <td>HSN Code</td>
+                            <td>SAC (Services Accounting Code)</td>
+                        </tr>
+                        <tr>
+                            <td>Example</td>
+                            <td>Laptop, Printer, Bulb</td>
+                            <td>Consultancy, Legal, Maintenance</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Effect</td>
+                            <td>Yes (Inward / Outward movement)</td>
+                            <td>Generally No stock impact</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>SAC (Services Accounting Code):</strong> Services ko GST classification ke liye SAC codes ke through classify kior jata haCorrect SAC identify karke service ledger in GST rate configure kior jata is.
+                </blockquote>
+
+                <h3>Accounting Invoice vs Item Invoice</h3>
+                <p>Services ke transaction in stock item include nahi hota, isliye TallyPrime in <strong>Accounting Invoice Mode</strong> ufrom kior jata hai:</p>
+                <p><code>Press F8 (Sales) &rarr; Press Ctrl + H (Change Mode) &rarr; Select 'Accounting Invoice'</code></p>
+
+                <hr>
+
+                <h2>Master Setup for Service Accounting</h2>
+
+                <h3>Service Income Ledgers (Under Indirect Income):</h3>
+                <ul>
+                    <li><strong>Consultancy Fees:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                    <li><strong>Training Fees:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                    <li><strong>IT Support Fees:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                    <li><strong>Maintenance Income:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                    <li><strong>Advertising Income:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                </ul>
+
+                <h3>Service Expenfrom Ledgers (Under Indirect Expenses):</h3>
+                <ul>
+                    <li>Professional Fees, Legal Fees, Audit Fees, Advertising Expenses, Repair &amp; Maintenance Expenses.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs in TallyPrime</h2>
+
+                <h3>Practical 1 &mdash; Local Service Supply (Accounting Invoice)</h3>
+                <p><strong>01-Jun:</strong> Provided Consultancy Service to ABC PvLt(Maharashtra).</p>
+                <ul>
+                    <li>Taxable Service Value = <strong>₹75,000</strong></li>
+                    <li>GST @ 18% = ₹13,500 (CGST @ 9% = <strong>₹6,750</strong> | SGST @ 9% = <strong>₹6,750</strong>)</li>
+                    <li>Invoice Total = <strong>₹88,500</strong></li>
+                    <li><strong>Tally Steps:</strong> Press <strong>F8</strong> &rarr; Mode: <em>Accounting Invoice</em> &rarr; Party: <code>ABC PvLtd.</code> &rarr; Ledger: <code>Consultancy Fees</code> (₹75,000) &rarr; Add CGST &amp; SGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 2 &mdash; Interstate Service Supply (Accounting Invoice)</h3>
+                <p><strong>02-Jun:</strong> Provided Annual IT Support to Gujarat Customer (Gujarat).</p>
+                <ul>
+                    <li>Taxable Service Value = <strong>₹1,20,000</strong></li>
+                    <li>GST @ 18% = IGST @ 18% = <strong>₹21,600</strong></li>
+                    <li>Invoice Total = <strong>₹1,41,600</strong></li>
+                    <li><strong>Tally Steps:</strong> Press <strong>F8</strong> &rarr; Mode: <em>Accounting Invoice</em> &rarr; Party: <code>Gujarat Customer</code> &rarr; Ledger: <code>IT Support Fees</code> (₹1,20,000) &rarr; Add IGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 3 &mdash; Invoice with Multiple Services</h3>
+                <p>Provided multiple bundled services to ABC PvLtd.:</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particulars / Service Ledger</th>
+                            <th>Amount (₹)</th>
+                            <th>GST Rate</th>
+                            <th>CGST (₹)</th>
+                            <th>SGST (₹)</th>
+                            <th>Total (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Consultancy Fees</td>
+                            <td>30,000</td>
+                            <td>18%</td>
+                            <td>2,700</td>
+                            <td>2,700</td>
+                            <td>35,400</td>
+                        </tr>
+                        <tr>
+                            <td>Training Fees</td>
+                            <td>20,000</td>
+                            <td>18%</td>
+                            <td>1,800</td>
+                            <td>1,800</td>
+                            <td>23,600</td>
+                        </tr>
+                        <tr>
+                            <td>IT Support Fees</td>
+                            <td>10,000</td>
+                            <td>18%</td>
+                            <td>900</td>
+                            <td>900</td>
+                            <td>11,800</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Invoice</strong></td>
+                            <td><strong>60,000</strong></td>
+                            <td><strong>18%</strong></td>
+                            <td><strong>5,400</strong></td>
+                            <td><strong>5,400</strong></td>
+                            <td><strong>70,800</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Service Advance, Settlement &amp; Adjustments</h2>
+
+                <h3>Full Cycle: Advance &rarr; Invoice &rarr; Settlement</h3>
+                <ol>
+                    <li><strong>Advance Received (02-Jun):</strong> Customer pays ₹30,000 advance &rarr; Press <strong>F6 (Receipt)</strong> &rarr; Credit Party ledger (Ref: <em>Advance</em>).</li>
+                    <li><strong>Service Invoice Raised (02-Jul):</strong> Raifrom Consultancy Invoice for ₹80,000 + 18% GST = ₹94,400 (Ref: <em>New Ref</em>).</li>
+                    <li><strong>Advance Adjustment (31-Jul):</strong> Adjust ₹30,000 advance against pending service invoice via Journal / Bill-wifrom allocation.</li>
+                    <li><strong>Final Settlement (31-Jul):</strong> Customer pays remaining balance of ₹64,400 &rarr; Press <strong>F6 (Receipt)</strong> &rarr; Link using <em>Agst Ref</em>.</li>
+                </ol>
+
+                <h3>Service Credit Note &amp; Debit Note (Ctrl + F8 / Ctrl + F9)</h3>
+                <ul>
+                    <li><strong>Service Credit Note:</strong> Consultancy bill ₹1,00,000 in ₹10,000 price adjustment kior &rarr; Credit Note for ₹10,000 taxable value + ₹1,800 GST (Total ₹11,800Reduces output GST and customer receivable.</li>
+                    <li><strong>Service Expenfrom &amp; Input Tax Credit:</strong> Business pays Legal Fees ₹25,000 + 18% GST (₹4,500) to advocate &rarr; Booked under <strong>F9 Purchafrom (Accounting Invoice)</strong> with eligible ITC.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Service Incomes)</h3>
+                <ol>
+                    <li><strong>01-Jun:</strong> Consultancy Fees ₹50,000 (Maharashtra Customer, Local 18%).</li>
+                    <li><strong>03-Jun:</strong> Training Fees ₹25,000 (Maharashtra Customer, Local 18%).</li>
+                    <li><strong>05-Jun:</strong> IT Support ₹75,000 (Gujarat Customer, Interstate 18%).</li>
+                    <li><strong>08-Jun:</strong> Maintenance Income ₹40,000 (Maharashtra Customer, Local 18%).</li>
+                    <li><strong>01-Jun:</strong> Advertising Income ₹1,00,000 (Gujarat Customer, Interstate 18%).</li>
+                </ol>
+
+                <h3>Practice Set &mdash; Level 2 (Service Expenses &amp; ITC)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Service Expense</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>GST Rate</th>
+                            <th>Supplier</th>
+                            <th>Tax Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Legal Fees</td>
+                            <td>25,000</td>
+                            <td>18%</td>
+                            <td>ABC Legal</td>
+                            <td>CGST + SGST (RCM / ITC)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Audit Fees</td>
+                            <td>40,000</td>
+                            <td>18%</td>
+                            <td>XYZ &amp; Co.</td>
+                            <td>CGST + SGST (Input ITC)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>IT Service Charges</td>
+                            <td>30,000</td>
+                            <td>18%</td>
+                            <td>Tech Supplier</td>
+                            <td>CGST + SGST (Input ITC)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Advertising Expense</td>
+                            <td>50,000</td>
+                            <td>18%</td>
+                            <td>Media Agency</td>
+                            <td>IGST (Interstate ITC)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Sales Register / Purchafrom Register:</strong> Verify service billing values and net taxes.</li>
+                    <li><strong>Bills Receivable / Payable:</strong> Confirm party balances settled against specific service invoice numbers.</li>
+                    <li><strong>GST Tax Analysis (Ctrl + O inside voucher):</strong> Confirm SAC application, taxable values, and tax splits.</li>
+                    <li><strong>GSTR-1 &amp; GSTR-3B:</strong> Verify outward service tax liabilities in GSTR-1 (Table 4/5/7) and eligible service ITC in GSTR-3B (Table 4).</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Creating physical Stock Items for services instead of using Service Income Ledgers.</li>
+                    <li>Entering service vouchers in Item Invoice mode instead of Accounting Invoice mode.</li>
+                    <li>Applying IGST on same-state service providers or CGST/SGST on interstate services.</li>
+                    <li>Confusing an Advance Receipt voucher with a Taxable Service Invoice.</li>
+                    <li>Failing to link final receipt payments with <code>Agst Ref</code> against the service bill.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Services ke liye SAC code kahan configure karte hain?</strong><br>A: Service Income or Expenfrom ledger ke GST Details configuration screen mein.</li>
+                    <li><strong>Q: Service invoice ke liye voucher mode kaifrom change execute?</strong><br>A: Sales Voucher (F8) in press <strong>Ctrl + H</strong> &rarr; Select <strong>Accounting Invoice</strong>.</li>
+                    <li><strong>Q: Service purchafrom par GST ka kor effect is?</strong><br>A: Eligible business services ka GST amount Input Tax Credit (ITC) ke roop in claim kior ja sakta is.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Service Accounting Golden Workflow:</strong><br>
+                    <code>Service Rendered &rarr; SAC &amp; GST Determination &rarr; Accounting Invoice (F8) &rarr; GST Tax Analysis &rarr; Advance Adjustment / Receipt (F6 Agst Ref) &rarr; GSTR-1 &amp; GSTR-3B Verification</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Difference between Goods &amp; Services accounting understood</li>
+                    <li>SAC codes and Service Income/Expenfrom ledgers configured</li>
+                    <li>Accounting Invoice mode (Ctrl + H) mastered</li>
+                    <li>Local (CGST+SGST) and Interstate (IGST) service invoices recorded</li>
+                    <li>Advance receipt, invoice adjustment, and final settlement completed</li>
+                    <li>Service credit notes and service purchafrom ITC verified in GST reports</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>Goods aur Services accounting ka difference samjhega.</li>
+                    <li>Supply of Services ka GST concept samjhega.</li>
+                    <li>Service Income Ledger create karega.</li>
+                    <li>SAC ka basic concept samjhega.</li>
+                    <li>Service par GST calculate karega.</li>
+                    <li>Local service invoice enter karega.</li>
+                    <li>Interstate service invoice enter karega.</li>
+                    <li>B2B aur B2C service transaction samjhega.</li>
+                    <li>Service advance ka accounting karega.</li>
+                    <li>Service invoice ke against receipt record karega.</li>
+                    <li>Service credit note ka practical karega.</li>
+                    <li>Service outstanding verify karega.</li>
+                    <li>GST Tax Analysis verify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Goods vs Services &amp; SAC</h2>
+                
+                <p><strong>Supply of Services:</strong> Jab business customer ko koi service (consultancy, IT support, maintenance, legal, advertising, etc.) provide karta hai, us transaction ko service supply ke framework mein account kiya jata hai.</p>
+
+                <h3>Goods vs Services Comparison</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Basis</th>
+                            <th>Goods</th>
+                            <th>Services</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nature</td>
+                            <td>Physical items</td>
+                            <td>Activities / Facilities / Intangible</td>
+                        </tr>
+                        <tr>
+                            <td>Inventory Track</td>
+                            <td>Usually maintained</td>
+                            <td>Usually not maintained</td>
+                        </tr>
+                        <tr>
+                            <td>Item Setup</td>
+                            <td>Stock Item commonly used</td>
+                            <td>Service Ledger / Accounting Invoice</td>
+                        </tr>
+                        <tr>
+                            <td>Classification Code</td>
+                            <td>HSN Code</td>
+                            <td>SAC (Services Accounting Code)</td>
+                        </tr>
+                        <tr>
+                            <td>Example</td>
+                            <td>Laptop, Printer, Bulb</td>
+                            <td>Consultancy, Legal, Maintenance</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Effect</td>
+                            <td>Yes (Inward / Outward movement)</td>
+                            <td>Generally No stock impact</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>SAC (Services Accounting Code):</strong> Services ko GST classification ke liye SAC codes ke through classify kiya jata haCorrect SAC identify karke service ledger mein GST rate configure kiya jata hai.
+                </blockquote>
+
+                <h3>Accounting Invoice vs Item Invoice</h3>
+                <p>Services ke transaction mein stock item include nahi hota, isliye TallyPrime mein <strong>Accounting Invoice Mode</strong> use kiya jata hai:</p>
+                <p><code>Press F8 (Sales) &rarr; Press Ctrl + H (Change Mode) &rarr; Select 'Accounting Invoice'</code></p>
+
+                <hr>
+
+                <h2>Master Setup for Service Accounting</h2>
+
+                <h3>Service Income Ledgers (Under Indirect Income):</h3>
+                <ul>
+                    <li><strong>Consultancy Fees:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                    <li><strong>Training Fees:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                    <li><strong>IT Support Fees:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                    <li><strong>Maintenance Income:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                    <li><strong>Advertising Income:</strong> GST Applicable &rarr; SAC &amp; GST @ 18%</li>
+                </ul>
+
+                <h3>Service Expense Ledgers (Under Indirect Expenses):</h3>
+                <ul>
+                    <li>Professional Fees, Legal Fees, Audit Fees, Advertising Expenses, Repair &amp; Maintenance Expenses.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs in TallyPrime</h2>
+
+                <h3>Practical 1 &mdash; Local Service Supply (Accounting Invoice)</h3>
+                <p><strong>01-Jun:</strong> Provided Consultancy Service to ABC PvLt(Maharashtra).</p>
+                <ul>
+                    <li>Taxable Service Value = <strong>₹75,000</strong></li>
+                    <li>GST @ 18% = ₹13,500 (CGST @ 9% = <strong>₹6,750</strong> | SGST @ 9% = <strong>₹6,750</strong>)</li>
+                    <li>Invoice Total = <strong>₹88,500</strong></li>
+                    <li><strong>Tally Steps:</strong> Press <strong>F8</strong> &rarr; Mode: <em>Accounting Invoice</em> &rarr; Party: <code>ABC PvLtd.</code> &rarr; Ledger: <code>Consultancy Fees</code> (₹75,000) &rarr; Add CGST &amp; SGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 2 &mdash; Interstate Service Supply (Accounting Invoice)</h3>
+                <p><strong>02-Jun:</strong> Provided Annual IT Support to Gujarat Customer (Gujarat).</p>
+                <ul>
+                    <li>Taxable Service Value = <strong>₹1,20,000</strong></li>
+                    <li>GST @ 18% = IGST @ 18% = <strong>₹21,600</strong></li>
+                    <li>Invoice Total = <strong>₹1,41,600</strong></li>
+                    <li><strong>Tally Steps:</strong> Press <strong>F8</strong> &rarr; Mode: <em>Accounting Invoice</em> &rarr; Party: <code>Gujarat Customer</code> &rarr; Ledger: <code>IT Support Fees</code> (₹1,20,000) &rarr; Add IGST &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 3 &mdash; Invoice with Multiple Services</h3>
+                <p>Provided multiple bundled services to ABC PvLtd.:</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particulars / Service Ledger</th>
+                            <th>Amount (₹)</th>
+                            <th>GST Rate</th>
+                            <th>CGST (₹)</th>
+                            <th>SGST (₹)</th>
+                            <th>Total (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Consultancy Fees</td>
+                            <td>30,000</td>
+                            <td>18%</td>
+                            <td>2,700</td>
+                            <td>2,700</td>
+                            <td>35,400</td>
+                        </tr>
+                        <tr>
+                            <td>Training Fees</td>
+                            <td>20,000</td>
+                            <td>18%</td>
+                            <td>1,800</td>
+                            <td>1,800</td>
+                            <td>23,600</td>
+                        </tr>
+                        <tr>
+                            <td>IT Support Fees</td>
+                            <td>10,000</td>
+                            <td>18%</td>
+                            <td>900</td>
+                            <td>900</td>
+                            <td>11,800</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Invoice</strong></td>
+                            <td><strong>60,000</strong></td>
+                            <td><strong>18%</strong></td>
+                            <td><strong>5,400</strong></td>
+                            <td><strong>5,400</strong></td>
+                            <td><strong>70,800</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Service Advance, Settlement &amp; Adjustments</h2>
+
+                <h3>Full Cycle: Advance &rarr; Invoice &rarr; Settlement</h3>
+                <ol>
+                    <li><strong>Advance Received (02-Jun):</strong> Customer pays ₹30,000 advance &rarr; Press <strong>F6 (Receipt)</strong> &rarr; Credit Party ledger (Ref: <em>Advance</em>).</li>
+                    <li><strong>Service Invoice Raised (02-Jul):</strong> Raise Consultancy Invoice for ₹80,000 + 18% GST = ₹94,400 (Ref: <em>New Ref</em>).</li>
+                    <li><strong>Advance Adjustment (31-Jul):</strong> Adjust ₹30,000 advance against pending service invoice via Journal / Bill-wise allocation.</li>
+                    <li><strong>Final Settlement (31-Jul):</strong> Customer pays remaining balance of ₹64,400 &rarr; Press <strong>F6 (Receipt)</strong> &rarr; Link using <em>Agst Ref</em>.</li>
+                </ol>
+
+                <h3>Service Credit Note &amp; Debit Note (Ctrl + F8 / Ctrl + F9)</h3>
+                <ul>
+                    <li><strong>Service Credit Note:</strong> Consultancy bill ₹1,00,000 mein ₹10,000 price adjustment kiya &rarr; Credit Note for ₹10,000 taxable value + ₹1,800 GST (Total ₹11,800Reduces output GST and customer receivable.</li>
+                    <li><strong>Service Expense &amp; Input Tax Credit:</strong> Business pays Legal Fees ₹25,000 + 18% GST (₹4,500) to advocate &rarr; Booked under <strong>F9 Purchase (Accounting Invoice)</strong> with eligible ITC.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Service Incomes)</h3>
+                <ol>
+                    <li><strong>01-Jun:</strong> Consultancy Fees ₹50,000 (Maharashtra Customer, Local 18%).</li>
+                    <li><strong>03-Jun:</strong> Training Fees ₹25,000 (Maharashtra Customer, Local 18%).</li>
+                    <li><strong>05-Jun:</strong> IT Support ₹75,000 (Gujarat Customer, Interstate 18%).</li>
+                    <li><strong>08-Jun:</strong> Maintenance Income ₹40,000 (Maharashtra Customer, Local 18%).</li>
+                    <li><strong>01-Jun:</strong> Advertising Income ₹1,00,000 (Gujarat Customer, Interstate 18%).</li>
+                </ol>
+
+                <h3>Practice Set &mdash; Level 2 (Service Expenses &amp; ITC)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Service Expense</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>GST Rate</th>
+                            <th>Supplier</th>
+                            <th>Tax Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Legal Fees</td>
+                            <td>25,000</td>
+                            <td>18%</td>
+                            <td>ABC Legal</td>
+                            <td>CGST + SGST (RCM / ITC)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Audit Fees</td>
+                            <td>40,000</td>
+                            <td>18%</td>
+                            <td>XYZ &amp; Co.</td>
+                            <td>CGST + SGST (Input ITC)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>IT Service Charges</td>
+                            <td>30,000</td>
+                            <td>18%</td>
+                            <td>Tech Supplier</td>
+                            <td>CGST + SGST (Input ITC)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Advertising Expense</td>
+                            <td>50,000</td>
+                            <td>18%</td>
+                            <td>Media Agency</td>
+                            <td>IGST (Interstate ITC)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Sales Register / Purchase Register:</strong> Verify service billing values and net taxes.</li>
+                    <li><strong>Bills Receivable / Payable:</strong> Confirm party balances settled against specific service invoice numbers.</li>
+                    <li><strong>GST Tax Analysis (Ctrl + O inside voucher):</strong> Confirm SAC application, taxable values, and tax splits.</li>
+                    <li><strong>GSTR-1 &amp; GSTR-3B:</strong> Verify outward service tax liabilities in GSTR-1 (Table 4/5/7) and eligible service ITC in GSTR-3B (Table 4).</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Creating physical Stock Items for services instead of using Service Income Ledgers.</li>
+                    <li>Entering service vouchers in Item Invoice mode instead of Accounting Invoice mode.</li>
+                    <li>Applying IGST on same-state service providers or CGST/SGST on interstate services.</li>
+                    <li>Confusing an Advance Receipt voucher with a Taxable Service Invoice.</li>
+                    <li>Failing to link final receipt payments with <code>Agst Ref</code> against the service bill.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Services ke liye SAC code kahan configure karte hain?</strong><br>A: Service Income ya Expense ledger ke GST Details configuration screen mein.</li>
+                    <li><strong>Q: Service invoice ke liye voucher mode kaise change karein?</strong><br>A: Sales Voucher (F8) mein press <strong>Ctrl + H</strong> &rarr; Select <strong>Accounting Invoice</strong>.</li>
+                    <li><strong>Q: Service purchase par GST ka kya effect hota hai?</strong><br>A: Eligible business services ka GST amount Input Tax Credit (ITC) ke roop mein claim kiya ja sakta hai.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Service Accounting Golden Workflow:</strong><br>
+                    <code>Service Rendered &rarr; SAC &amp; GST Determination &rarr; Accounting Invoice (F8) &rarr; GST Tax Analysis &rarr; Advance Adjustment / Receipt (F6 Agst Ref) &rarr; GSTR-1 &amp; GSTR-3B Verification</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Difference between Goods &amp; Services accounting understood</li>
+                    <li>SAC codes and Service Income/Expense ledgers configured</li>
+                    <li>Accounting Invoice mode (Ctrl + H) mastered</li>
+                    <li>Local (CGST+SGST) and Interstate (IGST) service invoices recorded</li>
+                    <li>Advance receipt, invoice adjustment, and final settlement completed</li>
+                    <li>Service credit notes and service purchase ITC verified in GST reports</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

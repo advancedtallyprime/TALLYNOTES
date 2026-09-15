@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Supply ka basic concept revifrom karega.</li>
+                    <li>Composite Supply samjhega.</li>
+                    <li>Mixed Supply samjhega.</li>
+                    <li>Principal Supply identify karega.</li>
+                    <li>Naturally bundled supplies identify karega.</li>
+                    <li>Composite and Mixed Supply in difference karega.</li>
+                    <li>GST rate determine karne ka basic approach samjhega.</li>
+                    <li>Invoice value and GST calculate karega.</li>
+                    <li>TallyPrime in bundled supply ka practical treatment samjhega.</li>
+                    <li>Compare and evaluate Single-item vs multiple-item GST treatment against standard entries.</li>
+                    <li>Incorrect GST rate selection ki mistakes identify karega.</li>
+                    <li>Mixed/Composite Supply ke practical cases solve karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Supply &amp; Bundled Supplies</h2>
+                <p><strong>Supply under GST:</strong> Business ke through goods/services ko consideration ke liye provide karna supply ke framework in aata hai (Sale, Transfer, Barter, Exchange, Lease, Rental, etc.).</p>
+                
+                <p><strong>Bundled Supplies:</strong> Jab ek transaction in multiple goods/services provide kiye jaate hain:</p>
+                <ul>
+                    <li><em>Example 1:</em> Laptop + Laptop Bag + Mouse</li>
+                    <li><em>Example 2:</em> Hotel Room + Breakfast</li>
+                    <li><em>Example 3:</em> Goods + Transportation + Insurance</li>
+                </ul>
+
+                <hr>
+
+                <h2>Composite Supply vs Mixed Supply</h2>
+                
+                <h3>Composite Supply</h3>
+                <p>Do or do from zyada taxable supplies jo <strong>naturally bundled</strong> hain and business ke normal courfrom in ek dusre ke saath supply isn, jisme ek <strong>Principal Supply</strong> is.</p>
+                <blockquote>
+                    <strong>Composite Formula &amp; Tax Rule:</strong><br>
+                    Naturally Bundled Supplies + Principal Supply = Composite Supply<br>
+                    <strong>GST Rate:</strong> Taxable at the rate applicable to the <strong>Principal Supply</strong>.
+                </blockquote>
+
+                <h3>Mixed Supply</h3>
+                <p>Do or zyada individual supplies jo ek single price par supply ki jaati hain, lekin wo <strong>naturally bundled nahi</strong> isn.</p>
+                <blockquote>
+                    <strong>Mixed Supply Tax Rule:</strong><br>
+                    <strong>GST Rate:</strong> Taxable at the <strong>Highest GST Rate</strong> among the bundled items.
+                </blockquote>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Basis</th>
+                            <th>Composite Supply</th>
+                            <th>Mixed Supply</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Supplies</td>
+                            <td>2 or more</td>
+                            <td>2 or more</td>
+                        </tr>
+                        <tr>
+                            <td>Bundling</td>
+                            <td>Naturally bundled</td>
+                            <td>Not naturally bundled</td>
+                        </tr>
+                        <tr>
+                            <td>Principal Supply</td>
+                            <td>Yes (Identifiable)</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Single Price</td>
+                            <td>Commonly supplied together</td>
+                            <td>Single package price</td>
+                        </tr>
+                        <tr>
+                            <td>GST Rate Applicable</td>
+                            <td>Principal Supply Rate</td>
+                            <td>Highest Applicable Rate</td>
+                        </tr>
+                        <tr>
+                            <td>Example</td>
+                            <td>AC + Installation / Laptop + Delivery</td>
+                            <td>Gift Hamper (Chocolates + Perfume + Mug)</td>
+                        </tr>
+                        <tr>
+                            <td>Main Question</td>
+                            <td>What is the principal supply?</td>
+                            <td>What is the highest tax rate?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Master Setup &amp; Practical Calculations</h2>
+
+                <h3>Master Structure in TallyPrime:</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item</th>
+                            <th>Group / Classification</th>
+                            <th>Practice GST Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop Package</td>
+                            <td>Composite Products</td>
+                            <td>18% (Principal: Laptop)</td>
+                        </tr>
+                        <tr>
+                            <td>Printer Package</td>
+                            <td>Composite Products</td>
+                            <td>18% (Principal: Printer)</td>
+                        </tr>
+                        <tr>
+                            <td>AC Package</td>
+                            <td>Composite Products</td>
+                            <td>18% (Principal: AC)</td>
+                        </tr>
+                        <tr>
+                            <td>Corporate Gift Hamper</td>
+                            <td>Mixed Supply Products</td>
+                            <td>18% (Highest among items)</td>
+                        </tr>
+                        <tr>
+                            <td>Festival Gift Pack</td>
+                            <td>Mixed Supply Products</td>
+                            <td>18% (Highest among items)</td>
+                        </tr>
+                        <tr>
+                            <td>Business Combo Pack</td>
+                            <td>Mixed Supply Products</td>
+                            <td>18% (Highest among items)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Calculation Comparison Sheet:</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Supply Type</th>
+                            <th>Package Value</th>
+                            <th>Tax Rate Rule</th>
+                            <th>CGST (₹)</th>
+                            <th>SGST (₹)</th>
+                            <th>Total Invoice (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Composite:</strong> Laptop Package</td>
+                            <td>₹60,000</td>
+                            <td>18% (Principal Supply)</td>
+                            <td>5,400</td>
+                            <td>5,400</td>
+                            <td>70,800</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mixed:</strong> Gift Hamper (Choco 18%, Juice 12%, Perfume 18%)</td>
+                            <td>₹5,000</td>
+                            <td>18% (Highest Rate)</td>
+                            <td>450</td>
+                            <td>450</td>
+                            <td>5,900</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>TallyPrime Step-by-Step Recording</h2>
+
+                <h3>Cafrom 1: Composite Supply Entry (F8: Sales)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F8</strong> (Sales).</li>
+                    <li>Select Customer (e.g., <code>Maharashtra Customer</code> for Local or <code>Gujarat Customer</code> for Interstate).</li>
+                    <li>Select Stock Item: <code>Laptop Package</code> &rarr; Rate: ₹60,000.</li>
+                    <li>Select <strong>CGST + SGST</strong> (or <strong>IGST</strong> if Interstate) based on the Principal Supply rate.</li>
+                    <li>Verify with <strong>Ctrl + O</strong> &rarr; <em>GST - Tax Analysis</em> &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <h3>Cafrom 2: Mixed Supply Entry (F8: Sales)</h3>
+                <ol>
+                    <li>Press <strong>F8</strong> (Sales) &rarr; Select Customer Ledger.</li>
+                    <li>Select Stock Item: <code>Corporate Gift Hamper</code> &rarr; Rate: ₹5,000.</li>
+                    <li>Select Tax Ledgers using the highest applicable rate (18%).</li>
+                    <li>Verify invoice total and save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1</h3>
+                <ol>
+                    <li><strong>05-Jun:</strong> Laptop Package @ ₹60,000 to Maharashtra Customer (Composite, 18%).</li>
+                    <li><strong>07-Jun:</strong> Laptop Package @ ₹75,000 to Gujarat Customer (Composite, 18% IGST).</li>
+                    <li><strong>01-Jun:</strong> Corporate Gift Hamper @ ₹5,000 to Maharashtra Customer (Mixed, 18%).</li>
+                    <li><strong>02-Jun:</strong> Corporate Gift Hamper @ ₹12,000 to Gujarat Customer (Mixed, 18% IGST).</li>
+                </ol>
+
+                <h3>Practice Set &mdash; Level 2</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Package</th>
+                            <th>Party</th>
+                            <th>Value</th>
+                            <th>Type</th>
+                            <th>GST</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Printer Package</td>
+                            <td>Maharashtra Customer</td>
+                            <td>₹40,000</td>
+                            <td>Composite</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Printer Package</td>
+                            <td>Gujarat Customer</td>
+                            <td>₹55,000</td>
+                            <td>Composite</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Festival Gift Pack</td>
+                            <td>Maharashtra Customer</td>
+                            <td>₹8,000</td>
+                            <td>Mixed</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Festival Gift Pack</td>
+                            <td>Gujarat Customer</td>
+                            <td>₹15,000</td>
+                            <td>Mixed</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>AC Package</td>
+                            <td>Maharashtra Customer</td>
+                            <td>₹1,00,000</td>
+                            <td>Composite</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>31-Jul</td>
+                            <td>Business Combo Pack</td>
+                            <td>Gujarat Customer</td>
+                            <td>₹20,000</td>
+                            <td>Mixed</td>
+                            <td>18%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Identification Test, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Identification Flowchart:</h3>
+                <ul>
+                    <li><strong>Naturally Bundled?</strong> &rarr; <em>Yes</em> &rarr; <strong>Composite Supply</strong> &rarr; Apply Principal Supply Rate.</li>
+                    <li><strong>Not Naturally Bundled + Single Price?</strong> &rarr; <em>Yes</em> &rarr; <strong>Mixed Supply</strong> &rarr; Apply Highest Tax Rate.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Assuming every bundle of multiple items is a Mixed Supply.</li>
+                    <li>Applying the highest rate to naturally bundled Composite Supplies.</li>
+                    <li>Searching for a "Principal Supply" in a Mixed Supply package.</li>
+                    <li>Billing individual items separately instead of recognizing the packaged supply structure.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Composite Supply in GST rate kaifrom determine is?</strong><br>A: Principal (main) supply ke applicable GST rate ke basis par.</li>
+                    <li><strong>Q: Mixed Supply in GST rate kaifrom determine is?</strong><br>A: Package ke andar maujood saalso items in from jo highest GST rate is, wahi pure package par lagta is.</li>
+                    <li><strong>Q: Kor single price hone from transaction automatically Mixed Supply ban jata hai?</strong><br>A: Nahi, pehle natural bundling check karni hoti haNaturally bundled items single price par hone par also Composite Supply ho sakte are.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Golden Memory Formulas:</strong><br>
+                    <strong>COMPOSITE:</strong> C (Combination) &rarr; P (Principal Supply) &rarr; R (Principal Rate)<br>
+                    <strong>MIXED:</strong> M (Multiple Independent Supplies) &rarr; M (Maximum / Highest Rate)
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Composite &amp; Mixed Supply concepts differentiated</li>
+                    <li>Principal Supply identification mastered</li>
+                    <li>TallyPrime stock items and composite/mixed groups configured</li>
+                    <li>Local &amp; Interstate Composite Supply invoices entered and verified</li>
+                    <li>Local &amp; Interstate Mixed Supply invoices entered and verified</li>
+                    <li>GST Tax Analysis reviewed and reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>Supply ka basic concept revise karega.</li>
+                    <li>Composite Supply samjhega.</li>
+                    <li>Mixed Supply samjhega.</li>
+                    <li>Principal Supply identify karega.</li>
+                    <li>Naturally bundled supplies identify karega.</li>
+                    <li>Composite aur Mixed Supply mein difference karega.</li>
+                    <li>GST rate determine karne ka basic approach samjhega.</li>
+                    <li>Invoice value aur GST calculate karega.</li>
+                    <li>TallyPrime mein bundled supply ka practical treatment samjhega.</li>
+                    <li>Single-item vs multiple-item GST treatment compare karega.</li>
+                    <li>Incorrect GST rate selection ki mistakes identify karega.</li>
+                    <li>Mixed/Composite Supply ke practical cases solve karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Supply &amp; Bundled Supplies</h2>
+                <p><strong>Supply under GST:</strong> Business ke through goods/services ko consideration ke liye provide karna supply ke framework mein aata hai (Sale, Transfer, Barter, Exchange, Lease, Rental, etc.).</p>
+                
+                <p><strong>Bundled Supplies:</strong> Jab ek transaction mein multiple goods/services provide kiye jaate hain:</p>
+                <ul>
+                    <li><em>Example 1:</em> Laptop + Laptop Bag + Mouse</li>
+                    <li><em>Example 2:</em> Hotel Room + Breakfast</li>
+                    <li><em>Example 3:</em> Goods + Transportation + Insurance</li>
+                </ul>
+
+                <hr>
+
+                <h2>Composite Supply vs Mixed Supply</h2>
+                
+                <h3>Composite Supply</h3>
+                <p>Do ya do se zyada taxable supplies jo <strong>naturally bundled</strong> hain aur business ke normal course mein ek dusre ke saath supply hoti hain, jisme ek <strong>Principal Supply</strong> hoti hai.</p>
+                <blockquote>
+                    <strong>Composite Formula &amp; Tax Rule:</strong><br>
+                    Naturally Bundled Supplies + Principal Supply = Composite Supply<br>
+                    <strong>GST Rate:</strong> Taxable at the rate applicable to the <strong>Principal Supply</strong>.
+                </blockquote>
+
+                <h3>Mixed Supply</h3>
+                <p>Do ya zyada individual supplies jo ek single price par supply ki jaati hain, lekin wo <strong>naturally bundled nahi</strong> hoti hain.</p>
+                <blockquote>
+                    <strong>Mixed Supply Tax Rule:</strong><br>
+                    <strong>GST Rate:</strong> Taxable at the <strong>Highest GST Rate</strong> among the bundled items.
+                </blockquote>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Basis</th>
+                            <th>Composite Supply</th>
+                            <th>Mixed Supply</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Supplies</td>
+                            <td>2 or more</td>
+                            <td>2 or more</td>
+                        </tr>
+                        <tr>
+                            <td>Bundling</td>
+                            <td>Naturally bundled</td>
+                            <td>Not naturally bundled</td>
+                        </tr>
+                        <tr>
+                            <td>Principal Supply</td>
+                            <td>Yes (Identifiable)</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Single Price</td>
+                            <td>Commonly supplied together</td>
+                            <td>Single package price</td>
+                        </tr>
+                        <tr>
+                            <td>GST Rate Applicable</td>
+                            <td>Principal Supply Rate</td>
+                            <td>Highest Applicable Rate</td>
+                        </tr>
+                        <tr>
+                            <td>Example</td>
+                            <td>AC + Installation / Laptop + Delivery</td>
+                            <td>Gift Hamper (Chocolates + Perfume + Mug)</td>
+                        </tr>
+                        <tr>
+                            <td>Main Question</td>
+                            <td>What is the principal supply?</td>
+                            <td>What is the highest tax rate?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Master Setup &amp; Practical Calculations</h2>
+
+                <h3>Master Structure in TallyPrime:</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item</th>
+                            <th>Group / Classification</th>
+                            <th>Practice GST Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop Package</td>
+                            <td>Composite Products</td>
+                            <td>18% (Principal: Laptop)</td>
+                        </tr>
+                        <tr>
+                            <td>Printer Package</td>
+                            <td>Composite Products</td>
+                            <td>18% (Principal: Printer)</td>
+                        </tr>
+                        <tr>
+                            <td>AC Package</td>
+                            <td>Composite Products</td>
+                            <td>18% (Principal: AC)</td>
+                        </tr>
+                        <tr>
+                            <td>Corporate Gift Hamper</td>
+                            <td>Mixed Supply Products</td>
+                            <td>18% (Highest among items)</td>
+                        </tr>
+                        <tr>
+                            <td>Festival Gift Pack</td>
+                            <td>Mixed Supply Products</td>
+                            <td>18% (Highest among items)</td>
+                        </tr>
+                        <tr>
+                            <td>Business Combo Pack</td>
+                            <td>Mixed Supply Products</td>
+                            <td>18% (Highest among items)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Calculation Comparison Sheet:</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Supply Type</th>
+                            <th>Package Value</th>
+                            <th>Tax Rate Rule</th>
+                            <th>CGST (₹)</th>
+                            <th>SGST (₹)</th>
+                            <th>Total Invoice (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Composite:</strong> Laptop Package</td>
+                            <td>₹60,000</td>
+                            <td>18% (Principal Supply)</td>
+                            <td>5,400</td>
+                            <td>5,400</td>
+                            <td>70,800</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mixed:</strong> Gift Hamper (Choco 18%, Juice 12%, Perfume 18%)</td>
+                            <td>₹5,000</td>
+                            <td>18% (Highest Rate)</td>
+                            <td>450</td>
+                            <td>450</td>
+                            <td>5,900</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>TallyPrime Step-by-Step Recording</h2>
+
+                <h3>Case 1: Composite Supply Entry (F8: Sales)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F8</strong> (Sales).</li>
+                    <li>Select Customer (e.g., <code>Maharashtra Customer</code> for Local or <code>Gujarat Customer</code> for Interstate).</li>
+                    <li>Select Stock Item: <code>Laptop Package</code> &rarr; Rate: ₹60,000.</li>
+                    <li>Select <strong>CGST + SGST</strong> (or <strong>IGST</strong> if Interstate) based on the Principal Supply rate.</li>
+                    <li>Verify with <strong>Ctrl + O</strong> &rarr; <em>GST - Tax Analysis</em> &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <h3>Case 2: Mixed Supply Entry (F8: Sales)</h3>
+                <ol>
+                    <li>Press <strong>F8</strong> (Sales) &rarr; Select Customer Ledger.</li>
+                    <li>Select Stock Item: <code>Corporate Gift Hamper</code> &rarr; Rate: ₹5,000.</li>
+                    <li>Select Tax Ledgers using the highest applicable rate (18%).</li>
+                    <li>Verify invoice total and save with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1</h3>
+                <ol>
+                    <li><strong>05-Jun:</strong> Laptop Package @ ₹60,000 to Maharashtra Customer (Composite, 18%).</li>
+                    <li><strong>07-Jun:</strong> Laptop Package @ ₹75,000 to Gujarat Customer (Composite, 18% IGST).</li>
+                    <li><strong>01-Jun:</strong> Corporate Gift Hamper @ ₹5,000 to Maharashtra Customer (Mixed, 18%).</li>
+                    <li><strong>02-Jun:</strong> Corporate Gift Hamper @ ₹12,000 to Gujarat Customer (Mixed, 18% IGST).</li>
+                </ol>
+
+                <h3>Practice Set &mdash; Level 2</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Package</th>
+                            <th>Party</th>
+                            <th>Value</th>
+                            <th>Type</th>
+                            <th>GST</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Printer Package</td>
+                            <td>Maharashtra Customer</td>
+                            <td>₹40,000</td>
+                            <td>Composite</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Printer Package</td>
+                            <td>Gujarat Customer</td>
+                            <td>₹55,000</td>
+                            <td>Composite</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Festival Gift Pack</td>
+                            <td>Maharashtra Customer</td>
+                            <td>₹8,000</td>
+                            <td>Mixed</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Festival Gift Pack</td>
+                            <td>Gujarat Customer</td>
+                            <td>₹15,000</td>
+                            <td>Mixed</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>AC Package</td>
+                            <td>Maharashtra Customer</td>
+                            <td>₹1,00,000</td>
+                            <td>Composite</td>
+                            <td>18%</td>
+                        </tr>
+                        <tr>
+                            <td>31-Jul</td>
+                            <td>Business Combo Pack</td>
+                            <td>Gujarat Customer</td>
+                            <td>₹20,000</td>
+                            <td>Mixed</td>
+                            <td>18%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Identification Test, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Identification Flowchart:</h3>
+                <ul>
+                    <li><strong>Naturally Bundled?</strong> &rarr; <em>Yes</em> &rarr; <strong>Composite Supply</strong> &rarr; Apply Principal Supply Rate.</li>
+                    <li><strong>Not Naturally Bundled + Single Price?</strong> &rarr; <em>Yes</em> &rarr; <strong>Mixed Supply</strong> &rarr; Apply Highest Tax Rate.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Assuming every bundle of multiple items is a Mixed Supply.</li>
+                    <li>Applying the highest rate to naturally bundled Composite Supplies.</li>
+                    <li>Searching for a "Principal Supply" in a Mixed Supply package.</li>
+                    <li>Billing individual items separately instead of recognizing the packaged supply structure.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Composite Supply mein GST rate kaise determine hota hai?</strong><br>A: Principal (main) supply ke applicable GST rate ke basis par.</li>
+                    <li><strong>Q: Mixed Supply mein GST rate kaise determine hota hai?</strong><br>A: Package ke andar maujood sabhi items mein se jo highest GST rate hota hai, wahi pure package par lagta hai.</li>
+                    <li><strong>Q: Kya single price hone se transaction automatically Mixed Supply ban jata hai?</strong><br>A: Nahi, pehle natural bundling check karni hoti haNaturally bundled items single price par hone par bhi Composite Supply ho sakte hain.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Golden Memory Formulas:</strong><br>
+                    <strong>COMPOSITE:</strong> C (Combination) &rarr; P (Principal Supply) &rarr; R (Principal Rate)<br>
+                    <strong>MIXED:</strong> M (Multiple Independent Supplies) &rarr; M (Maximum / Highest Rate)
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Composite &amp; Mixed Supply concepts differentiated</li>
+                    <li>Principal Supply identification mastered</li>
+                    <li>TallyPrime stock items and composite/mixed groups configured</li>
+                    <li>Local &amp; Interstate Composite Supply invoices entered and verified</li>
+                    <li>Local &amp; Interstate Mixed Supply invoices entered and verified</li>
+                    <li>GST Tax Analysis reviewed and reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

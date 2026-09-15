@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Stock Journal and Physical Stock Journal ka core business purpofrom samjhega.</li>
+                    <li>Stock Journal (Ctrl + F7) ke zariye godown-to-godown internal stock transfers record kar payega.</li>
+                    <li>Raw material consumption and finished goods production movements handle karega.</li>
+                    <li>Physical Stock voucher (Physical Stock Journal) ke zariye actual warehoufrom physical count enter karega.</li>
+                    <li>Book stock and physical stock ke beech shortages (-) or excesses (+) calculate and reconcile karega.</li>
+                    <li>Internal inventory adjustments and commercial sales/purchafrom transactions ka difference identify karega.</li>
+                    <li>Verify Godown-wifrom stock summary and reconciliation reports in management and statutory tax reports.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Stock Journal vs Physical Stock Journal</h2>
+                <p>Advanced inventory management in books ke andar internal stock movement ko track karne and physical warehoufrom counts ko reconcile karne ke liye do specialized journals ufrom are:</p>
+
+                <ul>
+                    <li><strong>Stock Journal (Ctrl + F7):</strong> Internal inventory transfers (godown to godown), material consumption, production output, and scrap/wastage adjustments ke liye.</li>
+                    <li><strong>Physical Stock Journal:</strong> Actual physical counting ke baad system/books ki quantity ko ground reality (shortage or excess) ke sath match karne ke liye.</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Stock Journal (Ctrl + F7)</th>
+                            <th>Physical Stock Journal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Primary Focus</th>
+                            <td>Internal movement, transfer &amp; production</td>
+                            <td>Physical counting &amp; reconciliation</td>
+                        </tr>
+                        <tr>
+                            <th>Structure</th>
+                            <td>Source (Consumption/From) &amp; Destination (Production/To)</td>
+                            <td>Direct entry of actual physical count per item/godown</td>
+                        </tr>
+                        <tr>
+                            <th>Godown Transfer</th>
+                            <td>Yes (Main Godown &rarr; Branch Godown)</td>
+                            <td>No (Not designed for transfers)</td>
+                        </tr>
+                        <tr>
+                            <th>Key Output</th>
+                            <td>Material consumed or position changed</td>
+                            <td>Shortage / Excess inventory adjustment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Rule:</strong><br>
+                    <strong>Stock Journal</strong> = Stock ko ek jagah from doosri jagah move karna or raw material from finish goods banana.<br>
+                    <strong>Physical Stock</strong> = Godown in actual count karke books ke sath reconcile karna.
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Feature Activation</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics / Manufacturing | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Godowns Setup:</h3>
+                <ul>
+                    <li><code>Main Godown</code>, <code>Branch Godown</code>, <code>Production Godown</code>, <code>Finished Goods Godown</code></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Godown Transfers &amp; Reconciliation</h2>
+
+                <h3>Part A: Godown-to-Godown Transfer via Stock Journal (Ctrl + F7)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Transfer 30 Nos Printers from <em>Main Godown</em> to <em>Branch Godown</em>.</li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Press <strong>Ctrl + F7 (Stock Journal)</strong>.</li>
+                    <li>
+                        <strong>Source (Consumption):</strong> Select Godown: <code>Main Godown</code> &rarr; Item: <code>Printer</code> &rarr; Qty: <strong>30 Nos</strong>.
+                    </li>
+                    <li>
+                        <strong>Destination (Production/Receipt):</strong> Select Godown: <code>Branch Godown</code> &rarr; Item: <code>Printer</code> &rarr; Qty: <strong>30 Nos</strong>.
+                    </li>
+                    <li>Save voucher &rarr; Total company stock remains unchanged (100 Nos), but location changes (Main: 70 | Branch: 30).</li>
+                </ol>
+
+                <h3>Part B: Physical Stock Reconciliation (Shortage / Excess)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Book stock of Printer shows 100 Nos in Main Godown, but physical physical count reveals only 96 Nos (4 Nos Shortage due to damage/breakage).</li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Physical Stock</strong> (or Physical Stock Journal).</li>
+                    <li>Select Item: <code>Printer</code> &rarr; Godown: <code>Main Godown</code> &rarr; Enter <strong>Actual Physical Quantity: 96 Nos</strong> (instead of the difference).</li>
+                    <li>Save voucher &rarr; Tally automatically records a 4-unit shortage adjustment. If physical count was 105, entering 105 records a 5-unit excess.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Manufacturing &amp; Reconciliation Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operation Type</th>
+                            <th>Source / From</th>
+                            <th>Destination / To</th>
+                            <th>Stock Item</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Godown Transfer</td>
+                            <td>Main Godown</td>
+                            <td>Production Godown</td>
+                            <td>Steel Sheet</td>
+                            <td>100 Kg</td>
+                        </tr>
+                        <tr>
+                            <td>Godown Transfer</td>
+                            <td>Main Godown</td>
+                            <td>Production Godown</td>
+                            <td>Wood</td>
+                            <td>150 Kg</td>
+                        </tr>
+                        <tr>
+                            <td>Material Consumption</td>
+                            <td>Production Godown</td>
+                            <td>&mdash; (Consumed)</td>
+                            <td>Steel Sheet</td>
+                            <td>50 Kg</td>
+                        </tr>
+                        <tr>
+                            <td>Production Output</td>
+                            <td>&mdash; (Produced)</td>
+                            <td>Finished Goods Godown</td>
+                            <td>Office Chair</td>
+                            <td>20 Nos</td>
+                        </tr>
+                        <tr>
+                            <td>Physical Audit</td>
+                            <td>Main Godown</td>
+                            <td>Physical Count Audit</td>
+                            <td>Steel Sheet</td>
+                            <td>345 Kg (Book: 350)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary / Godown Summary:</strong> Verify location-wifrom stock balances and ensure total company inventory reconciles.</li>
+                    <li><strong>Physical Stock Register:</strong> Review recorded shortages and excesses resulting from physical audits.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Using Purchafrom or Sales vouchers for internal godown-to-godown transfers.</li>
+                    <li>Entering the difference quantity (e.g., entering '-4') in the Physical Stock voucher instead of entering the actual physical count (e.g., '96').</li>
+                    <li>Failing to balance Source and Destination quantities in a Stock Journal transfer, creating unaccounted inventory variance.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Godown transfer karne from total company stock par kor asar padta hai?</strong><br>A: Pure internal transfer in total company stock same rehta hai; only storage location badalti is.</li>
+                    <li><strong>Q: Physical Stock voucher in kor enter karna is?</strong><br>A: System ki book quantity nahi, balki warehoufrom in count ki gayi actual physical stock quantity enter karni is.</li>
+                    <li><strong>Q: Stock Journal ka shortcut kor hai?</strong><br>A: <strong>Ctrl + F7</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Stock Journal &amp; Physical Stock Golden Workflow:</strong><br>
+                    <code>Stock Journal (Ctrl+F7) [Source &rarr; Destination Godown Transfer / Consumption] OR Physical Stock Voucher [Enter Actual Count &rarr; Auto-Reconcile Shortage/Excess] &rarr; Verify Godown Summary</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Stock Journal (Ctrl + F7) feature and godowns configured</li>
+                    <li>Godown-to-godown stock transfers executed</li>
+                    <li>Material consumption and production entries recorded</li>
+                    <li>Physical stock audit conducted and shortages/excesses reconciled</li>
+                    <li>Godown Summary and Stock Summary verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 7 complete karne ke baad student:</p>
+                <ul>
+                    <li>Stock Journal aur Physical Stock Journal ka core business purpose samjhega.</li>
+                    <li>Stock Journal (Ctrl + F7) ke zariye godown-to-godown internal stock transfers record kar payega.</li>
+                    <li>Raw material consumption aur finished goods production movements handle karega.</li>
+                    <li>Physical Stock voucher (Physical Stock Journal) ke zariye actual warehouse physical count enter karega.</li>
+                    <li>Book stock aur physical stock ke beech shortages (-) ya excesses (+) calculate aur reconcile karega.</li>
+                    <li>Internal inventory adjustments aur commercial sales/purchase transactions ka difference identify karega.</li>
+                    <li>Godown-wise stock summary aur reconciliation reports verify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Stock Journal vs Physical Stock Journal</h2>
+                <p>Advanced inventory management mein books ke andar internal stock movement ko track karne aur physical warehouse counts ko reconcile karne ke liye do specialized journals use hote hain:</p>
+
+                <ul>
+                    <li><strong>Stock Journal (Ctrl + F7):</strong> Internal inventory transfers (godown to godown), material consumption, production output, aur scrap/wastage adjustments ke liye.</li>
+                    <li><strong>Physical Stock Journal:</strong> Actual physical counting ke baad system/books ki quantity ko ground reality (shortage ya excess) ke sath match karne ke liye.</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Stock Journal (Ctrl + F7)</th>
+                            <th>Physical Stock Journal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Primary Focus</th>
+                            <td>Internal movement, transfer &amp; production</td>
+                            <td>Physical counting &amp; reconciliation</td>
+                        </tr>
+                        <tr>
+                            <th>Structure</th>
+                            <td>Source (Consumption/From) &amp; Destination (Production/To)</td>
+                            <td>Direct entry of actual physical count per item/godown</td>
+                        </tr>
+                        <tr>
+                            <th>Godown Transfer</th>
+                            <td>Yes (Main Godown &rarr; Branch Godown)</td>
+                            <td>No (Not designed for transfers)</td>
+                        </tr>
+                        <tr>
+                            <th>Key Output</th>
+                            <td>Material consumed or position changed</td>
+                            <td>Shortage / Excess inventory adjustment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Rule:</strong><br>
+                    <strong>Stock Journal</strong> = Stock ko ek jagah se doosri jagah move karna ya raw material se finish goods banana.<br>
+                    <strong>Physical Stock</strong> = Godown mein actual count karke books ke sath reconcile karna.
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Feature Activation</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics / Manufacturing | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Godowns Setup:</h3>
+                <ul>
+                    <li><code>Main Godown</code>, <code>Branch Godown</code>, <code>Production Godown</code>, <code>Finished Goods Godown</code></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Godown Transfers &amp; Reconciliation</h2>
+
+                <h3>Part A: Godown-to-Godown Transfer via Stock Journal (Ctrl + F7)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Transfer 30 Nos Printers from <em>Main Godown</em> to <em>Branch Godown</em>.</li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Press <strong>Ctrl + F7 (Stock Journal)</strong>.</li>
+                    <li>
+                        <strong>Source (Consumption):</strong> Select Godown: <code>Main Godown</code> &rarr; Item: <code>Printer</code> &rarr; Qty: <strong>30 Nos</strong>.
+                    </li>
+                    <li>
+                        <strong>Destination (Production/Receipt):</strong> Select Godown: <code>Branch Godown</code> &rarr; Item: <code>Printer</code> &rarr; Qty: <strong>30 Nos</strong>.
+                    </li>
+                    <li>Save voucher &rarr; Total company stock remains unchanged (100 Nos), but location changes (Main: 70 | Branch: 30).</li>
+                </ol>
+
+                <h3>Part B: Physical Stock Reconciliation (Shortage / Excess)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Book stock of Printer shows 100 Nos in Main Godown, but physical physical count reveals only 96 Nos (4 Nos Shortage due to damage/breakage).</li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Physical Stock</strong> (or Physical Stock Journal).</li>
+                    <li>Select Item: <code>Printer</code> &rarr; Godown: <code>Main Godown</code> &rarr; Enter <strong>Actual Physical Quantity: 96 Nos</strong> (instead of the difference).</li>
+                    <li>Save voucher &rarr; Tally automatically records a 4-unit shortage adjustment. If physical count was 105, entering 105 records a 5-unit excess.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Manufacturing &amp; Reconciliation Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operation Type</th>
+                            <th>Source / From</th>
+                            <th>Destination / To</th>
+                            <th>Stock Item</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Godown Transfer</td>
+                            <td>Main Godown</td>
+                            <td>Production Godown</td>
+                            <td>Steel Sheet</td>
+                            <td>100 Kg</td>
+                        </tr>
+                        <tr>
+                            <td>Godown Transfer</td>
+                            <td>Main Godown</td>
+                            <td>Production Godown</td>
+                            <td>Wood</td>
+                            <td>150 Kg</td>
+                        </tr>
+                        <tr>
+                            <td>Material Consumption</td>
+                            <td>Production Godown</td>
+                            <td>&mdash; (Consumed)</td>
+                            <td>Steel Sheet</td>
+                            <td>50 Kg</td>
+                        </tr>
+                        <tr>
+                            <td>Production Output</td>
+                            <td>&mdash; (Produced)</td>
+                            <td>Finished Goods Godown</td>
+                            <td>Office Chair</td>
+                            <td>20 Nos</td>
+                        </tr>
+                        <tr>
+                            <td>Physical Audit</td>
+                            <td>Main Godown</td>
+                            <td>Physical Count Audit</td>
+                            <td>Steel Sheet</td>
+                            <td>345 Kg (Book: 350)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary / Godown Summary:</strong> Verify location-wise stock balances and ensure total company inventory reconciles.</li>
+                    <li><strong>Physical Stock Register:</strong> Review recorded shortages and excesses resulting from physical audits.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Using Purchase or Sales vouchers for internal godown-to-godown transfers.</li>
+                    <li>Entering the difference quantity (e.g., entering '-4') in the Physical Stock voucher instead of entering the actual physical count (e.g., '96').</li>
+                    <li>Failing to balance Source and Destination quantities in a Stock Journal transfer, creating unaccounted inventory variance.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Godown transfer karne se total company stock par kya asar padta hai?</strong><br>A: Pure internal transfer mein total company stock same rehta hai; sirf storage location badalti hai.</li>
+                    <li><strong>Q: Physical Stock voucher mein kya enter karna hota hai?</strong><br>A: System ki book quantity nahi, balki warehouse mein count ki gayi actual physical stock quantity enter karni hoti hai.</li>
+                    <li><strong>Q: Stock Journal ka shortcut kya hai?</strong><br>A: <strong>Ctrl + F7</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Stock Journal &amp; Physical Stock Golden Workflow:</strong><br>
+                    <code>Stock Journal (Ctrl+F7) [Source &rarr; Destination Godown Transfer / Consumption] OR Physical Stock Voucher [Enter Actual Count &rarr; Auto-Reconcile Shortage/Excess] &rarr; Verify Godown Summary</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Stock Journal (Ctrl + F7) feature and godowns configured</li>
+                    <li>Godown-to-godown stock transfers executed</li>
+                    <li>Material consumption and production entries recorded</li>
+                    <li>Physical stock audit conducted and shortages/excesses reconciled</li>
+                    <li>Godown Summary and Stock Summary verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

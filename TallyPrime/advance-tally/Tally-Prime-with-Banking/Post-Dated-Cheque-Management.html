@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Core Concept</h2>
+                <p>A <strong>Post-Dated Cheque (PDC)</strong> is a cheque bearing a future settlement date. In commercial trade, buyers frequently provide post-dated cheques to suppliers to secure orders or fulfill credit terms.</p>
+                <p>TallyPrime features a specialized <strong>PDC Management Framework</strong> that enables businesses to record post-dated receipts and payments without prematurely distorting current bank balances or profit &amp; loss statements until the maturity date arrives.</p>
+
+                <h2>2. Why PDC Handling is Crucial</h2>
+                <ul>
+                    <li><strong>Accurate Cash Flow Planning:</strong> Finance managers can forecast upcoming receivables and payables based on PDC maturity schedules.</li>
+                    <li><strong>Audit Integrity:</strong> Prevents premature reduction of customer outstanding balances before actual cheque realization.</li>
+                    <li><strong>Cheque Bounce Prevention:</strong> Timely reminders ensure sufficient liquidity in current accounts before issued PDCs mature.</li>
+                </ul>
+
+                <h2>3. Recording a Post-Dated Voucher in TallyPrime</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-keyboard"></i> Magic Shortcut:</strong>
+                    Press <kbd>Ctrl + T</kbd> inside any Payment (<kbd>F5</kbd>) or Receipt (<kbd>F6</kbd>) voucher to toggle <strong>Post-Dated</strong> mode!
+                    <br>The voucher status badge at the top changes from <em>Accounting Voucher</em> to <strong>Post-Dated Voucher</strong>.
+                </div>
+
+                <h3>Step-by-Step Practical Example: Receiving a Post-Dated Cheque</h3>
+                <p><strong>Scenario:</strong> On 15th September, customer <em>Supreme Retailers</em> issues cheque number <code>445566</code> for ₹75,000 dated <strong>15th October</strong>.</p>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <kbd>F6</kbd> (Receipt).</li>
+                    <li>Press <kbd>Ctrl + T</kbd> to mark the voucher as <strong>Post-Dated</strong>.</li>
+                    <li>Press <kbd>F2</kbd> (Date) and enter the <strong>Actual Cheque Date:</strong> <code>02-Oct-2026</code>.</li>
+                    <li>In the PDC Details sub-prompt:
+                        <ul>
+                            <li><strong>PDC Issue Date:</strong> <code>01-Sep-2026</code> (date customer physically handed over the leaf).</li>
+                            <li><strong>PDC Note:</strong> <code>Security payment for Order #SR-99</code>.</li>
+                        </ul>
+                    </li>
+                    <li>Credit <strong>Supreme Retailers</strong> ₹75,000 (Against Reference of bill).</li>
+                    <li>Debit <strong>HDFC Bank Current A/c</strong> ₹75,000.</li>
+                    <li>In Bank Allocations, verify Cheque No. <code>445566</code> and Instrument Date <code>02-Oct-2026</code>.</li>
+                    <li>Press <kbd>Ctrl + A</kbd> to save.</li>
+                </ol>
+
+                <div class="note-box">
+                    <strong><i class="fa-solid fa-shield-halved"></i> Accounting Impact:</strong>
+                    This receipt will <strong>NOT</strong> increase your bank balance on 01-Sep. It will sit in the PDC register and automatically activate into real books on 02-Oct!
+                </div>
+
+                <h2>4. The Post-Dated Transactions Register</h2>
+                <p>Track all upcoming incoming and outgoing post-dated cheques in one centralized dashboard:</p>
+                <ul>
+                    <li><strong>Path:</strong> Gateway of Tally &rarr; <strong>Banking</strong> &rarr; <strong>Post-Dated Summary</strong>.</li>
+                    <li><strong>Alternative:</strong> Press <kbd>Alt + G</kbd> &rarr; Type <strong>Post-Dated Summary</strong>.</li>
+                </ul>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date Range</th>
+                                <th>Cheques Received (Inward)</th>
+                                <th>Cheques Issued (Outward)</th>
+                                <th>Net Projected Liquidity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>October Maturity (01-Oct / 02-Oct)</strong></td>
+                                <td>₹2,50,000</td>
+                                <td>₹1,80,000</td>
+                                <td>+ ₹70,000 (Surplus)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>November Maturity (01-Nov / 02-Nov)</strong></td>
+                                <td>₹4,00,000</td>
+                                <td>₹3,50,000</td>
+                                <td>+ ₹50,000 (Surplus)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>December Maturity (31-Dec)</strong></td>
+                                <td>₹1,20,000</td>
+                                <td>₹2,90,000</td>
+                                <td>- ₹1,70,000 (Deficit - Arrange OD)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Practice Tip:</strong>
+                    <p>In TallyPrime Educational Mode, always enter post-dated cheques with maturity dates set to the <strong>1st, 2nd, or 31st</strong> of the upcoming month (e.g. <code>01-Nov-2025</code> or <code>02-Dec-2025</code>). Tally will smoothly hold and track them in the Post-Dated Summary without date rejection errors.</p>
+                </div>
+
+                <h2>5. Converting Post-Dated Cheque to Regular Voucher</h2>
+                <p>When the maturity date arrives and the cheque is deposited in the bank:</p>
+                <ol>
+                    <li>Open <strong>Post-Dated Summary</strong>.</li>
+                    <li>Select the mature voucher.</li>
+                    <li>Press <kbd>Ctrl + T</kbd> again to toggle off Post-Dated status, or let Tally automatically realize it based on the voucher date.</li>
+                    <li>Perform BRS and enter the clearance date!</li>
+                </ol>
+
+                <h2>6. Interview Questions & Answers</h2>
+                <h3>Q1. Which shortcut key is used in TallyPrime to mark a voucher as Post-Dated?</h3>
+                <p><strong>Ans:</strong> <kbd>Ctrl + T</kbd> toggles between Regular and Post-Dated voucher status.</p>
+
+                <h3>Q2. Do post-dated receipts affect the current Balance Sheet on the day they are received?</h3>
+                <p><strong>Ans:</strong> No. Post-dated vouchers do not affect regular financial statements until their effective instrument date is reached.</p>
+
+                <h3>Q3. Where can management check the list of all pending post-dated cheques?</h3>
+                <p><strong>Ans:</strong> Under <em>Gateway of Tally &rarr; Banking &rarr; Post-Dated Summary</em>.</p>
+
+                <h2>7. Summary & Key Takeaways</h2>
+                <ul>
+                    <li>Use <kbd>Ctrl + T</kbd> to record forward-dated cheques without affecting current balances.</li>
+                    <li>Post-Dated Summary provides cash flow predictability to treasury managers.</li>
+                    <li>PDCs automatically transition into regular accounting records upon maturity.</li>
+                </ul>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <p>A <strong>Post-Dated Cheque (PDC - अग्रिम तारीख का चेक) (PDC)</strong> is a cheque bearing a future settlement date. In commercial trade, buyers frequently provide Post-Dated Cheque (PDC - अग्रिम तारीख का चेक)s to suppliers to secure orders or fulfill credit terms.</p>
+                <p>TallyPrime features a specialized <strong>PDC Management Framework</strong> that enables businesses to record post-dated receipts and payments without prematurely distorting current bank balances or profit &amp; loss statements until the maturity date arrives.</p>
+
+                <h2>2. Why PDC Handling is Crucial</h2>
+                <ul>
+                    <li><strong>Accurate Cash Flow Planning:</strong> Finance managers can forecast upcoming receivables and payables based on PDC maturity schedules.</li>
+                    <li><strong>Audit Integrity:</strong> Prevents premature reduction of customer outstanding balances before actual cheque realization.</li>
+                    <li><strong>Cheque Bounce Prevention:</strong> Timely reminders ensure sufficient liquidity in current accounts before issued PDCs mature.</li>
+                </ul>
+
+                <h2>3. Recording a Post-Dated Voucher in TallyPrime</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-keyboard"></i> Magic Shortcut:</strong>
+                    Press <kbd>Ctrl + T</kbd> inside any Payment (<kbd>F5</kbd>) or Receipt (<kbd>F6</kbd>) voucher to toggle <strong>Post-Dated</strong> mode!
+                    <br>The voucher status badge at the top changes from <em>Accounting Voucher</em> to <strong>Post-Dated Voucher</strong>.
+                </div>
+
+                <h3>Step-by-Step Practical Example: Receiving a Post-Dated Cheque (PDC - अग्रिम तारीख का चेक)</h3>
+                <p><strong>Scenario:</strong> On 15th September, customer <em>Supreme Retailers</em> issues cheque number <code>445566</code> for ₹75,000 dated <strong>15th October</strong>.</p>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <kbd>F6</kbd> (Receipt).</li>
+                    <li>Press <kbd>Ctrl + T</kbd> to mark the voucher as <strong>Post-Dated</strong>.</li>
+                    <li>Press <kbd>F2</kbd> (Date) and enter the <strong>Actual Cheque Date:</strong> <code>02-Oct-2026</code>.</li>
+                    <li>In the PDC Details sub-prompt:
+                        <ul>
+                            <li><strong>PDC Issue Date:</strong> <code>01-Sep-2026</code> (date customer physically handed over the leaf).</li>
+                            <li><strong>PDC Note:</strong> <code>Security payment for Order #SR-99</code>.</li>
+                        </ul>
+                    </li>
+                    <li>Credit <strong>Supreme Retailers</strong> ₹75,000 (Against Reference of bill).</li>
+                    <li>Debit <strong>HDFC Bank Current A/c</strong> ₹75,000.</li>
+                    <li>In Bank Allocations, verify Cheque No. <code>445566</code> and Instrument Date <code>02-Oct-2026</code>.</li>
+                    <li>Press <kbd>Ctrl + A</kbd> to save.</li>
+                </ol>
+
+                <div class="note-box">
+                    <strong><i class="fa-solid fa-shield-halved"></i> Accounting Impact:</strong>
+                    This receipt will <strong>NOT</strong> increase your bank balance on 01-Sep. It will sit in the PDC register and automatically activate into real books on 02-Oct!
+                </div>
+
+                <h2>4. The Post-Dated Transactions Register</h2>
+                <p>Track all upcoming incoming and outgoing Post-Dated Cheque (PDC - अग्रिम तारीख का चेक)s in one centralized dashboard:</p>
+                <ul>
+                    <li><strong>Path:</strong> Gateway of Tally &rarr; <strong>Banking</strong> &rarr; <strong>Post-Dated Summary</strong>.</li>
+                    <li><strong>Alternative:</strong> Press <kbd>Alt + G</kbd> &rarr; Type <strong>Post-Dated Summary</strong>.</li>
+                </ul>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date Range</th>
+                                <th>Cheques Received (Inward)</th>
+                                <th>Cheques Issued (Outward)</th>
+                                <th>Net Projected Liquidity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>October Maturity (01-Oct / 02-Oct)</strong></td>
+                                <td>₹2,50,000</td>
+                                <td>₹1,80,000</td>
+                                <td>+ ₹70,000 (Surplus)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>November Maturity (01-Nov / 02-Nov)</strong></td>
+                                <td>₹4,00,000</td>
+                                <td>₹3,50,000</td>
+                                <td>+ ₹50,000 (Surplus)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>December Maturity (31-Dec)</strong></td>
+                                <td>₹1,20,000</td>
+                                <td>₹2,90,000</td>
+                                <td>- ₹1,70,000 (Deficit - Arrange OD)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Practice Tip:</strong>
+                    <p>In TallyPrime Educational Mode, always enter Post-Dated Cheque (PDC - अग्रिम तारीख का चेक)s with maturity dates set to the <strong>1st, 2nd, or 31st</strong> of the upcoming month (e.g. <code>01-Nov-2025</code> or <code>02-Dec-2025</code>). Tally will smoothly hold and track them in the Post-Dated Summary without date rejection errors.</p>
+                </div>
+
+                <h2>5. Converting Post-Dated Cheque (PDC - अग्रिम तारीख का चेक) to Regular Voucher</h2>
+                <p>When the maturity date arrives and the cheque is deposited in the bank:</p>
+                <ol>
+                    <li>Open <strong>Post-Dated Summary</strong>.</li>
+                    <li>Select the mature voucher.</li>
+                    <li>Press <kbd>Ctrl + T</kbd> again to toggle off Post-Dated status, or let Tally automatically realize it based on the voucher date.</li>
+                    <li>Perform BRS and enter the clearance date!</li>
+                </ol>
+
+                <h2>6. Interview Questions & Answers</h2>
+                <h3>Q1. Which shortcut key is used in TallyPrime to mark a voucher as Post-Dated?</h3>
+                <p><strong>Ans:</strong> <kbd>Ctrl + T</kbd> toggles between Regular and Post-Dated voucher status.</p>
+
+                <h3>Q2. Do post-dated receipts affect the current Balance Sheet on the day they are received?</h3>
+                <p><strong>Ans:</strong> No. Post-dated vouchers do not affect regular financial statements until their effective instrument date is reached.</p>
+
+                <h3>Q3. Where can management check the list of all pending Post-Dated Cheque (PDC - अग्रिम तारीख का चेक)s?</h3>
+                <p><strong>Ans:</strong> Under <em>Gateway of Tally &rarr; Banking &rarr; Post-Dated Summary</em>.</p>
+
+                <h2>7. Summary & Key Takeaways</h2>
+                <ul>
+                    <li>Use <kbd>Ctrl + T</kbd> to record forward-dated cheques without affecting current balances.</li>
+                    <li>Post-Dated Summary provides cash flow predictability to treasury managers.</li>
+                    <li>PDCs automatically transition into regular accounting records upon maturity.</li>
+                </ul>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

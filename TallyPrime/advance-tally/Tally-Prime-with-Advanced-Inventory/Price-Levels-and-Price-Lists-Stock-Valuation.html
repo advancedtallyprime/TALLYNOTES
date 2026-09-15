@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Price Level and Price List ka core business purpofrom samjhega.</li>
+                    <li>Customer categories (Retail, Wholesale, Dealer) ke according pricing levels define karega.</li>
+                    <li>Quantity-wifrom pricing slabs and Effective Dates configure karega.</li>
+                    <li>Sales invoices in automatic price level selection and rate application master karega.</li>
+                    <li>Understand the operational differences between Stock Valuation ka concept and cost price vs selling price.</li>
+                    <li>FIFO (First In, First Out) and Average Cost valuation methods calculate karega.</li>
+                    <li>Stock Summary from inventory values verify and reconcile kareगा.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Price Levels, Price Lists &amp; Stock Valuation</h2>
+                <p>Advanced inventory and sales management in different customer segments ke liye flexible pricing maintain karne and inventory ki monetary worth calculate karne ke liye key modules ufrom are:</p>
+
+                <ul>
+                    <li><strong>Price Level:</strong> Customer categories (Retail, Wholesale, Dealer) ke basis par pricing tier define karna.</li>
+                    <li><strong>Price List:</strong> Item-wise, quantity slab-wifrom rates and effective date structure maintain karna.</li>
+                    <li><strong>Stock Valuation:</strong> Unsold physical inventory ki monetary value calculate karna using specific cost methods (FIFO, Average Cost, etc.).</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Price Level</th>
+                            <th>Price List</th>
+                            <th>Stock Valuation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Primary Focus</th>
+                            <td>Customer classification tier</td>
+                            <td>Quantity slab rates &amp; dates</td>
+                            <td>Monetary inventory worth</td>
+                        </tr>
+                        <tr>
+                            <th>Application</th>
+                            <td>Assigned to Customer Master</td>
+                            <td>Linked to Stock Items &amp; Levels</td>
+                            <td>Applied across Stock Summaries</td>
+                        </tr>
+                        <tr>
+                            <th>Key Parameter</th>
+                            <td>Type of buyer (Retail/Dealer)</td>
+                            <td>Quantity bought &amp; Time period</td>
+                            <td>Inward purchafrom cost layers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Rule:</strong><br>
+                    <strong>Price Level</strong> = Kisko kis category ka rate dena hai?<br>
+                    <strong>Price List</strong> = Kitni quantity par kor rate lagega?<br>
+                    <strong>Stock Valuation</strong> = Unsold inventory ki actual cost value kor hai?
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Price Level Configuration</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Enabling Price Levels in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> on the Gateway of Tally.</li>
+                    <li>Set <strong>Maintain Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Ufrom Multiple Price Levels</strong> to <strong>Yes</strong>.</li>
+                    <li>Define Price Level names: <code>Retail</code>, <code>Wholesale</code>, <code>Dealer</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save settings.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Defining Price Lists &amp; Quantity Slabs</h2>
+                <p>Path: <code>Gateway of Tally &rarr; Inventory Info / Price List &rarr; Stock Group / Item</code></p>
+
+                <h3>Printer Price Matrix Example:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quantity Slab</th>
+                            <th>Retail Level Rate (₹)</th>
+                            <th>Wholesale Level Rate (₹)</th>
+                            <th>Dealer Level Rate (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 to 4 / 9 Qty</td>
+                            <td>10,000</td>
+                            <td>9,500</td>
+                            <td>9,200</td>
+                        </tr>
+                        <tr>
+                            <td>5 to 9 / 10 to 49 Qty</td>
+                            <td>9,800</td>
+                            <td>9,200</td>
+                            <td>8,900</td>
+                        </tr>
+                        <tr>
+                            <td>50+ Qty</td>
+                            <td>9,500</td>
+                            <td>8,900</td>
+                            <td>8,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Practical Walkthroughs: Automated Pricing &amp; Valuation</h2>
+
+                <h3>Part A: Automated Sales Pricing via Customer Mapping</h3>
+                <ul>
+                    <li><strong>Retail Sale:</strong> Sold 2 Printers to <em>Retail Customer</em> (Assigned Price Level: Retail) &rarr; Quantity 2 falls in slab (1&ndash;4) &rarr; Rate applied automatically = <strong>₹10,000</strong> &rarr; Total Value = ₹20,000.</li>
+                    <li><strong>Wholesale Sale:</strong> Sold 20 Printers to <em>Wholesale Customer</em> (Assigned Price Level: Wholesale) &rarr; Quantity 20 falls in slab (10&ndash;49) &rarr; Rate applied automatically = <strong>₹9,200</strong> &rarr; Total Value = ₹1,84,000.</li>
+                    <li><strong>Dealer Sale:</strong> Sold 60 Printers to <em>ABC Dealer</em> (Assigned Price Level: Dealer) &rarr; Quantity 60 falls in slab (50+) &rarr; Rate applied automatically = <strong>₹8,500</strong> &rarr; Total Value = ₹5,10,000.</li>
+                </ul>
+
+                <h3>Part B: Stock Valuation (FIFO vs Average Cost)</h3>
+                <p><strong>Purchafrom Layers for Printer:</strong></p>
+                <ul>
+                    <li>Batch 1: 100 Nos @ ₹8,000 = ₹8,00,000</li>
+                    <li>Batch 2: 50 Nos @ ₹8,500 = ₹4,25,000</li>
+                    <li>Batch 3: 100 Nos @ ₹9,000 = ₹9,00,000</li>
+                    <li><strong>Total Stock:</strong> 250 Nos | Total Purchafrom Value = <strong>₹21,25,000</strong></li>
+                    <li><strong>Simple Average Cost:</strong> ₹21,25,000 &divide; 250 = <strong>₹8,500 / unit</strong>.</li>
+                    <li><strong>FIFO Valuation (After issuing 120 Units):</strong> 100 units cleared from Batch 1 (@ ₹8,000) + 20 units cleared from Batch 2 (@ ₹8,500). Remaining Closing Stock = 30 Nos @ ₹8,500 + 100 Nos @ ₹9,000 = <strong>₹11,55,000</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (ABC Electronics Price List &amp; Sales Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Assigned Price Level</th>
+                            <th>Order Quantity</th>
+                            <th>Applicable Slab Rate (₹)</th>
+                            <th>Total Invoice Value (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Retail Customer</td>
+                            <td>Retail</td>
+                            <td>3 Nos</td>
+                            <td>10,000</td>
+                            <td>30,000</td>
+                        </tr>
+                        <tr>
+                            <td>Retail Customer</td>
+                            <td>Retail</td>
+                            <td>15 Nos</td>
+                            <td>9,800</td>
+                            <td>1,47,000</td>
+                        </tr>
+                        <tr>
+                            <td>Wholesale Customer</td>
+                            <td>Wholesale</td>
+                            <td>5 Nos</td>
+                            <td>9,500</td>
+                            <td>47,500</td>
+                        </tr>
+                        <tr>
+                            <td>Wholesale Customer</td>
+                            <td>Wholesale</td>
+                            <td>60 Nos</td>
+                            <td>8,900</td>
+                            <td>5,34,000</td>
+                        </tr>
+                        <tr>
+                            <td>ABC Dealer</td>
+                            <td>Dealer</td>
+                            <td>25 Nos</td>
+                            <td>8,900</td>
+                            <td>2,22,500</td>
+                        </tr>
+                        <tr>
+                            <td>ABC Dealer</td>
+                            <td>Dealer</td>
+                            <td>75 Nos</td>
+                            <td>8,500</td>
+                            <td>6,37,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Verify closing inventory quantities and valuation totals based on FIFO or Average Cost settings.</li>
+                    <li><strong>Sales Register:</strong> Reconcile applied rates against configured price level slabs during invoice entry.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing Price Levels (customer categories) with Price Lists (quantity rate tables).</li>
+                    <li>Failing to link Customer Ledgers to their respective Price Levels, forcing manual rate entries.</li>
+                    <li>Assuming that selling price equals stock valuation cost.</li>
+                    <li>Overlooking Effective Dates when updating seasonal price list revisions.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Price Level and Price List in kor antar hai?</strong><br>A: Price Level customer ki category define karta hai (Retail/Wholesale), jabki Price List us category ke andar quantity-wifrom rates ka table is.</li>
+                    <li><strong>Q: Qty badhne par rate automatically change kaifrom is?</strong><br>A: Price List in quantity slabs (e.g., 1&ndash;10, 11&ndash;50) configure karne par sales invoice in quantity enter hote hi system appropriate slab rate pick kar leta is.</li>
+                    <li><strong>Q: FIFO method ka inventory valuation par kor asar padta hai?</strong><br>A: FIFO (First In, First Out) kehte hain ki jo stock pehle purchafrom hua tha, woh pehle sale hua, jisfrom remaining closing stock latest purchafrom prices par value is.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Price &amp; Valuation Golden Workflow:</strong><br>
+                    <code>Create Price Levels &rarr; Define Price Lists with Quantity Slabs &rarr; Link Price Level to Customer Ledger &rarr; Record Sales Voucher (Auto-Rate Pick) &rarr; Reconcile Stock Valuation (FIFO/Average)</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Price Levels (Retail, Wholesale, Dealer) configured in F11/Inventory features</li>
+                    <li>Price Lists with multi-tier quantity slabs setup</li>
+                    <li>Customer ledgers mapped to respective pricing tiers</li>
+                    <li>Sales invoices recorded, confirming automatic rate application</li>
+                    <li>Purchafrom cost layers and stock valuation methods (FIFO / Average Cost) reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 6 complete karne ke baad student:</p>
+                <ul>
+                    <li>Price Level aur Price List ka core business purpose samjhega.</li>
+                    <li>Customer categories (Retail, Wholesale, Dealer) ke according pricing levels define karega.</li>
+                    <li>Quantity-wise pricing slabs aur Effective Dates configure karega.</li>
+                    <li>Sales invoices mein automatic price level selection aur rate application master karega.</li>
+                    <li>Stock Valuation ka concept aur cost price vs selling price ka difference samjhega.</li>
+                    <li>FIFO (First In, First Out) aur Average Cost valuation methods calculate karega.</li>
+                    <li>Stock Summary se inventory values verify aur reconcile kareगा.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Price Levels, Price Lists &amp; Stock Valuation</h2>
+                <p>Advanced inventory aur sales management mein different customer segments ke liye flexible pricing maintain karne aur inventory ki monetary worth calculate karne ke liye key modules use hote hain:</p>
+
+                <ul>
+                    <li><strong>Price Level:</strong> Customer categories (Retail, Wholesale, Dealer) ke basis par pricing tier define karna.</li>
+                    <li><strong>Price List:</strong> Item-wise, quantity slab-wise rates aur effective date structure maintain karna.</li>
+                    <li><strong>Stock Valuation:</strong> Unsold physical inventory ki monetary value calculate karna using specific cost methods (FIFO, Average Cost, etc.).</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Price Level</th>
+                            <th>Price List</th>
+                            <th>Stock Valuation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Primary Focus</th>
+                            <td>Customer classification tier</td>
+                            <td>Quantity slab rates &amp; dates</td>
+                            <td>Monetary inventory worth</td>
+                        </tr>
+                        <tr>
+                            <th>Application</th>
+                            <td>Assigned to Customer Master</td>
+                            <td>Linked to Stock Items &amp; Levels</td>
+                            <td>Applied across Stock Summaries</td>
+                        </tr>
+                        <tr>
+                            <th>Key Parameter</th>
+                            <td>Type of buyer (Retail/Dealer)</td>
+                            <td>Quantity bought &amp; Time period</td>
+                            <td>Inward purchase cost layers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Rule:</strong><br>
+                    <strong>Price Level</strong> = Kisko kis category ka rate dena hai?<br>
+                    <strong>Price List</strong> = Kitni quantity par kya rate lagega?<br>
+                    <strong>Stock Valuation</strong> = Unsold inventory ki actual cost value kya hai?
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Price Level Configuration</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Enabling Price Levels in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> on the Gateway of Tally.</li>
+                    <li>Set <strong>Maintain Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Use Multiple Price Levels</strong> to <strong>Yes</strong>.</li>
+                    <li>Define Price Level names: <code>Retail</code>, <code>Wholesale</code>, <code>Dealer</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save settings.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Defining Price Lists &amp; Quantity Slabs</h2>
+                <p>Path: <code>Gateway of Tally &rarr; Inventory Info / Price List &rarr; Stock Group / Item</code></p>
+
+                <h3>Printer Price Matrix Example:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Quantity Slab</th>
+                            <th>Retail Level Rate (₹)</th>
+                            <th>Wholesale Level Rate (₹)</th>
+                            <th>Dealer Level Rate (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 to 4 / 9 Qty</td>
+                            <td>10,000</td>
+                            <td>9,500</td>
+                            <td>9,200</td>
+                        </tr>
+                        <tr>
+                            <td>5 to 9 / 10 to 49 Qty</td>
+                            <td>9,800</td>
+                            <td>9,200</td>
+                            <td>8,900</td>
+                        </tr>
+                        <tr>
+                            <td>50+ Qty</td>
+                            <td>9,500</td>
+                            <td>8,900</td>
+                            <td>8,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Practical Walkthroughs: Automated Pricing &amp; Valuation</h2>
+
+                <h3>Part A: Automated Sales Pricing via Customer Mapping</h3>
+                <ul>
+                    <li><strong>Retail Sale:</strong> Sold 2 Printers to <em>Retail Customer</em> (Assigned Price Level: Retail) &rarr; Quantity 2 falls in slab (1&ndash;4) &rarr; Rate applied automatically = <strong>₹10,000</strong> &rarr; Total Value = ₹20,000.</li>
+                    <li><strong>Wholesale Sale:</strong> Sold 20 Printers to <em>Wholesale Customer</em> (Assigned Price Level: Wholesale) &rarr; Quantity 20 falls in slab (10&ndash;49) &rarr; Rate applied automatically = <strong>₹9,200</strong> &rarr; Total Value = ₹1,84,000.</li>
+                    <li><strong>Dealer Sale:</strong> Sold 60 Printers to <em>ABC Dealer</em> (Assigned Price Level: Dealer) &rarr; Quantity 60 falls in slab (50+) &rarr; Rate applied automatically = <strong>₹8,500</strong> &rarr; Total Value = ₹5,10,000.</li>
+                </ul>
+
+                <h3>Part B: Stock Valuation (FIFO vs Average Cost)</h3>
+                <p><strong>Purchase Layers for Printer:</strong></p>
+                <ul>
+                    <li>Batch 1: 100 Nos @ ₹8,000 = ₹8,00,000</li>
+                    <li>Batch 2: 50 Nos @ ₹8,500 = ₹4,25,000</li>
+                    <li>Batch 3: 100 Nos @ ₹9,000 = ₹9,00,000</li>
+                    <li><strong>Total Stock:</strong> 250 Nos | Total Purchase Value = <strong>₹21,25,000</strong></li>
+                    <li><strong>Simple Average Cost:</strong> ₹21,25,000 &divide; 250 = <strong>₹8,500 / unit</strong>.</li>
+                    <li><strong>FIFO Valuation (After issuing 120 Units):</strong> 100 units cleared from Batch 1 (@ ₹8,000) + 20 units cleared from Batch 2 (@ ₹8,500). Remaining Closing Stock = 30 Nos @ ₹8,500 + 100 Nos @ ₹9,000 = <strong>₹11,55,000</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (ABC Electronics Price List &amp; Sales Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Assigned Price Level</th>
+                            <th>Order Quantity</th>
+                            <th>Applicable Slab Rate (₹)</th>
+                            <th>Total Invoice Value (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Retail Customer</td>
+                            <td>Retail</td>
+                            <td>3 Nos</td>
+                            <td>10,000</td>
+                            <td>30,000</td>
+                        </tr>
+                        <tr>
+                            <td>Retail Customer</td>
+                            <td>Retail</td>
+                            <td>15 Nos</td>
+                            <td>9,800</td>
+                            <td>1,47,000</td>
+                        </tr>
+                        <tr>
+                            <td>Wholesale Customer</td>
+                            <td>Wholesale</td>
+                            <td>5 Nos</td>
+                            <td>9,500</td>
+                            <td>47,500</td>
+                        </tr>
+                        <tr>
+                            <td>Wholesale Customer</td>
+                            <td>Wholesale</td>
+                            <td>60 Nos</td>
+                            <td>8,900</td>
+                            <td>5,34,000</td>
+                        </tr>
+                        <tr>
+                            <td>ABC Dealer</td>
+                            <td>Dealer</td>
+                            <td>25 Nos</td>
+                            <td>8,900</td>
+                            <td>2,22,500</td>
+                        </tr>
+                        <tr>
+                            <td>ABC Dealer</td>
+                            <td>Dealer</td>
+                            <td>75 Nos</td>
+                            <td>8,500</td>
+                            <td>6,37,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Verify closing inventory quantities and valuation totals based on FIFO or Average Cost settings.</li>
+                    <li><strong>Sales Register:</strong> Reconcile applied rates against configured price level slabs during invoice entry.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing Price Levels (customer categories) with Price Lists (quantity rate tables).</li>
+                    <li>Failing to link Customer Ledgers to their respective Price Levels, forcing manual rate entries.</li>
+                    <li>Assuming that selling price equals stock valuation cost.</li>
+                    <li>Overlooking Effective Dates when updating seasonal price list revisions.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Price Level aur Price List mein kya antar hai?</strong><br>A: Price Level customer ki category define karta hai (Retail/Wholesale), jabki Price List us category ke andar quantity-wise rates ka table hoti hai.</li>
+                    <li><strong>Q: Qty badhne par rate automatically change kaise hota hai?</strong><br>A: Price List mein quantity slabs (e.g., 1&ndash;10, 11&ndash;50) configure karne par sales invoice mein quantity enter hote hi system appropriate slab rate pick kar leta hai.</li>
+                    <li><strong>Q: FIFO method ka inventory valuation par kya asar padta hai?</strong><br>A: FIFO (First In, First Out) kehte hain ki jo stock pehle purchase hua tha, woh pehle sale hua, jisse remaining closing stock latest purchase prices par value hota hai.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Price &amp; Valuation Golden Workflow:</strong><br>
+                    <code>Create Price Levels &rarr; Define Price Lists with Quantity Slabs &rarr; Link Price Level to Customer Ledger &rarr; Record Sales Voucher (Auto-Rate Pick) &rarr; Reconcile Stock Valuation (FIFO/Average)</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Price Levels (Retail, Wholesale, Dealer) configured in F11/Inventory features</li>
+                    <li>Price Lists with multi-tier quantity slabs setup</li>
+                    <li>Customer ledgers mapped to respective pricing tiers</li>
+                    <li>Sales invoices recorded, confirming automatic rate application</li>
+                    <li>Purchase cost layers and stock valuation methods (FIFO / Average Cost) reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

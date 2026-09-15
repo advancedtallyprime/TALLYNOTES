@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Topic Overview & Reference Summary</h2>
+                <p>This reference note summarizes the complete lifecycle of <strong>Post-Dated Cheques (PDC)</strong> in TallyPrime, providing a quick revision guide, common field checklist, and operational best practices for accounting professionals.</p>
+
+                <div class="note-box">
+                    <strong><i class="fa-solid fa-circle-play"></i> Practical Demonstration Focus:</strong>
+                    Comprehensive walkthrough of PDC issuance to suppliers, PDC collection from debtors, discounting PDCs with banks, and handling dishonored/bounced post-dated cheques.
+                </div>
+
+                <h2>2. Complete PDC Lifecycle Workflow</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Action in TallyPrime</th>
+                                <th>Shortcut / Menu Path</th>
+                                <th>Accounting Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Receipt of PDC</strong></td>
+                                <td>Create Receipt Voucher (<kbd>F6</kbd>), activate Post-Dated with <kbd>Ctrl + T</kbd>. Enter future date.</td>
+                                <td><kbd>F6</kbd> &rarr; <kbd>Ctrl + T</kbd> &rarr; <kbd>F2</kbd> (Due Date)</td>
+                                <td>Recorded in PDC Register only; current bank balance unchanged.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Custody &amp; Tracking</strong></td>
+                                <td>Monitor maturity calendar in Post-Dated Summary.</td>
+                                <td>Gateway of Tally &rarr; Banking &rarr; Post-Dated Summary</td>
+                                <td>Upcoming cash inflows projected accurately.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Bank Deposit on Maturity</strong></td>
+                                <td>Deposit physical cheque at bank counter; voucher matures into active accounts.</td>
+                                <td>Regularizes on voucher maturity date</td>
+                                <td>Customer ledger credited; Bank account debited.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Bank Clearance (BRS)</strong></td>
+                                <td>Reconcile instrument in Bank Reconciliation statement with Bank Date.</td>
+                                <td>Banking &rarr; Bank Reconciliation</td>
+                                <td>Cleared from BRS unreconciled pool.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. Exception: Cheque Return / Bounce</strong></td>
+                                <td>Pass reverse Journal / Payment entry charging bank bounce penalty to customer.</td>
+                                <td>Vouchers &rarr; <kbd>F7</kbd> (Journal)</td>
+                                <td>Customer debtor balance restored + bank charges debited to customer.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Key Shortcut Cheat Sheet for Banking</h2>
+                <div class="shortcut-box">
+                    <ul>
+                        <li><kbd>Ctrl + T</kbd> &mdash; Mark Voucher as Post-Dated / Regular</li>
+                        <li><kbd>Alt + G</kbd> &mdash; Instant Go-To Navigation (Banking, BRS, Cheque Register)</li>
+                        <li><kbd>F5</kbd> &mdash; Payment Voucher (Vendor Disbursements)</li>
+                        <li><kbd>F6</kbd> &mdash; Receipt Voucher (Customer Collections)</li>
+                        <li><kbd>F4</kbd> &mdash; Contra Voucher (Cash Deposit / Withdrawal / Bank Transfer)</li>
+                        <li><kbd>Alt + B</kbd> &mdash; Import Electronic Bank Statement in BRS</li>
+                    </ul>
+                </div>
+
+                <h2>4. Handling Cheque Bounce Scenario in TallyPrime</h2>
+                <p>If customer cheque of ₹50,000 bounces due to insufficient funds, and the bank levies ₹590 penalty charges:</p>
+                <ol>
+                    <li>Open <strong>Journal Voucher</strong> (<kbd>F7</kbd>).</li>
+                    <li>Debit <strong>Customer Ledger</strong> with ₹50,590 (original amount + bounce charges).</li>
+                    <li>Credit <strong>Bank Ledger</strong> with ₹50,000 (reversing the credited deposit).</li>
+                    <li>Credit <strong>Bank Charges Recovery / Income Ledger</strong> with ₹590 (recovering fee from customer).</li>
+                    <li>Provide Cheque Return Memo reference in narration.</li>
+                </ol>
+
+                <h2>5. Interview Questions & Answers</h2>
+                <h3>Q1. Why should post-dated cheques never be recorded as regular current-dated receipts?</h3>
+                <p><strong>Ans:</strong> Recording a future cheque as current receipt falsely inflates the company's ledger bank balance and prematurely extinguishes the customer's legal debt obligation before funds are guaranteed.</p>
+
+                <h3>Q2. How do you account for bank charges incurred when a customer's cheque bounces?</h3>
+                <p><strong>Ans:</strong> Pass a Journal (<kbd>F7</kbd>) debiting the customer's ledger for the bounced cheque amount plus bank charges, and crediting the bank account.</p>
+
+                <h2>6. Summary & Key Takeaways</h2>
+                <ul>
+                    <li>PDC management safeguards financial accuracy and gives full visibility into future liquidity.</li>
+                    <li>Combined with Bank Reconciliation, TallyPrime delivers enterprise-grade banking control.</li>
+                </ul>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Topic Overview & Reference Summary</h2>
+                <p>This reference note summarizes the complete lifecycle of <strong>Post-Dated Cheque (PDC - अग्रिम तारीख का चेक)s (PDC)</strong> in TallyPrime, providing a quick revision guide, common field checklist, and operational best practices for accounting professionals.</p>
+
+                <div class="note-box">
+                    <strong><i class="fa-solid fa-circle-play"></i> Practical Demonstration Focus:</strong>
+                    Comprehensive walkthrough of PDC issuance to suppliers, PDC collection from debtors, discounting PDCs with banks, and handling dishonored/bounced Post-Dated Cheque (PDC - अग्रिम तारीख का चेक)s.
+                </div>
+
+                <h2>2. Complete PDC Lifecycle Workflow</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Stage</th>
+                                <th>Action in TallyPrime</th>
+                                <th>Shortcut / Menu Path</th>
+                                <th>Accounting Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Receipt of PDC</strong></td>
+                                <td>Create Receipt Voucher (<kbd>F6</kbd>), activate Post-Dated with <kbd>Ctrl + T</kbd>. Enter future date.</td>
+                                <td><kbd>F6</kbd> &rarr; <kbd>Ctrl + T</kbd> &rarr; <kbd>F2</kbd> (Due Date)</td>
+                                <td>Recorded in PDC Register only; current bank balance unchanged.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Custody &amp; Tracking</strong></td>
+                                <td>Monitor maturity calendar in Post-Dated Summary.</td>
+                                <td>Gateway of Tally &rarr; Banking &rarr; Post-Dated Summary</td>
+                                <td>Upcoming cash inflows projected accurately.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Bank Deposit on Maturity</strong></td>
+                                <td>Deposit physical cheque at bank counter; voucher matures into active accounts.</td>
+                                <td>Regularizes on voucher maturity date</td>
+                                <td>Customer ledger credited; Bank account debited.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Bank Clearance (BRS)</strong></td>
+                                <td>Reconcile instrument in Bank Reconciliation Statement (BRS - बैंक समाधान विवरण) with Bank Date.</td>
+                                <td>Banking &rarr; Bank Reconciliation</td>
+                                <td>Cleared from BRS unreconciled pool.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. Exception: Cheque Return / Bounce</strong></td>
+                                <td>Pass reverse Journal / Payment entry charging bank bounce penalty to customer.</td>
+                                <td>Vouchers &rarr; <kbd>F7</kbd> (Journal)</td>
+                                <td>Customer debtor balance restored + bank charges debited to customer.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>3. Key Shortcut Cheat Sheet for Banking</h2>
+                <div class="shortcut-box">
+                    <ul>
+                        <li><kbd>Ctrl + T</kbd> &mdash; Mark Voucher as Post-Dated / Regular</li>
+                        <li><kbd>Alt + G</kbd> &mdash; Instant Go-To Navigation (Banking, BRS, Cheque Register)</li>
+                        <li><kbd>F5</kbd> &mdash; Payment Voucher (Vendor Disbursements)</li>
+                        <li><kbd>F6</kbd> &mdash; Receipt Voucher (Customer Collections)</li>
+                        <li><kbd>F4</kbd> &mdash; Contra Voucher (Cash Deposit / Withdrawal / Bank Transfer)</li>
+                        <li><kbd>Alt + B</kbd> &mdash; Import Electronic Bank Statement in BRS</li>
+                    </ul>
+                </div>
+
+                <h2>4. Handling Cheque Bounce Scenario in TallyPrime</h2>
+                <p>If customer cheque of ₹50,000 bounces due to insufficient funds, and the bank levies ₹590 penalty charges:</p>
+                <ol>
+                    <li>Open <strong>Journal Voucher</strong> (<kbd>F7</kbd>).</li>
+                    <li>Debit <strong>Customer Ledger</strong> with ₹50,590 (original amount + bounce charges).</li>
+                    <li>Credit <strong>Bank Ledger</strong> with ₹50,000 (reversing the credited deposit).</li>
+                    <li>Credit <strong>Bank Charges Recovery / Income Ledger</strong> with ₹590 (recovering fee from customer).</li>
+                    <li>Provide Cheque Return Memo reference in narration.</li>
+                </ol>
+
+                <h2>5. Interview Questions & Answers</h2>
+                <h3>Q1. Why should Post-Dated Cheque (PDC - अग्रिम तारीख का चेक)s never be recorded as regular current-dated receipts?</h3>
+                <p><strong>Ans:</strong> Recording a future cheque as current receipt falsely inflates the company's ledger bank balance and prematurely extinguishes the customer's legal debt obligation before funds are guaranteed.</p>
+
+                <h3>Q2. How do you account for bank charges incurred when a customer's cheque bounces?</h3>
+                <p><strong>Ans:</strong> Pass a Journal (<kbd>F7</kbd>) debiting the customer's ledger for the bounced cheque amount plus bank charges, and crediting the bank account.</p>
+
+                <h2>6. Summary & Key Takeaways</h2>
+                <ul>
+                    <li>PDC management safeguards financial accuracy and gives full visibility into future liquidity.</li>
+                    <li>Combined with Bank Reconciliation, TallyPrime delivers enterprise-grade banking control.</li>
+                </ul>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <ul>
+                    <li><strong>Cost Centre:</strong> An organizational unit, department, location, or project to which expenses or incomes are allocated to monitor department-wise profitability and spending.</li>
+                    <li><strong>Cost Category:</strong> Used to classify cost centres into logical groups when you need to track expenses across parallel dimensions (e.g., tracking expenses by Department and by Project simultaneously).</li>
+                    <li><strong>Cost Centre Classes (Pre-defined Percentages):</strong> A feature in TallyPrime that allows you to automate percentage-based allocation (e.g., automatically splitting Direct Expenses as 80% Factory, 10% Stores, and 10% Packaging) without typing percentages manually during voucher entry.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Feature Activation in TallyPrime</h2>
+
+                <h3>Step A: Enable Cost Centres</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Cost Centres</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Create Categories &amp; Cost Centres</h3>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>Cost Category</strong> (e.g., Direct Expenses Category and Indirect Expenses Category).</li>
+                    <li>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>Cost Centre</strong>:
+                        <ul>
+                            <li>Create Factory, Stores, and Packaging under Direct Expenses Category.</li>
+                            <li>Create Office and Marketing under Indirect Expenses Category.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Step C: Set Up Cost Centre Classes (Automated % Allocation)</h3>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Payment</strong>.</li>
+                    <li>Scroll to the field <strong>Name of Class</strong> at the bottom right and type a class name (e.g., Direct Expense Class).</li>
+                    <li>
+                        Set allocations:
+                        <ul>
+                            <li>Factory: 80%</li>
+                            <li>Stores: 10%</li>
+                            <li>Packaging: 10%</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Create a second class named Indirect Expense Class:
+                        <ul>
+                            <li>Office: 75%</li>
+                            <li>Marketing: 25%</li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Ledgers Required to be Created First</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Apply Cost Centres</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Wages to Workers A/c</td>
+                            <td>Direct Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Factory Rent A/c</td>
+                            <td>Direct Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Electricity Direct A/c</td>
+                            <td>Direct Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Machinery Servicing Charges A/c</td>
+                            <td>Direct Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Salary to Staff A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Office Rent A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Electricity Indirect A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Stationery A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Cash A/c</td>
+                            <td>Cash-in-Hand</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Bank A/c</td>
+                            <td>Bank Accounts</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+                <p><strong>Payment Criteria Rule:</strong></p>
+                <ul>
+                    <li>Direct Expenses: Below ₹3,000 &rarr; Cash | Above ₹3,000 &rarr; Bank</li>
+                    <li>Indirect Expenses: Below ₹2,500 &rarr; Cash | Above ₹2,500 (or &gt;₹3,000) &rarr; Bank</li>
+                </ul>
+
+                <h3>Part 1: Expenses (Direct) Payment Vouchers (F5)</h3>
+                <p><em>Allocation Class: Factory (80%), Stores (10%), Packaging (10%)</em></p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Particulars / Ledger</th>
+                            <th>Amount (₹)</th>
+                            <th>Payment Mode</th>
+                            <th>Cost Centre Breakup (Auto Allocated)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>April 1</td>
+                            <td>Wages to workers</td>
+                            <td>1,00,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹80,000 | Stores: ₹10,000 | Packaging: ₹10,000</td>
+                        </tr>
+                        <tr>
+                            <td>April 2</td>
+                            <td>Factory Rent</td>
+                            <td>25,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹20,000 | Stores: ₹2,500 | Packaging: ₹2,500</td>
+                        </tr>
+                        <tr>
+                            <td>April 2</td>
+                            <td>Electricity Direct</td>
+                            <td>20,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹16,000 | Stores: ₹2,000 | Packaging: ₹2,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 1</td>
+                            <td>Machinery servicing charges</td>
+                            <td>2,000</td>
+                            <td>Cash (&lt;₹3000)</td>
+                            <td>Factory: ₹1,600 | Stores: ₹200 | Packaging: ₹200</td>
+                        </tr>
+                        <tr>
+                            <td>May 1</td>
+                            <td>Wages to workers</td>
+                            <td>1,00,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹80,000 | Stores: ₹10,000 | Packaging: ₹10,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 2</td>
+                            <td>Factory Rent</td>
+                            <td>25,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹20,000 | Stores: ₹2,500 | Packaging: ₹2,500</td>
+                        </tr>
+                        <tr>
+                            <td>May 31</td>
+                            <td>Electricity Direct</td>
+                            <td>20,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹16,000 | Stores: ₹2,000 | Packaging: ₹2,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 31</td>
+                            <td>Machinery servicing charges</td>
+                            <td>2,000</td>
+                            <td>Cash (&lt;₹3000)</td>
+                            <td>Factory: ₹1,600 | Stores: ₹200 | Packaging: ₹200</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Expenses (Indirect) Payment Vouchers (F5)</h3>
+                <p><em>Allocation Class: Office (75%), Marketing (25%)</em></p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Particulars / Ledger</th>
+                            <th>Amount (₹)</th>
+                            <th>Payment Mode</th>
+                            <th>Cost Centre Breakup (Auto Allocated)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>April 1</td>
+                            <td>Salary to staff</td>
+                            <td>1,00,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹75,000 | Marketing: ₹25,000</td>
+                        </tr>
+                        <tr>
+                            <td>April 2</td>
+                            <td>Office Rent</td>
+                            <td>25,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹18,750 | Marketing: ₹6,250</td>
+                        </tr>
+                        <tr>
+                            <td>April 2</td>
+                            <td>Electricity Indirect</td>
+                            <td>20,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹15,000 | Marketing: ₹5,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 1</td>
+                            <td>Stationery</td>
+                            <td>2,000</td>
+                            <td>Cash (&lt;₹2500)</td>
+                            <td>Office: ₹1,500 | Marketing: ₹500</td>
+                        </tr>
+                        <tr>
+                            <td>May 1</td>
+                            <td>Salary to staff</td>
+                            <td>1,00,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹75,000 | Marketing: ₹25,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 2</td>
+                            <td>Office Rent</td>
+                            <td>25,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹18,750 | Marketing: ₹6,250</td>
+                        </tr>
+                        <tr>
+                            <td>May 31</td>
+                            <td>Electricity Indirect</td>
+                            <td>20,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹15,000 | Marketing: ₹5,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 31</td>
+                            <td>Stationery</td>
+                            <td>2,000</td>
+                            <td>Cash (&lt;₹2500)</td>
+                            <td>Office: ₹1,500 | Marketing: ₹500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking Reports &amp; Verifying Breakdown</h2>
+
+                <h3>1. View Cost Centre Breakup Reports:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Cost Centres</strong> &rarr; <strong>Category Summary / Cost Centre Breakdown</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Cost Centre Summary</strong>)</em>
+                    </li>
+                </ul>
+
+                <h3>2. To Check / Delete / Modify Payment Entries:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Statistics</strong> &rarr; <strong>Payment</strong><br>
+                        OR: <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Payment Register</strong>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the payment voucher to inspect or alter details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <ul>
+                    <li><strong>Cost Centre:</strong> An organizational unit, department, location, or project to which expenses or incomes are allocated to monitor department-wise profitability and spending.</li>
+                    <li><strong>Cost Category:</strong> Used to classify cost centres into logical groups when you need to track expenses across parallel dimensions (e.g., tracking expenses by Department and by Project simultaneously).</li>
+                    <li><strong>Cost Centre Classes (Pre-defined Percentages):</strong> A feature in TallyPrime that allows you to automate percentage-based allocation (e.g., automatically splitting Direct Expenses as 80% Factory, 10% Stores, and 10% Packaging) without typing percentages manually during voucher entry.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Feature Activation in TallyPrime</h2>
+
+                <h3>Step A: Enable Cost Centres</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Cost Centres</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Create Categories &amp; Cost Centres</h3>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>Cost Category</strong> (e.g., Direct Expenses Category and Indirect Expenses Category).</li>
+                    <li>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>Cost Centre</strong>:
+                        <ul>
+                            <li>Create Factory, Stores, and Packaging under Direct Expenses Category.</li>
+                            <li>Create Office and Marketing under Indirect Expenses Category.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Step C: Set Up Cost Centre Classes (Automated % Allocation)</h3>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Payment</strong>.</li>
+                    <li>Scroll to the field <strong>Name of Class</strong> at the bottom right and type a class name (e.g., Direct Expense Class).</li>
+                    <li>
+                        Set allocations:
+                        <ul>
+                            <li>Factory: 80%</li>
+                            <li>Stores: 10%</li>
+                            <li>Packaging: 10%</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Create a second class named Indirect Expense Class:
+                        <ul>
+                            <li>Office: 75%</li>
+                            <li>Marketing: 25%</li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Ledgers Required to be Created First</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Apply Cost Centres</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Wages to Workers A/c</td>
+                            <td>Direct Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Factory Rent A/c</td>
+                            <td>Direct Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Electricity Direct A/c</td>
+                            <td>Direct Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Machinery Servicing Charges A/c</td>
+                            <td>Direct Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Salary to Staff A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Office Rent A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Electricity Indirect A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Stationery A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Cash A/c</td>
+                            <td>Cash-in-Hand</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Bank A/c</td>
+                            <td>Bank Accounts</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+                <p><strong>Payment Criteria Rule:</strong></p>
+                <ul>
+                    <li>Direct Expenses: Below ₹3,000 &rarr; Cash | Above ₹3,000 &rarr; Bank</li>
+                    <li>Indirect Expenses: Below ₹2,500 &rarr; Cash | Above ₹2,500 (or &gt;₹3,000) &rarr; Bank</li>
+                </ul>
+
+                <h3>Part 1: Expenses (Direct) Payment Vouchers (F5)</h3>
+                <p><em>Allocation Class: Factory (80%), Stores (10%), Packaging (10%)</em></p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Particulars / Ledger</th>
+                            <th>Amount (₹)</th>
+                            <th>Payment Mode</th>
+                            <th>Cost Centre Breakup (Auto Allocated)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>April 1</td>
+                            <td>Wages to workers</td>
+                            <td>1,00,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹80,000 | Stores: ₹10,000 | Packaging: ₹10,000</td>
+                        </tr>
+                        <tr>
+                            <td>April 2</td>
+                            <td>Factory Rent</td>
+                            <td>25,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹20,000 | Stores: ₹2,500 | Packaging: ₹2,500</td>
+                        </tr>
+                        <tr>
+                            <td>April 2</td>
+                            <td>Electricity Direct</td>
+                            <td>20,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹16,000 | Stores: ₹2,000 | Packaging: ₹2,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 1</td>
+                            <td>Machinery servicing charges</td>
+                            <td>2,000</td>
+                            <td>Cash (&lt;₹3000)</td>
+                            <td>Factory: ₹1,600 | Stores: ₹200 | Packaging: ₹200</td>
+                        </tr>
+                        <tr>
+                            <td>May 1</td>
+                            <td>Wages to workers</td>
+                            <td>1,00,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹80,000 | Stores: ₹10,000 | Packaging: ₹10,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 2</td>
+                            <td>Factory Rent</td>
+                            <td>25,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹20,000 | Stores: ₹2,500 | Packaging: ₹2,500</td>
+                        </tr>
+                        <tr>
+                            <td>May 31</td>
+                            <td>Electricity Direct</td>
+                            <td>20,000</td>
+                            <td>Bank (&gt;₹3000)</td>
+                            <td>Factory: ₹16,000 | Stores: ₹2,000 | Packaging: ₹2,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 31</td>
+                            <td>Machinery servicing charges</td>
+                            <td>2,000</td>
+                            <td>Cash (&lt;₹3000)</td>
+                            <td>Factory: ₹1,600 | Stores: ₹200 | Packaging: ₹200</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Expenses (Indirect) Payment Vouchers (F5)</h3>
+                <p><em>Allocation Class: Office (75%), Marketing (25%)</em></p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Particulars / Ledger</th>
+                            <th>Amount (₹)</th>
+                            <th>Payment Mode</th>
+                            <th>Cost Centre Breakup (Auto Allocated)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>April 1</td>
+                            <td>Salary to staff</td>
+                            <td>1,00,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹75,000 | Marketing: ₹25,000</td>
+                        </tr>
+                        <tr>
+                            <td>April 2</td>
+                            <td>Office Rent</td>
+                            <td>25,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹18,750 | Marketing: ₹6,250</td>
+                        </tr>
+                        <tr>
+                            <td>April 2</td>
+                            <td>Electricity Indirect</td>
+                            <td>20,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹15,000 | Marketing: ₹5,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 1</td>
+                            <td>Stationery</td>
+                            <td>2,000</td>
+                            <td>Cash (&lt;₹2500)</td>
+                            <td>Office: ₹1,500 | Marketing: ₹500</td>
+                        </tr>
+                        <tr>
+                            <td>May 1</td>
+                            <td>Salary to staff</td>
+                            <td>1,00,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹75,000 | Marketing: ₹25,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 2</td>
+                            <td>Office Rent</td>
+                            <td>25,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹18,750 | Marketing: ₹6,250</td>
+                        </tr>
+                        <tr>
+                            <td>May 31</td>
+                            <td>Electricity Indirect</td>
+                            <td>20,000</td>
+                            <td>Bank (&gt;₹2500)</td>
+                            <td>Office: ₹15,000 | Marketing: ₹5,000</td>
+                        </tr>
+                        <tr>
+                            <td>May 31</td>
+                            <td>Stationery</td>
+                            <td>2,000</td>
+                            <td>Cash (&lt;₹2500)</td>
+                            <td>Office: ₹1,500 | Marketing: ₹500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking Reports &amp; Verifying Breakdown</h2>
+
+                <h3>1. View Cost Centre Breakup Reports:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Cost Centres</strong> &rarr; <strong>Category Summary / Cost Centre Breakdown</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Cost Centre Summary</strong>)</em>
+                    </li>
+                </ul>
+
+                <h3>2. To Check / Delete / Modify Payment Entries:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Statistics</strong> &rarr; <strong>Payment</strong><br>
+                        OR: <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Payment Register</strong>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the payment voucher to inspect or alter details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

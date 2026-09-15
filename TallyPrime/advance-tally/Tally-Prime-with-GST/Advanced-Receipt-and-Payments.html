@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>Receipt aur payment ka accounting concept samjhega.</li>
+                    <li>Normal receipt aur advance receipt mein difference identify karega.</li>
+                    <li>Customer advance ka accounting treatment samjhega.</li>
+                    <li>GST advance receipt ka basic concept samjhega.</li>
+                    <li>Same-period aur subsequent-period advance scenarios handle karega.</li>
+                    <li>TallyPrime mein GST advance receipt record kar payega.</li>
+                    <li>Sales invoice ke against advance adjust kar payega.</li>
+                    <li>Partial advance adjustment kar payega.</li>
+                    <li>Multiple advances ko ek invoice ke against adjust kar payega.</li>
+                    <li>Cancelled order ka advance refund record kar payega.</li>
+                    <li>Applicable GST liability ko increase/decrease kar payega.</li>
+                    <li>Supplier advance payment record kar payega.</li>
+                    <li>Advance adjustment ke baad customer/supplier outstanding verify kar payega.</li>
+                    <li>GST reports mein advance-related transactions verify kar payega.</li>
+                    <li>Common advance accounting errors identify kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Normal Receipt vs Advance Receipt</h2>
+                
+                <p><strong>Receipt (F6):</strong> Business ko cash ya bank ke through incoming funds receive hona.</p>
+                <p><strong>Payment (F5):</strong> Business se suppliers, expenses, refunds, ya advances ke liye outgoing funds pay hona.</p>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Normal Receipt</th>
+                            <th>Advance Receipt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Invoice Available</td>
+                            <td>Yes</td>
+                            <td>Usually No</td>
+                        </tr>
+                        <tr>
+                            <td>Money Received</td>
+                            <td>Against existing pending invoice</td>
+                            <td>Before / against future supply</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Balance</td>
+                            <td>Outstanding balance reduces</td>
+                            <td>Advance balance / liability created</td>
+                        </tr>
+                        <tr>
+                            <td>Bill-wise Treatment</td>
+                            <td>Against Reference (Agst Ref)</td>
+                            <td>Advance (Advance Ref)</td>
+                        </tr>
+                        <tr>
+                            <td>GST Treatment</td>
+                            <td>Invoice-based reporting</td>
+                            <td>Subject to supply type &amp; applicable GST rules</td>
+                        </tr>
+                        <tr>
+                            <td>Example</td>
+                            <td>₹59,000 pending bill payment</td>
+                            <td>₹10,000 token before order delivery</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Rule:</strong><br>
+                    <strong>Advance Receipt &ne; Sales Invoice</strong><br>
+                    Advance received hone par sales create nahi hotCustomer advance business ke liye <strong>Current Liability</strong> hoti hai jab tak final supply complete na ho jaye.
+                </blockquote>
+
+                <h3>Customer Advance vs Supplier Advance</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Customer Advance</th>
+                            <th>Supplier Advance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Money Movement</td>
+                            <td>Inward (Incoming Funds)</td>
+                            <td>Outward (Outgoing Funds)</td>
+                        </tr>
+                        <tr>
+                            <td>Voucher Type</td>
+                            <td>Receipt (F6)</td>
+                            <td>Payment (F5)</td>
+                        </tr>
+                        <tr>
+                            <td>Accounting Classification</td>
+                            <td>Current Liabilities</td>
+                            <td>Current Assets (Loans &amp; Advances)</td>
+                        </tr>
+                        <tr>
+                            <td>Later Adjustment</td>
+                            <td>Adjusted in Sales Invoice (F8)</td>
+                            <td>Adjusted in Purchase Invoice (F9)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Company &amp; Masters Configuration</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Masters to Create:</h3>
+                <ul>
+                    <li><strong>Customer (Local):</strong> ABC Enterprises (Under <em>Sundry Debtors</em>, State: <em>Maharashtra</em>)</li>
+                    <li><strong>Customer (Interstate):</strong> Gujarat Enterprises (Under <em>Sundry Debtors</em>, State: <em>Gujarat</em>)</li>
+                    <li><strong>Customer Advance Ledger:</strong> Customer Advance (Under <em>Current Liabilities</em>)</li>
+                    <li><strong>Supplier:</strong> ABC Suppliers (Under <em>Sundry Creditors</em>)</li>
+                    <li><strong>Sales Ledger:</strong> Sales &ndash; 18% (Under <em>Sales Accounts</em>)</li>
+                    <li><strong>Tax Ledgers:</strong> CGST, SGST, IGST (Under <em>Duties &amp; Taxes</em>)</li>
+                    <li><strong>Stock Item:</strong> Office Chair (Unit: <em>Nos</em>, GST @ 18%, Opening: 50 Nos @ ₹2,000)</li>
+                </ul>
+
+                <hr>
+
+                <h2>Advance Calculation Formula (Classroom Practice @ 18% GST)</h2>
+                <blockquote>
+                    <strong>Advance Amount Received:</strong> ₹10,000<br>
+                    <strong>Taxable Value:</strong> ₹10,000 &divide; 1.18 = <strong>₹8,474.58</strong><br>
+                    <strong>CGST (9%):</strong> ₹8,474.58 &times; 9% = <strong>₹762.71</strong><br>
+                    <strong>SGST (9%):</strong> ₹8,474.58 &times; 9% = <strong>₹762.71</strong><br>
+                    <strong>Total GST Component:</strong> <strong>₹1,525.42</strong>
+                </blockquote>
+
+                <hr>
+
+                <h2>Practical Walkthroughs in TallyPrime</h2>
+
+                <h3>Practical 1: Advance Received &amp; Sale Made in Same GST Period</h3>
+                <ol>
+                    <li><strong>01-Apr (Advance Receipt):</strong> Press <strong>F6 (Receipt)</strong> &rarr; Select Cash/Bank &rarr; Party: <code>ABC Enterprises</code> &rarr; Bill-wise: <strong>Advance</strong> (Ref: <code>ADV-01</code>, ₹10,000Use <strong>Alt + J</strong> for Stat Adjustment if applicable.</li>
+                    <li><strong>01-Apr (Sales Invoice):</strong> Press <strong>F8 (Sales)</strong> &rarr; Sell 20 Nos Office Chairs @ ₹500 = ₹10,000 taxable + 18% GST (CGST ₹900 + SGST ₹900) = Total Invoice ₹11,800.</li>
+                    <li><strong>Advance Adjustment:</strong> Bill-wise details pop-up mein select <strong>Agst Ref</strong> &rarr; Pick <code>ADV-01</code> &rarr; Adjust ₹10,00Balance remaining on bill = ₹1,800 (<em>New Ref</em>).</li>
+                    <li><strong>Final Settlement:</strong> Customer pays balance ₹1,800 &rarr; Press <strong>F6 (Receipt)</strong> &rarr; Select <strong>Agst Ref</strong> &rarr; Customer outstanding becomes Nil.</li>
+                </ol>
+
+                <h3>Practical 2: Advance Received in One Month, Sale in Next Month</h3>
+                <ul>
+                    <li><strong>31-May (Advance):</strong> Record ₹10,000 advance receipt in MaRaise tax liability via Stat Adjustment (<strong>Alt + J</strong> &rarr; <em>Increase in Tax Liability &rarr; Advance Receipt</em>): <code>Tax on Advance Dr ₹1,525.42</code> to <code>CGST Cr ₹762.71</code> &amp; <code>SGST Cr ₹762.71</code>.</li>
+                    <li><strong>05-Jun (Sales Invoice):</strong> Record June sales invoice of ₹11,800 and adjust ₹10,000 against advance.</li>
+                    <li><strong>Tax Adjustment:</strong> Reverse/adjust earlier advance liability via Stat Adjustment (<strong>Alt + J</strong> &rarr; <em>Decrease in Tax Liability &rarr; Sales Against Advance Receipts</em>): <code>CGST Dr ₹762.71</code> &amp; <code>SGST Dr ₹762.71</code> to <code>Tax on Advance Cr ₹1,525.42</code>.</li>
+                </ul>
+
+                <h3>Practical 3: Advance Received but Order Cancelled (Refund)</h3>
+                <ol>
+                    <li><strong>Advance Received:</strong> Record ₹10,000 advance receipt and applicable tax liability.</li>
+                    <li><strong>Refund Payment (F5):</strong> Press <strong>F5 (Payment)</strong> &rarr; Select <em>Refund Against Advance Receipt</em> &rarr; Pick original advance reference &rarr; Pay ₹10,000 from Bank.</li>
+                    <li><strong>GST Liability Reversal:</strong> Stat Adjustment (<strong>Alt + J</strong> &rarr; <em>Decrease in Tax Liability &rarr; Cancellation of Advance Receipts</em>): Debit CGST ₹762.71 &amp; SGST ₹762.71, Credit Tax on Advance ₹1,525.42.</li>
+                </ol>
+
+                <h3>Practical 4: Partial &amp; Multiple Advance Adjustments</h3>
+                <ul>
+                    <li><strong>Partial Adjustment:</strong> Advance received ₹50,00Final invoice ₹1,18,00Adjust ₹50,000 (Agst Ref) &rarr; Balance receivable ₹68,000 collected via normal receipt.</li>
+                    <li><strong>Multiple Advances:</strong> Advance 1 (₹20,000) + Advance 2 (₹30,000) = ₹50,000 total advancIn final sales invoice of ₹1,18,000, link both advance references under <em>Agst Ref</em> &rarr; Balance due = ₹68,000.</li>
+                </ul>
+
+                <h3>Practical 5: Supplier Advance Payment</h3>
+                <p><strong>05-Jul:</strong> Paid ₹40,000 advance to ABC Suppliers via Bank (<strong>F5: Payment</strong>, Ref: <em>Advance</em>).</p>
+                <p><strong>02-Jul:</strong> Purchase invoice of ₹1,00,000 + 18% GST = ₹1,18,000 (<strong>F9: Purchase</strong>In bill-wise details, select <strong>Agst Ref</strong> to adjust ₹40,000 advancBalance payable = ₹78,000.</p>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Sequential Exercises)</h3>
+                <ol>
+                    <li><strong>01-Apr:</strong> Receive ₹25,000 advance from ABC Enterprises (Receipt F6).</li>
+                    <li><strong>01-Apr:</strong> Sales Invoice ₹80,000 + 18% GST (F8 SalesAdjust ₹25,000 advance.</li>
+                    <li><strong>08-Apr:</strong> Receive balance amount from ABC Enterprises (Receipt F6).</li>
+                    <li><strong>02-Apr:</strong> Receive ₹40,000 advance from XYZ Enterprises.</li>
+                    <li><strong>02-May:</strong> Sales Invoice ₹1,20,000 + 18% GSAdjust ₹40,000 advance.</li>
+                    <li><strong>31-May:</strong> Receive balance payment against bill.</li>
+                </ol>
+
+                <h3>Master Monthly Practice Schedule:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction</th>
+                            <th>Amount (₹)</th>
+                            <th>GST Rate</th>
+                            <th>Action / Voucher</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Customer Advance</td>
+                            <td>25,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>03-Apr</td>
+                            <td>Customer Advance</td>
+                            <td>40,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales Invoice</td>
+                            <td>80,000</td>
+                            <td>18%</td>
+                            <td>Sales (F8 &mdash; Adjust ₹25k)</td>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Balance Receipt</td>
+                            <td>69,400</td>
+                            <td>&mdash;</td>
+                            <td>Receipt (F6 Agst Ref)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Apr</td>
+                            <td>Sales Invoice</td>
+                            <td>1,20,000</td>
+                            <td>18%</td>
+                            <td>Sales (F8 &mdash; Adjust ₹40k)</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Balance Receipt</td>
+                            <td>1,01,600</td>
+                            <td>&mdash;</td>
+                            <td>Receipt (F6 Agst Ref)</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Customer Advance</td>
+                            <td>50,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>05-Jun</td>
+                            <td>Sales Invoice</td>
+                            <td>1,50,000</td>
+                            <td>18%</td>
+                            <td>Sales (F8 &mdash; Adjust May Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jun</td>
+                            <td>Customer Advance</td>
+                            <td>75,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Order Cancelled</td>
+                            <td>75,000</td>
+                            <td>&mdash;</td>
+                            <td>Payment (F5 Refund + Reversal)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Supplier Advance</td>
+                            <td>40,000</td>
+                            <td>&mdash;</td>
+                            <td>Payment (F5 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>31-Jul</td>
+                            <td>Purchase Invoice</td>
+                            <td>1,00,000</td>
+                            <td>18%</td>
+                            <td>Purchase (F9 &mdash; Adjust ₹40k)</td>
+                        </tr>
+                        <tr>
+                            <td>05-Jul</td>
+                            <td>Service Advance</td>
+                            <td>50,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Service Invoice</td>
+                            <td>1,50,000</td>
+                            <td>18%</td>
+                            <td>Accounting Invoice (Adjust Advance)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Customer Ledger &amp; Day Book:</strong> Verify chronological posting: <code>Advance Receipt &rarr; Sales Invoice &rarr; Advance Adjustment &rarr; Final Receipt</code>.</li>
+                    <li><strong>Bill-wise Outstanding:</strong> Ensure pending advance balances clear out to Nil once final settlements are recorded.</li>
+                    <li><strong>GST Tax Analysis (Ctrl + O inside voucher):</strong> Confirm tax breakdown on taxable values.</li>
+                    <li><strong>GSTR-1 &amp; GSTR-3B:</strong> Verify Table 11 (Advances Received / Adjusted) in GSTR-1 and tax adjustments in GSTR-3B.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Treating customer advances as direct sales revenue in the Profit &amp; Loss statement.</li>
+                    <li>Failing to link advances in sales invoices using <code>Agst Ref</code>, creating double-counted receivables.</li>
+                    <li>Recording supplier advances as indirect business expenses instead of Current Assets.</li>
+                    <li>Refunding an advance via payment voucher without linking the original advance reference.</li>
+                    <li>Forgetting to reverse statutory advance tax liabilities upon order cancellations.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Customer Advance kis group ke under banta hai?</strong><br>A: <strong>Current Liabilities</strong> (kyunki goods/services deliver hone tak yeh business ki liability hoti hai).</li>
+                    <li><strong>Q: Supplier Advance kis group ke under banta hai?</strong><br>A: <strong>Current Assets</strong> (Loans &amp; Advances).</li>
+                    <li><strong>Q: Bill-wise allocation mein advance kaise adjust hota hai?</strong><br>A: Sales Invoice ke dauran Bill-wise screen par <strong>Agst Ref</strong> select karke respective advance reference number ko choose kiya jata hai.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Day 4 Golden Workflow:</strong><br>
+                    <code>Advance Received (F6) &rarr; Statutory Tax Treatment (if applicable) &rarr; Sales Invoice (F8) &rarr; Bill-wise Advance Adjustment (Agst Ref) &rarr; Balance Receipt (F6) &rarr; GSTR-1 &amp; GSTR-3B Reconciliation</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Normal Receipt vs Advance Receipt differentiated</li>
+                    <li>Customer Advance (Current Liabilities) and Supplier Advance (Current Assets) configured</li>
+                    <li>Same-month and subsequent-month advance adjustments practiced</li>
+                    <li>Order cancellation and advance refund workflows executed</li>
+                    <li>Partial and multiple advance set-offs completed</li>
+                    <li>Bill-wise Outstanding, GST Tax Analysis, and GSTR-1/GSTR-3B reports verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives (सीखने के उद्देश्य)</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>Receipt aur payment ka accounting concept samjhega.</li>
+                    <li>Normal receipt aur advance receipt mein difference identify karega.</li>
+                    <li>Customer advance ka accounting treatment samjhega.</li>
+                    <li>GST advance receipt ka basic concept samjhega.</li>
+                    <li>Same-period aur subsequent-period advance scenarios handle karega.</li>
+                    <li>TallyPrime mein GST advance receipt record kar payega.</li>
+                    <li>Sales invoice ke against advance adjust kar payega.</li>
+                    <li>Partial advance adjustment kar payega.</li>
+                    <li>Multiple advances ko ek invoice ke against adjust kar payega.</li>
+                    <li>Cancelled order ka advance refund record kar payega.</li>
+                    <li>Applicable GST liability ko increase/decrease kar payega.</li>
+                    <li>Supplier advance payment record kar payega.</li>
+                    <li>Advance adjustment ke baad customer/supplier outstanding verify kar payega.</li>
+                    <li>GST reports mein advance-related transactions verify kar payega.</li>
+                    <li>Common advance accounting errors identify kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Normal Receipt vs Advance Receipt</h2>
+                
+                <p><strong>Receipt (F6):</strong> Business ko cash ya bank ke through incoming funds receive hona.</p>
+                <p><strong>Payment (F5):</strong> Business se suppliers, expenses, refunds, ya advances ke liye outgoing funds pay hona.</p>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Normal Receipt</th>
+                            <th>Advance Receipt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Invoice Available</td>
+                            <td>Yes</td>
+                            <td>Usually No</td>
+                        </tr>
+                        <tr>
+                            <td>Money Received</td>
+                            <td>Against existing pending invoice</td>
+                            <td>Before / against future supply</td>
+                        </tr>
+                        <tr>
+                            <td>Customer Balance</td>
+                            <td>Outstanding balance reduces</td>
+                            <td>Advance balance / liability created</td>
+                        </tr>
+                        <tr>
+                            <td>Bill-wise Treatment</td>
+                            <td>Against Reference (Agst Ref - पिछले बिल के अगेंस्ट)</td>
+                            <td>Advance (Advance Ref)</td>
+                        </tr>
+                        <tr>
+                            <td>GST Treatment</td>
+                            <td>Invoice-based reporting</td>
+                            <td>Subject to supply type &amp; applicable GST rules</td>
+                        </tr>
+                        <tr>
+                            <td>Example</td>
+                            <td>₹59,000 pending bill payment</td>
+                            <td>₹10,000 token before order delivery</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Rule:</strong><br>
+                    <strong>Advance Receipt &ne; Sales Invoice</strong><br>
+                    Advance received hone par sales create nahi hotCustomer advance business ke liye <strong>Current Liability</strong> hoti hai jab tak final supply complete na ho jaye.
+                </blockquote>
+
+                <h3>Customer Advance vs Supplier Advance</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Customer Advance</th>
+                            <th>Supplier Advance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Money Movement</td>
+                            <td>Inward (Incoming Funds)</td>
+                            <td>Outward (Outgoing Funds)</td>
+                        </tr>
+                        <tr>
+                            <td>Voucher Type</td>
+                            <td>Receipt (F6)</td>
+                            <td>Payment (F5)</td>
+                        </tr>
+                        <tr>
+                            <td>Accounting Classification</td>
+                            <td>Current Liabilities</td>
+                            <td>Current Assets (Loans &amp; Advances)</td>
+                        </tr>
+                        <tr>
+                            <td>Later Adjustment</td>
+                            <td>Adjusted in Sales Invoice (F8)</td>
+                            <td>Adjusted in Purchase Invoice (F9)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Company &amp; Masters Configuration</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Masters to Create:</h3>
+                <ul>
+                    <li><strong>Customer (Local):</strong> ABC Enterprises (Under <em>Sundry Debtors</em>, State: <em>Maharashtra</em>)</li>
+                    <li><strong>Customer (Interstate):</strong> Gujarat Enterprises (Under <em>Sundry Debtors</em>, State: <em>Gujarat</em>)</li>
+                    <li><strong>Customer Advance Ledger:</strong> Customer Advance (Under <em>Current Liabilities</em>)</li>
+                    <li><strong>Supplier:</strong> ABC Suppliers (Under <em>Sundry Creditors</em>)</li>
+                    <li><strong>Sales Ledger:</strong> Sales &ndash; 18% (Under <em>Sales Accounts</em>)</li>
+                    <li><strong>Tax Ledgers:</strong> CGST, SGST, IGST (Under <em>Duties &amp; Taxes</em>)</li>
+                    <li><strong>Stock Item:</strong> Office Chair (Unit: <em>Nos</em>, GST @ 18%, Opening: 50 Nos @ ₹2,000)</li>
+                </ul>
+
+                <hr>
+
+                <h2>Advance Calculation Formula (Classroom Practice @ 18% GST)</h2>
+                <blockquote>
+                    <strong>Advance Amount Received:</strong> ₹10,000<br>
+                    <strong>Taxable Value:</strong> ₹10,000 &divide; 1.18 = <strong>₹8,474.58</strong><br>
+                    <strong>CGST (9%):</strong> ₹8,474.58 &times; 9% = <strong>₹762.71</strong><br>
+                    <strong>SGST (9%):</strong> ₹8,474.58 &times; 9% = <strong>₹762.71</strong><br>
+                    <strong>Total GST Component:</strong> <strong>₹1,525.42</strong>
+                </blockquote>
+
+                <hr>
+
+                <h2>Practical Walkthroughs in TallyPrime</h2>
+
+                <h3>Practical 1: Advance Received &amp; Sale Made in Same GST Period</h3>
+                <ol>
+                    <li><strong>01-Apr (Advance Receipt):</strong> Press <strong>F6 (Receipt)</strong> &rarr; Select Cash/Bank &rarr; Party: <code>ABC Enterprises</code> &rarr; Bill-wise: <strong>Advance</strong> (Ref: <code>ADV-01</code>, ₹10,000Use <strong>Alt + J</strong> for Stat Adjustment if applicable.</li>
+                    <li><strong>01-Apr (Sales Invoice):</strong> Press <strong>F8 (Sales)</strong> &rarr; Sell 20 Nos Office Chairs @ ₹500 = ₹10,000 taxable + 18% GST (CGST ₹900 + SGST ₹900) = Total Invoice ₹11,800.</li>
+                    <li><strong>Advance Adjustment:</strong> Bill-wise details pop-up mein select <strong>Agst Ref</strong> &rarr; Pick <code>ADV-01</code> &rarr; Adjust ₹10,00Balance remaining on bill = ₹1,800 (<em>New Ref</em>).</li>
+                    <li><strong>Final Settlement:</strong> Customer pays balance ₹1,800 &rarr; Press <strong>F6 (Receipt)</strong> &rarr; Select <strong>Agst Ref</strong> &rarr; Customer outstanding becomes Nil.</li>
+                </ol>
+
+                <h3>Practical 2: Advance Received in One Month, Sale in Next Month</h3>
+                <ul>
+                    <li><strong>31-May (Advance):</strong> Record ₹10,000 advance receipt in MaRaise tax liability via Stat Adjustment (<strong>Alt + J</strong> &rarr; <em>Increase in Tax Liability &rarr; Advance Receipt</em>): <code>Tax on Advance Dr ₹1,525.42</code> to <code>CGST Cr ₹762.71</code> &amp; <code>SGST Cr ₹762.71</code>.</li>
+                    <li><strong>05-Jun (Sales Invoice):</strong> Record June sales invoice of ₹11,800 and adjust ₹10,000 against advance.</li>
+                    <li><strong>Tax Adjustment:</strong> Reverse/adjust earlier advance liability via Stat Adjustment (<strong>Alt + J</strong> &rarr; <em>Decrease in Tax Liability &rarr; Sales Against Advance Receipts</em>): <code>CGST Dr ₹762.71</code> &amp; <code>SGST Dr ₹762.71</code> to <code>Tax on Advance Cr ₹1,525.42</code>.</li>
+                </ul>
+
+                <h3>Practical 3: Advance Received but Order Cancelled (Refund)</h3>
+                <ol>
+                    <li><strong>Advance Received:</strong> Record ₹10,000 advance receipt and applicable tax liability.</li>
+                    <li><strong>Refund Payment (F5):</strong> Press <strong>F5 (Payment)</strong> &rarr; Select <em>Refund Against Advance Receipt</em> &rarr; Pick original advance reference &rarr; Pay ₹10,000 from Bank.</li>
+                    <li><strong>GST Liability Reversal:</strong> Stat Adjustment (<strong>Alt + J</strong> &rarr; <em>Decrease in Tax Liability &rarr; Cancellation of Advance Receipts</em>): Debit CGST ₹762.71 &amp; SGST ₹762.71, Credit Tax on Advance ₹1,525.42.</li>
+                </ol>
+
+                <h3>Practical 4: Partial &amp; Multiple Advance Adjustments</h3>
+                <ul>
+                    <li><strong>Partial Adjustment:</strong> Advance received ₹50,00Final invoice ₹1,18,00Adjust ₹50,000 (Agst Ref) &rarr; Balance receivable ₹68,000 collected via normal receipt.</li>
+                    <li><strong>Multiple Advances:</strong> Advance 1 (₹20,000) + Advance 2 (₹30,000) = ₹50,000 total advancIn final sales invoice of ₹1,18,000, link both advance references under <em>Agst Ref</em> &rarr; Balance due = ₹68,000.</li>
+                </ul>
+
+                <h3>Practical 5: Supplier Advance Payment</h3>
+                <p><strong>05-Jul:</strong> Paid ₹40,000 advance to ABC Suppliers via Bank (<strong>F5: Payment</strong>, Ref: <em>Advance</em>).</p>
+                <p><strong>02-Jul:</strong> Purchase invoice of ₹1,00,000 + 18% GST = ₹1,18,000 (<strong>F9: Purchase</strong>In bill-wise details, select <strong>Agst Ref</strong> to adjust ₹40,000 advancBalance payable = ₹78,000.</p>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Sequential Exercises)</h3>
+                <ol>
+                    <li><strong>01-Apr:</strong> Receive ₹25,000 advance from ABC Enterprises (Receipt F6).</li>
+                    <li><strong>01-Apr:</strong> Sales Invoice ₹80,000 + 18% GST (F8 SalesAdjust ₹25,000 advance.</li>
+                    <li><strong>08-Apr:</strong> Receive balance amount from ABC Enterprises (Receipt F6).</li>
+                    <li><strong>02-Apr:</strong> Receive ₹40,000 advance from XYZ Enterprises.</li>
+                    <li><strong>02-May:</strong> Sales Invoice ₹1,20,000 + 18% GSAdjust ₹40,000 advance.</li>
+                    <li><strong>31-May:</strong> Receive balance payment against bill.</li>
+                </ol>
+
+                <h3>Master Monthly Practice Schedule:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction</th>
+                            <th>Amount (₹)</th>
+                            <th>GST Rate</th>
+                            <th>Action / Voucher</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Customer Advance</td>
+                            <td>25,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>03-Apr</td>
+                            <td>Customer Advance</td>
+                            <td>40,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales Invoice</td>
+                            <td>80,000</td>
+                            <td>18%</td>
+                            <td>Sales (F8 &mdash; Adjust ₹25k)</td>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Balance Receipt</td>
+                            <td>69,400</td>
+                            <td>&mdash;</td>
+                            <td>Receipt (F6 Agst Ref)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Apr</td>
+                            <td>Sales Invoice</td>
+                            <td>1,20,000</td>
+                            <td>18%</td>
+                            <td>Sales (F8 &mdash; Adjust ₹40k)</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Balance Receipt</td>
+                            <td>1,01,600</td>
+                            <td>&mdash;</td>
+                            <td>Receipt (F6 Agst Ref)</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Customer Advance</td>
+                            <td>50,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>05-Jun</td>
+                            <td>Sales Invoice</td>
+                            <td>1,50,000</td>
+                            <td>18%</td>
+                            <td>Sales (F8 &mdash; Adjust May Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jun</td>
+                            <td>Customer Advance</td>
+                            <td>75,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jun</td>
+                            <td>Order Cancelled</td>
+                            <td>75,000</td>
+                            <td>&mdash;</td>
+                            <td>Payment (F5 Refund + Reversal)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Supplier Advance</td>
+                            <td>40,000</td>
+                            <td>&mdash;</td>
+                            <td>Payment (F5 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>31-Jul</td>
+                            <td>Purchase Invoice</td>
+                            <td>1,00,000</td>
+                            <td>18%</td>
+                            <td>Purchase (F9 &mdash; Adjust ₹40k)</td>
+                        </tr>
+                        <tr>
+                            <td>05-Jul</td>
+                            <td>Service Advance</td>
+                            <td>50,000</td>
+                            <td>18%</td>
+                            <td>Receipt (F6 Advance)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Service Invoice</td>
+                            <td>1,50,000</td>
+                            <td>18%</td>
+                            <td>Accounting Invoice (Adjust Advance)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Customer Ledger &amp; Day Book:</strong> Verify chronological posting: <code>Advance Receipt &rarr; Sales Invoice &rarr; Advance Adjustment &rarr; Final Receipt</code>.</li>
+                    <li><strong>Bill-wise Outstanding:</strong> Ensure pending advance balances clear out to Nil once final settlements are recorded.</li>
+                    <li><strong>GST Tax Analysis (Ctrl + O inside voucher):</strong> Confirm tax breakdown on taxable values.</li>
+                    <li><strong>GSTR-1 &amp; GSTR-3B:</strong> Verify Table 11 (Advances Received / Adjusted) in GSTR-1 and tax adjustments in GSTR-3B.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Treating customer advances as direct sales revenue in the Profit &amp; Loss statement.</li>
+                    <li>Failing to link advances in sales invoices using <code>Agst Ref</code>, creating double-counted receivables.</li>
+                    <li>Recording supplier advances as indirect business expenses instead of Current Assets.</li>
+                    <li>Refunding an advance via payment voucher without linking the original advance reference.</li>
+                    <li>Forgetting to reverse statutory advance tax liabilities upon order cancellations.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Customer Advance kis group ke under banta hai?</strong><br>A: <strong>Current Liabilities</strong> (kyunki goods/services deliver hone tak yeh business ki liability hoti hai).</li>
+                    <li><strong>Q: Supplier Advance kis group ke under banta hai?</strong><br>A: <strong>Current Assets</strong> (Loans &amp; Advances).</li>
+                    <li><strong>Q: Bill-wise allocation mein advance kaise adjust hota hai?</strong><br>A: Sales Invoice ke dauran Bill-wise screen par <strong>Agst Ref</strong> select karke respective advance reference number ko choose kiya jata hai.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Day 4 Golden Workflow:</strong><br>
+                    <code>Advance Received (F6) &rarr; Statutory Tax Treatment (if applicable) &rarr; Sales Invoice (F8) &rarr; Bill-wise Advance Adjustment (Agst Ref) &rarr; Balance Receipt (F6) &rarr; GSTR-1 &amp; GSTR-3B Reconciliation</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Normal Receipt vs Advance Receipt differentiated</li>
+                    <li>Customer Advance (Current Liabilities) and Supplier Advance (Current Assets) configured</li>
+                    <li>Same-month and subsequent-month advance adjustments practiced</li>
+                    <li>Order cancellation and advance refund workflows executed</li>
+                    <li>Partial and multiple advance set-offs completed</li>
+                    <li>Bill-wise Outstanding, GST Tax Analysis, and GSTR-1/GSTR-3B reports verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

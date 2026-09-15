@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <p><strong>Journal Voucher (F7):</strong> An adjustment voucher used for non-cash and non-bank transactions. It records entries that do not directly involve receiving or paying liquid cash/bank funds at the moment of entry.</p>
+                
+                <p><strong>Common Use Cases:</strong></p>
+                <ul>
+                    <li>Credit purchases of Fixed Assets (e.g., buying furniture or machinery on credit).</li>
+                    <li>Adjustment entries (e.g., depreciation, outstanding expenses, prepaid expenses, accrued income).</li>
+                    <li>Rectification of accounting errors.</li>
+                    <li>Opening balances and year-end closing entries.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Golden Rule of Accounting:</strong><br>
+                    <code>Debit (Dr)</code> &rarr; Receiver / What comes in / Expenses &amp; Losses<br>
+                    <code>Credit (Cr)</code> &rarr; Giver / What goes out / Incomes &amp; Gains
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Journal Voucher Tip:</strong>
+                    <ul>
+                        <li>Press <kbd>F7</kbd> for Journal voucher (non-cash adjustments, provisions, asset credit purchases).</li>
+                        <li>Remember to keep adjustment dates on <code>1-4</code>, <code>2-4</code>, <code>31-5</code>, <code>31-7</code>, <code>31-10</code>, <code>31-12</code>, <code>31-1</code>, or <code>31-3</code>.</li>
+                        <li>Year-end depreciation and closing provisions should be dated <code>31-Mar-2026</code> (<kbd>F2</kbd>).</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. Ledgers Required to be Created First</h2>
+                <p>Before passing the Journal entries, create these ledgers under their appropriate primary groups:</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Type / Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Furniture A/c</td>
+                            <td>Fixed Assets</td>
+                            <td>Asset purchased</td>
+                        </tr>
+                        <tr>
+                            <td>Computer System A/c</td>
+                            <td>Fixed Assets</td>
+                            <td>Asset purchased</td>
+                        </tr>
+                        <tr>
+                            <td>Office Equipment A/c</td>
+                            <td>Fixed Assets</td>
+                            <td>Asset purchased</td>
+                        </tr>
+                        <tr>
+                            <td>Modern Traders</td>
+                            <td>Sundry Creditors</td>
+                            <td>Vendor for fixed assets</td>
+                        </tr>
+                        <tr>
+                            <td>Tech Solutions</td>
+                            <td>Sundry Creditors</td>
+                            <td>Vendor for office equipment</td>
+                        </tr>
+                        <tr>
+                            <td>Depreciation A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Non-cash expense</td>
+                        </tr>
+                        <tr>
+                            <td>Salary A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Regular expense</td>
+                        </tr>
+                        <tr>
+                            <td>Outstanding Salary A/c</td>
+                            <td>Current Liabilities</td>
+                            <td>Provision for unpaid salary</td>
+                        </tr>
+                        <tr>
+                            <td>Rent A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Regular expense</td>
+                        </tr>
+                        <tr>
+                            <td>Outstanding Rent A/c</td>
+                            <td>Current Liabilities</td>
+                            <td>Provision for unpaid rent</td>
+                        </tr>
+                        <tr>
+                            <td>Prepaid Insurance A/c</td>
+                            <td>Loans &amp; Advances (Asset) / Current Assets</td>
+                            <td>Asset paid in advance</td>
+                        </tr>
+                        <tr>
+                            <td>Insurance Expense A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Regular expense</td>
+                        </tr>
+                        <tr>
+                            <td>Bad Debts A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Irrecoverable customer debt</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>3. How to Record Journal Vouchers in TallyPrime</h2>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F7</strong> (Journal).</li>
+                    <li>Press <strong>Ctrl + H</strong> to select Double Entry mode (By/To or Dr/Cr).</li>
+                    <li>First Line: Select the Debit (Dr) ledger and enter the amount.</li>
+                    <li>Second Line: Select the Credit (Cr) ledger and enter the corresponding amount.</li>
+                    <li>Enter a clear Narration describing the adjustment.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set (10 Entries)</h2>
+
+                <h3>Record Journal Entries (F7)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entry No.</th>
+                            <th>Date</th>
+                            <th>Particulars (Debit / Credit)</th>
+                            <th>Debit Amt (₹)</th>
+                            <th>Credit Amt (₹)</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1-4</td>
+                            <td>Dr: Furniture A/c<br>Cr: Modern Traders</td>
+                            <td>45,000<br>—</td>
+                            <td>—<br>45,000</td>
+                            <td>Being furniture purchased on credit from Modern Traders</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2-4</td>
+                            <td>Dr: Computer System A/c<br>Cr: Tech Solutions</td>
+                            <td>65,000<br>—</td>
+                            <td>—<br>65,000</td>
+                            <td>Being computer system purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2-4</td>
+                            <td>Dr: Salary A/c<br>Cr: Outstanding Salary A/c</td>
+                            <td>25,000<br>—</td>
+                            <td>—<br>25,000</td>
+                            <td>Being unpaid salary provided for the month</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2-4</td>
+                            <td>Dr: Rent A/c<br>Cr: Outstanding Rent A/c</td>
+                            <td>12,000<br>—</td>
+                            <td>—<br>12,000</td>
+                            <td>Being office rent due but unpaid</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>1-5</td>
+                            <td>Dr: Prepaid Insurance A/c<br>Cr: Insurance Expense A/c</td>
+                            <td>8,000<br>—</td>
+                            <td>—<br>8,000</td>
+                            <td>Being insurance paid in advance adjusted</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>31-5</td>
+                            <td>Dr: Depreciation A/c<br>Cr: Furniture A/c</td>
+                            <td>4,500<br>—</td>
+                            <td>—<br>4,500</td>
+                            <td>Being depreciation charged on furniture @ 10%</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>2-6</td>
+                            <td>Dr: Depreciation A/c<br>Cr: Computer System A/c</td>
+                            <td>6,500<br>—</td>
+                            <td>—<br>6,500</td>
+                            <td>Being depreciation charged on computer systems</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>2-7</td>
+                            <td>Dr: Bad Debts A/c<br>Cr: Deepak Creation</td>
+                            <td>5,000<br>—</td>
+                            <td>—<br>5,000</td>
+                            <td>Being unrecoverable balance written off as bad debt</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>1-8</td>
+                            <td>Dr: Office Equipment A/c<br>Cr: Modern Traders</td>
+                            <td>30,000<br>—</td>
+                            <td>—<br>30,000</td>
+                            <td>Being office equipment purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>31-8</td>
+                            <td>Dr: Modern Traders<br>Cr: Discount Received A/c</td>
+                            <td>1,500<br>—</td>
+                            <td>—<br>1,500</td>
+                            <td>Being discount allowed by supplier on account settlement</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking, Deleting &amp; Modifying Journal Vouchers</h2>
+
+                <h3>To View Statistics &amp; Journal Count:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Statistics</strong> &rarr; Select <strong>Journal</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Statistics</strong> &rarr; Drill down into <strong>Journal</strong>)</em>
+                    </li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Journal Entries:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Journal Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Journal Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to view or edit details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <p><strong>Journal Voucher (F7):</strong> An adjustment voucher used for non-cash and non-bank transactions. It records entries that do not directly involve receiving or paying liquid cash/bank funds at the moment of entry.</p>
+                
+                <p><strong>Common Use Cases:</strong></p>
+                <ul>
+                    <li>Credit purchases of Fixed Assets (e.g., buying furniture or machinery on credit).</li>
+                    <li>Adjustment entries (e.g., depreciation, outstanding expenses, prepaid expenses, accrued income).</li>
+                    <li>Rectification of accounting errors.</li>
+                    <li>Opening balances and year-end closing entries.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Golden Rule of Accounting:</strong><br>
+                    <code>Debit (Dr)</code> &rarr; Receiver / What comes in / Expenses &amp; Losses<br>
+                    <code>Credit (Cr)</code> &rarr; Giver / What goes out / Incomes &amp; Gains
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Journal Voucher Tip:</strong>
+                    <ul>
+                        <li>Press <kbd>F7</kbd> for Journal voucher (non-cash adjustments, provisions, asset credit purchases).</li>
+                        <li>Remember to keep adjustment dates on <code>1-4</code>, <code>2-4</code>, <code>31-5</code>, <code>31-7</code>, <code>31-10</code>, <code>31-12</code>, <code>31-1</code>, or <code>31-3</code>.</li>
+                        <li>Year-end depreciation and closing provisions should be dated <code>31-Mar-2026</code> (<kbd>F2</kbd>).</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. Ledgers Required to be Created First</h2>
+                <p>Before passing the Journal entries, create these ledgers under their appropriate primary groups:</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Type / Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Furniture A/c</td>
+                            <td>Fixed Assets</td>
+                            <td>Asset purchased</td>
+                        </tr>
+                        <tr>
+                            <td>Computer System A/c</td>
+                            <td>Fixed Assets</td>
+                            <td>Asset purchased</td>
+                        </tr>
+                        <tr>
+                            <td>Office Equipment A/c</td>
+                            <td>Fixed Assets</td>
+                            <td>Asset purchased</td>
+                        </tr>
+                        <tr>
+                            <td>Modern Traders</td>
+                            <td>Sundry Creditors</td>
+                            <td>Vendor for fixed assets</td>
+                        </tr>
+                        <tr>
+                            <td>Tech Solutions</td>
+                            <td>Sundry Creditors</td>
+                            <td>Vendor for office equipment</td>
+                        </tr>
+                        <tr>
+                            <td>Depreciation A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Non-cash expense</td>
+                        </tr>
+                        <tr>
+                            <td>Salary A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Regular expense</td>
+                        </tr>
+                        <tr>
+                            <td>Outstanding Salary A/c</td>
+                            <td>Current Liabilities</td>
+                            <td>Provision for unpaid salary</td>
+                        </tr>
+                        <tr>
+                            <td>Rent A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Regular expense</td>
+                        </tr>
+                        <tr>
+                            <td>Outstanding Rent A/c</td>
+                            <td>Current Liabilities</td>
+                            <td>Provision for unpaid rent</td>
+                        </tr>
+                        <tr>
+                            <td>Prepaid Insurance A/c</td>
+                            <td>Loans &amp; Advances (Asset) / Current Assets</td>
+                            <td>Asset paid in advance</td>
+                        </tr>
+                        <tr>
+                            <td>Insurance Expense A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Regular expense</td>
+                        </tr>
+                        <tr>
+                            <td>Bad Debts A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Irrecoverable customer debt</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>3. How to Record Journal Vouchers in TallyPrime</h2>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F7</strong> (Journal).</li>
+                    <li>Press <strong>Ctrl + H</strong> to select Double Entry mode (By/To or Dr/Cr).</li>
+                    <li>First Line: Select the Debit (Dr) ledger and enter the amount.</li>
+                    <li>Second Line: Select the Credit (Cr) ledger and enter the corresponding amount.</li>
+                    <li>Enter a clear Narration describing the adjustment.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set (10 Entries)</h2>
+
+                <h3>Record Journal Entries (F7)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entry No.</th>
+                            <th>Date</th>
+                            <th>Particulars (Debit / Credit)</th>
+                            <th>Debit Amt (₹)</th>
+                            <th>Credit Amt (₹)</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1-4</td>
+                            <td>Dr: Furniture A/c<br>Cr: Modern Traders</td>
+                            <td>45,000<br>—</td>
+                            <td>—<br>45,000</td>
+                            <td>Being furniture purchased on credit from Modern Traders</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2-4</td>
+                            <td>Dr: Computer System A/c<br>Cr: Tech Solutions</td>
+                            <td>65,000<br>—</td>
+                            <td>—<br>65,000</td>
+                            <td>Being computer system purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2-4</td>
+                            <td>Dr: Salary A/c<br>Cr: Outstanding Salary A/c</td>
+                            <td>25,000<br>—</td>
+                            <td>—<br>25,000</td>
+                            <td>Being unpaid salary provided for the month</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2-4</td>
+                            <td>Dr: Rent A/c<br>Cr: Outstanding Rent A/c</td>
+                            <td>12,000<br>—</td>
+                            <td>—<br>12,000</td>
+                            <td>Being office rent due but unpaid</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>1-5</td>
+                            <td>Dr: Prepaid Insurance A/c<br>Cr: Insurance Expense A/c</td>
+                            <td>8,000<br>—</td>
+                            <td>—<br>8,000</td>
+                            <td>Being insurance paid in advance adjusted</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>31-5</td>
+                            <td>Dr: Depreciation A/c<br>Cr: Furniture A/c</td>
+                            <td>4,500<br>—</td>
+                            <td>—<br>4,500</td>
+                            <td>Being depreciation charged on furniture @ 10%</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>2-6</td>
+                            <td>Dr: Depreciation A/c<br>Cr: Computer System A/c</td>
+                            <td>6,500<br>—</td>
+                            <td>—<br>6,500</td>
+                            <td>Being depreciation charged on computer systems</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>2-7</td>
+                            <td>Dr: Bad Debts A/c<br>Cr: Deepak Creation</td>
+                            <td>5,000<br>—</td>
+                            <td>—<br>5,000</td>
+                            <td>Being unrecoverable balance written off as bad debt</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>1-8</td>
+                            <td>Dr: Office Equipment A/c<br>Cr: Modern Traders</td>
+                            <td>30,000<br>—</td>
+                            <td>—<br>30,000</td>
+                            <td>Being office equipment purchased on credit</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>31-8</td>
+                            <td>Dr: Modern Traders<br>Cr: Discount Received A/c</td>
+                            <td>1,500<br>—</td>
+                            <td>—<br>1,500</td>
+                            <td>Being discount allowed by supplier on account settlement</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking, Deleting &amp; Modifying Journal Vouchers</h2>
+
+                <h3>To View Statistics &amp; Journal Count:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Statistics</strong> &rarr; Select <strong>Journal</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Statistics</strong> &rarr; Drill down into <strong>Journal</strong>)</em>
+                    </li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Journal Entries:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Journal Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Journal Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to view or edit details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/course-data.js"></script>
+    <script src="/TallyPrime/scripts/shared.js"></script>
+</body>
+</html>

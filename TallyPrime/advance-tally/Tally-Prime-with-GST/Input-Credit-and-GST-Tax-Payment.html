@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Input Tax Credit (ITC) ka meaning samjhega.</li>
+                    <li>Understand the operational differences between Input GST and Output GST.</li>
+                    <li>Eligible and ineligible/blocked ITC identify karega.</li>
+                    <li>CGST, SGST and IGST credit utilisation rules ko samjhega.</li>
+                    <li>Purchafrom invoice in input GST record karega.</li>
+                    <li>Sales invoice in output GST record karega.</li>
+                    <li>ITC ko output liability ke against adjust karega.</li>
+                    <li>GST payable calculate karega.</li>
+                    <li>GST payment voucher (F5) prepare karega.</li>
+                    <li>GST payment entry ka accounting treatment samjhega.</li>
+                    <li>Verify GST payable ledgers in management and statutory tax reports.</li>
+                    <li>GST reports and returns from reconciliation karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Input GST, Output GST &amp; ITC</h2>
+                
+                <p><strong>Input GST:</strong> Goods or services purchafrom karte waqt jo GST supplier ko pay kior jata is.</p>
+                <p><strong>Output GST:</strong> Taxable outward supply (sales/services) par customer from collect kior gaor GST jo government ko payable is.</p>
+                <p><strong>Input Tax Credit (ITC):</strong> Output GST liability ko settle karne ke liye eligible purchafrom par paid input GST ka set-off/credit claim karna.</p>
+
+                <blockquote>
+                    <strong>Core Formula:</strong><br>
+                    <strong>Net GST Payable</strong> = Output GST &minus; Eligible Input Tax Credit (ITC)
+                </blockquote>
+
+                <h3>GST Components Comparison</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Accounting Side</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Input GST</td>
+                            <td>Purchafrom / Expenfrom Side</td>
+                            <td>GST paid to suppliers on purchases/inward supplies</td>
+                        </tr>
+                        <tr>
+                            <td>Output GST</td>
+                            <td>Sales / Revenue Side</td>
+                            <td>GST collected from customers on outward supplies</td>
+                        </tr>
+                        <tr>
+                            <td>Input Tax Credit (ITC)</td>
+                            <td>Asset / Credit Ledger</td>
+                            <td>Eligible input tax available for statutory set-off</td>
+                        </tr>
+                        <tr>
+                            <td>Net GST Liability</td>
+                            <td>Current Liability</td>
+                            <td>Remaining output tax payable after deducting eligible ITC</td>
+                        </tr>
+                        <tr>
+                            <td>GST Payment</td>
+                            <td>Bank Payment (F5)</td>
+                            <td>Net tax liability deposited to the government treasury</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Eligible vs Ineligible (Blocked) ITC</h2>
+                <ul>
+                    <li><strong>Eligible ITC:</strong> Business operations ke liye purchases (e.g., trading goods, raw materials, professional fees, office equipment, commercial services).</li>
+                    <li><strong>Ineligible / Blocked ITC:</strong> Specified statutory blocked credits (e.g., motor vehicles for personal use, club memberships, personal consumption expenses, food &amp; beverages, goods lost/stolen/destroyed).</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Important Rule:</strong><br>
+                    <strong>Input GST Paid &ne; Automatically Eligible ITC</strong><br>
+                    ITC claim karne ke liye valid invoice, receipt of goods/services, supplier compliance, tax payment verification and statutory eligibility mandatory is.
+                </blockquote>
+
+                <hr>
+
+                <h2>Ledger Hierarchy &amp; Accounting Treatment</h2>
+
+                <h3>Master Ledger Structure in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Input Tax Ledgers (Under Duties &amp; Taxes / Current Assets):</strong> <code>Input CGST</code>, <code>Input SGST</code>, <code>Input IGST</code></li>
+                    <li><strong>Output Tax Ledgers (Under Duties &amp; Taxes / Current Liabilities):</strong> <code>Output CGST</code>, <code>Output SGST</code>, <code>Output IGST</code></li>
+                    <li><strong>Settlement Ledger:</strong> <code>GST Payable A/c</code> (Under <em>Current Liabilities / Duties &amp; Taxes</em>)</li>
+                </ul>
+
+                <h3>Journal Entry Impacts:</h3>
+                <ul>
+                    <li><strong>Purchafrom Entry:</strong> <code>Purchafrom A/c (Dr)</code> + <code>Input CGST/SGST/IGST (Dr)</code> &rarr; <code>To Supplier A/c (Cr)</code></li>
+                    <li><strong>Sales Entry:</strong> <code>Customer A/c (Dr)</code> &rarr; <code>To Sales A/c (Cr)</code> + <code>To Output CGST/SGST/IGST (Cr)</code></li>
+                    <li><strong>ITC Set-off Entry:</strong> <code>Output Tax Ledgers (Dr)</code> &rarr; <code>To Input Tax Ledgers (Cr)</code> &rarr; <code>To GST Payable A/c (Cr)</code></li>
+                    <li><strong>Tax Payment Entry:</strong> <code>GST Payable A/c (Dr)</code> &rarr; <code>To Bank A/c (Cr)</code></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthrough: Monthly Tax Settlement Cycle</h2>
+
+                <h3>Monthly Summary (ABC Traders &mdash; Maharashtra):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Input GST (ITC Available)</th>
+                            <th>Output GST (Liability)</th>
+                            <th>Net Balance (Payable)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>₹18,000</td>
+                            <td>₹22,500</td>
+                            <td>₹4,500</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>₹18,000</td>
+                            <td>₹22,500</td>
+                            <td>₹4,500</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>₹18,000</td>
+                            <td>₹27,000</td>
+                            <td>₹9,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>₹54,000</strong></td>
+                            <td><strong>₹72,000</strong></td>
+                            <td><strong>₹18,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Recording GST Payment in TallyPrime (F5: Payment)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F5</strong> (Payment).</li>
+                    <li>Press <strong>Alt + J</strong> for Statutory Payment details (Tax Type: <em>GST</em>, Period: <em>Current Month</em>).</li>
+                    <li>Account: <code>HDFC Bank A/c</code>.</li>
+                    <li>
+                        Particulars:
+                        <ul>
+                            <li>Debit: <code>GST Payable A/c</code> &mdash; ₹18,000 (or separate Output CGST ₹4,500 / SGST ₹4,500 / IGST ₹9,000).</li>
+                            <li>Credit: <code>HDFC Bank A/c</code> &mdash; ₹18,000.</li>
+                        </ul>
+                    </li>
+                    <li>Narration: <code>Being net GST liability paid for the month via net banking</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Part 1: Purchafrom Transactions (Input GST)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Supplier</th>
+                            <th>Purchafrom Value (₹)</th>
+                            <th>Tax Type</th>
+                            <th>Input GST (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Local Supplier A</td>
+                            <td>1,00,000</td>
+                            <td>Local (18%)</td>
+                            <td>CGST ₹9,000 + SGST ₹9,000</td>
+                        </tr>
+                        <tr>
+                            <td>03-Jul</td>
+                            <td>Interstate Supplier B</td>
+                            <td>50,000</td>
+                            <td>Interstate (18%)</td>
+                            <td>IGST ₹9,000</td>
+                        </tr>
+                        <tr>
+                            <td>05-Jul</td>
+                            <td>Local Supplier C</td>
+                            <td>75,000</td>
+                            <td>Local (18%)</td>
+                            <td>CGST ₹6,750 + SGST ₹6,750</td>
+                        </tr>
+                        <tr>
+                            <td>08-Jul</td>
+                            <td>Interstate Supplier D</td>
+                            <td>1,00,000</td>
+                            <td>Interstate (18%)</td>
+                            <td>IGST ₹18,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Sales Transactions (Output GST)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Sales Value (₹)</th>
+                            <th>Tax Type</th>
+                            <th>Output GST (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Local Customer X</td>
+                            <td>1,50,000</td>
+                            <td>Local (18%)</td>
+                            <td>CGST ₹13,500 + SGST ₹13,500</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Interstate Customer Y</td>
+                            <td>1,00,000</td>
+                            <td>Interstate (18%)</td>
+                            <td>IGST ₹18,000</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Local Customer Z</td>
+                            <td>1,25,000</td>
+                            <td>Local (18%)</td>
+                            <td>CGST ₹11,250 + SGST ₹11,250</td>
+                        </tr>
+                        <tr>
+                            <td>31-Jul</td>
+                            <td>Interstate Customer W</td>
+                            <td>75,000</td>
+                            <td>Interstate (18%)</td>
+                            <td>IGST ₹13,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 3: Advanced Ineligible &amp; RCM Transactions</h3>
+                <ol>
+                    <li><strong>Office Equipment Purchase:</strong> ₹80,000 + 18% GST (Eligible Capital Goods ITC).</li>
+                    <li><strong>Professional Service:</strong> ₹40,000 + 18% GST (Eligible Input Service ITC).</li>
+                    <li><strong>Personal Welfare / Blocked Expense:</strong> ₹30,000 + 18% GST (Ineligible under blocked credit rules &rarr; Do not claim ITC).</li>
+                    <li><strong>RCM Professional Service:</strong> ₹20,000 + 18% GST (Recipient raises RCM liability &rarr; Pays tax &rarr; Claims eligible ITC).</li>
+                </ol>
+
+                <hr>
+
+                <h2>Verification Reports, Reconciliation &amp; Common Mistakes</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>GSTR-3B:</strong> Table 3.1 (Outward Supplies &amp; Output Liability) vs Table 4 (Eligible ITC).</li>
+                    <li><strong>GST Tax Analysis (Ctrl + O):</strong> Inspect voucher-level taxable values and applicable tax breakdowns.</li>
+                    <li><strong>Input Tax Credit Report:</strong> Review available, claimed, and reversed ITC.</li>
+                    <li><strong>Bank Ledger &amp; GST Payable Ledger:</strong> Confirm that the tax liability balance is cleared after payment.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Assuming all purchafrom GST is eligible for ITC without verifying blocked credit conditions.</li>
+                    <li>Cross-utilising CGST credit against SGST liability (which is strictly prohibited by law).</li>
+                    <li>Recording tax payments as normal indirect expenses instead of debiting tax liability ledgers.</li>
+                    <li>Confusing GST Return filing (declaration) with actual GST Payment (challan fund deposit).</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Net GST liability kaifrom nikali jaati hai?</strong><br>A: Total Output GST in from eligible Input Tax Credit (ITC) ko minus karke, head-wifrom statutory rules ke according.</li>
+                    <li><strong>Q: GST Payment voucher ka shortcut kor hai?</strong><br>A: <strong>F5 (Payment)</strong> &rarr; Ufrom <strong>Alt + J</strong> for statutory payment specification.</li>
+                    <li><strong>Q: Kor CGST credit from SGST liability pay ho sakti hai?</strong><br>A: Nahi, CGST credit only IGST and CGST liability ke against ufrom ho sakta hai, SGST ke against nahi.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Day 9 Golden Workflow:</strong><br>
+                    <code>Purchafrom Entry (Input GST) &rarr; Verify ITC Eligibility &rarr; Sales Entry (Output GST) &rarr; Statutory Utilisation &rarr; Net Liability &rarr; Bank Payment (F5) &rarr; GSTR-3B Reconciliation</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Input GST, Output GST, and ITC concepts differentiated</li>
+                    <li>Eligible vs Blocked ITC conditions identified</li>
+                    <li>Input &amp; Output tax ledgers created under appropriate groups</li>
+                    <li>Local &amp; Interstate purchafrom and sales invoices recorded</li>
+                    <li>Head-wifrom ITC utilisation calculated</li>
+                    <li>Statutory GST payment recorded via Payment Voucher (F5)</li>
+                    <li>GSTR-3B, GST Tax Analysis, and Bank Ledger reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>Input Tax Credit (ITC) ka meaning samjhega.</li>
+                    <li>Input GST aur Output GST ka difference samjhega.</li>
+                    <li>Eligible aur ineligible/blocked ITC identify karega.</li>
+                    <li>CGST, SGST aur IGST credit utilisation rules ko samjhega.</li>
+                    <li>Purchase invoice mein input GST record karega.</li>
+                    <li>Sales invoice mein output GST record karega.</li>
+                    <li>ITC ko output liability ke against adjust karega.</li>
+                    <li>GST payable calculate karega.</li>
+                    <li>GST payment voucher (F5) prepare karega.</li>
+                    <li>GST payment entry ka accounting treatment samjhega.</li>
+                    <li>GST payable ledgers verify karega.</li>
+                    <li>GST reports aur returns se reconciliation karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Input GST, Output GST &amp; ITC</h2>
+                
+                <p><strong>Input GST:</strong> Goods ya services purchase karte waqt jo GST supplier ko pay kiya jata hai.</p>
+                <p><strong>Output GST:</strong> Taxable outward supply (sales/services) par customer se collect kiya gaya GST jo government ko payable hota hai.</p>
+                <p><strong>Input Tax Credit (ITC):</strong> Output GST liability ko settle karne ke liye eligible purchase par paid input GST ka set-off/credit claim karna.</p>
+
+                <blockquote>
+                    <strong>Core Formula:</strong><br>
+                    <strong>Net GST Payable</strong> = Output GST &minus; Eligible Input Tax Credit (ITC)
+                </blockquote>
+
+                <h3>GST Components Comparison</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Accounting Side</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Input GST</td>
+                            <td>Purchase / Expense Side</td>
+                            <td>GST paid to suppliers on purchases/inward supplies</td>
+                        </tr>
+                        <tr>
+                            <td>Output GST</td>
+                            <td>Sales / Revenue Side</td>
+                            <td>GST collected from customers on outward supplies</td>
+                        </tr>
+                        <tr>
+                            <td>Input Tax Credit (ITC)</td>
+                            <td>Asset / Credit Ledger</td>
+                            <td>Eligible input tax available for statutory set-off</td>
+                        </tr>
+                        <tr>
+                            <td>Net GST Liability</td>
+                            <td>Current Liability</td>
+                            <td>Remaining output tax payable after deducting eligible ITC</td>
+                        </tr>
+                        <tr>
+                            <td>GST Payment</td>
+                            <td>Bank Payment (F5)</td>
+                            <td>Net tax liability deposited to the government treasury</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Eligible vs Ineligible (Blocked) ITC</h2>
+                <ul>
+                    <li><strong>Eligible ITC:</strong> Business operations ke liye purchases (e.g., trading goods, raw materials, professional fees, office equipment, commercial services).</li>
+                    <li><strong>Ineligible / Blocked ITC:</strong> Specified statutory blocked credits (e.g., motor vehicles for personal use, club memberships, personal consumption expenses, food &amp; beverages, goods lost/stolen/destroyed).</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Important Rule:</strong><br>
+                    <strong>Input GST Paid &ne; Automatically Eligible ITC</strong><br>
+                    ITC claim karne ke liye valid invoice, receipt of goods/services, supplier compliance, tax payment verification aur statutory eligibility mandatory hoti hai.
+                </blockquote>
+
+                <hr>
+
+                <h2>Ledger Hierarchy &amp; Accounting Treatment</h2>
+
+                <h3>Master Ledger Structure in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Input Tax Ledgers (Under Duties &amp; Taxes / Current Assets):</strong> <code>Input CGST</code>, <code>Input SGST</code>, <code>Input IGST</code></li>
+                    <li><strong>Output Tax Ledgers (Under Duties &amp; Taxes / Current Liabilities):</strong> <code>Output CGST</code>, <code>Output SGST</code>, <code>Output IGST</code></li>
+                    <li><strong>Settlement Ledger:</strong> <code>GST Payable A/c</code> (Under <em>Current Liabilities / Duties &amp; Taxes</em>)</li>
+                </ul>
+
+                <h3>Journal Entry Impacts:</h3>
+                <ul>
+                    <li><strong>Purchase Entry:</strong> <code>Purchase A/c (Dr)</code> + <code>Input CGST/SGST/IGST (Dr)</code> &rarr; <code>To Supplier A/c (Cr)</code></li>
+                    <li><strong>Sales Entry:</strong> <code>Customer A/c (Dr)</code> &rarr; <code>To Sales A/c (Cr)</code> + <code>To Output CGST/SGST/IGST (Cr)</code></li>
+                    <li><strong>ITC Set-off Entry:</strong> <code>Output Tax Ledgers (Dr)</code> &rarr; <code>To Input Tax Ledgers (Cr)</code> &rarr; <code>To GST Payable A/c (Cr)</code></li>
+                    <li><strong>Tax Payment Entry:</strong> <code>GST Payable A/c (Dr)</code> &rarr; <code>To Bank A/c (Cr)</code></li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthrough: Monthly Tax Settlement Cycle</h2>
+
+                <h3>Monthly Summary (ABC Traders &mdash; Maharashtra):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Input GST (ITC Available)</th>
+                            <th>Output GST (Liability)</th>
+                            <th>Net Balance (Payable)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>₹18,000</td>
+                            <td>₹22,500</td>
+                            <td>₹4,500</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>₹18,000</td>
+                            <td>₹22,500</td>
+                            <td>₹4,500</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>₹18,000</td>
+                            <td>₹27,000</td>
+                            <td>₹9,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>₹54,000</strong></td>
+                            <td><strong>₹72,000</strong></td>
+                            <td><strong>₹18,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Recording GST Payment in TallyPrime (F5: Payment)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F5</strong> (Payment).</li>
+                    <li>Press <strong>Alt + J</strong> for Statutory Payment details (Tax Type: <em>GST</em>, Period: <em>Current Month</em>).</li>
+                    <li>Account: <code>HDFC Bank A/c</code>.</li>
+                    <li>
+                        Particulars:
+                        <ul>
+                            <li>Debit: <code>GST Payable A/c</code> &mdash; ₹18,000 (or separate Output CGST ₹4,500 / SGST ₹4,500 / IGST ₹9,000).</li>
+                            <li>Credit: <code>HDFC Bank A/c</code> &mdash; ₹18,000.</li>
+                        </ul>
+                    </li>
+                    <li>Narration: <code>Being net GST liability paid for the month via net banking</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Part 1: Purchase Transactions (Input GST)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Supplier</th>
+                            <th>Purchase Value (₹)</th>
+                            <th>Tax Type</th>
+                            <th>Input GST (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Local Supplier A</td>
+                            <td>1,00,000</td>
+                            <td>Local (18%)</td>
+                            <td>CGST ₹9,000 + SGST ₹9,000</td>
+                        </tr>
+                        <tr>
+                            <td>03-Jul</td>
+                            <td>Interstate Supplier B</td>
+                            <td>50,000</td>
+                            <td>Interstate (18%)</td>
+                            <td>IGST ₹9,000</td>
+                        </tr>
+                        <tr>
+                            <td>05-Jul</td>
+                            <td>Local Supplier C</td>
+                            <td>75,000</td>
+                            <td>Local (18%)</td>
+                            <td>CGST ₹6,750 + SGST ₹6,750</td>
+                        </tr>
+                        <tr>
+                            <td>08-Jul</td>
+                            <td>Interstate Supplier D</td>
+                            <td>1,00,000</td>
+                            <td>Interstate (18%)</td>
+                            <td>IGST ₹18,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Sales Transactions (Output GST)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Sales Value (₹)</th>
+                            <th>Tax Type</th>
+                            <th>Output GST (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Jul</td>
+                            <td>Local Customer X</td>
+                            <td>1,50,000</td>
+                            <td>Local (18%)</td>
+                            <td>CGST ₹13,500 + SGST ₹13,500</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Interstate Customer Y</td>
+                            <td>1,00,000</td>
+                            <td>Interstate (18%)</td>
+                            <td>IGST ₹18,000</td>
+                        </tr>
+                        <tr>
+                            <td>02-Jul</td>
+                            <td>Local Customer Z</td>
+                            <td>1,25,000</td>
+                            <td>Local (18%)</td>
+                            <td>CGST ₹11,250 + SGST ₹11,250</td>
+                        </tr>
+                        <tr>
+                            <td>31-Jul</td>
+                            <td>Interstate Customer W</td>
+                            <td>75,000</td>
+                            <td>Interstate (18%)</td>
+                            <td>IGST ₹13,500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 3: Advanced Ineligible &amp; RCM Transactions</h3>
+                <ol>
+                    <li><strong>Office Equipment Purchase:</strong> ₹80,000 + 18% GST (Eligible Capital Goods ITC).</li>
+                    <li><strong>Professional Service:</strong> ₹40,000 + 18% GST (Eligible Input Service ITC).</li>
+                    <li><strong>Personal Welfare / Blocked Expense:</strong> ₹30,000 + 18% GST (Ineligible under blocked credit rules &rarr; Do not claim ITC).</li>
+                    <li><strong>RCM Professional Service:</strong> ₹20,000 + 18% GST (Recipient raises RCM liability &rarr; Pays tax &rarr; Claims eligible ITC).</li>
+                </ol>
+
+                <hr>
+
+                <h2>Verification Reports, Reconciliation &amp; Common Mistakes</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>GSTR-3B:</strong> Table 3.1 (Outward Supplies &amp; Output Liability) vs Table 4 (Eligible ITC).</li>
+                    <li><strong>GST Tax Analysis (Ctrl + O):</strong> Inspect voucher-level taxable values and applicable tax breakdowns.</li>
+                    <li><strong>Input Tax Credit Report:</strong> Review available, claimed, and reversed ITC.</li>
+                    <li><strong>Bank Ledger &amp; GST Payable Ledger:</strong> Confirm that the tax liability balance is cleared after payment.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Assuming all purchase GST is eligible for ITC without verifying blocked credit conditions.</li>
+                    <li>Cross-utilising CGST credit against SGST liability (which is strictly prohibited by law).</li>
+                    <li>Recording tax payments as normal indirect expenses instead of debiting tax liability ledgers.</li>
+                    <li>Confusing GST Return filing (declaration) with actual GST Payment (challan fund deposit).</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Net GST liability kaise nikali jaati hai?</strong><br>A: Total Output GST mein se eligible Input Tax Credit (ITC) ko minus karke, head-wise statutory rules ke according.</li>
+                    <li><strong>Q: GST Payment voucher ka shortcut kya hai?</strong><br>A: <strong>F5 (Payment)</strong> &rarr; Use <strong>Alt + J</strong> for statutory payment specification.</li>
+                    <li><strong>Q: Kya CGST credit se SGST liability pay ho sakti hai?</strong><br>A: Nahi, CGST credit sirf IGST aur CGST liability ke against use ho sakta hai, SGST ke against nahi.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Day 9 Golden Workflow:</strong><br>
+                    <code>Purchase Entry (Input GST) &rarr; Verify ITC Eligibility &rarr; Sales Entry (Output GST) &rarr; Statutory Utilisation &rarr; Net Liability &rarr; Bank Payment (F5) &rarr; GSTR-3B Reconciliation</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Input GST, Output GST, and ITC concepts differentiated</li>
+                    <li>Eligible vs Blocked ITC conditions identified</li>
+                    <li>Input &amp; Output tax ledgers created under appropriate groups</li>
+                    <li>Local &amp; Interstate purchase and sales invoices recorded</li>
+                    <li>Head-wise ITC utilisation calculated</li>
+                    <li>Statutory GST payment recorded via Payment Voucher (F5)</li>
+                    <li>GSTR-3B, GST Tax Analysis, and Bank Ledger reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

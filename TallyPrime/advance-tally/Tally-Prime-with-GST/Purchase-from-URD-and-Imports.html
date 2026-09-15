@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Understand the core principles and concepts of URD.</li>
+                    <li>Understand the operational differences between Registered and Unregistered supplier.</li>
+                    <li>URD purchafrom and RCM ke relationship ko samjhega.</li>
+                    <li>Understand the core principles and concepts of Reverfrom Charge Mechanism.</li>
+                    <li>Forward Charge and Reverfrom Charge in difference identify karega.</li>
+                    <li>URD purchafrom ka accounting treatment samjhega.</li>
+                    <li>Applicable URD/RCM purchafrom TallyPrime in record kar payega.</li>
+                    <li>Local and Interstate URD transactions samjhega.</li>
+                    <li>RCM tax liability calculate kar payega.</li>
+                    <li>Identify and categorize CGST/SGST and IGST under RCM correctly.</li>
+                    <li>RCM liability ko TallyPrime in raifrom kar payega.</li>
+                    <li>Eligible ITC ka basic treatment samjhega.</li>
+                    <li>RCM tax payment record kar payega.</li>
+                    <li>Analyze the accounting and financial report impact of Purchafrom return/adjustment.</li>
+                    <li>GST reports in RCM transactions verify kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Day 2 ka Quick Recap &amp; Core Concepts</h2>
+                
+                <h3>Day 2 Recap</h3>
+                <p><strong>Normal Purchase:</strong> Supplier GST charge karta hai &rarr; <code>Supplier &rarr; GST Charge &rarr; ABC Traders</code> (e.g., Purchafrom ₹10,000 + GST 18% = Invoice ₹11,800).</p>
+                <p><strong>RCM Purchase:</strong> Supplier GST charge nahi karta; instead, <code>Recipient &rarr; GST liability discharge karta hai</code>.</p>
+
+                <h3>URD Kor Hai?</h3>
+                <p><strong>URD = Unregistered Dealer / Unregistered Supplier:</strong> Aisa supplier jo GST registration ke under registered nahi haTallyPrime in party ledger ka <code>Registration Type = Unregistered</code> set kior jata is.</p>
+
+                <h3>Registered vs Unregistered Supplier</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Registered Supplier</th>
+                            <th>Unregistered Supplier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GST Registration</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>GSTIN</td>
+                            <td>Available</td>
+                            <td>Generally not available</td>
+                        </tr>
+                        <tr>
+                            <td>GST invoice</td>
+                            <td>Applicable as per transaction</td>
+                            <td>Normal registered GST tax invoice nahi</td>
+                        </tr>
+                        <tr>
+                            <td>RCM</td>
+                            <td>Transaction-specific</td>
+                            <td>only applicable cases mein</td>
+                        </tr>
+                        <tr>
+                            <td>Tally Registration Type</td>
+                            <td>Regular/Composition etc.</td>
+                            <td>Unregistered</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Most Important Rule:</strong><br>
+                    <strong>URD Purchafrom &ne; Automatically RCM</strong><br>
+                    Har unregistered supplier from purchafrom par automatically RCM nahi lagtRCM applicability transaction ki nature, applicable GST provisions, notifications and current law par depend karti is.
+                </blockquote>
+
+                <h3>Reverfrom Charge Mechanism Kor Hai?</h3>
+                <ul>
+                    <li><strong>Forward Charge:</strong> Supplier &rarr; GST &rarr; Government</li>
+                    <li><strong>Reverfrom Charge:</strong> Recipient &rarr; GST &rarr; Government</li>
+                </ul>
+
+                <h3>RCM Calculation Table</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Supply</th>
+                            <th>Taxable Value</th>
+                            <th>Rate</th>
+                            <th>GST</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Local RCM</td>
+                            <td>₹10,000</td>
+                            <td>18%</td>
+                            <td>CGST ₹900 + SGST ₹900</td>
+                        </tr>
+                        <tr>
+                            <td>Interstate RCM</td>
+                            <td>₹10,000</td>
+                            <td>18%</td>
+                            <td>IGST ₹1,800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Masters Setup &amp; Configuration</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>URD Party Ledgers</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Party 1 (Local)</th>
+                            <th>Party 2 (Interstate)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>Maharashtra URD Supplier</td>
+                            <td>Gujarat URD Supplier</td>
+                        </tr>
+                        <tr>
+                            <td>Group (Under)</td>
+                            <td>Sundry Creditors</td>
+                            <td>Sundry Creditors</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>Maharashtra</td>
+                            <td>Gujarat</td>
+                        </tr>
+                        <tr>
+                            <td>Registration Type</td>
+                            <td>Unregistered</td>
+                            <td>Unregistered</td>
+                        </tr>
+                        <tr>
+                            <td>GSTIN</td>
+                            <td>Blank</td>
+                            <td>Blank</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>RCM Purchafrom Ledger &amp; Stock Item Configuration</h3>
+                <ul>
+                    <li><strong>Purchafrom Ledger:</strong> <code>Purchafrom Under RCM - 18%</code> (Under <em>Purchafrom Accounts</em>) &rarr; GST Applicable &rarr; Taxability: <em>Taxable</em> &rarr; Reverfrom Charge applicability: <em>Yes</em> &rarr; GST Rate: <em>18%</em>.</li>
+                    <li><strong>Service/Stock Item:</strong> <code>Legal Consultancy Service</code> &rarr; Type: <em>Service</em> &rarr; GST Rate: <em>18% (Practice Rate)</em> &rarr; Applicable for Reverfrom Charge.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs</h2>
+
+                <h3>Practical 1 &mdash; Local URD Purchafrom Under RCM (01-May-2026)</h3>
+                <p>Received Legal Consultancy Service from Maharashtra URD Supplier (Value: ₹20,000, GST: 18%).</p>
+                <ul>
+                    <li><strong>Calculation:</strong> Taxable Value = ₹20,000 | CGST (9%) = ₹1,800 | SGST (9%) = ₹1,800 | Total RCM Liability = ₹3,600 | Supplier Bill = ₹20,000.</li>
+                    <li><strong>TallyPrime Steps:</strong> Press <strong>F9</strong> &rarr; Select <code>Maharashtra URD Supplier</code> &rarr; Select <code>Purchafrom Under RCM - 18%</code> &rarr; Item: <code>Legal Consultancy Service</code> (₹20,000) &rarr; Press <strong>Ctrl + O</strong> &rarr; <em>GST - Tax Analysis</em> to inspect RCM tax &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 2 &mdash; Interstate URD RCM Purchafrom (08-May-2026)</h3>
+                <p>Received Professional Consultancy from Gujarat URD Supplier (Value: ₹30,000, GST: 18%).</p>
+                <ul>
+                    <li><strong>Calculation:</strong> Taxable Value = ₹30,000 | IGST (18%) = ₹5,400 | Total RCM Liability = ₹5,400 | Supplier Bill = ₹30,000.</li>
+                    <li><strong>TallyPrime Steps:</strong> Press <strong>F9</strong> &rarr; Select <code>Gujarat URD Supplier</code> &rarr; Select <code>Purchafrom Under RCM - 18%</code> &rarr; Item: <code>Professional Consultancy</code> (₹30,000) &rarr; Verify IGST ₹5,400 &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 3 &mdash; URD Purchafrom Without RCM (01-May-2026)</h3>
+                <p>Purchased office stationery from Maharashtra URD Supplier (Value: ₹8,000, RCM Not Applicable).</p>
+                <ul>
+                    <li><strong>Calculation:</strong> Purchafrom = ₹8,000 | GST = ₹0 | Invoice/Payment = ₹8,00<em>(Demonstrates URD &ne; Automatic RCM)</em>.</li>
+                </ul>
+
+                <h3>Transaction Comparison</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Supplier</th>
+                            <th>RCM</th>
+                            <th>GST Charged by Supplier</th>
+                            <th>Recipient Liability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Normal Registered Purchase</td>
+                            <td>Registered</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                            <td>Normal ITC</td>
+                        </tr>
+                        <tr>
+                            <td>URD Purchase, RCM Not Applicable</td>
+                            <td>Unregistered</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>No RCM</td>
+                        </tr>
+                        <tr>
+                            <td>URD Purchase, RCM Applicable</td>
+                            <td>Unregistered</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>Recipient pays RCM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Raising RCM Liability, Payment &amp; ITC Adjustments</h2>
+
+                <h3>RCM Liability Raifrom Karna (Stat Adjustment)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-3B</strong>.</li>
+                    <li>Open <strong>Reverfrom Charge Inward Supplies</strong> (or URD Purchases).</li>
+                    <li>Press <strong>Alt + J</strong> (Stat Adjustment).</li>
+                    <li>
+                        Select details:
+                        <ul>
+                            <li><strong>Type of Duty/Tax:</strong> GST</li>
+                            <li><strong>Nature:</strong> Increafrom in Tax Liability &amp; Input Tax Credit</li>
+                            <li><strong>Additional Nature:</strong> Purchafrom from Unregistered Dealer</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p><strong>Accounting Logic:</strong> <code>Debit &rarr; GST Input / ITC (₹3,600)</code> | <code>Credit &rarr; RCM GST Liability (₹3,600)</code>.</p>
+
+                <h3>RCM Tax Payment (F5)</h3>
+                <p>When discharging RCM tax liability via Bank (e.g., HDFC Bank):</p>
+                <ol>
+                    <li>Press <strong>F5</strong> (Payment) &rarr; Press <strong>Alt + J</strong> (Stat Adjustment Details).</li>
+                    <li>Select: <em>Type of Duty/Tax: GST</em> &rarr; <em>Nature: Decreafrom in Tax Liability</em> &rarr; <em>Additional Nature: Purchafrom Under Reverfrom Charge from Unregistered Dealer</em>.</li>
+                    <li>Debit: <code>RCM GST Liability</code> (₹3,600) &rarr; Credit: <code>HDFC Bank</code> (₹3,600).</li>
+                </ol>
+
+                <h3>Purchafrom Returns Under RCM</h3>
+                <ul>
+                    <li><strong>Same-Month Return:</strong> Purchafrom ₹20,000, Return ₹5,00Tax reversal on ₹5,000 @ 18% = ₹900 (CGST ₹450 + SGST ₹450Reduces current month RCM values.</li>
+                    <li><strong>Subsequent-Month Return:</strong> Handled through the reverse-charge liability reporting for that period, and tax reversal is based on the returned valuDo not delete original transactions.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Party</th>
+                            <th>Value</th>
+                            <th>GST</th>
+                            <th>RCM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Purchafrom Service</td>
+                            <td>Maharashtra URD Supplier</td>
+                            <td>₹20,000</td>
+                            <td>18%</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>08-May</td>
+                            <td>Purchafrom Service</td>
+                            <td>Gujarat URD Supplier</td>
+                            <td>₹30,000</td>
+                            <td>18%</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Purchafrom Goods</td>
+                            <td>Maharashtra URD Supplier</td>
+                            <td>₹8,000</td>
+                            <td>—</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Purchafrom Return</td>
+                            <td>Maharashtra URD Supplier</td>
+                            <td>₹5,000</td>
+                            <td>18%</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>RCM Payment</td>
+                            <td>HDFC Bank</td>
+                            <td>₹8,100</td>
+                            <td>—</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Practice Set &mdash; Level 2</h3>
+                <ul>
+                    <li><strong>Purchafrom 1:</strong> ₹15,000 local RCM @18%</li>
+                    <li><strong>Purchafrom 2:</strong> ₹25,000 interstate RCM @18%</li>
+                    <li><strong>Purchafrom 3:</strong> ₹40,000 local RCM @18%</li>
+                    <li><strong>Purchafrom 4:</strong> ₹12,000 URD purchafrom &mdash; RCM not applicable</li>
+                    <li><strong>Purchafrom 5:</strong> ₹50,000 interstate URD purchafrom &mdash; verify RCM applicability</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Reports to Verify:</h3>
+                <ul>
+                    <li><strong>GSTR-3B:</strong> Check <em>Reverfrom Charge Inward Supplies</em> and <em>URD Purchases</em>.</li>
+                    <li><strong>Tax Analysis:</strong> Inside voucher press <strong>Ctrl + O</strong> &rarr; <em>GST - Tax Analysis</em>.</li>
+                    <li><strong>Purchafrom Register:</strong> Check Supplier, Taxable Value, and RCM status.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li><strong>Assuming Every URD is RCM:</strong> URD &ne; Automatic RCM.</li>
+                    <li><strong>Supplier Charging GST:</strong> RCM bills should not have forward tax charged by supplier.</li>
+                    <li><strong>Forgetting to Raifrom Liability:</strong> Simply recording the purchafrom voucher does not auto-raifrom statutory liability in returns without statutory adjustment.</li>
+                    <li><strong>Treating Tax Payment as Normal Expense:</strong> Always pass via statutory adjustment payment.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: RCM in GST kaun pay karta hai?</strong><br>A: Applicable RCM transactions in recipient government ko direct tax pay karta is.</li>
+                    <li><strong>Q: Local vs Interstate RCM in kaunfrom taxes aate hain?</strong><br>A: Local = CGST + SGST; Interstate = IGST.</li>
+                    <li><strong>Q: Stat Adjustment ka shortcut kor hai?</strong><br>A: <strong>Alt + J</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <h3>RCM Golden Flow:</h3>
+                <p><code>URD Supplier &rarr; Check RCM Applicability &rarr; Purchafrom Invoice &rarr; Taxable Value &rarr; RCM GST &rarr; Raifrom RCM Liability &rarr; Tax Payment &rarr; Eligible ITC &rarr; ITC Set-off &rarr; GST Return</code></p>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>URD supplier ledgers created (Local &amp; Interstate)</li>
+                    <li>RCM purchafrom ledger &amp; service items configured</li>
+                    <li>Local &amp; Interstate RCM purchases entered</li>
+                    <li>URD non-RCM purchafrom entered</li>
+                    <li>RCM liability raised via Stat Adjustment (Alt + J)</li>
+                    <li>RCM tax payment recorded via Payment (F5)</li>
+                    <li>Purchafrom return adjustments verified</li>
+                    <li>GSTR-3B and Tax Analysis verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>URD ka concept samjhega.</li>
+                    <li>Registered aur Unregistered supplier ka difference samjhega.</li>
+                    <li>URD purchase aur RCM ke relationship ko samjhega.</li>
+                    <li>Reverse Charge Mechanism ka concept samjhega.</li>
+                    <li>Forward Charge aur Reverse Charge mein difference identify karega.</li>
+                    <li>URD purchase ka accounting treatment samjhega.</li>
+                    <li>Applicable URD/RCM purchase TallyPrime mein record kar payega.</li>
+                    <li>Local aur Interstate URD transactions samjhega.</li>
+                    <li>RCM tax liability calculate kar payega.</li>
+                    <li>CGST/SGST aur IGST under RCM identify kar payega.</li>
+                    <li>RCM liability ko TallyPrime mein raise kar payega.</li>
+                    <li>Eligible ITC ka basic treatment samjhega.</li>
+                    <li>RCM tax payment record kar payega.</li>
+                    <li>Purchase return/adjustment ka impact samjhega.</li>
+                    <li>GST reports mein RCM transactions verify kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Day 2 ka Quick Recap &amp; Core Concepts</h2>
+                
+                <h3>Day 2 Recap</h3>
+                <p><strong>Normal Purchase:</strong> Supplier GST charge karta hai &rarr; <code>Supplier &rarr; GST Charge &rarr; ABC Traders</code> (e.g., Purchase ₹10,000 + GST 18% = Invoice ₹11,800).</p>
+                <p><strong>RCM Purchase:</strong> Supplier GST charge nahi karta; instead, <code>Recipient &rarr; GST liability discharge karta hai</code>.</p>
+
+                <h3>URD Kya Hai?</h3>
+                <p><strong>URD = Unregistered Dealer / Unregistered Supplier:</strong> Aisa supplier jo GST registration ke under registered nahi haTallyPrime mein party ledger ka <code>Registration Type = Unregistered</code> set kiya jata hai.</p>
+
+                <h3>Registered vs Unregistered Supplier</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Registered Supplier</th>
+                            <th>Unregistered Supplier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GST Registration</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>GSTIN</td>
+                            <td>Available</td>
+                            <td>Generally not available</td>
+                        </tr>
+                        <tr>
+                            <td>GST invoice</td>
+                            <td>Applicable as per transaction</td>
+                            <td>Normal registered GST tax invoice nahi</td>
+                        </tr>
+                        <tr>
+                            <td>RCM</td>
+                            <td>Transaction-specific</td>
+                            <td>Sirf applicable cases mein</td>
+                        </tr>
+                        <tr>
+                            <td>Tally Registration Type</td>
+                            <td>Regular/Composition etc.</td>
+                            <td>Unregistered</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Most Important Rule:</strong><br>
+                    <strong>URD Purchase &ne; Automatically RCM</strong><br>
+                    Har unregistered supplier se purchase par automatically RCM nahi lagtRCM applicability transaction ki nature, applicable GST provisions, notifications aur current law par depend karti hai.
+                </blockquote>
+
+                <h3>Reverse Charge Mechanism Kya Hai?</h3>
+                <ul>
+                    <li><strong>Forward Charge:</strong> Supplier &rarr; GST &rarr; Government</li>
+                    <li><strong>Reverse Charge:</strong> Recipient &rarr; GST &rarr; Government</li>
+                </ul>
+
+                <h3>RCM Calculation Table</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Supply</th>
+                            <th>Taxable Value</th>
+                            <th>Rate</th>
+                            <th>GST</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Local RCM</td>
+                            <td>₹10,000</td>
+                            <td>18%</td>
+                            <td>CGST ₹900 + SGST ₹900</td>
+                        </tr>
+                        <tr>
+                            <td>Interstate RCM</td>
+                            <td>₹10,000</td>
+                            <td>18%</td>
+                            <td>IGST ₹1,800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Masters Setup &amp; Configuration</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>URD Party Ledgers</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Party 1 (Local)</th>
+                            <th>Party 2 (Interstate)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name</td>
+                            <td>Maharashtra URD Supplier</td>
+                            <td>Gujarat URD Supplier</td>
+                        </tr>
+                        <tr>
+                            <td>Group (Under)</td>
+                            <td>Sundry Creditors</td>
+                            <td>Sundry Creditors</td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td>Maharashtra</td>
+                            <td>Gujarat</td>
+                        </tr>
+                        <tr>
+                            <td>Registration Type</td>
+                            <td>Unregistered</td>
+                            <td>Unregistered</td>
+                        </tr>
+                        <tr>
+                            <td>GSTIN</td>
+                            <td>Blank</td>
+                            <td>Blank</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>RCM Purchase Ledger &amp; Stock Item Configuration</h3>
+                <ul>
+                    <li><strong>Purchase Ledger:</strong> <code>Purchase Under RCM - 18%</code> (Under <em>Purchase Accounts</em>) &rarr; GST Applicable &rarr; Taxability: <em>Taxable</em> &rarr; Reverse Charge applicability: <em>Yes</em> &rarr; GST Rate: <em>18%</em>.</li>
+                    <li><strong>Service/Stock Item:</strong> <code>Legal Consultancy Service</code> &rarr; Type: <em>Service</em> &rarr; GST Rate: <em>18% (Practice Rate)</em> &rarr; Applicable for Reverse Charge.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs</h2>
+
+                <h3>Practical 1 &mdash; Local URD Purchase Under RCM (01-May-2026)</h3>
+                <p>Received Legal Consultancy Service from Maharashtra URD Supplier (Value: ₹20,000, GST: 18%).</p>
+                <ul>
+                    <li><strong>Calculation:</strong> Taxable Value = ₹20,000 | CGST (9%) = ₹1,800 | SGST (9%) = ₹1,800 | Total RCM Liability = ₹3,600 | Supplier Bill = ₹20,000.</li>
+                    <li><strong>TallyPrime Steps:</strong> Press <strong>F9</strong> &rarr; Select <code>Maharashtra URD Supplier</code> &rarr; Select <code>Purchase Under RCM - 18%</code> &rarr; Item: <code>Legal Consultancy Service</code> (₹20,000) &rarr; Press <strong>Ctrl + O</strong> &rarr; <em>GST - Tax Analysis</em> to inspect RCM tax &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 2 &mdash; Interstate URD RCM Purchase (08-May-2026)</h3>
+                <p>Received Professional Consultancy from Gujarat URD Supplier (Value: ₹30,000, GST: 18%).</p>
+                <ul>
+                    <li><strong>Calculation:</strong> Taxable Value = ₹30,000 | IGST (18%) = ₹5,400 | Total RCM Liability = ₹5,400 | Supplier Bill = ₹30,000.</li>
+                    <li><strong>TallyPrime Steps:</strong> Press <strong>F9</strong> &rarr; Select <code>Gujarat URD Supplier</code> &rarr; Select <code>Purchase Under RCM - 18%</code> &rarr; Item: <code>Professional Consultancy</code> (₹30,000) &rarr; Verify IGST ₹5,400 &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 3 &mdash; URD Purchase Without RCM (01-May-2026)</h3>
+                <p>Purchased office stationery from Maharashtra URD Supplier (Value: ₹8,000, RCM Not Applicable).</p>
+                <ul>
+                    <li><strong>Calculation:</strong> Purchase = ₹8,000 | GST = ₹0 | Invoice/Payment = ₹8,00<em>(Demonstrates URD &ne; Automatic RCM)</em>.</li>
+                </ul>
+
+                <h3>Transaction Comparison</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Supplier</th>
+                            <th>RCM</th>
+                            <th>GST Charged by Supplier</th>
+                            <th>Recipient Liability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Normal Registered Purchase</td>
+                            <td>Registered</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                            <td>Normal ITC</td>
+                        </tr>
+                        <tr>
+                            <td>URD Purchase, RCM Not Applicable</td>
+                            <td>Unregistered</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>No RCM</td>
+                        </tr>
+                        <tr>
+                            <td>URD Purchase, RCM Applicable</td>
+                            <td>Unregistered</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>Recipient pays RCM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Raising RCM Liability, Payment &amp; ITC Adjustments</h2>
+
+                <h3>RCM Liability Raise Karna (Stat Adjustment)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-3B</strong>.</li>
+                    <li>Open <strong>Reverse Charge Inward Supplies</strong> (or URD Purchases).</li>
+                    <li>Press <strong>Alt + J</strong> (Stat Adjustment).</li>
+                    <li>
+                        Select details:
+                        <ul>
+                            <li><strong>Type of Duty/Tax:</strong> GST</li>
+                            <li><strong>Nature:</strong> Increase in Tax Liability &amp; Input Tax Credit</li>
+                            <li><strong>Additional Nature:</strong> Purchase from Unregistered Dealer</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p><strong>Accounting Logic:</strong> <code>Debit &rarr; GST Input / ITC (₹3,600)</code> | <code>Credit &rarr; RCM GST Liability (₹3,600)</code>.</p>
+
+                <h3>RCM Tax Payment (F5)</h3>
+                <p>When discharging RCM tax liability via Bank (e.g., HDFC Bank):</p>
+                <ol>
+                    <li>Press <strong>F5</strong> (Payment) &rarr; Press <strong>Alt + J</strong> (Stat Adjustment Details).</li>
+                    <li>Select: <em>Type of Duty/Tax: GST</em> &rarr; <em>Nature: Decrease in Tax Liability</em> &rarr; <em>Additional Nature: Purchase Under Reverse Charge from Unregistered Dealer</em>.</li>
+                    <li>Debit: <code>RCM GST Liability</code> (₹3,600) &rarr; Credit: <code>HDFC Bank</code> (₹3,600).</li>
+                </ol>
+
+                <h3>Purchase Returns Under RCM</h3>
+                <ul>
+                    <li><strong>Same-Month Return:</strong> Purchase ₹20,000, Return ₹5,00Tax reversal on ₹5,000 @ 18% = ₹900 (CGST ₹450 + SGST ₹450Reduces current month RCM values.</li>
+                    <li><strong>Subsequent-Month Return:</strong> Handled through the reverse-charge liability reporting for that period, and tax reversal is based on the returned valuDo not delete original transactions.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Party</th>
+                            <th>Value</th>
+                            <th>GST</th>
+                            <th>RCM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Purchase Service</td>
+                            <td>Maharashtra URD Supplier</td>
+                            <td>₹20,000</td>
+                            <td>18%</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>08-May</td>
+                            <td>Purchase Service</td>
+                            <td>Gujarat URD Supplier</td>
+                            <td>₹30,000</td>
+                            <td>18%</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Purchase Goods</td>
+                            <td>Maharashtra URD Supplier</td>
+                            <td>₹8,000</td>
+                            <td>—</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Purchase Return</td>
+                            <td>Maharashtra URD Supplier</td>
+                            <td>₹5,000</td>
+                            <td>18%</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>RCM Payment</td>
+                            <td>HDFC Bank</td>
+                            <td>₹8,100</td>
+                            <td>—</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Practice Set &mdash; Level 2</h3>
+                <ul>
+                    <li><strong>Purchase 1:</strong> ₹15,000 local RCM @18%</li>
+                    <li><strong>Purchase 2:</strong> ₹25,000 interstate RCM @18%</li>
+                    <li><strong>Purchase 3:</strong> ₹40,000 local RCM @18%</li>
+                    <li><strong>Purchase 4:</strong> ₹12,000 URD purchase &mdash; RCM not applicable</li>
+                    <li><strong>Purchase 5:</strong> ₹50,000 interstate URD purchase &mdash; verify RCM applicability</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Reports to Verify:</h3>
+                <ul>
+                    <li><strong>GSTR-3B:</strong> Check <em>Reverse Charge Inward Supplies</em> and <em>URD Purchases</em>.</li>
+                    <li><strong>Tax Analysis:</strong> Inside voucher press <strong>Ctrl + O</strong> &rarr; <em>GST - Tax Analysis</em>.</li>
+                    <li><strong>Purchase Register:</strong> Check Supplier, Taxable Value, and RCM status.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li><strong>Assuming Every URD is RCM:</strong> URD &ne; Automatic RCM.</li>
+                    <li><strong>Supplier Charging GST:</strong> RCM bills should not have forward tax charged by supplier.</li>
+                    <li><strong>Forgetting to Raise Liability:</strong> Simply recording the purchase voucher does not auto-raise statutory liability in returns without statutory adjustment.</li>
+                    <li><strong>Treating Tax Payment as Normal Expense:</strong> Always pass via statutory adjustment payment.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: RCM mein GST kaun pay karta hai?</strong><br>A: Applicable RCM transactions mein recipient government ko direct tax pay karta hai.</li>
+                    <li><strong>Q: Local vs Interstate RCM mein kaunse taxes aate hain?</strong><br>A: Local = CGST + SGST; Interstate = IGST.</li>
+                    <li><strong>Q: Stat Adjustment ka shortcut kya hai?</strong><br>A: <strong>Alt + J</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <h3>RCM Golden Flow:</h3>
+                <p><code>URD Supplier &rarr; Check RCM Applicability &rarr; Purchase Invoice &rarr; Taxable Value &rarr; RCM GST &rarr; Raise RCM Liability &rarr; Tax Payment &rarr; Eligible ITC &rarr; ITC Set-off &rarr; GST Return</code></p>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>URD supplier ledgers created (Local &amp; Interstate)</li>
+                    <li>RCM purchase ledger &amp; service items configured</li>
+                    <li>Local &amp; Interstate RCM purchases entered</li>
+                    <li>URD non-RCM purchase entered</li>
+                    <li>RCM liability raised via Stat Adjustment (Alt + J)</li>
+                    <li>RCM tax payment recorded via Payment (F5)</li>
+                    <li>Purchase return adjustments verified</li>
+                    <li>GSTR-3B and Tax Analysis verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

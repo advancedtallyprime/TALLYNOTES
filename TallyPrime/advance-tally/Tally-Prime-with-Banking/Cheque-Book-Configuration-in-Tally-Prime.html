@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <section class="notes-content">
+
+                <h2>1. Core Concept</h2>
+                <p><strong>Cheque Book Management</strong> in TallyPrime allows businesses to maintain multiple cheque books for one or more bank accounts, automate cheque numbering, prevent duplicate cheque issuance, and configure customized cheque printing coordinates for precise physical printing on bank stationery.</p>
+                <div class="note-box">
+                    <strong><i class="fa-solid fa-circle-info"></i> Key Purpose:</strong>
+                    Prevents manual cheque tracking errors, automates bank reconciliation, ensures unique serial number assignment, and saves time during bulk vendor payments.
+                </div>
+
+                <h2>2. Real-World Business Scenario</h2>
+                <p>National Trading Co. operates a Current Account with <strong>HDFC Bank</strong>. The bank issues a 100-leaf cheque book numbered from <strong>100001 to 100100</strong>. When issuing payments to vendors, the accountant wants TallyPrime to automatically select the next unused cheque number, display the remaining leaves, and format the printout so payee name, amount in words, and date align perfectly on the bank's pre-printed cheque leaf.</p>
+
+                <h2>3. TallyPrime Navigation & Shortcut Workflow</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-keyboard"></i> Quick Navigation:</strong>
+                    <br>Gateway of Tally &rarr; <strong>Alter</strong> &rarr; <strong>Ledger</strong> &rarr; Select Bank Ledger (e.g. <code>HDFC Bank A/c</code>)
+                    <br>Shortcut: <kbd>Alt + G</kbd> &rarr; Type <strong>Alter Ledger</strong> &rarr; Select Bank
+                </div>
+
+                <h2>4. Step-by-Step Cheque Book Configuration</h2>
+                
+                <h3>Step 1: Open Bank Ledger Alteration</h3>
+                <ol>
+                    <li>Navigate to <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Ledger</strong>.</li>
+                    <li>Select the target bank account (e.g., <strong>HDFC Bank Current A/c</strong> under <em>Bank Accounts</em>).</li>
+                </ol>
+
+                <h3>Step 2: Provide Bank Details</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Sample Configuration</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>A/c Holder Name</strong></td>
+                                <td>National Trading Co.</td>
+                                <td>Official account title registered with the bank.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Account No.</strong></td>
+                                <td>50200012345678</td>
+                                <td>Bank account identifier for e-payments and reporting.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IFS Code</strong></td>
+                                <td>HDFC0000123</td>
+                                <td>Identifies bank branch for electronic transfers.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bank Name</strong></td>
+                                <td>HDFC Bank (India)</td>
+                                <td>Auto-loads official bank cheque templates.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Branch</strong></td>
+                                <td>MG Road Branch, Bengaluru</td>
+                                <td>Branch location details.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Step 3: Enable Cheque Book Ranges</h3>
+                <ol>
+                    <li>Under <em>Bank Accounts Details</em>, set <strong>Set/alter cheque books</strong> to <strong>Yes</strong>.</li>
+                    <li>In the <strong>Cheque Books</strong> sub-screen, enter:
+                        <ul>
+                            <li><strong>From Number:</strong> <code>100001</code></li>
+                            <li><strong>To Number:</strong> <code>100100</code></li>
+                            <li><strong>Number of Cheques:</strong> Automatically calculated as <code>100</code></li>
+                            <li><strong>Cheque Book Name:</strong> <code>HDFC Book 1 (Oct-2025)</code></li>
+                        </ul>
+                    </li>
+                    <li>Press <kbd>Ctrl + A</kbd> to accept the cheque range.</li>
+                </ol>
+
+                <h3>Step 4: Enable Cheque Printing Configuration</h3>
+                <ol>
+                    <li>Set <strong>Set/alter cheque printing configuration</strong> to <strong>Yes</strong>.</li>
+                    <li>Select the pre-configured bank template from Tally's statutory library or customize dimensions:
+                        <ul>
+                            <li>Cheque Width &amp; Height (in mm)</li>
+                            <li>Distance of Payee Line from top and left edge</li>
+                            <li>Distance of Amount in Words and Numbers</li>
+                            <li>Signatory title and position</li>
+                        </ul>
+                    </li>
+                    <li>Press <kbd>Alt + P</kbd> &rarr; <kbd>I</kbd> to Preview the sample cheque on plain paper before live printing.</li>
+                    <li>Press <kbd>Ctrl + A</kbd> to save the bank ledger.</li>
+                </ol>
+
+                <h2>5. Cheque Register & Status Reports</h2>
+                <p>TallyPrime automatically organizes issued, available, cancelled, and post-dated cheques in the <strong>Cheque Register</strong>:</p>
+                <ul>
+                    <li><strong>Path:</strong> Gateway of Tally &rarr; <strong>Banking</strong> &rarr; <strong>Cheque Register</strong>.</li>
+                    <li><strong>Status Codes:</strong>
+                        <ul>
+                            <li><strong>Available:</strong> Cheque leaves in book ready to be issued.</li>
+                            <li><strong>Unreconciled:</strong> Cheque issued in voucher but not yet cleared in bank statement.</li>
+                            <li><strong>Reconciled:</strong> Cheque successfully cleared with Bank Value Date recorded.</li>
+                            <li><strong>Cancelled:</strong> Cheque voided due to printing mistake or clerical error (press <kbd>Alt + S</kbd> to mark Cancelled).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong><i class="fa-solid fa-lightbulb"></i> Pro Tip:</strong>
+                    Always print on a photocopy of a cheque leaf first to verify horizontal and vertical alignment before using original MICR cheque leaves!
+                </div>
+
+                <h2>6. Interview Questions & Answers</h2>
+                <h3>Q1. How do you configure multiple cheque books for a single bank in TallyPrime?</h3>
+                <p><strong>Ans:</strong> In Bank Ledger Alteration, enable <em>Set/alter cheque books</em> = Yes. In the table, enter separate rows with different <em>From Number</em>, <em>To Number</em>, and unique <em>Cheque Book Names</em> (e.g., General Vendor Book vs. Payroll Book).</p>
+
+                <h3>Q2. What happens when all cheque numbers in an active book are consumed?</h3>
+                <p><strong>Ans:</strong> TallyPrime alerts the user that the cheque range is exhausted and prompts to select another active cheque range configured in the bank ledger.</p>
+
+                <h3>Q3. Which shortcut opens the Cheque Printing preview directly from a Payment voucher?</h3>
+                <p><strong>Ans:</strong> When saving a Payment voucher with Bank ledger, Tally opens the Cheque Printing prompt. Press <kbd>Alt + P</kbd> or <kbd>Ctrl + P</kbd>, then <kbd>I</kbd> for Preview.</p>
+
+                <h2>7. Summary & Key Takeaways</h2>
+                <ul>
+                    <li>Cheque book configuration prevents duplicate cheque entries and maintains an automated physical register.</li>
+                    <li>Cheque printing eliminates handwritten payment errors and enhances corporate presentation.</li>
+                    <li>Cheque status can be monitored real-time in <em>Banking &rarr; Cheque Register</em>.</li>
+                </ul>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <section class="notes-content">
+
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <p><strong>Cheque Book Management</strong> in TallyPrime allows businesses to maintain multiple cheque books for one or more bank accounts, automate cheque numbering, prevent duplicate cheque issuance, and configure customized cheque printing coordinates for precise physical printing on bank stationery.</p>
+                <div class="note-box">
+                    <strong><i class="fa-solid fa-circle-info"></i> Key Purpose:</strong>
+                    Prevents manual cheque tracking errors, automates bank reconciliation, ensures unique serial number assignment, and saves time during bulk vendor payments.
+                </div>
+
+                <h2>2. Real-World Business Scenario</h2>
+                <p>National Trading Co. operates a Current Account with <strong>HDFC Bank</strong>. The bank issues a 100-leaf cheque book numbered from <strong>100001 to 100100</strong>. When issuing payments to vendors, the accountant wants TallyPrime to automatically select the next unused cheque number, display the remaining leaves, and format the printout so payee name, amount in words, and date align perfectly on the bank's pre-printed cheque leaf.</p>
+
+                <h2>3. TallyPrime Navigation & Shortcut Workflow</h2>
+                <div class="shortcut-box">
+                    <strong><i class="fa-solid fa-keyboard"></i> Quick Navigation:</strong>
+                    <br>Gateway of Tally &rarr; <strong>Alter</strong> &rarr; <strong>Ledger</strong> &rarr; Select Bank Ledger (e.g. <code>HDFC Bank A/c</code>)
+                    <br>Shortcut: <kbd>Alt + G</kbd> &rarr; Type <strong>Alter Ledger</strong> &rarr; Select Bank
+                </div>
+
+                <h2>4. Step-by-Step Cheque Book Configuration</h2>
+                
+                <h3>Step 1: Open Bank Ledger Alteration</h3>
+                <ol>
+                    <li>Navigate to <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Ledger</strong>.</li>
+                    <li>Select the target bank account (e.g., <strong>HDFC Bank Current A/c</strong> under <em>Bank Accounts</em>).</li>
+                </ol>
+
+                <h3>Step 2: Provide Bank Details</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Sample Configuration</th>
+                                <th>Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>A/c Holder Name</strong></td>
+                                <td>National Trading Co.</td>
+                                <td>Official account title registered with the bank.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Account No.</strong></td>
+                                <td>50200012345678</td>
+                                <td>Bank account identifier for e-payments and reporting.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IFS Code</strong></td>
+                                <td>HDFC0000123</td>
+                                <td>Identifies bank branch for electronic transfers.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bank Name</strong></td>
+                                <td>HDFC Bank (India)</td>
+                                <td>Auto-loads official bank cheque templates.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Branch</strong></td>
+                                <td>MG Road Branch, Bengaluru</td>
+                                <td>Branch location details.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Step 3: Enable Cheque Book Ranges</h3>
+                <ol>
+                    <li>Under <em>Bank Accounts Details</em>, set <strong>Set/alter cheque books</strong> to <strong>Yes</strong>.</li>
+                    <li>In the <strong>Cheque Books</strong> sub-screen, enter:
+                        <ul>
+                            <li><strong>From Number:</strong> <code>100001</code></li>
+                            <li><strong>To Number:</strong> <code>100100</code></li>
+                            <li><strong>Number of Cheques:</strong> Automatically calculated as <code>100</code></li>
+                            <li><strong>Cheque Book Name:</strong> <code>HDFC Book 1 (Oct-2025)</code></li>
+                        </ul>
+                    </li>
+                    <li>Accept karne ke liye <kbd>Ctrl + A</kbd> press karein the cheque range.</li>
+                </ol>
+
+                <h3>Step 4: Enable Cheque Printing Configuration</h3>
+                <ol>
+                    <li>Set <strong>Set/alter cheque printing configuration</strong> to <strong>Yes</strong>.</li>
+                    <li>Select the pre-configured bank template from Tally's statutory library or customize dimensions:
+                        <ul>
+                            <li>Cheque Width &amp; Height (in mm)</li>
+                            <li>Distance of Payee Line from top and left edge</li>
+                            <li>Distance of Amount in Words and Numbers</li>
+                            <li>Signatory title and position</li>
+                        </ul>
+                    </li>
+                    <li>Press <kbd>Alt + P</kbd> &rarr; <kbd>I</kbd> to Preview the sample cheque on plain paper before live printing.</li>
+                    <li>Press <kbd>Ctrl + A</kbd> to save the bank ledger.</li>
+                </ol>
+
+                <h2>5. Cheque Register & Status Reports</h2>
+                <p>TallyPrime automatically organizes issued, available, cancelled, and Post-Dated Cheque (PDC - अग्रिम तारीख का चेक)s in the <strong>Cheque Register</strong>:</p>
+                <ul>
+                    <li><strong>Path:</strong> Gateway of Tally &rarr; <strong>Banking</strong> &rarr; <strong>Cheque Register</strong>.</li>
+                    <li><strong>Status Codes:</strong>
+                        <ul>
+                            <li><strong>Available:</strong> Cheque leaves in book ready to be issued.</li>
+                            <li><strong>Unreconciled:</strong> Cheque issued in voucher but not yet cleared in bank statement.</li>
+                            <li><strong>Reconciled:</strong> Cheque successfully cleared with Bank Value Date recorded.</li>
+                            <li><strong>Cancelled:</strong> Cheque voided due to printing mistake or clerical error (press <kbd>Alt + S</kbd> to mark Cancelled).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong><i class="fa-solid fa-lightbulb"></i> Pro Tip:</strong>
+                    Always print on a photocopy of a cheque leaf first to verify horizontal and vertical alignment before using original MICR cheque leaves!
+                </div>
+
+                <h2>6. Interview Questions & Answers</h2>
+                <h3>Q1. How do you configure multiple cheque books for a single bank in TallyPrime?</h3>
+                <p><strong>Ans:</strong> In Bank Ledger Alteration, enable <em>Set/alter cheque books</em> = Yes. In the table, enter separate rows with different <em>From Number</em>, <em>To Number</em>, and unique <em>Cheque Book Names</em> (e.g., General Vendor Book vs. Payroll Book).</p>
+
+                <h3>Q2. What happens when all cheque numbers in an active book are consumed?</h3>
+                <p><strong>Ans:</strong> TallyPrime alerts the user that the cheque range is exhausted and prompts to select another active cheque range configured in the bank ledger.</p>
+
+                <h3>Q3. Which shortcut opens the Cheque Printing preview directly from a Payment voucher?</h3>
+                <p><strong>Ans:</strong> When saving a Payment voucher with Bank ledger, Tally opens the Cheque Printing prompt. Press <kbd>Alt + P</kbd> or <kbd>Ctrl + P</kbd>, then <kbd>I</kbd> for Preview.</p>
+
+                <h2>7. Summary & Key Takeaways</h2>
+                <ul>
+                    <li>Cheque book configuration prevents duplicate cheque entries and maintains an automated physical register.</li>
+                    <li>Cheque printing eliminates handwritten payment errors and enhances corporate presentation.</li>
+                    <li>Cheque status can be monitored real-time in <em>Banking &rarr; Cheque Register</em>.</li>
+                </ul>
+
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

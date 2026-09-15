@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Rejection In and Rejection Out ka core business concept samjhega.</li>
+                    <li>Rejection In and Rejection Out ke beech ka fundamental difference identify karega.</li>
+                    <li>Quality inspection ke baad purchase-side goods supplier ko return karne ke liye Rejection Out record karega.</li>
+                    <li>Customer side from defective/rejected goods wapas aane par Rejection In record karega.</li>
+                    <li>Damaged or defective stock ko saleable inventory from alag rakhne ke liye separate godown or Batch/Tracking references maintain karega.</li>
+                    <li>Physical inventory rejections and commercial returns (Sales/Purchafrom Returns) ke alag-alag accounting workflows ko differentiate karega.</li>
+                    <li>Verify Stock Summary and inventory rejection registers in management and statutory tax reports.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Rejection In vs Rejection Out</h2>
+                <p>Warehoufrom operations in quality inspection ke dauran defective, damaged, or non-specification goods ko saleable inventory from isolate karne ke liye inventory movement vouchers ufrom kiye jaate hain:</p>
+
+                <ul>
+                    <li><strong>Rejection In:</strong> Jab customer ko goods deliver karne ke baad wahan from defective or rejected goods physically business ke paas wapas aate are. (<em>Effect: Physical stock increases in return custody</em>).</li>
+                    <li><strong>Rejection Out:</strong> Jab supplier from goods receive hone ke baad quality check in defective/substandard nikalne par business unhe wapas vendor ko bhejta is. (<em>Effect: Physical stock decreases</em>).</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Rejection In</th>
+                            <th>Rejection Out</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Physical Movement</td>
+                            <td>Goods coming IN to the business</td>
+                            <td>Goods going OUT from the business</td>
+                        </tr>
+                        <tr>
+                            <td>Origin / Destination</td>
+                            <td>Received back from Customer</td>
+                            <td>Returned back to Supplier / Vendor</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Impact</td>
+                            <td>Increases physical stock quantity</td>
+                            <td>Decreases physical stock quantity</td>
+                        </tr>
+                        <tr>
+                            <td>Primary Context</td>
+                            <td>Sales / Dispatch quality rejection</td>
+                            <td>Purchafrom / Receipt quality rejection</td>
+                        </tr>
+                        <tr>
+                            <td>Accounting Note</td>
+                            <td>Inventory adjustment stage (Not direct credit note)</td>
+                            <td>Inventory adjustment stage (Not direct debit note)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Rule:</strong><br>
+                    <strong>Rejection In</strong> = Customer dwara reject kior gaor maal wapas andar aaya.<br>
+                    <strong>Rejection Out</strong> = Supplier ka kharab maal check karke bahar wapas bheja.
+                </blockquote>
+
+                <hr>
+
+                <h2>Rejection vs Commercial Returns</h2>
+                <p>Rejections ko blindly Purchafrom Return or Sales Return ke sath confufrom nahi should be performed:</p>
+                <ul>
+                    <li><strong>Rejection (In/Out):</strong> Yeh pure <em>inventory movement tracking</em> ka mechanism hai jo batata hai ki physical maal inspection in pass hua or reject hua.</li>
+                    <li><strong>Return (Sales/Purchafrom Return):</strong> Yeh <em>commercial and financial accounting settlement</em> hai jisme Debit Notes or Credit Notes ke zariye party balances adjust kiye jaate are.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practice Company Setup &amp; Masters</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>Inventory:</strong> Enabled</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Stock Item:</strong> Printer (Unit: <em>Nos</em>, Standard Cost: ₹8,000) &amp; Monitor (Unit: <em>Nos</em>, Standard Cost: ₹10,000)</li>
+                    <li><strong>Suppliers (Sundry Creditors):</strong> Tech Distributors, Maharashtra Computer House</li>
+                    <li><strong>Customers (Sundry Debtors):</strong> Mumbai Office Solutions, Pune Retail</li>
+                    <li><strong>Godowns (Optional for Isolation):</strong> Main Godown (Saleable) &amp; Rejected Goods Godown (Defective stock)</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Rejection Out &amp; Rejection In</h2>
+
+                <h3>Part A: Rejection Out (Purchafrom Quality Rejection)</h3>
+                <ol>
+                    <li><strong>Inward Receipt:</strong> Business received 100 Printers @ ₹8,000 = ₹8,00,000 from <em>Tech Distributors</em>.</li>
+                    <li><strong>Quality Inspection:</strong> 10 Printers found defective / damaged during inspection. Accepted stock = 90 Units.</li>
+                    <li><strong>Recording Rejection Out:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Rejection Out</strong> &rarr; Party: <code>Tech Distributors</code> &rarr; Item: <code>Printer</code> &rarr; Quantity: <strong>10 Nos</strong> (Select Batch/Tracking reference if active) &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                    <li><strong>Stock Effect:</strong> Closing stock reduces from 100 to <strong>90 Printers</strong>.</li>
+                </ol>
+
+                <h3>Part B: Rejection In (Sales Quality Rejection)</h3>
+                <ol>
+                    <li><strong>Dispatch / Delivery:</strong> Business delivered 50 Printers to <em>Mumbai Office Solutions</em>.</li>
+                    <li><strong>Customer Inspection:</strong> Customer identifies 5 Printers with manufacturing defects and ships them back.</li>
+                    <li><strong>Recording Rejection In:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Rejection In</strong> &rarr; Party: <code>Mumbai Office Solutions</code> &rarr; Item: <code>Printer</code> &rarr; Quantity: <strong>5 Nos</strong> (Allocate to Rejected Godown / Batch if required) &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                    <li><strong>Stock Effect:</strong> Physical inventory increases by <strong>+5 Units</strong> in the rejected holding register.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set 1 (Rejection Out Lab):</h3>
+                <ul>
+                    <li><strong>Purchase:</strong> 100 Printers @ ₹8,000 and 50 Monitors @ ₹10,000 from <em>Tech Distributors</em>.</li>
+                    <li><strong>Inspection &amp; Rejection:</strong> 10 Printers and 5 Monitors rejected.</li>
+                    <li><strong>Task:</strong> Record Rejection Out vouchers and verify that closing stock reflects 90 Printers and 45 Monitors.</li>
+                </ul>
+
+                <h3>Practice Set 2 (Rejection In Lab):</h3>
+                <ul>
+                    <li><strong>Sales Delivery:</strong> 40 Printers and 20 Monitors dispatched to <em>Mumbai Office Solutions</em>.</li>
+                    <li><strong>Customer Return:</strong> Customer rejects 4 Printers and 2 Monitors.</li>
+                    <li><strong>Task:</strong> Record Rejection In vouchers and reconcile stock levels.</li>
+                </ul>
+
+                <h3>Practice Set 3 (Batch-Wifrom Rejection Integration):</h3>
+                <ul>
+                    <li>Stock Batch: <code>P-002</code> has 150 Nos. Customer rejects 15 units originating specifically from batch <code>P-002</code>.</li>
+                    <li><strong>Task:</strong> Ensure Rejection In is mapped correctly to batch <code>P-002</code> so lot tracking remains accurate (Balance: 135 Nos).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Verify net closing stock after factoring in both Rejection In (+Qty) and Rejection Out (&minus;Qty).</li>
+                    <li><strong>Inventory Books / Rejection Registers:</strong> Review chronological movement of rejected lots against respective suppliers and customers.</li>
+                    <li><strong>Godown Summary:</strong> Confirm segregated movement of defective stock parked in the <em>Rejected Goods Godown</em>.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing Rejection Out with a Purchafrom Return Debit Note (Rejection Out is purely physical movement, whereas Debit Note is financial).</li>
+                    <li>Mixing up rejected defective stock directly into saleable godowns without isolation.</li>
+                    <li>Failing to tag the correct Batch Number or Tracking Reference during Rejection In entries.</li>
+                    <li>Recording customer rejections as normal Sales Returns without noting quality inspection status.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Rejection Out entry pass karne par stock par kor impact padta hai?</strong><br>A: Physical inventory quantity decreafrom ho jati hai kyunki defective goods vendor ko wapas bhej diye jaate are.</li>
+                    <li><strong>Q: Kor Rejection In and Sales Return same cheez hain?</strong><br>A: Nahi, Rejection In physical goods ke wapas aane ki movement tracking hai, jabki Sales Return financial/commercial ledger adjustment is.</li>
+                    <li><strong>Q: Rejected goods ko separate godown in rakhna kyun zaroori hai?</strong><br>A: Taaki defective or inspection-pending stock galti from fresh saleable inventory ke sath dispatch na ho jaye.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Rejection Golden Workflow:</strong><br>
+                    <code>Inward Goods &rarr; Quality Inspection &rarr; Defective Found &rarr; Rejection Out (&minus; Stock) to Supplier OR Outward Dispatch &rarr; Customer Rejects &rarr; Rejection In (+ Stock) from Customer</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Rejection In and Rejection Out concepts and differences mastered</li>
+                    <li>Purchase-side Rejection Out recorded for defective supplier lots</li>
+                    <li>Sales-side Rejection In recorded for customer-returned defective goods</li>
+                    <li>Batch-wifrom and Godown-wifrom tracking applied to rejections</li>
+                    <li>Stock Summary and Rejection Registers reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 4 complete karne ke baad student:</p>
+                <ul>
+                    <li>Rejection In aur Rejection Out ka core business concept samjhega.</li>
+                    <li>Rejection In aur Rejection Out ke beech ka fundamental difference identify karega.</li>
+                    <li>Quality inspection ke baad purchase-side goods supplier ko return karne ke liye Rejection Out record karega.</li>
+                    <li>Customer side se defective/rejected goods wapas aane par Rejection In record karega.</li>
+                    <li>Damaged ya defective stock ko saleable inventory se alag rakhne ke liye separate godown ya Batch/Tracking references maintain karega.</li>
+                    <li>Physical inventory rejections aur commercial returns (Sales/Purchase Returns) ke alag-alag accounting workflows ko differentiate karega.</li>
+                    <li>Stock Summary aur inventory rejection registers verify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Rejection In vs Rejection Out</h2>
+                <p>Warehouse operations mein quality inspection ke dauran defective, damaged, ya non-specification goods ko saleable inventory se isolate karne ke liye inventory movement vouchers use kiye jaate hain:</p>
+
+                <ul>
+                    <li><strong>Rejection In:</strong> Jab customer ko goods deliver karne ke baad wahan se defective ya rejected goods physically business ke paas wapas aate hain. (<em>Effect: Physical stock increases in return custody</em>).</li>
+                    <li><strong>Rejection Out:</strong> Jab supplier se goods receive hone ke baad quality check mein defective/substandard nikalne par business unhe wapas vendor ko bhejta hai. (<em>Effect: Physical stock decreases</em>).</li>
+                </ul>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Rejection In</th>
+                            <th>Rejection Out</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Physical Movement</td>
+                            <td>Goods coming IN to the business</td>
+                            <td>Goods going OUT from the business</td>
+                        </tr>
+                        <tr>
+                            <td>Origin / Destination</td>
+                            <td>Received back from Customer</td>
+                            <td>Returned back to Supplier / Vendor</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Impact</td>
+                            <td>Increases physical stock quantity</td>
+                            <td>Decreases physical stock quantity</td>
+                        </tr>
+                        <tr>
+                            <td>Primary Context</td>
+                            <td>Sales / Dispatch quality rejection</td>
+                            <td>Purchase / Receipt quality rejection</td>
+                        </tr>
+                        <tr>
+                            <td>Accounting Note</td>
+                            <td>Inventory adjustment stage (Not direct credit note)</td>
+                            <td>Inventory adjustment stage (Not direct debit note)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Rule:</strong><br>
+                    <strong>Rejection In</strong> = Customer dwara reject kiya gaya maal wapas andar aaya.<br>
+                    <strong>Rejection Out</strong> = Supplier ka kharab maal check karke bahar wapas bheja.
+                </blockquote>
+
+                <hr>
+
+                <h2>Rejection vs Commercial Returns</h2>
+                <p>Rejections ko blindly Purchase Return ya Sales Return ke sath confuse nahi karna chahiye:</p>
+                <ul>
+                    <li><strong>Rejection (In/Out):</strong> Yeh pure <em>inventory movement tracking</em> ka mechanism hai jo batata hai ki physical maal inspection mein pass hua ya reject hua.</li>
+                    <li><strong>Return (Sales/Purchase Return):</strong> Yeh <em>commercial aur financial accounting settlement</em> hai jisme Debit Notes ya Credit Notes ke zariye party balances adjust kiye jaate hain.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practice Company Setup &amp; Masters</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>Inventory:</strong> Enabled</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Stock Item:</strong> Printer (Unit: <em>Nos</em>, Standard Cost: ₹8,000) &amp; Monitor (Unit: <em>Nos</em>, Standard Cost: ₹10,000)</li>
+                    <li><strong>Suppliers (Sundry Creditors):</strong> Tech Distributors, Maharashtra Computer House</li>
+                    <li><strong>Customers (Sundry Debtors):</strong> Mumbai Office Solutions, Pune Retail</li>
+                    <li><strong>Godowns (Optional for Isolation):</strong> Main Godown (Saleable) &amp; Rejected Goods Godown (Defective stock)</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Rejection Out &amp; Rejection In</h2>
+
+                <h3>Part A: Rejection Out (Purchase Quality Rejection)</h3>
+                <ol>
+                    <li><strong>Inward Receipt:</strong> Business received 100 Printers @ ₹8,000 = ₹8,00,000 from <em>Tech Distributors</em>.</li>
+                    <li><strong>Quality Inspection:</strong> 10 Printers found defective / damaged during inspection. Accepted stock = 90 Units.</li>
+                    <li><strong>Recording Rejection Out:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Rejection Out</strong> &rarr; Party: <code>Tech Distributors</code> &rarr; Item: <code>Printer</code> &rarr; Quantity: <strong>10 Nos</strong> (Select Batch/Tracking reference if active) &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                    <li><strong>Stock Effect:</strong> Closing stock reduces from 100 to <strong>90 Printers</strong>.</li>
+                </ol>
+
+                <h3>Part B: Rejection In (Sales Quality Rejection)</h3>
+                <ol>
+                    <li><strong>Dispatch / Delivery:</strong> Business delivered 50 Printers to <em>Mumbai Office Solutions</em>.</li>
+                    <li><strong>Customer Inspection:</strong> Customer identifies 5 Printers with manufacturing defects and ships them back.</li>
+                    <li><strong>Recording Rejection In:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Rejection In</strong> &rarr; Party: <code>Mumbai Office Solutions</code> &rarr; Item: <code>Printer</code> &rarr; Quantity: <strong>5 Nos</strong> (Allocate to Rejected Godown / Batch if required) &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                    <li><strong>Stock Effect:</strong> Physical inventory increases by <strong>+5 Units</strong> in the rejected holding register.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set 1 (Rejection Out Lab):</h3>
+                <ul>
+                    <li><strong>Purchase:</strong> 100 Printers @ ₹8,000 and 50 Monitors @ ₹10,000 from <em>Tech Distributors</em>.</li>
+                    <li><strong>Inspection &amp; Rejection:</strong> 10 Printers and 5 Monitors rejected.</li>
+                    <li><strong>Task:</strong> Record Rejection Out vouchers and verify that closing stock reflects 90 Printers and 45 Monitors.</li>
+                </ul>
+
+                <h3>Practice Set 2 (Rejection In Lab):</h3>
+                <ul>
+                    <li><strong>Sales Delivery:</strong> 40 Printers and 20 Monitors dispatched to <em>Mumbai Office Solutions</em>.</li>
+                    <li><strong>Customer Return:</strong> Customer rejects 4 Printers and 2 Monitors.</li>
+                    <li><strong>Task:</strong> Record Rejection In vouchers and reconcile stock levels.</li>
+                </ul>
+
+                <h3>Practice Set 3 (Batch-Wise Rejection Integration):</h3>
+                <ul>
+                    <li>Stock Batch: <code>P-002</code> has 150 Nos. Customer rejects 15 units originating specifically from batch <code>P-002</code>.</li>
+                    <li><strong>Task:</strong> Ensure Rejection In is mapped correctly to batch <code>P-002</code> so lot tracking remains accurate (Balance: 135 Nos).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Verify net closing stock after factoring in both Rejection In (+Qty) and Rejection Out (&minus;Qty).</li>
+                    <li><strong>Inventory Books / Rejection Registers:</strong> Review chronological movement of rejected lots against respective suppliers and customers.</li>
+                    <li><strong>Godown Summary:</strong> Confirm segregated movement of defective stock parked in the <em>Rejected Goods Godown</em>.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing Rejection Out with a Purchase Return Debit Note (Rejection Out is purely physical movement, whereas Debit Note is financial).</li>
+                    <li>Mixing up rejected defective stock directly into saleable godowns without isolation.</li>
+                    <li>Failing to tag the correct Batch Number or Tracking Reference during Rejection In entries.</li>
+                    <li>Recording customer rejections as normal Sales Returns without noting quality inspection status.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Rejection Out entry pass karne par stock par kya impact padta hai?</strong><br>A: Physical inventory quantity decrease ho jati hai kyunki defective goods vendor ko wapas bhej diye jaate hain.</li>
+                    <li><strong>Q: Kya Rejection In aur Sales Return same cheez hain?</strong><br>A: Nahi, Rejection In physical goods ke wapas aane ki movement tracking hai, jabki Sales Return financial/commercial ledger adjustment hai.</li>
+                    <li><strong>Q: Rejected goods ko separate godown mein rakhna kyun zaroori hai?</strong><br>A: Taaki defective ya inspection-pending stock galti se fresh saleable inventory ke sath dispatch na ho jaye.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Rejection Golden Workflow:</strong><br>
+                    <code>Inward Goods &rarr; Quality Inspection &rarr; Defective Found &rarr; Rejection Out (&minus; Stock) to Supplier OR Outward Dispatch &rarr; Customer Rejects &rarr; Rejection In (+ Stock) from Customer</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Rejection In and Rejection Out concepts and differences mastered</li>
+                    <li>Purchase-side Rejection Out recorded for defective supplier lots</li>
+                    <li>Sales-side Rejection In recorded for customer-returned defective goods</li>
+                    <li>Batch-wise and Godown-wise tracking applied to rejections</li>
+                    <li>Stock Summary and Rejection Registers reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

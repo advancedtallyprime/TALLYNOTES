@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Order Processing ka core workflow samjhega.</li>
+                    <li>Purchafrom Order (PO) create kar payega.</li>
+                    <li>Sales Order (SO) create kar payega.</li>
+                    <li>Pending Order quantity and value track kar payega.</li>
+                    <li>Order fulfilment and pending order status in difference samjhega.</li>
+                    <li>Order Pre-Closure ka practical purpofrom and application samjhega.</li>
+                    <li>Purchafrom Order and Sales Order ko pre-clofrom kar payega.</li>
+                    <li>Order Normal Closure and Pre-Closure ka difference identify karega.</li>
+                    <li>Reorder Level and Minimum Level ka fundamental difference samjhega.</li>
+                    <li>Minimum Order Quantity (MOQ) ka role samjhega.</li>
+                    <li>Closing Stock and Pending POs ko evaluate karke actual shortfall calculate karega.</li>
+                    <li>Verify Inventory reports from order tracking and status in management and statutory tax reports.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Order Processing Workflow &amp; Core Concepts</h2>
+                <p>Real-world business operations in transactions direct billing from pehle formal orders ke through execute are:</p>
+                
+                <h3>Standard Inventory Document Progression</h3>
+                <ul>
+                    <li><strong>Purchafrom Side:</strong> <code>Purchafrom Requirement &rarr; Purchafrom Order (PO) &rarr; Receipt Note (Goods Receipt) &rarr; Purchafrom Invoice</code></li>
+                    <li><strong>Sales Side:</strong> <code>Customer Requirement &rarr; Sales Order (SO) &rarr; Delivery Note (Dispatch) &rarr; Sales Invoice</code></li>
+                </ul>
+
+                <blockquote>
+                    <strong>Day 1 Scope:</strong> Focus will be strictly on <strong>Purchafrom Orders, Sales Orders, Pending Tracking, Pre-Closure, and Reorder Levels</strong>. Physical goods movement vouchers (Receipt Note / Delivery Note) will be practiced in detail in Day 3.
+                </blockquote>
+
+                <h3>Order vs Invoice Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Order (PO / SO)</th>
+                            <th>Invoice (Purchafrom / Sales)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Purpose</td>
+                            <td>Future commitment / procurement planning</td>
+                            <td>Actual financial and tax transaction</td>
+                        </tr>
+                        <tr>
+                            <td>Purchafrom Side</td>
+                            <td>Purchafrom Order (Alt + F4 / Ctrl + F4)</td>
+                            <td>Purchafrom Invoice (F9)</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Side</td>
+                            <td>Sales Order (Alt + F5 / Ctrl + F5)</td>
+                            <td>Sales Invoice (F8)</td>
+                        </tr>
+                        <tr>
+                            <td>Accounting Impact</td>
+                            <td>No financial ledger balances created</td>
+                            <td>Debit/Credit financial entries posted</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Movement</td>
+                            <td>No physical stock register change</td>
+                            <td>Physical inventory updated</td>
+                        </tr>
+                        <tr>
+                            <td>Pending Tracking</td>
+                            <td>Maintained in outstanding registers</td>
+                            <td>Settled via bill-wifrom tracking</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Rule:</strong><br>
+                    <strong>Order</strong> = Future in kor purchafrom or sell karne ka agreement is.<br>
+                    <strong>Invoice</strong> = Actually kitna purchafrom or sale complete ho chuka is.
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Feature Activation</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company Name:</strong> ABC Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>Books Beginning:</strong> 01-Apr-2026</li>
+                </ul>
+
+                <h3>Enabling Order Processing in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> on the Gateway of Tally.</li>
+                    <li>Set <strong>Maintain Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Integrate Accounts with Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Purchafrom Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Sales Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save settings.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Masters Configuration</h2>
+
+                <h3>1. Unit of Measurement</h3>
+                <ul>
+                    <li><strong>Symbol:</strong> <code>Nos</code> | <strong>Formal Name:</strong> <code>Numbers</code> | <strong>Decimal Places:</strong> <code>0</code></li>
+                </ul>
+
+                <h3>2. Stock Items Setup</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item</th>
+                            <th>Unit</th>
+                            <th>Opening Quantity</th>
+                            <th>Opening Rate (₹)</th>
+                            <th>Opening Value (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>Nos</td>
+                            <td>50</td>
+                            <td>40,000</td>
+                            <td>20,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>Nos</td>
+                            <td>100</td>
+                            <td>8,000</td>
+                            <td>8,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>Monitor</td>
+                            <td>Nos</td>
+                            <td>40</td>
+                            <td>10,000</td>
+                            <td>4,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>Keyboard</td>
+                            <td>Nos</td>
+                            <td>200</td>
+                            <td>800</td>
+                            <td>1,60,000</td>
+                        </tr>
+                        <tr>
+                            <td>Mouse</td>
+                            <td>Nos</td>
+                            <td>200</td>
+                            <td>500</td>
+                            <td>1,00,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>3. Supplier &amp; Customer Ledgers</h3>
+                <ul>
+                    <li><strong>Suppliers (Sundry Creditors):</strong> Tech Distributors (Maharashtra), Delhi IT Solutions (Delhi), Maharashtra Computer Houfrom (Maharashtra).</li>
+                    <li><strong>Customers (Sundry Debtors):</strong> Mumbai Office Solutions (Maharashtra), Pune Retail (Maharashtra), Delhi Corporate (Delhi).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Part A &mdash; Purchafrom Order Processing</h2>
+
+                <h3>Practical 1: Raising Purchafrom Order (PO-001)</h3>
+                <p><strong>01-Apr-2026:</strong> Placed formal order to <em>Tech Distributors</em> for restocking.</p>
+                <ul>
+                    <li>Laptop: 20 Nos @ ₹40,000 = ₹8,00,000</li>
+                    <li>Printer: 50 Nos @ ₹8,000 = ₹4,00,000 | <strong>Total Order Value = ₹12,00,000</strong></li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Purchafrom Order</strong> (Alt + F4 / Ctrl + F4) &rarr; Party: <code>Tech Distributors</code> &rarr; Order No: <code>PO-001</code> &rarr; Allocate items and save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 2: Raising Second Purchafrom Order (PO-002)</h3>
+                <p><strong>08-Apr-2026:</strong> Placed order to <em>Maharashtra Computer House</em> (Order No: <code>PO-002</code>).</p>
+                <ul>
+                    <li>Monitor: 20 Nos @ ₹10,000 = ₹2,00,000</li>
+                    <li>Keyboard: 100 Nos @ ₹800 = ₹80,000 | <strong>Total Order Value = ₹2,80,000</strong></li>
+                </ul>
+
+                <h3>Total Pending Purchafrom Orders Summary:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order No.</th>
+                            <th>Supplier Name</th>
+                            <th>Items Ordered</th>
+                            <th>Total Pending Qty</th>
+                            <th>Total Order Value (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PO-001</td>
+                            <td>Tech Distributors</td>
+                            <td>Laptop (20), Printer (50)</td>
+                            <td>70 Nos</td>
+                            <td>12,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>PO-002</td>
+                            <td>Maharashtra Computer House</td>
+                            <td>Monitor (20), Keyboard (100)</td>
+                            <td>120 Nos</td>
+                            <td>2,80,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td>&mdash;</td>
+                            <td>&mdash;</td>
+                            <td><strong>190 Nos</strong></td>
+                            <td><strong>14,80,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Part B &mdash; Sales Order Processing</h2>
+
+                <h3>Practical 3: Recording Sales Order (SO-001)</h3>
+                <p><strong>01-Apr-2026:</strong> Received sales order from <em>Mumbai Office Solutions</em> (Order No: <code>SO-001</code>).</p>
+                <ul>
+                    <li>Laptop: 10 Nos @ ₹50,000 = ₹5,00,000</li>
+                    <li>Printer: 20 Nos @ ₹12,000 = ₹2,40,000 | <strong>Total Order Value = ₹7,40,000</strong></li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Sales Order</strong> (Alt + F5 / Ctrl + F5) &rarr; Party: <code>Mumbai Office Solutions</code> &rarr; Order No: <code>SO-001</code> &rarr; Enter items and save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 4: Recording Second Sales Order (SO-002)</h3>
+                <p><strong>02-Apr-2026:</strong> Received order from <em>Pune Retail</em> (Order No: <code>SO-002</code>): Monitor (15 Nos) + Keyboard (80 Nos).</p>
+
+                <hr>
+
+                <h2>Part C &mdash; Order Pre-Closure Mechanics</h2>
+                <p>Jab customer bachi hui balance quantity cancel kar deta hai or supplier remaining goods supply karne from mana kar deta hai, tab pending quantity ko permanently clofrom karne ke liye <strong>Pre-Closure</strong> ka ufrom kior jata is.</p>
+
+                <h3>Normal Closure vs Pre-Closure</h3>
+                <ul>
+                    <li><strong>Normal Fulfilment Closure:</strong> Ordered (50) = Fulfilled (50) &rarr; Pending becomes <strong>0</strong> automatically.</li>
+                    <li><strong>Pre-Closure:</strong> Ordered (50) &rarr; Fulfilled (30) &rarr; Customer cancels 20 &rarr; Pre-Clofrom (20) &rarr; Pending becomes <strong>0</strong>.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Important Rule:</strong><br>
+                    Pre-Closure only <strong>future unfulfilled commitments</strong> ko cancel karta hai; yeh already delivered/billed goods ko alter or reverfrom nahi karta.
+                </blockquote>
+
+                <h3>Practical 5 &amp; 6: Pre-Closure Execution Breakdown</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order Ref</th>
+                            <th>Stock Item</th>
+                            <th>Ordered Qty</th>
+                            <th>Fulfilled Qty</th>
+                            <th>Pre-Closed Qty</th>
+                            <th>Balance Pending</th>
+                            <th>Reason for Pre-Closure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SO-001 (Sales)</td>
+                            <td>Printer</td>
+                            <td>20 Nos</td>
+                            <td>12 Nos</td>
+                            <td>8 Nos</td>
+                            <td>0 Nos</td>
+                            <td>Customer cancelled balance requirement</td>
+                        </tr>
+                        <tr>
+                            <td>PO-002 (Purchase)</td>
+                            <td>Monitor</td>
+                            <td>30 Nos</td>
+                            <td>20 Nos</td>
+                            <td>10 Nos</td>
+                            <td>0 Nos</td>
+                            <td>Supplier out of stock / model discontinued</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Part D &mdash; Reorder Levels &amp; MOQ Calculation</h2>
+                <p><strong>Reorder Level:</strong> Predefined stock threshold jo business ko alert karta hai ki fresh purchafrom orders place karne ka time aa gaor is.</p>
+                <p><strong>Minimum Order Quantity (MOQ):</strong> Vendor dwara specified minimum bulk batch size jo ek single purchafrom order in order karna mandatory is.</p>
+
+                <blockquote>
+                    <strong>Reorder Level Determination Formula:</strong><br>
+                    Reorder Level = (Daily Consumption Rate &times; Supplier Lead Time in Days) + Safety Stock<br><br>
+                    <em>Example for Printer:</em> (3 Nos/day &times; 10 Days Lead Time) + 5 Nos Safety Stock = <strong>35 Nos Reorder Level</strong>.
+                </blockquote>
+
+                <blockquote>
+                    <strong>Net Available Stock &amp; Shortfall Formula:</strong><br>
+                    Net Available Stock = Closing Stock + Pending Purchafrom Orders &minus; Sales Orders Due<br>
+                    Shortfall = Reorder Level &minus; Net Available Stock<br>
+                    Order to be Placed = Higher of (Shortfall OR Minimum Order Quantity)
+                </blockquote>
+
+                <h3>Stock Replenishment &amp; Decision Analysis Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item</th>
+                            <th>Current Stock</th>
+                            <th>Reorder Level</th>
+                            <th>Pending PO</th>
+                            <th>Expected Stock</th>
+                            <th>MOQ</th>
+                            <th>Procurement Decision</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>12</td>
+                            <td>15</td>
+                            <td>0</td>
+                            <td>12</td>
+                            <td>20</td>
+                            <td>Below Reorder Level &rarr; <strong>Place PO for 20 Nos (MOQ)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>25</td>
+                            <td>30</td>
+                            <td>50</td>
+                            <td>75</td>
+                            <td>50</td>
+                            <td>Expected stock (75) &gt; 30 &rarr; <strong>No Order Needed</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Monitor</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>0</td>
+                            <td>8</td>
+                            <td>20</td>
+                            <td>Below Reorder Level &rarr; <strong>Place PO for 20 Nos (MOQ)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Keyboard</td>
+                            <td>70</td>
+                            <td>50</td>
+                            <td>100</td>
+                            <td>170</td>
+                            <td>100</td>
+                            <td>Current stock adequate &rarr; <strong>No Order Needed</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Complete Practice Set</h2>
+
+                <h3>Master Stock Configuration Schedule:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Opening Qty</th>
+                            <th>Standard Cost (₹)</th>
+                            <th>Reorder Level</th>
+                            <th>Minimum Order Qty (MOQ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>50</td>
+                            <td>40,000</td>
+                            <td>15</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>100</td>
+                            <td>8,000</td>
+                            <td>30</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Monitor</td>
+                            <td>40</td>
+                            <td>10,000</td>
+                            <td>10</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Keyboard</td>
+                            <td>200</td>
+                            <td>800</td>
+                            <td>50</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Mouse</td>
+                            <td>200</td>
+                            <td>500</td>
+                            <td>50</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Practice Orders to Record:</h3>
+                <ul>
+                    <li><strong>PO-001 (Tech Distributors):</strong> 20 Laptops + 50 Printers.</li>
+                    <li><strong>PO-002 (Maharashtra Computer House):</strong> 30 Monitors + 100 Keyboards.</li>
+                    <li><strong>PO-003 (Delhi IT Solutions):</strong> 15 Laptops + 100 Mouse.</li>
+                    <li><strong>SO-001 (Mumbai Office Solutions):</strong> 10 Laptops + 20 Printers.</li>
+                    <li><strong>SO-002 (Pune Retail):</strong> 15 Monitors + 80 Keyboards.</li>
+                    <li><strong>SO-003 (Delhi Corporate):</strong> 8 Laptops + 50 Mouse.</li>
+                </ul>
+
+                <h3>Pre-Closure &amp; Analysis Tasks:</h3>
+                <ol>
+                    <li>On <code>SO-001</code>, fulfill 10 Laptops &amp; 12 Printers &rarr; <strong>Pre-clofrom remaining 8 Printers</strong>.</li>
+                    <li>On <code>PO-002</code>, receive 20 Monitors &amp; 100 Keyboards &rarr; <strong>Pre-clofrom remaining 10 Monitors</strong>.</li>
+                    <li>Evaluate Printer stock (Current Stock: 25, Reorder Level: 30, Pending PO: 0) &rarr; Calculate new order requirement.</li>
+                    <li>Evaluate Monitor stock (Current Stock: 8, Reorder Level: 10, Pending PO: 10) &rarr; Confirm no extra PO needed due to expected pipeline.</li>
+                </ol>
+
+                <hr>
+
+                <h2> Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Purchafrom Order Book / Sales Order Book:</strong> Verify chronological list of orders, party names, and order numbers.</li>
+                    <li><strong>Purchafrom Order Outstanding / Sales Order Outstanding:</strong> Track ordered quantity vs pending balance. Press <strong>F12</strong> to view Cleared/Pre-Closed orders.</li>
+                    <li><strong>Reorder Status Report (Alt + G &rarr; Reorder Status):</strong> View real-time breakdown of Closing Stock, Purchafrom Orders Pending, Sales Orders Due, Net Shortfall, and Order to be Placed.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Treating a Purchafrom Order (PO) as a financial Purchafrom Invoice (F9) or a Sales Order (SO) as Sales Revenue (F8).</li>
+                    <li>Assuming partially fulfilled orders clofrom automatically without explicitly pre-closing the balance.</li>
+                    <li>Passing Credit/Debit notes or returns to cancel unfulfilled order quantities.</li>
+                    <li>Placing new purchafrom orders based solely on closing stock without accounting for existing pending POs in the pipeline.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Kor Purchafrom Order or Sales Order from physical stock update is?</strong><br>A: Nahi, order from physical stock or financial ledgers affect nahi hote; yeh only inventory pipeline tracking ke liye are.</li>
+                    <li><strong>Q: Order Pre-Closure and Order Cancellation in kor difference hai?</strong><br>A: Cancellation pure order ko shuru in hi cancel karna hai, jabki Pre-Closure partial delivery ke baad bachi hui pending quantity ko permanently clofrom karna is.</li>
+                    <li><strong>Q: Reorder Level hit hone par kitni quantity purchafrom karni chahiye?</strong><br>A: Calculated Shortfall or vendor ke Minimum Order Quantity (MOQ) in from jo also higher value ho.</li>
+                </ul>
+
+                <hr>
+
+                <h2> Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Order Processing Golden Flow:</strong><br>
+                    <code>Customer Order (SO) / Purchafrom Requirement (PO) &rarr; Pending Order Tracking &rarr; Partial Delivery &rarr; Pre-Clofrom Unfulfilled Balance &rarr; Check Reorder Shortfall &amp; Pipeline &rarr; Raifrom Replenishment PO</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Order Processing features enabled in F11</li>
+                    <li>Stock Items with Opening Quantities and Reorder Parameters configured</li>
+                    <li>Purchafrom Orders (PO-001, PO-002, PO-003) recorded and verified</li>
+                    <li>Sales Orders (SO-001, SO-002, SO-003) recorded and verified</li>
+                    <li>Partial fulfilment and Pre-closure executed on SO-001 and PO-002</li>
+                    <li>Pipeline stock vs MOQ calculated on Reorder Status reports</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>Order Processing ka core workflow samjhega.</li>
+                    <li>Purchase Order (PO) create kar payega.</li>
+                    <li>Sales Order (SO) create kar payega.</li>
+                    <li>Pending Order quantity aur value track kar payega.</li>
+                    <li>Order fulfilment aur pending order status mein difference samjhega.</li>
+                    <li>Order Pre-Closure ka practical purpose aur application samjhega.</li>
+                    <li>Purchase Order aur Sales Order ko pre-close kar payega.</li>
+                    <li>Order Normal Closure aur Pre-Closure ka difference identify karega.</li>
+                    <li>Reorder Level aur Minimum Level ka fundamental difference samjhega.</li>
+                    <li>Minimum Order Quantity (MOQ) ka role samjhega.</li>
+                    <li>Closing Stock aur Pending POs ko evaluate karke actual shortfall calculate karega.</li>
+                    <li>Inventory reports se order tracking aur status verify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Order Processing Workflow &amp; Core Concepts</h2>
+                <p>Real-world business operations mein transactions direct billing se pehle formal orders ke through execute hote hain:</p>
+                
+                <h3>Standard Inventory Document Progression</h3>
+                <ul>
+                    <li><strong>Purchase Side:</strong> <code>Purchase Requirement &rarr; Purchase Order (PO) &rarr; Receipt Note (Goods Receipt) &rarr; Purchase Invoice</code></li>
+                    <li><strong>Sales Side:</strong> <code>Customer Requirement &rarr; Sales Order (SO) &rarr; Delivery Note (Dispatch) &rarr; Sales Invoice</code></li>
+                </ul>
+
+                <blockquote>
+                    <strong>Day 1 Scope:</strong> Focus will be strictly on <strong>Purchase Orders, Sales Orders, Pending Tracking, Pre-Closure, and Reorder Levels</strong>. Physical goods movement vouchers (Receipt Note / Delivery Note) will be practiced in detail in Day 3.
+                </blockquote>
+
+                <h3>Order vs Invoice Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Order (PO / SO)</th>
+                            <th>Invoice (Purchase / Sales)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Purpose</td>
+                            <td>Future commitment / procurement planning</td>
+                            <td>Actual financial and tax transaction</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase Side</td>
+                            <td>Purchase Order (Alt + F4 / Ctrl + F4)</td>
+                            <td>Purchase Invoice (F9)</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Side</td>
+                            <td>Sales Order (Alt + F5 / Ctrl + F5)</td>
+                            <td>Sales Invoice (F8)</td>
+                        </tr>
+                        <tr>
+                            <td>Accounting Impact</td>
+                            <td>No financial ledger balances created</td>
+                            <td>Debit/Credit financial entries posted</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Movement</td>
+                            <td>No physical stock register change</td>
+                            <td>Physical inventory updated</td>
+                        </tr>
+                        <tr>
+                            <td>Pending Tracking</td>
+                            <td>Maintained in outstanding registers</td>
+                            <td>Settled via bill-wise tracking</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Rule:</strong><br>
+                    <strong>Order</strong> = Future mein kya purchase ya sell karne ka agreement hai.<br>
+                    <strong>Invoice</strong> = Actually kitna purchase ya sale complete ho chuka hai.
+                </blockquote>
+
+                <hr>
+
+                <h2>Company Setup &amp; Feature Activation</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company Name:</strong> ABC Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>Books Beginning:</strong> 01-Apr-2026</li>
+                </ul>
+
+                <h3>Enabling Order Processing in TallyPrime:</h3>
+                <ol>
+                    <li>Press <strong>F11 (Features)</strong> on the Gateway of Tally.</li>
+                    <li>Set <strong>Maintain Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Integrate Accounts with Inventory</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Purchase Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Set <strong>Enable Sales Order Processing</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save settings.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Masters Configuration</h2>
+
+                <h3>1. Unit of Measurement</h3>
+                <ul>
+                    <li><strong>Symbol:</strong> <code>Nos</code> | <strong>Formal Name:</strong> <code>Numbers</code> | <strong>Decimal Places:</strong> <code>0</code></li>
+                </ul>
+
+                <h3>2. Stock Items Setup</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item</th>
+                            <th>Unit</th>
+                            <th>Opening Quantity</th>
+                            <th>Opening Rate (₹)</th>
+                            <th>Opening Value (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>Nos</td>
+                            <td>50</td>
+                            <td>40,000</td>
+                            <td>20,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>Nos</td>
+                            <td>100</td>
+                            <td>8,000</td>
+                            <td>8,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>Monitor</td>
+                            <td>Nos</td>
+                            <td>40</td>
+                            <td>10,000</td>
+                            <td>4,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>Keyboard</td>
+                            <td>Nos</td>
+                            <td>200</td>
+                            <td>800</td>
+                            <td>1,60,000</td>
+                        </tr>
+                        <tr>
+                            <td>Mouse</td>
+                            <td>Nos</td>
+                            <td>200</td>
+                            <td>500</td>
+                            <td>1,00,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>3. Supplier &amp; Customer Ledgers</h3>
+                <ul>
+                    <li><strong>Suppliers (Sundry Creditors):</strong> Tech Distributors (Maharashtra), Delhi IT Solutions (Delhi), Maharashtra Computer House (Maharashtra).</li>
+                    <li><strong>Customers (Sundry Debtors):</strong> Mumbai Office Solutions (Maharashtra), Pune Retail (Maharashtra), Delhi Corporate (Delhi).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Part A &mdash; Purchase Order Processing</h2>
+
+                <h3>Practical 1: Raising Purchase Order (PO-001)</h3>
+                <p><strong>01-Apr-2026:</strong> Placed formal order to <em>Tech Distributors</em> for restocking.</p>
+                <ul>
+                    <li>Laptop: 20 Nos @ ₹40,000 = ₹8,00,000</li>
+                    <li>Printer: 50 Nos @ ₹8,000 = ₹4,00,000 | <strong>Total Order Value = ₹12,00,000</strong></li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Purchase Order</strong> (Alt + F4 / Ctrl + F4) &rarr; Party: <code>Tech Distributors</code> &rarr; Order No: <code>PO-001</code> &rarr; Allocate items and save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 2: Raising Second Purchase Order (PO-002)</h3>
+                <p><strong>08-Apr-2026:</strong> Placed order to <em>Maharashtra Computer House</em> (Order No: <code>PO-002</code>).</p>
+                <ul>
+                    <li>Monitor: 20 Nos @ ₹10,000 = ₹2,00,000</li>
+                    <li>Keyboard: 100 Nos @ ₹800 = ₹80,000 | <strong>Total Order Value = ₹2,80,000</strong></li>
+                </ul>
+
+                <h3>Total Pending Purchase Orders Summary:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order No.</th>
+                            <th>Supplier Name</th>
+                            <th>Items Ordered</th>
+                            <th>Total Pending Qty</th>
+                            <th>Total Order Value (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PO-001</td>
+                            <td>Tech Distributors</td>
+                            <td>Laptop (20), Printer (50)</td>
+                            <td>70 Nos</td>
+                            <td>12,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>PO-002</td>
+                            <td>Maharashtra Computer House</td>
+                            <td>Monitor (20), Keyboard (100)</td>
+                            <td>120 Nos</td>
+                            <td>2,80,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td>&mdash;</td>
+                            <td>&mdash;</td>
+                            <td><strong>190 Nos</strong></td>
+                            <td><strong>14,80,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Part B &mdash; Sales Order Processing</h2>
+
+                <h3>Practical 3: Recording Sales Order (SO-001)</h3>
+                <p><strong>01-Apr-2026:</strong> Received sales order from <em>Mumbai Office Solutions</em> (Order No: <code>SO-001</code>).</p>
+                <ul>
+                    <li>Laptop: 10 Nos @ ₹50,000 = ₹5,00,000</li>
+                    <li>Printer: 20 Nos @ ₹12,000 = ₹2,40,000 | <strong>Total Order Value = ₹7,40,000</strong></li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Sales Order</strong> (Alt + F5 / Ctrl + F5) &rarr; Party: <code>Mumbai Office Solutions</code> &rarr; Order No: <code>SO-001</code> &rarr; Enter items and save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <h3>Practical 4: Recording Second Sales Order (SO-002)</h3>
+                <p><strong>02-Apr-2026:</strong> Received order from <em>Pune Retail</em> (Order No: <code>SO-002</code>): Monitor (15 Nos) + Keyboard (80 Nos).</p>
+
+                <hr>
+
+                <h2>Part C &mdash; Order Pre-Closure Mechanics</h2>
+                <p>Jab customer bachi hui balance quantity cancel kar deta hai ya supplier remaining goods supply karne se mana kar deta hai, tab pending quantity ko permanently close karne ke liye <strong>Pre-Closure</strong> ka use kiya jata hai.</p>
+
+                <h3>Normal Closure vs Pre-Closure</h3>
+                <ul>
+                    <li><strong>Normal Fulfilment Closure:</strong> Ordered (50) = Fulfilled (50) &rarr; Pending becomes <strong>0</strong> automatically.</li>
+                    <li><strong>Pre-Closure:</strong> Ordered (50) &rarr; Fulfilled (30) &rarr; Customer cancels 20 &rarr; Pre-Close (20) &rarr; Pending becomes <strong>0</strong>.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Important Rule:</strong><br>
+                    Pre-Closure sirf <strong>future unfulfilled commitments</strong> ko cancel karta hai; yeh already delivered/billed goods ko alter ya reverse nahi karta.
+                </blockquote>
+
+                <h3>Practical 5 &amp; 6: Pre-Closure Execution Breakdown</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order Ref</th>
+                            <th>Stock Item</th>
+                            <th>Ordered Qty</th>
+                            <th>Fulfilled Qty</th>
+                            <th>Pre-Closed Qty</th>
+                            <th>Balance Pending</th>
+                            <th>Reason for Pre-Closure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SO-001 (Sales)</td>
+                            <td>Printer</td>
+                            <td>20 Nos</td>
+                            <td>12 Nos</td>
+                            <td>8 Nos</td>
+                            <td>0 Nos</td>
+                            <td>Customer cancelled balance requirement</td>
+                        </tr>
+                        <tr>
+                            <td>PO-002 (Purchase)</td>
+                            <td>Monitor</td>
+                            <td>30 Nos</td>
+                            <td>20 Nos</td>
+                            <td>10 Nos</td>
+                            <td>0 Nos</td>
+                            <td>Supplier out of stock / model discontinued</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Part D &mdash; Reorder Levels &amp; MOQ Calculation</h2>
+                <p><strong>Reorder Level:</strong> Predefined stock threshold jo business ko alert karta hai ki fresh purchase orders place karne ka time aa gaya hai.</p>
+                <p><strong>Minimum Order Quantity (MOQ):</strong> Vendor dwara specified minimum bulk batch size jo ek single purchase order mein order karna mandatory hota hai.</p>
+
+                <blockquote>
+                    <strong>Reorder Level Determination Formula:</strong><br>
+                    Reorder Level = (Daily Consumption Rate &times; Supplier Lead Time in Days) + Safety Stock<br><br>
+                    <em>Example for Printer:</em> (3 Nos/day &times; 10 Days Lead Time) + 5 Nos Safety Stock = <strong>35 Nos Reorder Level</strong>.
+                </blockquote>
+
+                <blockquote>
+                    <strong>Net Available Stock &amp; Shortfall Formula:</strong><br>
+                    Net Available Stock = Closing Stock + Pending Purchase Orders &minus; Sales Orders Due<br>
+                    Shortfall = Reorder Level &minus; Net Available Stock<br>
+                    Order to be Placed = Higher of (Shortfall OR Minimum Order Quantity)
+                </blockquote>
+
+                <h3>Stock Replenishment &amp; Decision Analysis Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item</th>
+                            <th>Current Stock</th>
+                            <th>Reorder Level</th>
+                            <th>Pending PO</th>
+                            <th>Expected Stock</th>
+                            <th>MOQ</th>
+                            <th>Procurement Decision</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>12</td>
+                            <td>15</td>
+                            <td>0</td>
+                            <td>12</td>
+                            <td>20</td>
+                            <td>Below Reorder Level &rarr; <strong>Place PO for 20 Nos (MOQ)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>25</td>
+                            <td>30</td>
+                            <td>50</td>
+                            <td>75</td>
+                            <td>50</td>
+                            <td>Expected stock (75) &gt; 30 &rarr; <strong>No Order Needed</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Monitor</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>0</td>
+                            <td>8</td>
+                            <td>20</td>
+                            <td>Below Reorder Level &rarr; <strong>Place PO for 20 Nos (MOQ)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Keyboard</td>
+                            <td>70</td>
+                            <td>50</td>
+                            <td>100</td>
+                            <td>170</td>
+                            <td>100</td>
+                            <td>Current stock adequate &rarr; <strong>No Order Needed</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Complete Practice Set</h2>
+
+                <h3>Master Stock Configuration Schedule:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Opening Qty</th>
+                            <th>Standard Cost (₹)</th>
+                            <th>Reorder Level</th>
+                            <th>Minimum Order Qty (MOQ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Laptop</td>
+                            <td>50</td>
+                            <td>40,000</td>
+                            <td>15</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Printer</td>
+                            <td>100</td>
+                            <td>8,000</td>
+                            <td>30</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Monitor</td>
+                            <td>40</td>
+                            <td>10,000</td>
+                            <td>10</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Keyboard</td>
+                            <td>200</td>
+                            <td>800</td>
+                            <td>50</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Mouse</td>
+                            <td>200</td>
+                            <td>500</td>
+                            <td>50</td>
+                            <td>100</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Practice Orders to Record:</h3>
+                <ul>
+                    <li><strong>PO-001 (Tech Distributors):</strong> 20 Laptops + 50 Printers.</li>
+                    <li><strong>PO-002 (Maharashtra Computer House):</strong> 30 Monitors + 100 Keyboards.</li>
+                    <li><strong>PO-003 (Delhi IT Solutions):</strong> 15 Laptops + 100 Mouse.</li>
+                    <li><strong>SO-001 (Mumbai Office Solutions):</strong> 10 Laptops + 20 Printers.</li>
+                    <li><strong>SO-002 (Pune Retail):</strong> 15 Monitors + 80 Keyboards.</li>
+                    <li><strong>SO-003 (Delhi Corporate):</strong> 8 Laptops + 50 Mouse.</li>
+                </ul>
+
+                <h3>Pre-Closure &amp; Analysis Tasks:</h3>
+                <ol>
+                    <li>On <code>SO-001</code>, fulfill 10 Laptops &amp; 12 Printers &rarr; <strong>Pre-close remaining 8 Printers</strong>.</li>
+                    <li>On <code>PO-002</code>, receive 20 Monitors &amp; 100 Keyboards &rarr; <strong>Pre-close remaining 10 Monitors</strong>.</li>
+                    <li>Evaluate Printer stock (Current Stock: 25, Reorder Level: 30, Pending PO: 0) &rarr; Calculate new order requirement.</li>
+                    <li>Evaluate Monitor stock (Current Stock: 8, Reorder Level: 10, Pending PO: 10) &rarr; Confirm no extra PO needed due to expected pipeline.</li>
+                </ol>
+
+                <hr>
+
+                <h2> Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Purchase Order Book / Sales Order Book:</strong> Verify chronological list of orders, party names, and order numbers.</li>
+                    <li><strong>Purchase Order Outstanding / Sales Order Outstanding:</strong> Track ordered quantity vs pending balance. Press <strong>F12</strong> to view Cleared/Pre-Closed orders.</li>
+                    <li><strong>Reorder Status Report (Alt + G &rarr; Reorder Status):</strong> View real-time breakdown of Closing Stock, Purchase Orders Pending, Sales Orders Due, Net Shortfall, and Order to be Placed.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Treating a Purchase Order (PO) as a financial Purchase Invoice (F9) or a Sales Order (SO) as Sales Revenue (F8).</li>
+                    <li>Assuming partially fulfilled orders close automatically without explicitly pre-closing the balance.</li>
+                    <li>Passing Credit/Debit notes or returns to cancel unfulfilled order quantities.</li>
+                    <li>Placing new purchase orders based solely on closing stock without accounting for existing pending POs in the pipeline.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Kya Purchase Order ya Sales Order se physical stock update hota hai?</strong><br>A: Nahi, order se physical stock ya financial ledgers affect nahi hote; yeh sirf inventory pipeline tracking ke liye hote hain.</li>
+                    <li><strong>Q: Order Pre-Closure aur Order Cancellation mein kya difference hai?</strong><br>A: Cancellation pure order ko shuru mein hi cancel karna hai, jabki Pre-Closure partial delivery ke baad bachi hui pending quantity ko permanently close karna hai.</li>
+                    <li><strong>Q: Reorder Level hit hone par kitni quantity purchase karni chahiye?</strong><br>A: Calculated Shortfall ya vendor ke Minimum Order Quantity (MOQ) mein se jo bhi higher value ho.</li>
+                </ul>
+
+                <hr>
+
+                <h2> Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Order Processing Golden Flow:</strong><br>
+                    <code>Customer Order (SO) / Purchase Requirement (PO) &rarr; Pending Order Tracking &rarr; Partial Delivery &rarr; Pre-Close Unfulfilled Balance &rarr; Check Reorder Shortfall &amp; Pipeline &rarr; Raise Replenishment PO</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Order Processing features enabled in F11</li>
+                    <li>Stock Items with Opening Quantities and Reorder Parameters configured</li>
+                    <li>Purchase Orders (PO-001, PO-002, PO-003) recorded and verified</li>
+                    <li>Sales Orders (SO-001, SO-002, SO-003) recorded and verified</li>
+                    <li>Partial fulfilment and Pre-closure executed on SO-001 and PO-002</li>
+                    <li>Pipeline stock vs MOQ calculated on Reorder Status reports</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

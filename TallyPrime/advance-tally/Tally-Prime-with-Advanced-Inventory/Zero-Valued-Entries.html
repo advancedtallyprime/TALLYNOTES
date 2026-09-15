@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Understand the core principles and concepts of Zero Valued Entry.</li>
+                    <li>Understand the operational differences between Zero value and zero quantity.</li>
+                    <li>Understand the business relationship and workflow of Free goods and zero-valued inventory transaction.</li>
+                    <li>Identify real-world business ufrom cases of Purchase/Sales/Inventory situations in zero value.</li>
+                    <li>Record Zero-valued stock entry transactions practically in TallyPrime.</li>
+                    <li>Analyze the accounting and financial report impact of Stock quantity and stock value.</li>
+                    <li>Compare and evaluate Zero-valued entry ko normal transaction from against standard entries.</li>
+                    <li>Verify Reports in zero-valued transactions in management and statutory tax reports.</li>
+                    <li>Troubleshoot and prevent common mistakes in Common mistakes.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Zero Valued Entry vs Zero Quantity</h2>
+                <p><strong>Zero Valued Entry:</strong> An inventory transaction in which stock quantity physically moves (increases or decreases), but the monetary invoice value is recorded as <strong>₹0</strong>.</p>
+
+                <blockquote>
+                    <strong>Critical Difference:</strong><br>
+                    <strong>Zero Quantity:</strong> Quantity = 0 &amp; Value = 0 (No stock movement).<br>
+                    <strong>Zero Value:</strong> Quantity &gt; 0 &amp; Value = ₹0 (Stock moves, but recorded at zero financial charge, e.g., free samples, replacements, internal transfers).
+                </blockquote>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Normal Entry</th>
+                            <th>Zero-Valued Entry</th>
+                            <th>Zero Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Quantity Movement</td>
+                            <td>Yes (&gt; 0)</td>
+                            <td>Yes (&gt; 0)</td>
+                            <td>No (0)</td>
+                        </tr>
+                        <tr>
+                            <td>Rate / Price</td>
+                            <td>Charged (&gt; ₹0)</td>
+                            <td>₹0 (Free / No Charge)</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td>Transaction Amount</td>
+                            <td>Calculated Value (&gt; ₹0)</td>
+                            <td>₹0</td>
+                            <td>₹0</td>
+                        </tr>
+                        <tr>
+                            <td>Example Scenario</td>
+                            <td>Standard purchase/sale</td>
+                            <td>Free promotional sample, replacement, giveaway</td>
+                            <td>Blank line / No item movement</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Important Compliance Note:</strong><br>
+                    A zero commercial invoice value does not automatically mean GST is zero. Free supplies and promotional giveaways must be separately evaluated under GST Schedule I for deemed supply and Section 17(5) for ITC reversal.
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Company Setup &amp; Configuration</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Stock Items:</strong> Printer, Keyboard, Mouse, Monitor, Pen Drive</li>
+                    <li><strong>Godowns:</strong> Main Godown, Branch Godown, Warehouse</li>
+                    <li><strong>Suppliers / Customers:</strong> Tech Supplier, ABC Traders</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Free Samples &amp; Internal Movements</h2>
+
+                <h3>Part A: Purchafrom with Free Promotional Quantity (F9: Purchase)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Purchased 100 Printers @ ₹8,000 from <em>Tech Supplier</em> (= ₹8,00,000) and received 5 additional Printers completely free as promotional samples.</li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Purchafrom (F9)</strong> &rarr; Select Party: <code>Tech Supplier</code>.</li>
+                    <li>Enter billed items (100 Printers @ ₹8,000) and add a line for the free items (5 Printers @ ₹0 rate = ₹0 amount).</li>
+                    <li><strong>Stock Impact:</strong> Total physical stock increases by 105 units, while total purchafrom cost remains valued at ₹8,00,000 (effective unit cost drops).</li>
+                </ol>
+
+                <h3>Part B: Zero-Value Internal Stock Transfer (Stock Journal / Ctrl + F7)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Transfer 20 Nos Moufrom from <em>Main Godown</em> to <em>Branch Godown</em> as an internal transfer without any commercial billing.</li>
+                    <li><strong>TallyPrime Steps:</strong> Ufrom <strong>Stock Journal (Ctrl + F7)</strong> &rarr; Source: Main Godown (20 Moufrom @ ₹0 value) &rarr; Destination: Branch Godown (20 Moufrom @ ₹0 value).</li>
+                    <li><strong>Result:</strong> Company-wide inventory remains unaffected; stock relocates between godowns at zero commercial value.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Zero-Value Operations Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction Type</th>
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                            <th>Rate (₹)</th>
+                            <th>Total Value (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Normal Purchase</td>
+                            <td>Printer</td>
+                            <td>50 Nos</td>
+                            <td>8,000</td>
+                            <td>4,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>03-Apr</td>
+                            <td>Free Sample Receipt</td>
+                            <td>Printer</td>
+                            <td>5 Nos</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Free Sample Receipt</td>
+                            <td>Mouse</td>
+                            <td>20 Nos</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Internal Godown Transfer</td>
+                            <td>Keyboard</td>
+                            <td>30 Nos</td>
+                            <td>0</td>
+                            <td>0 (Main &rarr; Branch)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Customer Replacement</td>
+                            <td>Monitor</td>
+                            <td>2 Nos</td>
+                            <td>0</td>
+                            <td>0 (Warranty Replacement)</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Promotional Giveaway</td>
+                            <td>Pen Drive</td>
+                            <td>50 Nos</td>
+                            <td>0</td>
+                            <td>0 (Marketing Issue)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Verify that closing inventory quantities include zero-valued receipts (e.g., 50 + 5 = 55 printers).</li>
+                    <li><strong>Day Book:</strong> Inspect recorded vouchers to ensure zero-rated rows display correct physical quantities alongside zero amounts.</li>
+                    <li><strong>Stock Item Inward/Outward Registers:</strong> Confirm physical quantity movements without unexpected ledger monetary disruptions.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing Zero Value with Zero Quantity, resulting in unrecorded physical stock receipts.</li>
+                    <li>Automatically assuming zero commercial invoice value means zero GST liability under all circumstances.</li>
+                    <li>Using Purchase/Sales vouchers for internal zero-valued godown transfers instead of Stock Journals (Ctrl + F7).</li>
+                    <div>Forgetting to verify final inventory valuation impacts following zero-cost item additions.</div>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Zero Valued Entry ka kor matlab is?</strong><br>A: Aisi inventory entry jisme physical quantity (jaifrom free samples or replacements) move is, par transaction ki monetary value ₹0 is.</li>
+                    <li><strong>Q: Kor zero-valued entry stock quantity ko increafrom karti hai?</strong><br>A: Haan, agar item ki actual physical quantity receive or issue hui hai, toh stock summary update is.</li>
+                    <li><strong>Q: Kor free sample purchafrom par automatically GST zero is?</strong><br>A: Nahi, GST applicability transaction ke nature and current tax laws par depend karti hai; ifrom alag from evaluate karna zaroori is.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Zero-Value Golden Workflow:</strong><br>
+                    <code>Record Voucher (Purchase/Sales/Stock Journal) &rarr; Enter Physical Quantity &rarr; Set Rate to ₹0 &rarr; Verify Stock Quantity Increases/Decreases &rarr; Reconcile Stock Summary</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Zero value vs zero quantity concepts mastered</li>
+                    <li>Free sample receipts and promotional inventory inflows recorded</li>
+                    <li>Internal zero-value stock transfers executed via Stock Journal</li>
+                    <li>Customer replacement and promotional giveaways posted</li>
+                    <li>Day Book, Stock Summary, and Item registers verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 9 complete karne ke baad student:</p>
+                <ul>
+                    <li>Zero Valued Entry ka concept samjhega.</li>
+                    <li>Zero value aur zero quantity ka difference samjhega.</li>
+                    <li>Free goods aur zero-valued inventory transaction ka relation samjhega.</li>
+                    <li>Purchase/Sales/Inventory situations mein zero value ka use identify karega.</li>
+                    <li>Zero-valued stock entry practically record karega.</li>
+                    <li>Stock quantity aur stock value ka impact samjhega.</li>
+                    <li>Zero-valued entry ko normal transaction se compare karega.</li>
+                    <li>Reports mein zero-valued transactions verify karega.</li>
+                    <li>Common mistakes avoid karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Zero Valued Entry vs Zero Quantity</h2>
+                <p><strong>Zero Valued Entry:</strong> Aisi inventory transaction jisme stock quantity physically move hoti hai (increase/decrease hoti hai), lekin transaction ki monetary commercial value <strong>₹0</strong> hoti hai.</p>
+
+                <blockquote>
+                    <strong>Critical Difference:</strong><br>
+                    <strong>Zero Quantity:</strong> Quantity = 0 &amp; Value = 0 (No stock movement).<br>
+                    <strong>Zero Value:</strong> Quantity &gt; 0 &amp; Value = ₹0 (Stock moves, but recorded at zero financial charge, e.g., free samples, replacements, internal transfers).
+                </blockquote>
+
+                <h3>Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Normal Entry</th>
+                            <th>Zero-Valued Entry</th>
+                            <th>Zero Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Quantity Movement</td>
+                            <td>Yes (&gt; 0)</td>
+                            <td>Yes (&gt; 0)</td>
+                            <td>No (0)</td>
+                        </tr>
+                        <tr>
+                            <td>Rate / Price</td>
+                            <td>Charged (&gt; ₹0)</td>
+                            <td>₹0 (Free / No Charge)</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td>Transaction Amount</td>
+                            <td>Calculated Value (&gt; ₹0)</td>
+                            <td>₹0</td>
+                            <td>₹0</td>
+                        </tr>
+                        <tr>
+                            <td>Example Scenario</td>
+                            <td>Standard purchase/sale</td>
+                            <td>Free promotional sample, replacement, giveaway</td>
+                            <td>Blank line / No item movement</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Important Compliance Note:</strong><br>
+                    Zero commercial invoice value ka matlab yeh nahi hai ki GST automatically ₹0 ho jayega. Free supplies ya promotional giveaways ka GST aur taxability treatment applicable tax provisions ke according separately evaluate karna padta hai.
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Company Setup &amp; Configuration</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Stock Items:</strong> Printer, Keyboard, Mouse, Monitor, Pen Drive</li>
+                    <li><strong>Godowns:</strong> Main Godown, Branch Godown, Warehouse</li>
+                    <li><strong>Suppliers / Customers:</strong> Tech Supplier, ABC Traders</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: Free Samples &amp; Internal Movements</h2>
+
+                <h3>Part A: Purchase with Free Promotional Quantity (F9: Purchase)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Purchased 100 Printers @ ₹8,000 from <em>Tech Supplier</em> (= ₹8,00,000) and received 5 additional Printers completely free as promotional samples.</li>
+                    <li><strong>TallyPrime Steps:</strong> Go to <strong>Vouchers</strong> &rarr; Select <strong>Purchase (F9)</strong> &rarr; Select Party: <code>Tech Supplier</code>.</li>
+                    <li>Enter billed items (100 Printers @ ₹8,000) and add a line for the free items (5 Printers @ ₹0 rate = ₹0 amount).</li>
+                    <li><strong>Stock Impact:</strong> Total physical stock increases by 105 units, while total purchase cost remains valued at ₹8,00,000 (effective unit cost drops).</li>
+                </ol>
+
+                <h3>Part B: Zero-Value Internal Stock Transfer (Stock Journal / Ctrl + F7)</h3>
+                <ol>
+                    <li><strong>Scenario:</strong> Transfer 20 Nos Mouse from <em>Main Godown</em> to <em>Branch Godown</em> as an internal transfer without any commercial billing.</li>
+                    <li><strong>TallyPrime Steps:</strong> Use <strong>Stock Journal (Ctrl + F7)</strong> &rarr; Source: Main Godown (20 Mouse @ ₹0 value) &rarr; Destination: Branch Godown (20 Mouse @ ₹0 value).</li>
+                    <li><strong>Result:</strong> Company-wide inventory remains unaffected; stock relocates between godowns at zero commercial value.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (Zero-Value Operations Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction Type</th>
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                            <th>Rate (₹)</th>
+                            <th>Total Value (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Normal Purchase</td>
+                            <td>Printer</td>
+                            <td>50 Nos</td>
+                            <td>8,000</td>
+                            <td>4,00,000</td>
+                        </tr>
+                        <tr>
+                            <td>03-Apr</td>
+                            <td>Free Sample Receipt</td>
+                            <td>Printer</td>
+                            <td>5 Nos</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Free Sample Receipt</td>
+                            <td>Mouse</td>
+                            <td>20 Nos</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Internal Godown Transfer</td>
+                            <td>Keyboard</td>
+                            <td>30 Nos</td>
+                            <td>0</td>
+                            <td>0 (Main &rarr; Branch)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Customer Replacement</td>
+                            <td>Monitor</td>
+                            <td>2 Nos</td>
+                            <td>0</td>
+                            <td>0 (Warranty Replacement)</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Promotional Giveaway</td>
+                            <td>Pen Drive</td>
+                            <td>50 Nos</td>
+                            <td>0</td>
+                            <td>0 (Marketing Issue)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Verify that closing inventory quantities include zero-valued receipts (e.g., 50 + 5 = 55 printers).</li>
+                    <li><strong>Day Book:</strong> Inspect recorded vouchers to ensure zero-rated rows display correct physical quantities alongside zero amounts.</li>
+                    <li><strong>Stock Item Inward/Outward Registers:</strong> Confirm physical quantity movements without unexpected ledger monetary disruptions.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing Zero Value with Zero Quantity, resulting in unrecorded physical stock receipts.</li>
+                    <li>Automatically assuming zero commercial invoice value means zero GST liability under all circumstances.</li>
+                    <li>Using Purchase/Sales vouchers for internal zero-valued godown transfers instead of Stock Journals (Ctrl + F7).</li>
+                    <div>Forgetting to verify final inventory valuation impacts following zero-cost item additions.</div>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Zero Valued Entry ka kya matlab hota hai?</strong><br>A: Aisi inventory entry jisme physical quantity (jaise free samples ya replacements) move hoti hai, par transaction ki monetary value ₹0 hoti hai.</li>
+                    <li><strong>Q: Kya zero-valued entry stock quantity ko increase karti hai?</strong><br>A: Haan, agar item ki actual physical quantity receive ya issue hui hai, toh stock summary update hoti hai.</li>
+                    <li><strong>Q: Kya free sample purchase par automatically GST zero hota hai?</strong><br>A: Nahi, GST applicability transaction ke nature aur current tax laws par depend karti hai; ise alag se evaluate karna zaroori hai.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Zero-Value Golden Workflow:</strong><br>
+                    <code>Record Voucher (Purchase/Sales/Stock Journal) &rarr; Enter Physical Quantity &rarr; Set Rate to ₹0 &rarr; Verify Stock Quantity Increases/Decreases &rarr; Reconcile Stock Summary</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Zero value vs zero quantity concepts mastered</li>
+                    <li>Free sample receipts and promotional inventory inflows recorded</li>
+                    <li>Internal zero-value stock transfers executed via Stock Journal</li>
+                    <li>Customer replacement and promotional giveaways posted</li>
+                    <li>Day Book, Stock Summary, and Item registers verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

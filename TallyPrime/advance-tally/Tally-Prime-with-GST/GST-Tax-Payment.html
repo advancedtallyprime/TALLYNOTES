@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>GST tax payment ka complete process samjhega.</li>
+                    <li>GST liability calculate kar payega.</li>
+                    <li>ITC adjustment ke baad remaining tax identify karega.</li>
+                    <li>Understand the core principles and concepts of GST payment challan.</li>
+                    <li>Electronic Cash Ledger ka role samjhega.</li>
+                    <li>TallyPrime in GST payment entry record kar payega.</li>
+                    <li>CGST, SGST, IGST payment alag-alag handle karega.</li>
+                    <li>GST liability payment ko statutory adjustment ke through record karega.</li>
+                    <li>Understand the operational differences between Cash payment and ITC set-off.</li>
+                    <li>GST reports in payment verify kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>GST Tax Payment Concept &amp; Settlement Flow</h2>
+                <p>GST payment ka matlab hai business ki net GST liability ko government treasury in deposit karnYeh tab initiate is jab output liability eligible Input Tax Credit (ITC) from zyada is.</p>
+
+                <blockquote>
+                    <strong>Core Settlement Formula:</strong><br>
+                    <strong>Net Cash GST Payable</strong> = Output GST Liability &minus; Eligible ITC Available
+                </blockquote>
+
+                <h3>Illustrative Monthly Net Liability Calculation</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Output Liability (₹)</th>
+                            <th>Available ITC (₹)</th>
+                            <th>Net Cash Payable (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>50,000</td>
+                            <td>20,000</td>
+                            <td>30,000</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>50,000</td>
+                            <td>25,000</td>
+                            <td>25,000</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>30,000</td>
+                            <td>15,000</td>
+                            <td>15,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>1,30,000</strong></td>
+                            <td><strong>60,000</strong></td>
+                            <td><strong>70,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>GST Payment Lifecycle Flow</h3>
+                <p><code>Purchafrom (Input GST) &rarr; Sales (Output GST) &rarr; Statutory ITC Set Off &rarr; Identify Cash Liability &rarr; Generate PMT-06 Challan &rarr; Deposit in Electronic Cash Ledger &rarr; Record Payment Voucher (F5) &rarr; File GSTR-3B</code></p>
+
+                <hr>
+
+                <h2>GST Payment Components &amp; Ledgers Configuration</h2>
+
+                <h3>Payment Components</h3>
+                <ul>
+                    <li><strong>CGST Payment:</strong> Central Government portion (Central Tax).</li>
+                    <li><strong>SGST Payment:</strong> State Government portion (State Tax).</li>
+                    <li><strong>IGST Payment:</strong> Interstate / Integrated Tax.</li>
+                    <li><strong>Interest &amp; Late Fees:</strong> Delayed filing or statutory penalty charges (separately paid).</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                    <li><strong>Bank Ledger:</strong> HDFC Bank A/c (Under <em>Bank Accounts</em>)</li>
+                    <li><strong>Tax Ledgers:</strong> Output CGST, Output SGST, Output IGST (Under <em>Duties &amp; Taxes &rarr; GST</em>)</li>
+                    <li><strong>Interest Ledger:</strong> Interest on GST (Under <em>Indirect Expenses</em>)</li>
+                </ul>
+
+                <hr>
+
+                <h2>Step-by-Step Payment Recording in TallyPrime</h2>
+
+                <h3>Step 1: Perform ITC Set Off in GSTR-3B</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-3B</strong>.</li>
+                    <li>Select <strong>Set Off Tax Liability</strong> (TallyPrime sets off available ITC against gross output liability).</li>
+                    <li>Note the balance cash payable under each head (e.g., CGST ₹20,000, SGST ₹15,000, IGST ₹40,000).</li>
+                </ol>
+
+                <h3>Step 2: Record Payment Voucher (F5 with Stat Payment)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F5 (Payment)</strong>.</li>
+                    <li>Press <strong>Alt + J (Stat Adjustment / Autofill)</strong>:
+                        <ul>
+                            <li><strong>Type of Duty/Tax:</strong> GST</li>
+                            <li><strong>Section:</strong> Payment of Tax</li>
+                            <li><strong>Period:</strong> 1-Apr-2026 to 31-May-2026</li>
+                        </ul>
+                    </li>
+                    <li>Account: <code>HDFC Bank A/c</code></li>
+                    <li>
+                        Particulars:
+                        <ul>
+                            <li>Debit: <code>Output CGST</code> &mdash; ₹20,000</li>
+                            <li>Debit: <code>Output SGST</code> &mdash; ₹15,000</li>
+                            <li>Debit: <code>Output IGST</code> &mdash; ₹40,000</li>
+                            <li>Credit: <code>HDFC Bank A/c</code> &mdash; ₹75,000</li>
+                        </ul>
+                    </li>
+                    <li>Provide GST Payment Details (Bank Name, CPIN/Challan No., Challan Date, Payment Mode: <em>Net Banking</em>).</li>
+                    <li>Save voucher with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Specialized Practical Payment Scenarios</h2>
+
+                <h3>Scenario 1: Pure IGST Payment</h3>
+                <p>Interstate Output IGST ₹1,00,000 &minus; IGST ITC ₹60,000 = <strong>₹40,000 Net Payable</strong>.</p>
+                <p><code>Debit: Output IGST (₹40,000) &rarr; Credit: Bank A/c (₹40,000)</code></p>
+
+                <h3>Scenario 2: Late Payment with Interest</h3>
+                <p>Net GST Liability ₹50,000 + Statutory Interest ₹2,000 = <strong>₹52,000 Total Payment</strong>.</p>
+                <ul>
+                    <li>Debit: <code>Output Tax / GST Payable</code> &mdash; ₹50,000</li>
+                    <li>Debit: <code>Interest on GST A/c</code> &mdash; ₹2,000</li>
+                    <li>Credit: <code>HDFC Bank A/c</code> &mdash; ₹52,000</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Monthly Settlement)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Particulars</th>
+                            <th>Amount (₹)</th>
+                            <th>GST Split</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchafrom (F9)</td>
+                            <td>Local Purchase</td>
+                            <td>5,00,000</td>
+                            <td>CGST ₹45,000 + SGST ₹45,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchafrom (F9)</td>
+                            <td>Interstate Purchase</td>
+                            <td>3,00,000</td>
+                            <td>IGST ₹54,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Local Sale</td>
+                            <td>8,00,000</td>
+                            <td>CGST ₹72,000 + SGST ₹72,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Sales (F8)</td>
+                            <td>Interstate Sale</td>
+                            <td>6,00,000</td>
+                            <td>IGST ₹1,08,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Level 1 Settlement Task:</h3>
+                <ul>
+                    <li><strong>Total Output Liability:</strong> CGST ₹72,000 | SGST ₹72,000 | IGST ₹1,08,000</li>
+                    <li><strong>Total Available ITC:</strong> CGST ₹45,000 | SGST ₹45,000 | IGST ₹54,000</li>
+                    <li><strong>Net Cash Payable:</strong> CGST ₹27,000 | SGST ₹27,000 | IGST ₹54,000 = <strong>Total ₹1,08,000</strong></li>
+                    <li>Pass Statutory Payment entry in TallyPrime using <strong>F5 (Payment)</strong> and verify GSTR-3B Table 6.1.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>GSTR-3B (Table 6.1 &mdash; Payment of Tax):</strong> Verify that tax paid through cash matches bank payment.</li>
+                    <li><strong>GST Computation:</strong> Ensure that Balance Liability shows <strong>Nil</strong> for the settled period.</li>
+                    <li><strong>Ledger Vouchers (Output Tax &amp; Bank):</strong> Confirm that tax liability balances are debited and bank account is credited.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Recording payment directly through bank without completing ITC set-off adjustments.</li>
+                    <li>Depositing cash under the wrong minor/major tax head (e.g., paying CGST under SGST).</li>
+                    <li>Treating GST tax payment as an indirect expenfrom rather than a liability discharge.</li>
+                    <li>Forgetting to record Challan details (CPIN, CIN, Bank Code) in the payment voucher.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: GST Payment entry ka shortcut kor hai?</strong><br>A: <strong>F5 (Payment)</strong> &rarr; Press <strong>Alt + J</strong> for statutory payment specifications.</li>
+                    <li><strong>Q: Pehle ITC adjust is or cash payment?</strong><br>A: Pehle eligible ITC complete set-off is; bachi hui net liability ka cash payment challan banta is.</li>
+                    <li><strong>Q: Kor GST payment Profit &amp; Loss account ko affect karta hai?</strong><br>A: Nahi, yeh balance sheet ki Current Liabilities (Duties &amp; Taxes) and Current Assets (Bank) ko affect karta is.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>GST Payment Golden Workflow:</strong><br>
+                    <code>Output Liability &rarr; Less: Eligible ITC Set Off &rarr; Net Cash Liability &rarr; Generate Challan (PMT-06) &rarr; Statutory Payment (F5 Alt+J) &rarr; Verify GSTR-3B Table 6.1</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Output liability vs eligible input credit reconciled</li>
+                    <li>Statutory set-off executed in GSTR-3B</li>
+                    <li>Net head-wifrom cash liability calculated</li>
+                    <li>Payment voucher (F5) recorded via Alt + J (Stat Payment)</li>
+                    <li>Challan reference and payment details maintained</li>
+                    <li>GSTR-3B Table 6.1 and Ledger reports reconciled to Nil liability</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>GST tax payment ka complete process samjhega.</li>
+                    <li>GST liability calculate kar payega.</li>
+                    <li>ITC adjustment ke baad remaining tax identify karega.</li>
+                    <li>GST payment challan ka concept samjhega.</li>
+                    <li>Electronic Cash Ledger ka role samjhega.</li>
+                    <li>TallyPrime mein GST payment entry record kar payega.</li>
+                    <li>CGST, SGST, IGST payment alag-alag handle karega.</li>
+                    <li>GST liability payment ko statutory adjustment ke through record karega.</li>
+                    <li>Cash payment aur ITC set-off ka difference samjhega.</li>
+                    <li>GST reports mein payment verify kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>GST Tax Payment Concept &amp; Settlement Flow</h2>
+                <p>GST payment ka matlab hai business ki net GST liability ko government treasury mein deposit karnYeh tab initiate hota hai jab output liability eligible Input Tax Credit (ITC) se zyada hoti hai.</p>
+
+                <blockquote>
+                    <strong>Core Settlement Formula:</strong><br>
+                    <strong>Net Cash GST Payable</strong> = Output GST Liability &minus; Eligible ITC Available
+                </blockquote>
+
+                <h3>Illustrative Monthly Net Liability Calculation</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Output Liability (₹)</th>
+                            <th>Available ITC (₹)</th>
+                            <th>Net Cash Payable (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>50,000</td>
+                            <td>20,000</td>
+                            <td>30,000</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>50,000</td>
+                            <td>25,000</td>
+                            <td>25,000</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>30,000</td>
+                            <td>15,000</td>
+                            <td>15,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>1,30,000</strong></td>
+                            <td><strong>60,000</strong></td>
+                            <td><strong>70,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>GST Payment Lifecycle Flow</h3>
+                <p><code>Purchase (Input GST) &rarr; Sales (Output GST) &rarr; Statutory ITC Set Off &rarr; Identify Cash Liability &rarr; Generate PMT-06 Challan &rarr; Deposit in Electronic Cash Ledger &rarr; Record Payment Voucher (F5) &rarr; File GSTR-3B</code></p>
+
+                <hr>
+
+                <h2>GST Payment Components &amp; Ledgers Configuration</h2>
+
+                <h3>Payment Components</h3>
+                <ul>
+                    <li><strong>CGST Payment:</strong> Central Government portion (Central Tax).</li>
+                    <li><strong>SGST Payment:</strong> State Government portion (State Tax).</li>
+                    <li><strong>IGST Payment:</strong> Interstate / Integrated Tax.</li>
+                    <li><strong>Interest &amp; Late Fees:</strong> Delayed filing ya statutory penalty charges (separately paid).</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                    <li><strong>Bank Ledger:</strong> HDFC Bank A/c (Under <em>Bank Accounts</em>)</li>
+                    <li><strong>Tax Ledgers:</strong> Output CGST, Output SGST, Output IGST (Under <em>Duties &amp; Taxes &rarr; GST</em>)</li>
+                    <li><strong>Interest Ledger:</strong> Interest on GST (Under <em>Indirect Expenses</em>)</li>
+                </ul>
+
+                <hr>
+
+                <h2>Step-by-Step Payment Recording in TallyPrime</h2>
+
+                <h3>Step 1: Perform ITC Set Off in GSTR-3B</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-3B</strong>.</li>
+                    <li>Select <strong>Set Off Tax Liability</strong> (TallyPrime sets off available ITC against gross output liability).</li>
+                    <li>Note the balance cash payable under each head (e.g., CGST ₹20,000, SGST ₹15,000, IGST ₹40,000).</li>
+                </ol>
+
+                <h3>Step 2: Record Payment Voucher (F5 with Stat Payment)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F5 (Payment)</strong>.</li>
+                    <li>Press <strong>Alt + J (Stat Adjustment / Autofill)</strong>:
+                        <ul>
+                            <li><strong>Type of Duty/Tax:</strong> GST</li>
+                            <li><strong>Section:</strong> Payment of Tax</li>
+                            <li><strong>Period:</strong> 1-Apr-2026 to 31-May-2026</li>
+                        </ul>
+                    </li>
+                    <li>Account: <code>HDFC Bank A/c</code></li>
+                    <li>
+                        Particulars:
+                        <ul>
+                            <li>Debit: <code>Output CGST</code> &mdash; ₹20,000</li>
+                            <li>Debit: <code>Output SGST</code> &mdash; ₹15,000</li>
+                            <li>Debit: <code>Output IGST</code> &mdash; ₹40,000</li>
+                            <li>Credit: <code>HDFC Bank A/c</code> &mdash; ₹75,000</li>
+                        </ul>
+                    </li>
+                    <li>Provide GST Payment Details (Bank Name, CPIN/Challan No., Challan Date, Payment Mode: <em>Net Banking</em>).</li>
+                    <li>Save voucher with <strong>Ctrl + A</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Specialized Practical Payment Scenarios</h2>
+
+                <h3>Scenario 1: Pure IGST Payment</h3>
+                <p>Interstate Output IGST ₹1,00,000 &minus; IGST ITC ₹60,000 = <strong>₹40,000 Net Payable</strong>.</p>
+                <p><code>Debit: Output IGST (₹40,000) &rarr; Credit: Bank A/c (₹40,000)</code></p>
+
+                <h3>Scenario 2: Late Payment with Interest</h3>
+                <p>Net GST Liability ₹50,000 + Statutory Interest ₹2,000 = <strong>₹52,000 Total Payment</strong>.</p>
+                <ul>
+                    <li>Debit: <code>Output Tax / GST Payable</code> &mdash; ₹50,000</li>
+                    <li>Debit: <code>Interest on GST A/c</code> &mdash; ₹2,000</li>
+                    <li>Credit: <code>HDFC Bank A/c</code> &mdash; ₹52,000</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Monthly Settlement)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Particulars</th>
+                            <th>Amount (₹)</th>
+                            <th>GST Split</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchase (F9)</td>
+                            <td>Local Purchase</td>
+                            <td>5,00,000</td>
+                            <td>CGST ₹45,000 + SGST ₹45,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchase (F9)</td>
+                            <td>Interstate Purchase</td>
+                            <td>3,00,000</td>
+                            <td>IGST ₹54,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Local Sale</td>
+                            <td>8,00,000</td>
+                            <td>CGST ₹72,000 + SGST ₹72,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Sales (F8)</td>
+                            <td>Interstate Sale</td>
+                            <td>6,00,000</td>
+                            <td>IGST ₹1,08,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Level 1 Settlement Task:</h3>
+                <ul>
+                    <li><strong>Total Output Liability:</strong> CGST ₹72,000 | SGST ₹72,000 | IGST ₹1,08,000</li>
+                    <li><strong>Total Available ITC:</strong> CGST ₹45,000 | SGST ₹45,000 | IGST ₹54,000</li>
+                    <li><strong>Net Cash Payable:</strong> CGST ₹27,000 | SGST ₹27,000 | IGST ₹54,000 = <strong>Total ₹1,08,000</strong></li>
+                    <li>Pass Statutory Payment entry in TallyPrime using <strong>F5 (Payment)</strong> and verify GSTR-3B Table 6.1.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>GSTR-3B (Table 6.1 &mdash; Payment of Tax):</strong> Verify that tax paid through cash matches bank payment.</li>
+                    <li><strong>GST Computation:</strong> Ensure that Balance Liability shows <strong>Nil</strong> for the settled period.</li>
+                    <li><strong>Ledger Vouchers (Output Tax &amp; Bank):</strong> Confirm that tax liability balances are debited and bank account is credited.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Recording payment directly through bank without completing ITC set-off adjustments.</li>
+                    <li>Depositing cash under the wrong minor/major tax head (e.g., paying CGST under SGST).</li>
+                    <li>Treating GST tax payment as an indirect expense rather than a liability discharge.</li>
+                    <li>Forgetting to record Challan details (CPIN, CIN, Bank Code) in the payment voucher.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: GST Payment entry ka shortcut kya hai?</strong><br>A: <strong>F5 (Payment)</strong> &rarr; Press <strong>Alt + J</strong> for statutory payment specifications.</li>
+                    <li><strong>Q: Pehle ITC adjust hota hai ya cash payment?</strong><br>A: Pehle eligible ITC complete set-off hota hai; bachi hui net liability ka cash payment challan banta hai.</li>
+                    <li><strong>Q: Kya GST payment Profit &amp; Loss account ko affect karta hai?</strong><br>A: Nahi, yeh balance sheet ki Current Liabilities (Duties &amp; Taxes) aur Current Assets (Bank) ko affect karta hai.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>GST Payment Golden Workflow:</strong><br>
+                    <code>Output Liability &rarr; Less: Eligible ITC Set Off &rarr; Net Cash Liability &rarr; Generate Challan (PMT-06) &rarr; Statutory Payment (F5 Alt+J) &rarr; Verify GSTR-3B Table 6.1</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Output liability vs eligible input credit reconciled</li>
+                    <li>Statutory set-off executed in GSTR-3B</li>
+                    <li>Net head-wise cash liability calculated</li>
+                    <li>Payment voucher (F5) recorded via Alt + J (Stat Payment)</li>
+                    <li>Challan reference and payment details maintained</li>
+                    <li>GSTR-3B Table 6.1 and Ledger reports reconciled to Nil liability</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

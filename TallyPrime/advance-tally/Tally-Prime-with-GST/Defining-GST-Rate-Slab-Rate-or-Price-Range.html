@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Understand the core principles and concepts of GST Classification.</li>
+                    <li>GST Rate Slab kor is samjhega.</li>
+                    <li>Understand the core principles and concepts of Price-based GST rate.</li>
+                    <li>Quantity/price conditions ke basis par classification samjhega.</li>
+                    <li>GST classification create karega.</li>
+                    <li>Classification ko stock item/sales ledger from link karega.</li>
+                    <li>Different price ranges ke liye different GST rates configure karega.</li>
+                    <li>TallyPrime in GST rate automatically determine karne ka practical karega.</li>
+                    <li>Verify Local and interstate transactions in management and statutory tax reports.</li>
+                    <li>GST Tax Analysis from output check karega.</li>
+                    <li>Wrong GST classification ki common mistakes identify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concept: GST Classification &amp; Rate Slabs</h2>
+                <p><strong>GST Classification:</strong> Similar GST characteristics wale transactions or items ko centrally define karne ka mechanism hai taaki har item in manually rate configure na karna pade.</p>
+                <p><strong>Rate Slab / Price Range:</strong> Specific price brackets or value conditions ke आधार par alag-alag GST rate apply hona (e.g., footwear, apparel, or slab-based consumer goods).</p>
+
+                <h3>Sample Classroom Slab Rate Structure</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>From (₹)</th>
+                            <th>To (₹)</th>
+                            <th>Practice GST Rate</th>
+                            <th>Central / State Split (Local)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0.00</td>
+                            <td>1,000.00</td>
+                            <td>5%</td>
+                            <td>CGST 2.5% + SGST 2.5%</td>
+                        </tr>
+                        <tr>
+                            <td>1,000.01</td>
+                            <td>5,000.00</td>
+                            <td>12%</td>
+                            <td>CGST 6% + SGST 6%</td>
+                        </tr>
+                        <tr>
+                            <td>5,000.01</td>
+                            <td>Above</td>
+                            <td>18%</td>
+                            <td>CGST 9% + SGST 9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Critical Note on Boundary Testing:</strong><br>
+                    Price slab define karte waqt overlapping ranges from bachein (e.g., ₹0–₹1,000 and ₹1,000.01–₹5,000Boundary values jaifrom <strong>₹999, ₹1,000, ₹1,000.50, ₹5,000, and ₹5,001</strong> ko test karna mandatory is.
+                </blockquote>
+
+                <hr>
+
+                <h2>Creating &amp; Linking GST Classification in TallyPrime</h2>
+
+                <h3>Step A: Create GST Classification</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>GST Classification</strong> (or <em>Alter &rarr; GST Classification</em>).</li>
+                    <li>Enter Name: <code>Training GST Price Slab</code>.</li>
+                    <li>Define Slabs:
+                        <ul>
+                            <li>From 0 to 1,000 &rarr; Rate: <strong>5%</strong></li>
+                            <li>From 1,001 to 5,000 &rarr; Rate: <strong>12%</strong></li>
+                            <li>From 5,001 and Above &rarr; Rate: <strong>18%</strong></li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Link Classification to Stock Item</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Create / Alter</strong> &rarr; <strong>Stock Item</strong> (e.g., <code>Smart Watch</code>).</li>
+                    <li>Under GST Details, set <em>GST Applicable: Applicable</em>.</li>
+                    <li>Under GST Rate &amp; Classification, select <strong>Training GST Price Slab</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Rate Determination Scenarios (Unit Price vs Total Value)</h2>
+                <p>Price slab evaluation item ke <strong>Unit Selling Price</strong> par depend karti hai:</p>
+                <ul>
+                    <li><strong>Cafrom 1 (Rate: ₹800):</strong> Falls in Slab 1 (&le; ₹1,000) &rarr; GST @ 5% (CGST ₹20 + SGST ₹20) &rarr; Total: ₹840.</li>
+                    <li><strong>Cafrom 2 (Rate: ₹3,000):</strong> Falls in Slab 2 (₹1,001&ndash;₹5,000) &rarr; GST @ 12% (CGST ₹180 + SGST ₹180) &rarr; Total: ₹3,360.</li>
+                    <li><strong>Cafrom 3 (Rate: ₹7,000):</strong> Falls in Slab 3 (&gt; ₹5,000) &rarr; GST @ 18% (CGST ₹630 + SGST ₹630) &rarr; Total: ₹8,260.</li>
+                    <li><strong>Cafrom 4 (Bulk Quantity: 10 Nos @ ₹900 = ₹9,000):</strong> Becaufrom Unit Price is ₹900, the applicable slab is <strong>5%</strong> (not 18%Taxable Value = ₹9,000, Total GST = ₹450 (CGST ₹225 + SGST ₹225), Invoice Total = ₹9,450.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practice Masters &amp; Stock Items</h2>
+
+                <h3>Classification Masters to Create:</h3>
+                <ul>
+                    <li><strong>Basic Slab:</strong> Up to ₹1,000 (5%), ₹1,001–₹5,000 (12%), Above ₹5,000 (18%)</li>
+                    <li><strong>Premium Slab:</strong> Up to ₹2,000 (5%), ₹2,001–₹10,000 (12%), Above ₹10,000 (28%)</li>
+                </ul>
+
+                <h3>Stock Items List:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item Name</th>
+                            <th>Unit</th>
+                            <th>Assigned GST Classification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Smart Watch</td>
+                            <td>Nos</td>
+                            <td>Basic Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Bluetooth Speaker</td>
+                            <td>Nos</td>
+                            <td>Basic Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Office Chair</td>
+                            <td>Nos</td>
+                            <td>Basic Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Premium Headphone</td>
+                            <td>Nos</td>
+                            <td>Premium Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Premium Camera</td>
+                            <td>Nos</td>
+                            <td>Premium Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Home Theatre</td>
+                            <td>Nos</td>
+                            <td>Premium Slab</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Part 1: Sales Transactions (F8: Sales)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Party</th>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Rate (₹)</th>
+                            <th>Applicable Slab</th>
+                            <th>Tax Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Txn 1</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Smart Watch</td>
+                            <td>1</td>
+                            <td>800</td>
+                            <td>5%</td>
+                            <td>CGST (2.5%) + SGST (2.5%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 2</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Smart Watch</td>
+                            <td>2</td>
+                            <td>3,000</td>
+                            <td>12%</td>
+                            <td>CGST (6%) + SGST (6%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 3</td>
+                            <td>Gujarat Customer</td>
+                            <td>Bluetooth Speaker</td>
+                            <td>1</td>
+                            <td>6,000</td>
+                            <td>18%</td>
+                            <td>IGST (18%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 4</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Office Chair</td>
+                            <td>5</td>
+                            <td>900</td>
+                            <td>5%</td>
+                            <td>CGST (2.5%) + SGST (2.5%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 5</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Premium Headphone</td>
+                            <td>1</td>
+                            <td>8,000</td>
+                            <td>12%</td>
+                            <td>CGST (6%) + SGST (6%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 6</td>
+                            <td>Gujarat Customer</td>
+                            <td>Premium Camera</td>
+                            <td>1</td>
+                            <td>15,000</td>
+                            <td>28%</td>
+                            <td>IGST (28%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: MRP + Discount + GST Classification Set</h3>
+                <p><strong>Product:</strong> Packaged Product A (MRP: ₹1,180, Classification: Basic Slab)</p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Qty</th>
+                            <th>Gross MRP (₹)</th>
+                            <th>Discount (%)</th>
+                            <th>Net Price (₹)</th>
+                            <th>Customer Type</th>
+                            <th>Calculated Tax</th>
+                            <th>Invoice Total (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1,180</td>
+                            <td>0%</td>
+                            <td>1,180</td>
+                            <td>Local</td>
+                            <td>12% Slab (CGST+SGST)</td>
+                            <td>1,180</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2,360</td>
+                            <td>5%</td>
+                            <td>2,242</td>
+                            <td>Local</td>
+                            <td>12% Slab (CGST+SGST)</td>
+                            <td>2,242</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>5,900</td>
+                            <td>10%</td>
+                            <td>5,310</td>
+                            <td>Interstate</td>
+                            <td>12% Slab (IGST)</td>
+                            <td>5,310</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>11,800</td>
+                            <td>15%</td>
+                            <td>10,030</td>
+                            <td>Interstate</td>
+                            <td>12% Slab (IGST)</td>
+                            <td>10,030</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Steps in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Tax Analysis:</strong> Voucher entry ke dauran press <strong>Ctrl + O</strong> &rarr; <em>GST - Tax Analysis</em> (Alt + F5 for detail) to check if the correct slab was picked.</li>
+                    <li><strong>Sales Register:</strong> Check overall item values and taxes.</li>
+                    <li><strong>GSTR-1 &amp; GSTR-3B:</strong> Verify outward taxable supplies and tax rate breakdowns under Table 4, 5, or 6.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing <strong>Unit Selling Price</strong> with <strong>Total Invoice Value</strong> when calculating slab thresholds.</li>
+                    <li>Overlapping slab ranges (e.g., 0-1000 and 1000-5000) leading to tax rate ambiguity.</li>
+                    <li>Creating GST Classification but forgetting to assign it to the Stock Item or Ledger.</li>
+                    <li>Manually overriding the auto-calculated tax amount instead of checking master configurations.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: GST Classification kor hai?</strong><br>A: Centralized template jahan HSN, taxability, and rate slabs define kiye jaate hain taaki multiple items in uniform GST rules apply ho sakein.</li>
+                    <li><strong>Q: Agar price ₹1,000 from kam ho toh 5% and zyada ho toh 12% kaifrom set hoga?</strong><br>A: GST Classification in price range slabs (0 to 1,000 @ 5% and 1,000.01 to 5,000 @ 12%) define karke item ko classify kior jata is.</li>
+                    <li><strong>Q: Bulk quantity sale hone par rate total amount par lagta hai or per unit rate par?</strong><br>A: Standard item classifications item ke unit rate par evaluate isn, chahe quantity kitni also ho.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Golden Workflow:</strong><br>
+                    <code>Create Classification &rarr; Define Slabs &rarr; Link to Stock Item &rarr; Enter Voucher &rarr; Auto-Determine Rate &rarr; Verify Tax Analysis &rarr; Check GSTR-1</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>GST Classification concept and boundary testing understood</li>
+                    <li>Basic &amp; Premium slab classifications created in TallyPrime</li>
+                    <li>Stock Items created and linked with respective classifications</li>
+                    <li>Unit price vs total value transaction calculations verified</li>
+                    <li>Local (CGST+SGST) and Interstate (IGST) sales invoices recorded</li>
+                    <li>Tax Analysis (Ctrl + O) and GSTR-1 reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>GST Classification ka concept samjhega.</li>
+                    <li>GST Rate Slab kya hota hai samjhega.</li>
+                    <li>Price-based GST rate ka concept samjhega.</li>
+                    <li>Quantity/price conditions ke basis par classification samjhega.</li>
+                    <li>GST classification create karega.</li>
+                    <li>Classification ko stock item/sales ledger se link karega.</li>
+                    <li>Different price ranges ke liye different GST rates configure karega.</li>
+                    <li>TallyPrime mein GST rate automatically determine karne ka practical karega.</li>
+                    <li>Local aur interstate transactions verify karega.</li>
+                    <li>GST Tax Analysis se output check karega.</li>
+                    <li>Wrong GST classification ki common mistakes identify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concept: GST Classification &amp; Rate Slabs</h2>
+                <p><strong>GST Classification:</strong> Similar GST characteristics wale transactions ya items ko centrally define karne ka mechanism hai taaki har item mein manually rate configure na karna pade.</p>
+                <p><strong>Rate Slab / Price Range:</strong> Specific price brackets ya value conditions ke आधार par alag-alag GST rate apply hona (e.g., footwear, apparel, ya slab-based consumer goods).</p>
+
+                <h3>Sample Classroom Slab Rate Structure</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>From (₹)</th>
+                            <th>To (₹)</th>
+                            <th>Practice GST Rate</th>
+                            <th>Central / State Split (Local)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>0.00</td>
+                            <td>1,000.00</td>
+                            <td>5%</td>
+                            <td>CGST 2.5% + SGST 2.5%</td>
+                        </tr>
+                        <tr>
+                            <td>1,000.01</td>
+                            <td>5,000.00</td>
+                            <td>12%</td>
+                            <td>CGST 6% + SGST 6%</td>
+                        </tr>
+                        <tr>
+                            <td>5,000.01</td>
+                            <td>Above</td>
+                            <td>18%</td>
+                            <td>CGST 9% + SGST 9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Critical Note on Boundary Testing:</strong><br>
+                    Price slab define karte waqt overlapping ranges se bachein (e.g., ₹0–₹1,000 and ₹1,000.01–₹5,000Boundary values jaise <strong>₹999, ₹1,000, ₹1,000.50, ₹5,000, aur ₹5,001</strong> ko test karna mandatory hai.
+                </blockquote>
+
+                <hr>
+
+                <h2>Creating &amp; Linking GST Classification in TallyPrime</h2>
+
+                <h3>Step A: Create GST Classification</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>GST Classification</strong> (or <em>Alter &rarr; GST Classification</em>).</li>
+                    <li>Enter Name: <code>Training GST Price Slab</code>.</li>
+                    <li>Define Slabs:
+                        <ul>
+                            <li>From 0 to 1,000 &rarr; Rate: <strong>5%</strong></li>
+                            <li>From 1,001 to 5,000 &rarr; Rate: <strong>12%</strong></li>
+                            <li>From 5,001 and Above &rarr; Rate: <strong>18%</strong></li>
+                        </ul>
+                    </li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Link Classification to Stock Item</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Create / Alter</strong> &rarr; <strong>Stock Item</strong> (e.g., <code>Smart Watch</code>).</li>
+                    <li>Under GST Details, set <em>GST Applicable: Applicable</em>.</li>
+                    <li>Under GST Rate &amp; Classification, select <strong>Training GST Price Slab</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Rate Determination Scenarios (Unit Price vs Total Value)</h2>
+                <p>Price slab evaluation item ke <strong>Unit Selling Price</strong> par depend karti hai:</p>
+                <ul>
+                    <li><strong>Case 1 (Rate: ₹800):</strong> Falls in Slab 1 (&le; ₹1,000) &rarr; GST @ 5% (CGST ₹20 + SGST ₹20) &rarr; Total: ₹840.</li>
+                    <li><strong>Case 2 (Rate: ₹3,000):</strong> Falls in Slab 2 (₹1,001&ndash;₹5,000) &rarr; GST @ 12% (CGST ₹180 + SGST ₹180) &rarr; Total: ₹3,360.</li>
+                    <li><strong>Case 3 (Rate: ₹7,000):</strong> Falls in Slab 3 (&gt; ₹5,000) &rarr; GST @ 18% (CGST ₹630 + SGST ₹630) &rarr; Total: ₹8,260.</li>
+                    <li><strong>Case 4 (Bulk Quantity: 10 Nos @ ₹900 = ₹9,000):</strong> Because Unit Price is ₹900, the applicable slab is <strong>5%</strong> (not 18%Taxable Value = ₹9,000, Total GST = ₹450 (CGST ₹225 + SGST ₹225), Invoice Total = ₹9,450.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practice Masters &amp; Stock Items</h2>
+
+                <h3>Classification Masters to Create:</h3>
+                <ul>
+                    <li><strong>Basic Slab:</strong> Up to ₹1,000 (5%), ₹1,001–₹5,000 (12%), Above ₹5,000 (18%)</li>
+                    <li><strong>Premium Slab:</strong> Up to ₹2,000 (5%), ₹2,001–₹10,000 (12%), Above ₹10,000 (28%)</li>
+                </ul>
+
+                <h3>Stock Items List:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Item Name</th>
+                            <th>Unit</th>
+                            <th>Assigned GST Classification</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Smart Watch</td>
+                            <td>Nos</td>
+                            <td>Basic Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Bluetooth Speaker</td>
+                            <td>Nos</td>
+                            <td>Basic Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Office Chair</td>
+                            <td>Nos</td>
+                            <td>Basic Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Premium Headphone</td>
+                            <td>Nos</td>
+                            <td>Premium Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Premium Camera</td>
+                            <td>Nos</td>
+                            <td>Premium Slab</td>
+                        </tr>
+                        <tr>
+                            <td>Home Theatre</td>
+                            <td>Nos</td>
+                            <td>Premium Slab</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Part 1: Sales Transactions (F8: Sales)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Transaction</th>
+                            <th>Party</th>
+                            <th>Item</th>
+                            <th>Qty</th>
+                            <th>Rate (₹)</th>
+                            <th>Applicable Slab</th>
+                            <th>Tax Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Txn 1</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Smart Watch</td>
+                            <td>1</td>
+                            <td>800</td>
+                            <td>5%</td>
+                            <td>CGST (2.5%) + SGST (2.5%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 2</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Smart Watch</td>
+                            <td>2</td>
+                            <td>3,000</td>
+                            <td>12%</td>
+                            <td>CGST (6%) + SGST (6%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 3</td>
+                            <td>Gujarat Customer</td>
+                            <td>Bluetooth Speaker</td>
+                            <td>1</td>
+                            <td>6,000</td>
+                            <td>18%</td>
+                            <td>IGST (18%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 4</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Office Chair</td>
+                            <td>5</td>
+                            <td>900</td>
+                            <td>5%</td>
+                            <td>CGST (2.5%) + SGST (2.5%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 5</td>
+                            <td>Maharashtra Customer</td>
+                            <td>Premium Headphone</td>
+                            <td>1</td>
+                            <td>8,000</td>
+                            <td>12%</td>
+                            <td>CGST (6%) + SGST (6%)</td>
+                        </tr>
+                        <tr>
+                            <td>Txn 6</td>
+                            <td>Gujarat Customer</td>
+                            <td>Premium Camera</td>
+                            <td>1</td>
+                            <td>15,000</td>
+                            <td>28%</td>
+                            <td>IGST (28%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: MRP + Discount + GST Classification Set</h3>
+                <p><strong>Product:</strong> Packaged Product A (MRP: ₹1,180, Classification: Basic Slab)</p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Qty</th>
+                            <th>Gross MRP (₹)</th>
+                            <th>Discount (%)</th>
+                            <th>Net Price (₹)</th>
+                            <th>Customer Type</th>
+                            <th>Calculated Tax</th>
+                            <th>Invoice Total (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1,180</td>
+                            <td>0%</td>
+                            <td>1,180</td>
+                            <td>Local</td>
+                            <td>12% Slab (CGST+SGST)</td>
+                            <td>1,180</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2,360</td>
+                            <td>5%</td>
+                            <td>2,242</td>
+                            <td>Local</td>
+                            <td>12% Slab (CGST+SGST)</td>
+                            <td>2,242</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>5,900</td>
+                            <td>10%</td>
+                            <td>5,310</td>
+                            <td>Interstate</td>
+                            <td>12% Slab (IGST)</td>
+                            <td>5,310</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>11,800</td>
+                            <td>15%</td>
+                            <td>10,030</td>
+                            <td>Interstate</td>
+                            <td>12% Slab (IGST)</td>
+                            <td>10,030</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Steps in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Tax Analysis:</strong> Voucher entry ke dauran press <strong>Ctrl + O</strong> &rarr; <em>GST - Tax Analysis</em> (Alt + F5 for detail) to check if the correct slab was picked.</li>
+                    <li><strong>Sales Register:</strong> Check overall item values and taxes.</li>
+                    <li><strong>GSTR-1 &amp; GSTR-3B:</strong> Verify outward taxable supplies and tax rate breakdowns under Table 4, 5, or 6.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing <strong>Unit Selling Price</strong> with <strong>Total Invoice Value</strong> when calculating slab thresholds.</li>
+                    <li>Overlapping slab ranges (e.g., 0-1000 and 1000-5000) leading to tax rate ambiguity.</li>
+                    <li>Creating GST Classification but forgetting to assign it to the Stock Item or Ledger.</li>
+                    <li>Manually overriding the auto-calculated tax amount instead of checking master configurations.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: GST Classification kya hai?</strong><br>A: Centralized template jahan HSN, taxability, aur rate slabs define kiye jaate hain taaki multiple items mein uniform GST rules apply ho sakein.</li>
+                    <li><strong>Q: Agar price ₹1,000 se kam ho toh 5% aur zyada ho toh 12% kaise set hoga?</strong><br>A: GST Classification mein price range slabs (0 to 1,000 @ 5% aur 1,000.01 to 5,000 @ 12%) define karke item ko classify kiya jata hai.</li>
+                    <li><strong>Q: Bulk quantity sale hone par rate total amount par lagta hai ya per unit rate par?</strong><br>A: Standard item classifications item ke unit rate par evaluate hoti hain, chahe quantity kitni bhi ho.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Golden Workflow:</strong><br>
+                    <code>Create Classification &rarr; Define Slabs &rarr; Link to Stock Item &rarr; Enter Voucher &rarr; Auto-Determine Rate &rarr; Verify Tax Analysis &rarr; Check GSTR-1</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>GST Classification concept and boundary testing understood</li>
+                    <li>Basic &amp; Premium slab classifications created in TallyPrime</li>
+                    <li>Stock Items created and linked with respective classifications</li>
+                    <li>Unit price vs total value transaction calculations verified</li>
+                    <li>Local (CGST+SGST) and Interstate (IGST) sales invoices recorded</li>
+                    <li>Tax Analysis (Ctrl + O) and GSTR-1 reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

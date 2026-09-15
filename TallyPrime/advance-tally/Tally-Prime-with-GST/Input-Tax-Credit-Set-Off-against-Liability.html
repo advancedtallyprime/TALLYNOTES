@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>Understand the core principles and concepts of Input Tax Credit (ITC).</li>
+                    <li>Understand the operational differences between Input GST and Output GST.</li>
+                    <li>GST liability calculation kar payega.</li>
+                    <li>CGST, SGST and IGST ITC utilization rules samjhega.</li>
+                    <li>ITC set off ka accounting logic samjhega.</li>
+                    <li>TallyPrime in GST liability calculate kar payega.</li>
+                    <li>Input tax credit adjustment entry samjhega.</li>
+                    <li>GST payment from pehle ITC utilization process karega.</li>
+                    <li>Verify GSTR-3B in ITC adjustment in management and statutory tax reports.</li>
+                    <li>Excess ITC and remaining liability identify karega.</li>
+                    <li>Practical GST settlement workflow perform karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Recap &amp; Core Concepts: ITC Set Off</h2>
+                
+                <p><strong>Input GST:</strong> Purchafrom ke time par suppliers ko pay kior gaor tax (Business Asset / Credit).</p>
+                <p><strong>Output GST:</strong> Sales ke time par customers from collect kior gaor tax (Business Liability).</p>
+
+                <blockquote>
+                    <strong>Core Formula:</strong><br>
+                    <strong>Net GST Payable</strong> = Output GST Liability &minus; Eligible Input Tax Credit (ITC)
+                </blockquote>
+
+                <hr>
+
+                <h2>Statutory GST Set Off &amp; Cross-Utilization Rules</h2>
+
+                <h3>IGST Credit Utilization Priority:</h3>
+                <ul>
+                    <li><strong>1st:</strong> Set off against <strong>IGST Liability</strong></li>
+                    <li><strong>2nd:</strong> Set off against <strong>CGST Liability</strong></li>
+                    <li><strong>3rd:</strong> Set off against <strong>SGST Liability</strong></li>
+                </ul>
+
+                <h3>CGST Credit Utilization Priority:</h3>
+                <ul>
+                    <li><strong>1st:</strong> Set off against <strong>CGST Liability</strong></li>
+                    <li><strong>2nd:</strong> Set off against <strong>IGST Liability</strong></li>
+                    <li><em>Restriction:</em> CGST credit <strong>cannot</strong> be used to pay SGST.</li>
+                </ul>
+
+                <h3>SGST Credit Utilization Priority:</h3>
+                <ul>
+                    <li><strong>1st:</strong> Set off against <strong>SGST Liability</strong></li>
+                    <li><strong>2nd:</strong> Set off against <strong>IGST Liability</strong></li>
+                    <li><em>Restriction:</em> SGST credit <strong>cannot</strong> be used to pay CGST.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Absolute Golden Rule:</strong><br>
+                    <strong>CGST ITC &ne; SGST Liability</strong><br>
+                    <strong>SGST ITC &ne; CGST Liability</strong><br>
+                    CGST and SGST credits aapas in cross-utilize nahi ho sakte.
+                </blockquote>
+
+                <hr>
+
+                <h2>Master Setup &amp; Company Details</h2>
+
+                <h3>Company Details</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Tax Ledgers (Under Duties &amp; Taxes &rarr; GST):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group</th>
+                            <th>Type of Duty/Tax</th>
+                            <th>Tax Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Input CGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>Central Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Input SGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>State Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Input IGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>Integrated Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Output CGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>Central Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Output SGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>State Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Output IGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>Integrated Tax</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Stock Item Setup:</h3>
+                <ul>
+                    <li><strong>Stock Item:</strong> Laptop (Unit: <em>Nos</em>, GST @ 18%, Opening Stock: 50 Nos @ ₹40,000)</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Scenarios &amp; Set Off Walkthroughs</h2>
+
+                <h3>Scenario 1: Local Purchafrom + Local Sale</h3>
+                <ul>
+                    <li><strong>01-Apr (Purchafrom F9):</strong> Purchased goods ₹1,00,000 @ 18% GST &rarr; Input CGST = ₹9,000, Input SGST = ₹9,000 (Total ₹1,18,000).</li>
+                    <li><strong>01-Apr (Sales F8):</strong> Sold goods ₹2,00,000 @ 18% GST &rarr; Output CGST = ₹18,000, Output SGST = ₹18,000 (Total ₹2,36,000).</li>
+                    <li><strong>Set Off:</strong>
+                        <ul>
+                            <li>CGST Payable: ₹18,000 &minus; ₹9,000 = <strong>₹9,000</strong></li>
+                            <li>SGST Payable: ₹18,000 &minus; ₹9,000 = <strong>₹9,000</strong></li>
+                            <li>Total Net Cash Payable = <strong>₹18,000</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Scenario 2: Interstate Purchafrom + Local Sale (Cross-Utilization)</h3>
+                <ul>
+                    <li><strong>Purchase:</strong> ₹5,00,000 from Gujarat Supplier &rarr; <strong>Input IGST = ₹90,000</strong>.</li>
+                    <li><strong>Sales:</strong> ₹6,00,000 to Maharashtra Customer &rarr; <strong>Output CGST = ₹54,000</strong>, <strong>Output SGST = ₹54,000</strong>.</li>
+                    <li><strong>Set Off Order:</strong>
+                        <ol>
+                            <li>IGST Credit (₹90,000) used against CGST Liability (₹54,000) &rarr; CGST Payable becomes <strong>Nil</strong>.</li>
+                            <li>Remaining IGST Credit (₹36,000) used against SGST Liability (₹54,000).</li>
+                            <li>SGST Payable = ₹54,000 &minus; ₹36,000 = <strong>₹18,000</strong>.</li>
+                        </ol>
+                    </li>
+                </ul>
+
+                <h3>Scenario 2 Settlement Summary:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Output Liability (₹)</th>
+                            <th>IGST Credit Utilized (₹)</th>
+                            <th>Net Cash Payable (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>54,000</td>
+                            <td>54,000</td>
+                            <td>Nil</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>54,000</td>
+                            <td>36,000</td>
+                            <td>18,000</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>Nil</td>
+                            <td>Nil</td>
+                            <td>Nil</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Scenario 3: Full Monthly Settlement Simulation</h3>
+                <p><strong>Purchases:</strong> Local ₹3,00,000 (CGST ₹27,000 + SGST ₹27,000) | Interstate ₹2,00,000 (IGST ₹36,000).</p>
+                <p><strong>Sales:</strong> Local ₹8,00,000 (CGST ₹72,000 + SGST ₹72,000) | Interstate ₹5,00,000 (IGST ₹90,000).</p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Output Liability (₹)</th>
+                            <th>Available ITC (₹)</th>
+                            <th>ITC Utilized (₹)</th>
+                            <th>Final Tax Payable (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IGST</td>
+                            <td>90,000</td>
+                            <td>36,000</td>
+                            <td>36,000 (IGST)</td>
+                            <td>54,000</td>
+                        </tr>
+                        <tr>
+                            <td>CGST</td>
+                            <td>72,000</td>
+                            <td>27,000</td>
+                            <td>27,000 (CGST)</td>
+                            <td>45,000</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>72,000</td>
+                            <td>27,000</td>
+                            <td>27,000 (SGST)</td>
+                            <td>45,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>2,34,000</strong></td>
+                            <td><strong>90,000</strong></td>
+                            <td><strong>90,000</strong></td>
+                            <td><strong>1,44,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>TallyPrime ITC Set Off Process (GSTR-3B)</h2>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-3B</strong>.</li>
+                    <li>Navigate to the bottom tax liability section and select <strong>Set Off Tax Liabilities</strong>.</li>
+                    <li>TallyPrime automatically evaluates statutory credit hierarchies and allocates available ITC against respective tax heads.</li>
+                    <li>Verify ledger balances under <em>GST Computation</em> to confirm reduced asset/liability balances.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1</h3>
+                <ul>
+                    <li><strong>01-Apr (Purchase):</strong> Laptop from Maharashtra Supplier for ₹2,00,000 @ 18% GST (CGST ₹18k + SGST ₹18k).</li>
+                    <li><strong>01-Apr (Purchase):</strong> Printer from Gujarat Supplier for ₹3,00,000 @ 18% GST (IGST ₹54k).</li>
+                    <li><strong>01-Apr (Sale):</strong> Laptop to Mumbai Customer for ₹4,00,000 @ 18% GST (CGST ₹36k + SGST ₹36k).</li>
+                    <li><strong>01-May (Sale):</strong> Printer to Delhi Customer for ₹5,00,000 @ 18% GST (IGST ₹90k).</li>
+                    <li><strong>Task:</strong> Record entries, perform ITC set off in GSTR-3B, and compute the remaining balance payable in cash.</li>
+                </ul>
+
+                <h3>Level 2 Simulation Tasks:</h3>
+                <ul>
+                    <li>Record 10 purchases (Local and Interstate with varying GST rates).</li>
+                    <li>Record 15 sales (Local and Interstate).</li>
+                    <li>Incorporate Credit Notes, Debit Notes, and Purchafrom Returns.</li>
+                    <li>Reconcile GSTR-3B Table 4 (ITC Available) and Table 6.1 (Payment of Tax).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Reports to Verify in TallyPrime:</h3>
+                <ul>
+                    <li><strong>GST Computation:</strong> Real-time overview of gross output liability, available input credit, and net payable.</li>
+                    <li><strong>GSTR-3B:</strong> Reconcile eligible ITC allocation and tax payment schedules.</li>
+                    <li><strong>Duties &amp; Taxes Ledgers:</strong> Verify that input tax balances are reduced by the set-off amounts.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Attempting to set off CGST credit against SGST liability (prohibited by GST law).</li>
+                    <li>Passing manual, unlinked Journal entries instead of using the statutory set-off workflow in GSTR-3B.</li>
+                    <li>Claiming blocked or ineligible credits without review.</li>
+                    <li>Ignoring the statutory priority of IGST credit utilization (which must be exhausted before CGST/SGST credits).</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: ITC set off kab execute is?</strong><br>A: GST return file karne and net tax liability pay karne from pehle.</li>
+                    <li><strong>Q: Kor CGST credit SGST liability ke against ufrom ho sakta hai?</strong><br>A: Nahi, CGST credit only IGST and CGST liability ke against ufrom ho sakta is.</li>
+                    <li><strong>Q: TallyPrime in auto set off kahan is?</strong><br>A: <strong>GSTR-3B &rarr; Set Off Tax Liabilities</strong> screen par.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>ITC Set Off Golden Workflow:</strong><br>
+                    <code>Purchafrom (Input GST Created) &rarr; Sales (Output GST Created) &rarr; Calculate Gross Liability &rarr; GSTR-3B Statutory ITC Set Off &rarr; Identify Net Balance &rarr; Cash Payment (F5) &rarr; File Return</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Input GST (Asset) vs Output GST (Liability) differentiated</li>
+                    <li>IGST, CGST, and SGST statutory utilization priorities mastered</li>
+                    <li>Local and Interstate purchase/sales scenarios recorded</li>
+                    <li>Cross-utilization of IGST credit to CGST/SGST executed</li>
+                    <li>GSTR-3B Set Off Tax Liabilities verified</li>
+                    <li>GST Computation and Ledger reports reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>Input Tax Credit (ITC) ka concept samjhega.</li>
+                    <li>Input GST aur Output GST ka difference samjhega.</li>
+                    <li>GST liability calculation kar payega.</li>
+                    <li>CGST, SGST aur IGST ITC utilization rules samjhega.</li>
+                    <li>ITC set off ka accounting logic samjhega.</li>
+                    <li>TallyPrime mein GST liability calculate kar payega.</li>
+                    <li>Input tax credit adjustment entry samjhega.</li>
+                    <li>GST payment se pehle ITC utilization process karega.</li>
+                    <li>GSTR-3B mein ITC adjustment verify karega.</li>
+                    <li>Excess ITC aur remaining liability identify karega.</li>
+                    <li>Practical GST settlement workflow perform karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Recap &amp; Core Concepts: ITC Set Off</h2>
+                
+                <p><strong>Input GST:</strong> Purchase ke time par suppliers ko pay kiya gaya tax (Business Asset / Credit).</p>
+                <p><strong>Output GST:</strong> Sales ke time par customers se collect kiya gaya tax (Business Liability).</p>
+
+                <blockquote>
+                    <strong>Core Formula:</strong><br>
+                    <strong>Net GST Payable</strong> = Output GST Liability &minus; Eligible Input Tax Credit (ITC)
+                </blockquote>
+
+                <hr>
+
+                <h2>Statutory GST Set Off &amp; Cross-Utilization Rules</h2>
+
+                <h3>IGST Credit Utilization Priority:</h3>
+                <ul>
+                    <li><strong>1st:</strong> Set off against <strong>IGST Liability</strong></li>
+                    <li><strong>2nd:</strong> Set off against <strong>CGST Liability</strong></li>
+                    <li><strong>3rd:</strong> Set off against <strong>SGST Liability</strong></li>
+                </ul>
+
+                <h3>CGST Credit Utilization Priority:</h3>
+                <ul>
+                    <li><strong>1st:</strong> Set off against <strong>CGST Liability</strong></li>
+                    <li><strong>2nd:</strong> Set off against <strong>IGST Liability</strong></li>
+                    <li><em>Restriction:</em> CGST credit <strong>cannot</strong> be used to pay SGST.</li>
+                </ul>
+
+                <h3>SGST Credit Utilization Priority:</h3>
+                <ul>
+                    <li><strong>1st:</strong> Set off against <strong>SGST Liability</strong></li>
+                    <li><strong>2nd:</strong> Set off against <strong>IGST Liability</strong></li>
+                    <li><em>Restriction:</em> SGST credit <strong>cannot</strong> be used to pay CGST.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Absolute Golden Rule:</strong><br>
+                    <strong>CGST ITC &ne; SGST Liability</strong><br>
+                    <strong>SGST ITC &ne; CGST Liability</strong><br>
+                    CGST aur SGST credits aapas mein cross-utilize nahi ho sakte.
+                </blockquote>
+
+                <hr>
+
+                <h2>Master Setup &amp; Company Details</h2>
+
+                <h3>Company Details</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Tax Ledgers (Under Duties &amp; Taxes &rarr; GST):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group</th>
+                            <th>Type of Duty/Tax</th>
+                            <th>Tax Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Input CGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>Central Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Input SGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>State Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Input IGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>Integrated Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Output CGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>Central Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Output SGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>State Tax</td>
+                        </tr>
+                        <tr>
+                            <td>Output IGST</td>
+                            <td>Duties &amp; Taxes</td>
+                            <td>GST</td>
+                            <td>Integrated Tax</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Stock Item Setup:</h3>
+                <ul>
+                    <li><strong>Stock Item:</strong> Laptop (Unit: <em>Nos</em>, GST @ 18%, Opening Stock: 50 Nos @ ₹40,000)</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Scenarios &amp; Set Off Walkthroughs</h2>
+
+                <h3>Scenario 1: Local Purchase + Local Sale</h3>
+                <ul>
+                    <li><strong>01-Apr (Purchase F9):</strong> Purchased goods ₹1,00,000 @ 18% GST &rarr; Input CGST = ₹9,000, Input SGST = ₹9,000 (Total ₹1,18,000).</li>
+                    <li><strong>01-Apr (Sales F8):</strong> Sold goods ₹2,00,000 @ 18% GST &rarr; Output CGST = ₹18,000, Output SGST = ₹18,000 (Total ₹2,36,000).</li>
+                    <li><strong>Set Off:</strong>
+                        <ul>
+                            <li>CGST Payable: ₹18,000 &minus; ₹9,000 = <strong>₹9,000</strong></li>
+                            <li>SGST Payable: ₹18,000 &minus; ₹9,000 = <strong>₹9,000</strong></li>
+                            <li>Total Net Cash Payable = <strong>₹18,000</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Scenario 2: Interstate Purchase + Local Sale (Cross-Utilization)</h3>
+                <ul>
+                    <li><strong>Purchase:</strong> ₹5,00,000 from Gujarat Supplier &rarr; <strong>Input IGST = ₹90,000</strong>.</li>
+                    <li><strong>Sales:</strong> ₹6,00,000 to Maharashtra Customer &rarr; <strong>Output CGST = ₹54,000</strong>, <strong>Output SGST = ₹54,000</strong>.</li>
+                    <li><strong>Set Off Order:</strong>
+                        <ol>
+                            <li>IGST Credit (₹90,000) used against CGST Liability (₹54,000) &rarr; CGST Payable becomes <strong>Nil</strong>.</li>
+                            <li>Remaining IGST Credit (₹36,000) used against SGST Liability (₹54,000).</li>
+                            <li>SGST Payable = ₹54,000 &minus; ₹36,000 = <strong>₹18,000</strong>.</li>
+                        </ol>
+                    </li>
+                </ul>
+
+                <h3>Scenario 2 Settlement Summary:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Output Liability (₹)</th>
+                            <th>IGST Credit Utilized (₹)</th>
+                            <th>Net Cash Payable (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>54,000</td>
+                            <td>54,000</td>
+                            <td>Nil</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>54,000</td>
+                            <td>36,000</td>
+                            <td>18,000</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>Nil</td>
+                            <td>Nil</td>
+                            <td>Nil</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Scenario 3: Full Monthly Settlement Simulation</h3>
+                <p><strong>Purchases:</strong> Local ₹3,00,000 (CGST ₹27,000 + SGST ₹27,000) | Interstate ₹2,00,000 (IGST ₹36,000).</p>
+                <p><strong>Sales:</strong> Local ₹8,00,000 (CGST ₹72,000 + SGST ₹72,000) | Interstate ₹5,00,000 (IGST ₹90,000).</p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Output Liability (₹)</th>
+                            <th>Available ITC (₹)</th>
+                            <th>ITC Utilized (₹)</th>
+                            <th>Final Tax Payable (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>IGST</td>
+                            <td>90,000</td>
+                            <td>36,000</td>
+                            <td>36,000 (IGST)</td>
+                            <td>54,000</td>
+                        </tr>
+                        <tr>
+                            <td>CGST</td>
+                            <td>72,000</td>
+                            <td>27,000</td>
+                            <td>27,000 (CGST)</td>
+                            <td>45,000</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>72,000</td>
+                            <td>27,000</td>
+                            <td>27,000 (SGST)</td>
+                            <td>45,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>2,34,000</strong></td>
+                            <td><strong>90,000</strong></td>
+                            <td><strong>90,000</strong></td>
+                            <td><strong>1,44,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>TallyPrime ITC Set Off Process (GSTR-3B)</h2>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-3B</strong>.</li>
+                    <li>Navigate to the bottom tax liability section and select <strong>Set Off Tax Liabilities</strong>.</li>
+                    <li>TallyPrime automatically evaluates statutory credit hierarchies and allocates available ITC against respective tax heads.</li>
+                    <li>Verify ledger balances under <em>GST Computation</em> to confirm reduced asset/liability balances.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1</h3>
+                <ul>
+                    <li><strong>01-Apr (Purchase):</strong> Laptop from Maharashtra Supplier for ₹2,00,000 @ 18% GST (CGST ₹18k + SGST ₹18k).</li>
+                    <li><strong>01-Apr (Purchase):</strong> Printer from Gujarat Supplier for ₹3,00,000 @ 18% GST (IGST ₹54k).</li>
+                    <li><strong>01-Apr (Sale):</strong> Laptop to Mumbai Customer for ₹4,00,000 @ 18% GST (CGST ₹36k + SGST ₹36k).</li>
+                    <li><strong>01-May (Sale):</strong> Printer to Delhi Customer for ₹5,00,000 @ 18% GST (IGST ₹90k).</li>
+                    <li><strong>Task:</strong> Record entries, perform ITC set off in GSTR-3B, and compute the remaining balance payable in cash.</li>
+                </ul>
+
+                <h3>Level 2 Simulation Tasks:</h3>
+                <ul>
+                    <li>Record 10 purchases (Local and Interstate with varying GST rates).</li>
+                    <li>Record 15 sales (Local and Interstate).</li>
+                    <li>Incorporate Credit Notes, Debit Notes, and Purchase Returns.</li>
+                    <li>Reconcile GSTR-3B Table 4 (ITC Available) and Table 6.1 (Payment of Tax).</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Reports to Verify in TallyPrime:</h3>
+                <ul>
+                    <li><strong>GST Computation:</strong> Real-time overview of gross output liability, available input credit, and net payable.</li>
+                    <li><strong>GSTR-3B:</strong> Reconcile eligible ITC allocation and tax payment schedules.</li>
+                    <li><strong>Duties &amp; Taxes Ledgers:</strong> Verify that input tax balances are reduced by the set-off amounts.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Attempting to set off CGST credit against SGST liability (prohibited by GST law).</li>
+                    <li>Passing manual, unlinked Journal entries instead of using the statutory set-off workflow in GSTR-3B.</li>
+                    <li>Claiming blocked or ineligible credits without review.</li>
+                    <li>Ignoring the statutory priority of IGST credit utilization (which must be exhausted before CGST/SGST credits).</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: ITC set off kab execute hota hai?</strong><br>A: GST return file karne aur net tax liability pay karne se pehle.</li>
+                    <li><strong>Q: Kya CGST credit SGST liability ke against use ho sakta hai?</strong><br>A: Nahi, CGST credit sirf IGST aur CGST liability ke against use ho sakta hai.</li>
+                    <li><strong>Q: TallyPrime mein auto set off kahan hota hai?</strong><br>A: <strong>GSTR-3B &rarr; Set Off Tax Liabilities</strong> screen par.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>ITC Set Off Golden Workflow:</strong><br>
+                    <code>Purchase (Input GST Created) &rarr; Sales (Output GST Created) &rarr; Calculate Gross Liability &rarr; GSTR-3B Statutory ITC Set Off &rarr; Identify Net Balance &rarr; Cash Payment (F5) &rarr; File Return</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Input GST (Asset) vs Output GST (Liability) differentiated</li>
+                    <li>IGST, CGST, and SGST statutory utilization priorities mastered</li>
+                    <li>Local and Interstate purchase/sales scenarios recorded</li>
+                    <li>Cross-utilization of IGST credit to CGST/SGST executed</li>
+                    <li>GSTR-3B Set Off Tax Liabilities verified</li>
+                    <li>GST Computation and Ledger reports reconciled</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

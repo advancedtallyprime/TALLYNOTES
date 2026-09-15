@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+
+            <section>
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Practicing GST in TallyPrime Educational Mode:</strong>
+                    <ul>
+                        <li>In Educational Mode, GST calculates 100% accurately across CGST, SGST, IGST, and Cess.</li>
+                        <li>Ufrom dummy practice GSTINs adhering to valid format: 2-digit State Code + 10-char PAN + <code>1Z5</code> (e.g. <code>27ABCDE1234F1Z5</code> for Maharashtra, <code>29ABCDE1234F1Z5</code> for Karnataka, <code>07ABCDE1234F1Z5</code> for Delhi).</li>
+                        <li>Tally will show a brief warning <em>"Verify GSTIN format"</em> for simulated codes &mdash; simply press <kbd>Enter</kbd> to accept and proceed with practice.</li>
+                    </ul>
+                </div>
+  
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>GST understand the fundamentals of.</li>
+                    <li>Understand the operational differences between CGST, SGST and IGST.</li>
+                    <li>Identify and categorize Intra-State and Inter-State supply correctly.</li>
+                    <li>GSTIN ka basic structure samjhega.</li>
+                    <li>Activate and configure TallyPrime company in GST in company features.</li>
+                    <li>Configure master setups and ledger details for Company ke GST registration details.</li>
+                    <li>Regular and Composition registration type ka basic difference samjhega.</li>
+                    <li>Identify and categorize GST activation ke baad basic GST-related options correctly.</li>
+                    <li>Perform end-to-end processing of By setting up a practice company GST configuration independently.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What is GST (Goods & Services Tax)?</h2>
+                <p><strong>GST = Goods and Services Tax</strong></p>
+                <p>GST (Goods and Services Tax) is a comprehensive destination-based indirect tax levied on the supply of goods and services.</p>
+                <p><strong>In Simple Terms:</strong></p>
+                <p>When a business supplies taxable goods or services, applicable GST is collected from the recipient and remitted to the government in accordance with statutory compliance rules.</p>
+                <p>The fundamental objective of GST is to eliminate cascading taxes and unify indirect taxation under a single nationwide structure.</p>
+
+                <h3>Simple Example</h3>
+                <p>ABC Traders ne ₹10,000 ke taxable goods sell kiye and applicable GST rate 18% is.</p>
+                <p><strong>GST:</strong> ₹10,000 × 18% = ₹1,800</p>
+                <p><strong>For Intra-State supplies (within the same state):</strong></p>
+                <ul>
+                    <li>CGST = ₹900</li>
+                    <li>SGST = ₹900</li>
+                    <li><strong>Total recoverable from customer:</strong> ₹10,000 + ₹1,800 = ₹11,800</li>
+                </ul>
+                <p><strong>For Inter-State supplies (between different states):</strong></p>
+                <ul>
+                    <li>IGST = ₹1,800</li>
+                    <li><strong>Total invoice amount:</strong> ₹11,800</li>
+                </ul>
+                <p><em><strong>Note:</strong> Actual GST rate transaction ke goods/services and applicable law/rate notification par depend karta haPractice examples in 18% only learning purpofrom ke liye ufrom kior gaor is.</em></p>
+            </section>
+
+            <section>
+                <h2>Key Concepts & Statutory Components of GST</h2>
+                
+                <h3>3.1 CGST</h3>
+                <p><strong>CGST = Central Goods and Services Tax</strong></p>
+                <p>When a taxable supply occurs within the same State or Union Territory, GST is equally bifurcated into CGST and SGST/UTGST.</p>
+                <p><strong>Example:</strong></p>
+                <ul>
+                    <li>Seller State = Maharashtra</li>
+                    <li>Buyer State = Maharashtra</li>
+                    <li>Taxable Value = ₹20,000</li>
+                    <li>GST Rate = 18%</li>
+                </ul>
+                <p><strong>Calculation:</strong></p>
+                <ul>
+                    <li>CGST 9% = ₹1,800</li>
+                    <li>SGST 9% = ₹1,800</li>
+                    <li><strong>Total GST = ₹3,600</strong></li>
+                </ul>
+
+                <h3>3.2 SGST</h3>
+                <p><strong>SGST = State Goods and Services Tax</strong></p>
+                <p>In intra-State taxable supplies, SGST applies concurrently alongside CGST.</p>
+                <p><strong>Example:</strong></p>
+                <ul>
+                    <li>Taxable value = ₹20,000</li>
+                    <li>GST = 18%</li>
+                    <li>CGST = ₹1,800</li>
+                    <li>SGST = ₹1,800</li>
+                    <li><strong>Total = ₹23,600</strong></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>IGST</h2>
+                <p><strong>IGST = Integrated Goods and Services Tax</strong></p>
+                <p>Generally, Inter-State supply in IGST apply is.</p>
+                <p><strong>Example:</strong></p>
+                <ul>
+                    <li>Seller = Maharashtra</li>
+                    <li>Buyer = Gujarat</li>
+                    <li>Taxable value = ₹20,000</li>
+                    <li>GST rate = 18%</li>
+                </ul>
+                <p><strong>IGST:</strong> ₹20,000 × 18% = ₹3,600</p>
+                <p><strong>Invoice value:</strong> ₹20,000 + ₹3,600 = ₹23,600</p>
+            </section>
+
+            <section>
+                <h2>Intra-State vs Inter-State</h2>
+                <p>Ye concept TallyPrime in GST accounting ke liye bahut important is.</p>
+
+                <h3>Intra-State</h3>
+                <p>Seller and buyer ka relevant State same is.</p>
+                <p><strong>Example:</strong> Maharashtra → Maharashtra | <strong>Generally:</strong> CGST + SGST</p>
+
+                <h3>Inter-State</h3>
+                <p>Seller and buyer different States in are.</p>
+                <p><strong>Example:</strong> Maharashtra → Gujarat | <strong>Generally:</strong> IGST</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Situation</th>
+                                <th>Example</th>
+                                <th>Generally Applicable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Intra-State</td>
+                                <td>Maharashtra → Maharashtra</td>
+                                <td>CGST + SGST</td>
+                            </tr>
+                            <tr>
+                                <td>Inter-State</td>
+                                <td>Maharashtra → Gujarat</td>
+                                <td>IGST</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><em><strong>Important:</strong> Tax determination only party ke State ko dekhkar blindly nahi kior jana chahiyPlace-of-supply rules also relevant are, especially services and special transactions mein.</em></p>
+            </section>
+
+            <section>
+                <h2>GSTIN Kor Hai?</h2>
+                <p><strong>GSTIN = Goods and Services Tax Identification Number</strong></p>
+                <p>GST-registered taxpayer ko GST registration ke liye GSTIN dior jata haGSTIN generally 15-character alphanumeric identifier hota haTallyPrime in company GST details configure karte waqt GSTIN enter kior ja sakta is.</p>
+                <p><strong>Practice GSTIN:</strong> Practice ke liye hum dummy GSTIN ufrom karenge: <code>27AAAAA0000A1Z5</code></p>
+                <p><em>Isfrom actual business GSTIN na samjheiReal company in hamesha actual GSTIN ufrom kareiTallyPrime in wrong GSTIN enter karne from GST reporting/reconciliation in problems ho sakti are.</em></p>
+            </section>
+
+            <section>
+                <h2>GST Registration Types — Basic Understanding</h2>
+                <p>Day 1 par student ko registration types ka basic idea hona chahiye.</p>
+                <ul>
+                    <li><strong>Regular:</strong> Regular taxpayer normal GST framework ke according taxable transactions account karta is.</li>
+                    <li><strong>Composition:</strong> Composition scheme eligible taxpayers ke liye simplified tax scheme haComposition dealer generally customer ko normal GST tax invoice ki tarah GST separately charge nahi karta; tax payment composition rules ke according is.</li>
+                </ul>
+                <p><strong>Day 1 ke liye:</strong> Hum practical setup Regular Dealer ke example from karenge.</p>
+            </section>
+
+            <section>
+                <h2>TallyPrime in GST Activate Karne from Pehle</h2>
+                <p>Company setup ke liye basic information ready rakhein:</p>
+                <ul>
+                    <li>Company Name</li>
+                    <li>Address</li>
+                    <li>State</li>
+                    <li>Financial Year</li>
+                    <li>Books Beginning From</li>
+                    <li>GST Registration Type</li>
+                    <li>GSTIN</li>
+                    <li>GST applicable from date</li>
+                    <li>GSTR-1 periodicity, where applicable</li>
+                </ul>
+                <p>TallyPrime ke current GST setup documentation ke according company create/open karne ke baad F11 from GST enable kior ja sakta is.</p>
+            </section>
+
+            <section>
+                <h2>Practical Setup — Create Practice Company</h2>
+                <h3>Company Details</h3>
+                <p>Hum ek imaginary trading business create karenge.</p>
+                <ul>
+                    <li><strong>Company Name:</strong> ABC Traders</li>
+                    <li><strong>Address:</strong> Main Market, Pune</li>
+                    <li><strong>State:</strong> Maharashtra</li>
+                    <li><strong>Country:</strong> India</li>
+                    <li><strong>Financial Year:</strong> 2026–27</li>
+                    <li><strong>Books Beginning From:</strong> 1-Apr-2026</li>
+                </ul>
+                <h3>GST Details</h3>
+                <ul>
+                    <li><strong>GST:</strong> Enabled</li>
+                    <li><strong>Registration Type:</strong> Regular</li>
+                    <li><strong>GSTIN:</strong> 27AAAAA0000A1Z5 — Dummy Practice GSTIN</li>
+                    <li><strong>GSTR-1 Periodicity:</strong> As applicable for the practice setup</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Step-by-Step: GST Activate in TallyPrime</h2>
+                <p><strong>Step 1 — Company Open execute:</strong> TallyPrime open kareiApni practice company <code>ABC Traders</code> open execute.</p>
+                <p><strong>Step 2 — F11 Features Open execute:</strong> Keyboard from <code>F11</code> press kareiCompany Features/Taxation section in GST option locate execute.</p>
+                <p><strong>Step 3 — GST Enable execute:</strong> Option <strong>Enable Goods and Services Tax (GST)</strong> ko <code>Yes</code> execute.</p>
+                <p><em>TallyPrime ke current documentation in GST activation ke liye F11 → Enable Goods and Services Tax (GST) → Yes dior gaor is.</em></p>
+            </section>
+
+            <section>
+                <h2>GST Registration Details enter</h2>
+                <p>GST enable karne ke baad company ke GST details configure execute:</p>
+                <ul>
+                    <li><strong>State:</strong> Select <code>Maharashtra</code> (Company ka State GST transaction ke tax determination in important role play karta hai).</li>
+                    <li><strong>GSTIN/UIN:</strong> Practice: <code>27AAAAA0000A1Z5</code> (Real company ke cafrom in actual GSTIN enter).</li>
+                    <li><strong>Registration Type:</strong> Select <code>Regular</code>.</li>
+                    <li><strong>Other Territory:</strong> Normal Maharashtra business practice ke example mein: <code>No</code>.</li>
+                    <li><strong>GSTR-1 Periodicity:</strong> Business ke applicable filing arrangement ke according: <code>Monthly / Quarterly</code> select.</li>
+                </ul>
+                <p><em>TallyPrime ki current documentation company GST setup in State, GSTIN/UIN, Registration Type and GSTR-1 periodicity configure karne ka process describe karti is.</em></p>
+            </section>
+
+            <section>
+                <h2>Save the Configuration</h2>
+                <p>Details verify execute:</p>
+                <ul>
+                    <li>Company Name</li>
+                    <li>State</li>
+                    <li>GST enabled</li>
+                    <li>Registration Type</li>
+                    <li>GSTIN</li>
+                    <li>Other applicable GST details</li>
+                </ul>
+                <p>Phir <code>Ctrl + A</code> from save.</p>
+            </section>
+
+            <section>
+                <h2>GST Activate Hone Ke Baad Kor Change is?</h2>
+                <p>GST activate karne ke baad TallyPrime in GST-related configuration and transaction capabilities available ho jati haiAage hum:</p>
+                <ul>
+                    <li>Party GST details</li>
+                    <li>Sales GST</li>
+                    <li>Purchafrom GST</li>
+                    <li>HSN/SAC</li>
+                    <li>GST Rates</li>
+                    <li>CGST, SGST, IGST</li>
+                    <li>Input Tax Credit</li>
+                    <li>GST payment</li>
+                    <li>GST returns</li>
+                </ul>
+                <p>jaifrom concepts configure and ufrom karengTallyPrime in GST rate and HSN/SAC details company, ledger, stock item and other relevant masters in configure ki ja sakti hain, depending on the required hierarchy.</p>
+            </section>
+
+            <section>
+                <h2>GST Activation ka Flow</h2>
+                <p>Student ko ye flow yaad hona chahiye:</p>
+                <p><code>Company Creation → F11 Features → Enable GST = Yes → GST Registration Details → State → GSTIN/UIN → Registration Type → Other GST Configuration → Save → GST-Ready Company</code></p>
+            </section>
+
+            <section>
+                <h2>Important Concept: GST Activation ≠ Complete GST Setup</h2>
+                <p>Ye bahut important point haonly <code>GST = Yes</code> kar dene from complete GST accounting setup nahi ho jatGST transactions ke liye further configuration required ho sakti hai, jaise:</p>
+                <ul>
+                    <li>Party registration details</li>
+                    <li>GSTIN</li>
+                    <li>GST applicability</li>
+                    <li>HSN/SAC</li>
+                    <li>GST rates</li>
+                    <li>Sales/Purchafrom ledgers</li>
+                    <li>Tax ledgers</li>
+                    <li>Stock item GST details</li>
+                    <li>Place of supply</li>
+                    <li>Applicable transaction configurations</li>
+                </ul>
+                <p>TallyPrime in GST rates and HSN/SAC details ko relevant masters in configure karna accurate tax calculation and return reporting ke liye important is.</p>
+            </section>
+
+            <section>
+                <h2>Practice Set — Level 1</h2>
+                <h3>Task 1 — Create Company</h3>
+                <p>Create: <strong>ABC Traders</strong></p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Company</td>
+                                <td>ABC Traders</td>
+                            </tr>
+                            <tr>
+                                <td>State</td>
+                                <td>Maharashtra</td>
+                            </tr>
+                            <tr>
+                                <td>Financial Year</td>
+                                <td>2026–27</td>
+                            </tr>
+                            <tr>
+                                <td>Books Beginning</td>
+                                <td>01-Apr-2026</td>
+                            </tr>
+                            <tr>
+                                <td>GST</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Registration Type</td>
+                                <td>Regular</td>
+                            </tr>
+                            <tr>
+                                <td>GSTIN</td>
+                                <td>27AAAAA0000A1Z5 (Dummy)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Student Task:</strong> Without looking at the solution, activate GST and configure the company.</p>
+            </section>
+
+            <section>
+                <h2>Practice Set — Level 2</h2>
+                <p>Create another practice company: <strong>M/s Sunrifrom Electronics</strong></p>
+                <h3>Details:</h3>
+                <ul>
+                    <li>State: Maharashtra</li>
+                    <li>Financial Year: 2026–27</li>
+                    <li>GST Registration: Regular</li>
+                    <li>GST: Enabled</li>
+                    <li>Dummy GSTIN for practice</li>
+                    <li>GSTR-1 periodicity: choofrom the appropriate practice setting</li>
+                </ul>
+                <h3>Student Must Perform:</h3>
+                <ol>
+                    <li>Create company.</li>
+                    <li>Open F11.</li>
+                    <li>Enable GST.</li>
+                    <li>Open GST details.</li>
+                    <li>Enter State.</li>
+                    <li>Enter dummy GSTIN.</li>
+                    <li>Select Regular.</li>
+                    <li>Save.</li>
+                    <li>Reopen company GST configuration.</li>
+                    <li>Verify all details.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Practice Set — Concept Questions</h2>
+                <ol>
+                    <li>A seller is located in Maharashtra and the buyer is also located in MaharashtrIs this generally intra-State or inter-State?</li>
+                    <li>A seller is located in Maharashtra and the buyer is located in GujaraIs this generally intra-State or inter-State?</li>
+                    <li>In a basic intra-State taxable transaction, which two GST components are generally involved?</li>
+                    <li>In a basic inter-State taxable transaction, which GST component is generally involved?</li>
+                    <li>What is GSTIN?</li>
+                    <li>What is the purpofrom of enabling GST in TallyPrime?</li>
+                    <li>Does enabling GST alone mean that every ledger and stock item has been completely configured for GST?</li>
+                    <li>Why is the company's State important in GST accounting?</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Practice Calculation</h2>
+                <p><em>Assume GST rate = 18% for practice only.</em></p>
+
+                <h3>Transaction A</h3>
+                <p>Taxable Value = ₹10,000 | Transaction = Intra-State</p>
+                <p><strong>Calculate:</strong> CGST, SGST, Total GST, Invoice Value</p>
+                <p><strong>Answer:</strong></p>
+                <ul>
+                    <li>GST = ₹10,000 × 18% = ₹1,800</li>
+                    <li>CGST = ₹900</li>
+                    <li>SGST = ₹900</li>
+                    <li>Invoice Value = ₹10,000 + ₹1,800 = ₹11,800</li>
+                </ul>
+
+                <h3>Transaction B</h3>
+                <p>Taxable Value = ₹25,000 | Transaction = Inter-State</p>
+                <p><strong>Calculate:</strong> IGST, Invoice Value</p>
+                <p><strong>Answer:</strong></p>
+                <ul>
+                    <li>IGST = ₹25,000 × 18% = ₹4,500</li>
+                    <li>Invoice Value = ₹25,000 + ₹4,500 = ₹29,500</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Student Assignment</h2>
+                <p>Create a company: <strong>M/s Techno Mart</strong></p>
+                <h3>Details:</h3>
+                <ul>
+                    <li>State: Maharashtra</li>
+                    <li>Financial Year: 2026–27</li>
+                    <li>GST Registration: Regular</li>
+                    <li>GST: Enabled</li>
+                </ul>
+                <p>Then configure the GST detailAfter completing the setup, student should be able to answer:</p>
+                <ul>
+                    <li>Is GST enabled?</li>
+                    <li>What is the company's State?</li>
+                    <li>What is the registration type?</li>
+                    <li>Where is GSTIN entered?</li>
+                    <li>From where can GST features be accessed?</li>
+                    <li>What additional configuration will be required before recording complete GST transactions?</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Common Mistakes</h2>
+                <ul>
+                    <li><strong>Mistake 1 — Wrong State:</strong> Company ka State incorrectly select kar den<em>(Why important: State information GST transaction determination in important is.)</em></li>
+                    <li><strong>Mistake 2 — Wrong GSTIN:</strong> GSTIN in typing mistak<em>(Solution: GSTIN carefully verify kareiReal business ke cafrom in portal records/business documents ke according details enter.)</em></li>
+                    <li><strong>Mistake 3 — GST Enable Karna Bhool Jana:</strong> Student company create kar leta hai lekin GST enable nahi kart<em>(Solution: F11 → GST → Yes)</em></li>
+                    <li><strong>Mistake 4 — GST Activation Ko Complete Setup Samajhna:</strong> GST enable hone ke baad also party, item/service, HSN/SAC, rates and transaction-specific configurations ki zarurat ho sakti is.</li>
+                    <li><strong>Mistake 5 — Dummy GSTIN Ko Real GSTIN Samajhna:</strong> Practice set in dummy data ufrom kareiActual business data ke liye actual GSTIN hi ufrom execute.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>FAQs — Frequently Asked Questions</h2>
+                <dl>
+                    <dt><strong>FAQ 1 — TallyPrime in GST activate kaifrom karte hain?</strong></dt>
+                    <dd>TallyPrime in company open karke F11 → Enable Goods and Services Tax (GST) → Yes kior ja sakta haUske baad required GST registration details configure ki jati are.</dd>
+                    
+                    <dt><strong>FAQ 2 — GST activate karne ke liye GSTIN mandatory hai?</strong></dt>
+                    <dd>Business ke actual GST setup in GST registration details, including GSTIN where applicable, correctly maintain karna important haTallyPrime in GSTIN/UIN company GST details in enter kior ja sakta haPractice ke liye dummy data ufrom kior ja sakta is.</dd>
+
+                    <dt><strong>FAQ 3 — GST enable karne ke baad kor hum immediately sale entry kar sakte hain?</strong></dt>
+                    <dd>GST enable karna first step haAccurate GST transaction ke liye relevant party, ledger, stock/service, HSN/SAC, GST rate and transaction details also properly configured honi chahiye.</dd>
+
+                    <dt><strong>FAQ 4 — CGST and SGST kab lagte hain?</strong></dt>
+                    <dd>Basic intra-State taxable supply in generally CGST and SGST/UTGST components apply are.</dd>
+
+                    <dt><strong>FAQ 5 — IGST kab lagta hai?</strong></dt>
+                    <dd>Basic inter-State taxable supply in generally IGST apply hota haLekin special transactions in place-of-supply and other GST rules check karna zaroori is.</dd>
+
+                    <dt><strong>FAQ 6 — Kor GST rate company level par set kior ja sakta hai?</strong></dt>
+                    <dd>TallyPrime in GST rate/HSN-SAC details company level ke saath relevant masters in also configure ki ja sakti haiTallyPrime GST hierarchy ke according rate details ka source configure karne ki flexibility deta is.</dd>
+
+                    <dt><strong>FAQ 7 — Kor har party ka GSTIN enter karna zaroori hai?</strong></dt>
+                    <dd>Registered parties ke GST transactions in party ki GST registration details correctly maintain karna important haTallyPrime party ledger in registration type and GSTIN/UIN maintain karne ka option deta is.</dd>
+
+                    <dt><strong>FAQ 8 — Kor ek company in multiple GSTIN ho sakte hain?</strong></dt>
+                    <dd>Current TallyPrime versions multiple GST registrations ko support karte hain, depending on the version/setuTallyHelp ke current documentation in multiple GST registrations configure karne ka option documented is.</dd>
+
+                    <dt><strong>FAQ 9 — GST activate karne ke baad GSTIN change kar sakte hain?</strong></dt>
+                    <dd>GST details alter ki ja sakti hain, lekin real business data in GST registration changes ko carefully handle should be performed becaufrom existing transactions/reporting can be affected.</dd>
+
+                    <dt><strong>FAQ 10 — GST activation and GST return filing same cheez hai?</strong></dt>
+                    <dd>NGST activation = TallyPrime in GST-related accounting configuration enable karnGST return filing = applicable GST return data prepare/reconcile/file karnYe courfrom ke later days in separately cover hoga.</dd>
+
+                    <dt><strong>FAQ 11 — HSN and SAC kor hain?</strong></dt>
+                    <dd>HSN goods ko classify karne ke liye ufrom hota haSAC services ko classify karne ke liye ufrom hota haTallyPrime in relevant GST rate and HSN/SAC details configure ki ja sakti are.</dd>
+
+                    <dt><strong>FAQ 12 — Agar GST enabled hai to kor har transaction par GST automatically lagega?</strong></dt>
+                    <dd>Nahi, blindly nahGST calculation transaction ki nature, party details, item/service, GST applicability, rate, place of supply and other applicable rules par depend karti is.</dd>
+                </dl>
+            </section>
+
+            <section>
+                <h2>Viva Questions</h2>
+                <ol>
+                    <li>GST ka full form kor hai?</li>
+                    <li>GSTIN ka full form kor hai?</li>
+                    <li>GSTIN kitne characters ka is?</li>
+                    <li>CWhat is GST (Goods & Services Tax)?</li>
+                    <li>SWhat is GST (Goods & Services Tax)?</li>
+                    <li>IWhat is GST (Goods & Services Tax)?</li>
+                    <li>Intra-State supply kor is?</li>
+                    <li>Inter-State supply kor is?</li>
+                    <li>Maharashtra → Maharashtra transaction generally kis category in aayega?</li>
+                    <li>Maharashtra → Gujarat transaction generally kis category in aayega?</li>
+                    <li>TallyPrime in GST activate karne ke liye kaunsa feature ufrom is?</li>
+                    <li>F11 ka ufrom kor hai?</li>
+                    <li>GST activation ke baad and kaun-kaun from masters configure karne pad sakte hain?</li>
+                    <li>HSN kor hai?</li>
+                    <li>SAC kor hai?</li>
+                    <li>GSTIN galat enter karne from kor problem ho sakti hai?</li>
+                    <li>Regular taxpayer kor is?</li>
+                    <li>Composition taxpayer ka basic concept kor hai?</li>
+                    <li>Kor GST activation complete GST accounting setup hai?</li>
+                    <li>GST return filing and GST activation in kor difference hai?</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Quick Revision</h2>
+                <p><strong>Remember Thefrom 10 Points:</strong></p>
+                <ol>
+                    <li>GST = Goods and Services Tax.</li>
+                    <li>GSTIN = GST Identification Number.</li>
+                    <li>Intra-State transactions generally involve CGST + SGST/UTGST.</li>
+                    <li>Inter-State transactions generally involve IGST.</li>
+                    <li>TallyPrime in GST activation generally F11 from is.</li>
+                    <li>Company ka State GST configuration ke liye important is.</li>
+                    <li>GSTIN carefully enter should be performed.</li>
+                    <li>GST activation ke baad relevant masters configure karne padte are.</li>
+                    <li>HSN goods ke classification ke liye important is.</li>
+                    <li>GST activation and GST return filing alag processes are.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Day 1 Practical Completion Checklist</h2>
+                <ul>
+                    <li>[ ] Practice company created</li>
+                    <li>[ ] State correctly selected</li>
+                    <li>[ ] Financial year configured</li>
+                    <li>[ ] GST enabled</li>
+                    <li>[ ] Registration type selected</li>
+                    <li>[ ] Dummy GSTIN entered</li>
+                    <li>[ ] GST configuration saved</li>
+                    <li>[ ] GST settings reopened and verified</li>
+                    <li>[ ] Intra-State concept understood</li>
+                    <li>[ ] Inter-State concept understood</li>
+                    <li>[ ] CGST/SGST concept understood</li>
+                    <li>[ ] IGST concept understood</li>
+                    <li>[ ] Basic GST calculation practiced</li>
+                    <li>[ ] Assignment completed</li>
+                    <li>[ ] Viva questions attempted</li>
+                </ul>
+
+                <h3>Day 1 Final Outcome</h3>
+                <p>Day 1 complete hone ke baad student ko only "TallyPrime in GST kaifrom ON execute" nahi aana chahiyStudent ko ye complete flow samajh aana chahiye:</p>
+                <p><code>GST Concept → GST Registration → GSTIN → Intra/Inter-State → CGST/SGST/IGST → Company Creation → F11 → GST Activation → GST Registration Details → Basic GST Configuration → Practice</code></p>
+            </section>
+
+            <section>
+                <h2>Next Day: Day 2 — Accounting of GST Transactions</h2>
+                <p>Day 2 in isi practice company ko continue karke:</p>
+                <ul>
+                    <li>GST Purchafrom & Sales</li>
+                    <li>Party Ledgers, Purchafrom Ledger, Sales Ledger</li>
+                    <li>CGST, SGST, IGST Ledgers</li>
+                    <li>Taxable Value & GST Calculation</li>
+                    <li>Intra-State & Inter-State Purchase/Sales</li>
+                    <li>Complete voucher entry & Practical exercises</li>
+                    <li>Verification reports, Practice Set, FAQs & Viva</li>
+                </ul>
+                <p><em><strong>Important:</strong> GST rates, filing thresholds, due dates and other compliance values ko actual business ufrom from pehle latest applicable government notifications/official GST guidance from verify karna chahiyTallyPrime ka current GST setup documentation also latest GST rate information ko configure karne from pehle refer karne ko kehta is.</em></p>
+            </section>
+
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+
+            <section>
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Practicing GST in TallyPrime Educational Mode:</strong>
+                    <ul>
+                        <li>In Educational Mode, GST calculates 100% accurately across CGST, SGST, IGST, and Cess.</li>
+                        <li>Use dummy practice GSTINs adhering to valid format: 2-digit State Code + 10-char PAN + <code>1Z5</code> (e.g. <code>27ABCDE1234F1Z5</code> for Maharashtra, <code>29ABCDE1234F1Z5</code> for Karnataka, <code>07ABCDE1234F1Z5</code> for Delhi).</li>
+                        <li>Tally will show a brief warning <em>"Verify GSTIN format"</em> for simulated codes &mdash; simply press <kbd>Enter</kbd> to accept and proceed with practice.</li>
+                    </ul>
+                </div>
+  
+                <h2>Learning Objectives</h2>
+                <p>Is class ke end tak student:</p>
+                <ul>
+                    <li>GST ka basic concept samjhega.</li>
+                    <li>CGST, SGST aur IGST ka difference samjhega.</li>
+                    <li>Intra-State aur Inter-State supply identify kar payega.</li>
+                    <li>GSTIN ka basic structure samjhega.</li>
+                    <li>TallyPrime company mein GST activate kar payega.</li>
+                    <li>Company ke GST registration details configure kar payega.</li>
+                    <li>Regular aur Composition registration type ka basic difference samjhega.</li>
+                    <li>GST activation ke baad basic GST-related options identify kar payega.</li>
+                    <li>Practice company bana kar GST configuration independently kar payega.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>GST Kya Hai?</h2>
+                <p><strong>GST = Goods and Services Tax</strong></p>
+                <p>GST ek indirect tax hai jo goods aur services ki supply par applicable hota hai.</p>
+                <p><strong>Simple language mein:</strong></p>
+                <p>Jab business taxable goods ya services supply karta hai, to applicable GST customer se collect kiya ja sakta hai aur prescribed rules ke according government ko account/pay kiya jata hai.</p>
+                <p>GST ka basic objective multiple indirect taxes ko ek common GST framework mein bring karna hai.</p>
+
+                <h3>Simple Example</h3>
+                <p>ABC Traders ne ₹10,000 ke taxable goods sell kiye aur applicable GST rate 18% hai.</p>
+                <p><strong>GST:</strong> ₹10,000 × 18% = ₹1,800</p>
+                <p><strong>Agar transaction intra-State hai:</strong></p>
+                <ul>
+                    <li>CGST = ₹900</li>
+                    <li>SGST = ₹900</li>
+                    <li><strong>Customer se total:</strong> ₹10,000 + ₹1,800 = ₹11,800</li>
+                </ul>
+                <p><strong>Agar transaction inter-State hai:</strong></p>
+                <ul>
+                    <li>IGST = ₹1,800</li>
+                    <li><strong>Total invoice:</strong> ₹11,800</li>
+                </ul>
+                <p><em><strong>Note:</strong> Actual GST rate transaction ke goods/services aur applicable law/rate notification par depend karta haPractice examples mein 18% sirf learning purpose ke liye use kiya gaya hai.</em></p>
+            </section>
+
+            <section>
+                <h2>GST ke Important Concepts</h2>
+                
+                <h3>3.1 CGST</h3>
+                <p><strong>CGST = Central Goods and Services Tax</strong></p>
+                <p>Jab taxable supply same State/UT ke andar hoti hai, applicable GST ko generally CGST aur SGST/UTGST components mein divide kiya jata hai.</p>
+                <p><strong>Example:</strong></p>
+                <ul>
+                    <li>Seller State = Maharashtra</li>
+                    <li>Buyer State = Maharashtra</li>
+                    <li>Taxable Value = ₹20,000</li>
+                    <li>GST Rate = 18%</li>
+                </ul>
+                <p><strong>Calculation:</strong></p>
+                <ul>
+                    <li>CGST 9% = ₹1,800</li>
+                    <li>SGST 9% = ₹1,800</li>
+                    <li><strong>Total GST = ₹3,600</strong></li>
+                </ul>
+
+                <h3>3.2 SGST</h3>
+                <p><strong>SGST = State Goods and Services Tax</strong></p>
+                <p>Intra-State taxable supply mein CGST ke saath SGST component applicable ho sakta hai.</p>
+                <p><strong>Example:</strong></p>
+                <ul>
+                    <li>Taxable value = ₹20,000</li>
+                    <li>GST = 18%</li>
+                    <li>CGST = ₹1,800</li>
+                    <li>SGST = ₹1,800</li>
+                    <li><strong>Total = ₹23,600</strong></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>IGST</h2>
+                <p><strong>IGST = Integrated Goods and Services Tax</strong></p>
+                <p>Generally, Inter-State supply mein IGST apply hota hai.</p>
+                <p><strong>Example:</strong></p>
+                <ul>
+                    <li>Seller = Maharashtra</li>
+                    <li>Buyer = Gujarat</li>
+                    <li>Taxable value = ₹20,000</li>
+                    <li>GST rate = 18%</li>
+                </ul>
+                <p><strong>IGST:</strong> ₹20,000 × 18% = ₹3,600</p>
+                <p><strong>Invoice value:</strong> ₹20,000 + ₹3,600 = ₹23,600</p>
+            </section>
+
+            <section>
+                <h2>Intra-State vs Inter-State</h2>
+                <p>Ye concept TallyPrime mein GST accounting ke liye bahut important hai.</p>
+
+                <h3>Intra-State</h3>
+                <p>Seller aur buyer ka relevant State same hai.</p>
+                <p><strong>Example:</strong> Maharashtra → Maharashtra | <strong>Generally:</strong> CGST + SGST</p>
+
+                <h3>Inter-State</h3>
+                <p>Seller aur buyer different States mein hain.</p>
+                <p><strong>Example:</strong> Maharashtra → Gujarat | <strong>Generally:</strong> IGST</p>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Situation</th>
+                                <th>Example</th>
+                                <th>Generally Applicable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Intra-State</td>
+                                <td>Maharashtra → Maharashtra</td>
+                                <td>CGST + SGST</td>
+                            </tr>
+                            <tr>
+                                <td>Inter-State</td>
+                                <td>Maharashtra → Gujarat</td>
+                                <td>IGST</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><em><strong>Important:</strong> Tax determination sirf party ke State ko dekhkar blindly nahi kiya jana chahiyPlace-of-supply rules bhi relevant hote hain, especially services aur special transactions mein.</em></p>
+            </section>
+
+            <section>
+                <h2>GSTIN Kya Hai?</h2>
+                <p><strong>GSTIN = Goods and Services Tax Identification Number</strong></p>
+                <p>GST-registered taxpayer ko GST registration ke liye GSTIN diya jata haGSTIN generally 15-character alphanumeric identifier hota haTallyPrime mein company GST details configure karte waqt GSTIN enter kiya ja sakta hai.</p>
+                <p><strong>Practice GSTIN:</strong> Practice ke liye hum dummy GSTIN use karenge: <code>27AAAAA0000A1Z5</code></p>
+                <p><em>Isse actual business GSTIN na samjheiReal company mein hamesha actual GSTIN use kareiTallyPrime mein wrong GSTIN enter karne se GST reporting/reconciliation mein problems ho sakti hain.</em></p>
+            </section>
+
+            <section>
+                <h2>GST Registration Types — Basic Understanding</h2>
+                <p>Day 1 par student ko registration types ka basic idea hona chahiye.</p>
+                <ul>
+                    <li><strong>Regular:</strong> Regular taxpayer normal GST framework ke according taxable transactions account karta hai.</li>
+                    <li><strong>Composition:</strong> Composition scheme eligible taxpayers ke liye simplified tax scheme haComposition dealer generally customer ko normal GST tax invoice ki tarah GST separately charge nahi karta; tax payment composition rules ke according hoti hai.</li>
+                </ul>
+                <p><strong>Day 1 ke liye:</strong> Hum practical setup Regular Dealer ke example se karenge.</p>
+            </section>
+
+            <section>
+                <h2>TallyPrime mein GST Activate Karne Se Pehle</h2>
+                <p>Company setup ke liye basic information ready rakhein:</p>
+                <ul>
+                    <li>Company Name</li>
+                    <li>Address</li>
+                    <li>State</li>
+                    <li>Financial Year</li>
+                    <li>Books Beginning From</li>
+                    <li>GST Registration Type</li>
+                    <li>GSTIN</li>
+                    <li>GST applicable from date</li>
+                    <li>GSTR-1 periodicity, where applicable</li>
+                </ul>
+                <p>TallyPrime ke current GST setup documentation ke according company create/open karne ke baad F11 se GST enable kiya ja sakta hai.</p>
+            </section>
+
+            <section>
+                <h2>Practical Setup — Create Practice Company</h2>
+                <h3>Company Details</h3>
+                <p>Hum ek imaginary trading business create karenge.</p>
+                <ul>
+                    <li><strong>Company Name:</strong> ABC Traders</li>
+                    <li><strong>Address:</strong> Main Market, Pune</li>
+                    <li><strong>State:</strong> Maharashtra</li>
+                    <li><strong>Country:</strong> India</li>
+                    <li><strong>Financial Year:</strong> 2026–27</li>
+                    <li><strong>Books Beginning From:</strong> 1-Apr-2026</li>
+                </ul>
+                <h3>GST Details</h3>
+                <ul>
+                    <li><strong>GST:</strong> Enabled</li>
+                    <li><strong>Registration Type:</strong> Regular</li>
+                    <li><strong>GSTIN:</strong> 27AAAAA0000A1Z5 — Dummy Practice GSTIN</li>
+                    <li><strong>GSTR-1 Periodicity:</strong> As applicable for the practice setup</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Step-by-Step: GST Activate in TallyPrime</h2>
+                <p><strong>Step 1 — Company Open Karein:</strong> TallyPrime open kareiApni practice company <code>ABC Traders</code> open karein.</p>
+                <p><strong>Step 2 — F11 Features Open Karein:</strong> Keyboard se <code>F11</code> press kareiCompany Features/Taxation section mein GST option locate karein.</p>
+                <p><strong>Step 3 — GST Enable Karein:</strong> Option <strong>Enable Goods and Services Tax (GST)</strong> ko <code>Yes</code> karein.</p>
+                <p><em>TallyPrime ke current documentation mein GST activation ke liye F11 → Enable Goods and Services Tax (GST) → Yes diya gaya hai.</em></p>
+            </section>
+
+            <section>
+                <h2>GST Registration Details Enter Karein</h2>
+                <p>GST enable karne ke baad company ke GST details configure karein:</p>
+                <ul>
+                    <li><strong>State:</strong> Select <code>Maharashtra</code> (Company ka State GST transaction ke tax determination mein important role play karta hai).</li>
+                    <li><strong>GSTIN/UIN:</strong> Practice: <code>27AAAAA0000A1Z5</code> (Real company ke case mein actual GSTIN enter karein).</li>
+                    <li><strong>Registration Type:</strong> Select <code>Regular</code>.</li>
+                    <li><strong>Other Territory:</strong> Normal Maharashtra business practice ke example mein: <code>No</code>.</li>
+                    <li><strong>GSTR-1 Periodicity:</strong> Business ke applicable filing arrangement ke according: <code>Monthly / Quarterly</code> select karein.</li>
+                </ul>
+                <p><em>TallyPrime ki current documentation company GST setup mein State, GSTIN/UIN, Registration Type aur GSTR-1 periodicity configure karne ka process describe karti hai.</em></p>
+            </section>
+
+            <section>
+                <h2>Save the Configuration</h2>
+                <p>Details verify karein:</p>
+                <ul>
+                    <li>Company Name</li>
+                    <li>State</li>
+                    <li>GST enabled</li>
+                    <li>Registration Type</li>
+                    <li>GSTIN</li>
+                    <li>Other applicable GST details</li>
+                </ul>
+                <p>Phir <code>Ctrl + A</code> se save karein.</p>
+            </section>
+
+            <section>
+                <h2>GST Activate Hone Ke Baad Kya Change Hota Hai?</h2>
+                <p>GST activate karne ke baad TallyPrime mein GST-related configuration aur transaction capabilities available ho jati haiAage hum:</p>
+                <ul>
+                    <li>Party GST details</li>
+                    <li>Sales GST</li>
+                    <li>Purchase GST</li>
+                    <li>HSN/SAC</li>
+                    <li>GST Rates</li>
+                    <li>CGST, SGST, IGST</li>
+                    <li>Input Tax Credit</li>
+                    <li>GST payment</li>
+                    <li>GST returns</li>
+                </ul>
+                <p>jaise concepts configure aur use karengTallyPrime mein GST rate aur HSN/SAC details company, ledger, stock item aur other relevant masters mein configure ki ja sakti hain, depending on the required hierarchy.</p>
+            </section>
+
+            <section>
+                <h2>GST Activation ka Flow</h2>
+                <p>Student ko ye flow yaad hona chahiye:</p>
+                <p><code>Company Creation → F11 Features → Enable GST = Yes → GST Registration Details → State → GSTIN/UIN → Registration Type → Other GST Configuration → Save → GST-Ready Company</code></p>
+            </section>
+
+            <section>
+                <h2>Important Concept: GST Activation ≠ Complete GST Setup</h2>
+                <p>Ye bahut important point haSirf <code>GST = Yes</code> kar dene se complete GST accounting setup nahi ho jatGST transactions ke liye further configuration required ho sakti hai, jaise:</p>
+                <ul>
+                    <li>Party registration details</li>
+                    <li>GSTIN</li>
+                    <li>GST applicability</li>
+                    <li>HSN/SAC</li>
+                    <li>GST rates</li>
+                    <li>Sales/Purchase ledgers</li>
+                    <li>Tax ledgers</li>
+                    <li>Stock item GST details</li>
+                    <li>Place of supply</li>
+                    <li>Applicable transaction configurations</li>
+                </ul>
+                <p>TallyPrime mein GST rates aur HSN/SAC details ko relevant masters mein configure karna accurate tax calculation aur return reporting ke liye important hai.</p>
+            </section>
+
+            <section>
+                <h2>Practice Set — Level 1</h2>
+                <h3>Task 1 — Create Company</h3>
+                <p>Create: <strong>ABC Traders</strong></p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Company</td>
+                                <td>ABC Traders</td>
+                            </tr>
+                            <tr>
+                                <td>State</td>
+                                <td>Maharashtra</td>
+                            </tr>
+                            <tr>
+                                <td>Financial Year</td>
+                                <td>2026–27</td>
+                            </tr>
+                            <tr>
+                                <td>Books Beginning</td>
+                                <td>01-Apr-2026</td>
+                            </tr>
+                            <tr>
+                                <td>GST</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td>Registration Type</td>
+                                <td>Regular</td>
+                            </tr>
+                            <tr>
+                                <td>GSTIN</td>
+                                <td>27AAAAA0000A1Z5 (Dummy)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Student Task:</strong> Without looking at the solution, activate GST and configure the company.</p>
+            </section>
+
+            <section>
+                <h2>Practice Set — Level 2</h2>
+                <p>Create another practice company: <strong>M/s Sunrise Electronics</strong></p>
+                <h3>Details:</h3>
+                <ul>
+                    <li>State: Maharashtra</li>
+                    <li>Financial Year: 2026–27</li>
+                    <li>GST Registration: Regular</li>
+                    <li>GST: Enabled</li>
+                    <li>Dummy GSTIN for practice</li>
+                    <li>GSTR-1 periodicity: choose the appropriate practice setting</li>
+                </ul>
+                <h3>Student Must Perform:</h3>
+                <ol>
+                    <li>Create company.</li>
+                    <li>Open F11.</li>
+                    <li>Enable GST.</li>
+                    <li>Open GST details.</li>
+                    <li>Enter State.</li>
+                    <li>Enter dummy GSTIN.</li>
+                    <li>Select Regular.</li>
+                    <li>Save.</li>
+                    <li>Reopen company GST configuration.</li>
+                    <li>Verify all details.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Practice Set — Concept Questions</h2>
+                <ol>
+                    <li>A seller is located in Maharashtra and the buyer is also located in MaharashtrIs this generally intra-State or inter-State?</li>
+                    <li>A seller is located in Maharashtra and the buyer is located in GujaraIs this generally intra-State or inter-State?</li>
+                    <li>In a basic intra-State taxable transaction, which two GST components are generally involved?</li>
+                    <li>In a basic inter-State taxable transaction, which GST component is generally involved?</li>
+                    <li>What is GSTIN?</li>
+                    <li>What is the purpose of enabling GST in TallyPrime?</li>
+                    <li>Does enabling GST alone mean that every ledger and stock item has been completely configured for GST?</li>
+                    <li>Why is the company's State important in GST accounting?</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Practice Calculation</h2>
+                <p><em>Assume GST rate = 18% for practice only.</em></p>
+
+                <h3>Transaction A</h3>
+                <p>Taxable Value = ₹10,000 | Transaction = Intra-State</p>
+                <p><strong>Calculate:</strong> CGST, SGST, Total GST, Invoice Value</p>
+                <p><strong>Answer:</strong></p>
+                <ul>
+                    <li>GST = ₹10,000 × 18% = ₹1,800</li>
+                    <li>CGST = ₹900</li>
+                    <li>SGST = ₹900</li>
+                    <li>Invoice Value = ₹10,000 + ₹1,800 = ₹11,800</li>
+                </ul>
+
+                <h3>Transaction B</h3>
+                <p>Taxable Value = ₹25,000 | Transaction = Inter-State</p>
+                <p><strong>Calculate:</strong> IGST, Invoice Value</p>
+                <p><strong>Answer:</strong></p>
+                <ul>
+                    <li>IGST = ₹25,000 × 18% = ₹4,500</li>
+                    <li>Invoice Value = ₹25,000 + ₹4,500 = ₹29,500</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Student Assignment</h2>
+                <p>Create a company: <strong>M/s Techno Mart</strong></p>
+                <h3>Details:</h3>
+                <ul>
+                    <li>State: Maharashtra</li>
+                    <li>Financial Year: 2026–27</li>
+                    <li>GST Registration: Regular</li>
+                    <li>GST: Enabled</li>
+                </ul>
+                <p>Then configure the GST detailAfter completing the setup, student should be able to answer:</p>
+                <ul>
+                    <li>Is GST enabled?</li>
+                    <li>What is the company's State?</li>
+                    <li>What is the registration type?</li>
+                    <li>Where is GSTIN entered?</li>
+                    <li>From where can GST features be accessed?</li>
+                    <li>What additional configuration will be required before recording complete GST transactions?</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Common Mistakes</h2>
+                <ul>
+                    <li><strong>Mistake 1 — Wrong State:</strong> Company ka State incorrectly select kar den<em>(Why important: State information GST transaction determination mein important hai.)</em></li>
+                    <li><strong>Mistake 2 — Wrong GSTIN:</strong> GSTIN mein typing mistak<em>(Solution: GSTIN carefully verify kareiReal business ke case mein portal records/business documents ke according details enter karein.)</em></li>
+                    <li><strong>Mistake 3 — GST Enable Karna Bhool Jana:</strong> Student company create kar leta hai lekin GST enable nahi kart<em>(Solution: F11 → GST → Yes)</em></li>
+                    <li><strong>Mistake 4 — GST Activation Ko Complete Setup Samajhna:</strong> GST enable hone ke baad bhi party, item/service, HSN/SAC, rates aur transaction-specific configurations ki zarurat ho sakti hai.</li>
+                    <li><strong>Mistake 5 — Dummy GSTIN Ko Real GSTIN Samajhna:</strong> Practice set mein dummy data use kareiActual business data ke liye actual GSTIN hi use karein.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>FAQs — Frequently Asked Questions</h2>
+                <dl>
+                    <dt><strong>FAQ 1 — TallyPrime mein GST activate kaise karte hain?</strong></dt>
+                    <dd>TallyPrime mein company open karke F11 → Enable Goods and Services Tax (GST) → Yes kiya ja sakta haUske baad required GST registration details configure ki jati hain.</dd>
+                    
+                    <dt><strong>FAQ 2 — GST activate karne ke liye GSTIN mandatory hai?</strong></dt>
+                    <dd>Business ke actual GST setup mein GST registration details, including GSTIN where applicable, correctly maintain karna important haTallyPrime mein GSTIN/UIN company GST details mein enter kiya ja sakta haPractice ke liye dummy data use kiya ja sakta hai.</dd>
+
+                    <dt><strong>FAQ 3 — GST enable karne ke baad kya hum immediately sale entry kar sakte hain?</strong></dt>
+                    <dd>GST enable karna first step haAccurate GST transaction ke liye relevant party, ledger, stock/service, HSN/SAC, GST rate aur transaction details bhi properly configured honi chahiye.</dd>
+
+                    <dt><strong>FAQ 4 — CGST aur SGST kab lagte hain?</strong></dt>
+                    <dd>Basic intra-State taxable supply mein generally CGST aur SGST/UTGST components apply hote hain.</dd>
+
+                    <dt><strong>FAQ 5 — IGST kab lagta hai?</strong></dt>
+                    <dd>Basic inter-State taxable supply mein generally IGST apply hota haLekin special transactions mein place-of-supply aur other GST rules check karna zaroori hai.</dd>
+
+                    <dt><strong>FAQ 6 — Kya GST rate company level par set kiya ja sakta hai?</strong></dt>
+                    <dd>TallyPrime mein GST rate/HSN-SAC details company level ke saath relevant masters mein bhi configure ki ja sakti haiTallyPrime GST hierarchy ke according rate details ka source configure karne ki flexibility deta hai.</dd>
+
+                    <dt><strong>FAQ 7 — Kya har party ka GSTIN enter karna zaroori hai?</strong></dt>
+                    <dd>Registered parties ke GST transactions mein party ki GST registration details correctly maintain karna important haTallyPrime party ledger mein registration type aur GSTIN/UIN maintain karne ka option deta hai.</dd>
+
+                    <dt><strong>FAQ 8 — Kya ek company mein multiple GSTIN ho sakte hain?</strong></dt>
+                    <dd>Current TallyPrime versions multiple GST registrations ko support karte hain, depending on the version/setuTallyHelp ke current documentation mein multiple GST registrations configure karne ka option documented hai.</dd>
+
+                    <dt><strong>FAQ 9 — GST activate karne ke baad GSTIN change kar sakte hain?</strong></dt>
+                    <dd>GST details alter ki ja sakti hain, lekin real business data mein GST registration changes ko carefully handle karna chahiye because existing transactions/reporting can be affected.</dd>
+
+                    <dt><strong>FAQ 10 — GST activation aur GST return filing same cheez hai?</strong></dt>
+                    <dd>NGST activation = TallyPrime mein GST-related accounting configuration enable karnGST return filing = applicable GST return data prepare/reconcile/file karnYe course ke later days mein separately cover hoga.</dd>
+
+                    <dt><strong>FAQ 11 — HSN aur SAC kya hain?</strong></dt>
+                    <dd>HSN goods ko classify karne ke liye use hota haSAC services ko classify karne ke liye use hota haTallyPrime mein relevant GST rate aur HSN/SAC details configure ki ja sakti hain.</dd>
+
+                    <dt><strong>FAQ 12 — Agar GST enabled hai to kya har transaction par GST automatically lagega?</strong></dt>
+                    <dd>Nahi, blindly nahGST calculation transaction ki nature, party details, item/service, GST applicability, rate, place of supply aur other applicable rules par depend karti hai.</dd>
+                </dl>
+            </section>
+
+            <section>
+                <h2>Viva Questions</h2>
+                <ol>
+                    <li>GST ka full form kya hai?</li>
+                    <li>GSTIN ka full form kya hai?</li>
+                    <li>GSTIN kitne characters ka hota hai?</li>
+                    <li>CGST kya hai?</li>
+                    <li>SGST kya hai?</li>
+                    <li>IGST kya hai?</li>
+                    <li>Intra-State supply kya hoti hai?</li>
+                    <li>Inter-State supply kya hoti hai?</li>
+                    <li>Maharashtra → Maharashtra transaction generally kis category mein aayega?</li>
+                    <li>Maharashtra → Gujarat transaction generally kis category mein aayega?</li>
+                    <li>TallyPrime mein GST activate karne ke liye kaunsa feature use hota hai?</li>
+                    <li>F11 ka use kya hai?</li>
+                    <li>GST activation ke baad aur kaun-kaun se masters configure karne pad sakte hain?</li>
+                    <li>HSN kya hai?</li>
+                    <li>SAC kya hai?</li>
+                    <li>GSTIN galat enter karne se kya problem ho sakti hai?</li>
+                    <li>Regular taxpayer kya hota hai?</li>
+                    <li>Composition taxpayer ka basic concept kya hai?</li>
+                    <li>Kya GST activation complete GST accounting setup hai?</li>
+                    <li>GST return filing aur GST activation mein kya difference hai?</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Quick Revision</h2>
+                <p><strong>Remember These 10 Points:</strong></p>
+                <ol>
+                    <li>GST = Goods and Services Tax.</li>
+                    <li>GSTIN = GST Identification Number.</li>
+                    <li>Intra-State transactions generally involve CGST + SGST/UTGST.</li>
+                    <li>Inter-State transactions generally involve IGST.</li>
+                    <li>TallyPrime mein GST activation generally F11 se hota hai.</li>
+                    <li>Company ka State GST configuration ke liye important hai.</li>
+                    <li>GSTIN carefully enter karna chahiye.</li>
+                    <li>GST activation ke baad relevant masters configure karne padte hain.</li>
+                    <li>HSN goods ke classification ke liye important hai.</li>
+                    <li>GST activation aur GST return filing alag processes hain.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2>Day 1 Practical Completion Checklist</h2>
+                <ul>
+                    <li>[ ] Practice company created</li>
+                    <li>[ ] State correctly selected</li>
+                    <li>[ ] Financial year configured</li>
+                    <li>[ ] GST enabled</li>
+                    <li>[ ] Registration type selected</li>
+                    <li>[ ] Dummy GSTIN entered</li>
+                    <li>[ ] GST configuration saved</li>
+                    <li>[ ] GST settings reopened and verified</li>
+                    <li>[ ] Intra-State concept understood</li>
+                    <li>[ ] Inter-State concept understood</li>
+                    <li>[ ] CGST/SGST concept understood</li>
+                    <li>[ ] IGST concept understood</li>
+                    <li>[ ] Basic GST calculation practiced</li>
+                    <li>[ ] Assignment completed</li>
+                    <li>[ ] Viva questions attempted</li>
+                </ul>
+
+                <h3>Day 1 Final Outcome</h3>
+                <p>Day 1 complete hone ke baad student ko sirf "TallyPrime mein GST kaise ON karein" nahi aana chahiyStudent ko ye complete flow samajh aana chahiye:</p>
+                <p><code>GST Concept → GST Registration → GSTIN → Intra/Inter-State → CGST/SGST/IGST → Company Creation → F11 → GST Activation → GST Registration Details → Basic GST Configuration → Practice</code></p>
+            </section>
+
+            <section>
+                <h2>Next Day: Day 2 — Accounting of GST Transactions</h2>
+                <p>Day 2 mein isi practice company ko continue karke:</p>
+                <ul>
+                    <li>GST Purchase & Sales</li>
+                    <li>Party Ledgers, Purchase Ledger, Sales Ledger</li>
+                    <li>CGST, SGST, IGST Ledgers</li>
+                    <li>Taxable Value & GST Calculation</li>
+                    <li>Intra-State & Inter-State Purchase/Sales</li>
+                    <li>Complete voucher entry & Practical exercises</li>
+                    <li>Verification reports, Practice Set, FAQs & Viva</li>
+                </ul>
+                <p><em><strong>Important:</strong> GST rates, filing thresholds, due dates aur other compliance values ko actual business use se pehle latest applicable government notifications/official GST guidance se verify karna chahiyTallyPrime ka current GST setup documentation bhi latest GST rate information ko configure karne se pehle refer karne ko kehta hai.</em></p>
+            </section>
+
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>Understand the core principles and concepts of GST Return.</li>
+                    <li>Regular GST Dealer ke liye applicable returns identify karega.</li>
+                    <li>Understand the operational differences between GSTR-1 and GSTR-3B.</li>
+                    <li>TallyPrime in GST return data generate karega.</li>
+                    <li>Return filing from pehle data verification karega.</li>
+                    <li>Understand the business relationship and workflow of Sales register from GSTR-1 data.</li>
+                    <li>Purchafrom and ITC data ka GSTR-3B from relation samjhega.</li>
+                    <li>JSON/Excel format in return data export karega.</li>
+                    <li>GST portal upload ke liye file prepare karega.</li>
+                    <li>Errors identify and resolve karega.</li>
+                    <li>Complete monthly GST compliance cycle perform karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>GST Return Concepts: GSTR-1 vs GSTR-3B</h2>
+                <p>GST Return ek statutory electronic document hai jisme regular dealer apni Outward Supplies (Sales), Inward Supplies (Purchases), Input Tax Credit (ITC), and Net Tax Payment ki report government portal par file karta is.</p>
+
+                <h3>Main Returns for Regular Taxpayers</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Return</th>
+                            <th>Filing Purpose</th>
+                            <th>Frequency / Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>GSTR-1</strong></td>
+                            <td>Outward Supply (Detailed sales, invoice-wifrom B2B, B2C, Credit/Debit notes)</td>
+                            <td>Monthly / Quarterly (QRMP)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GSTR-3B</strong></td>
+                            <td>Summary Return (Total taxable sales, eligible ITC claimed, net tax liability &amp; payment)</td>
+                            <td>Monthly / Quarterly</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>GSTR-1 vs GSTR-3B Comparison</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>GSTR-1</th>
+                            <th>GSTR-3B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Focus</td>
+                            <td>Detailed outward sales &amp; supplies</td>
+                            <td>Self-assessed tax summary &amp; payment</td>
+                        </tr>
+                        <tr>
+                            <td>Invoice-wifrom Breakdown</td>
+                            <td>Yes (B2B, Export, Large B2C)</td>
+                            <td>No (Consolidated section totals)</td>
+                        </tr>
+                        <tr>
+                            <td>ITC Reporting</td>
+                            <td>No</td>
+                            <td>Yes (Table 4 &mdash; Eligible/Ineligible ITC)</td>
+                        </tr>
+                        <tr>
+                            <td>Tax Payment Mechanism</td>
+                            <td>No tax payment directly attached</td>
+                            <td>Yes (Table 6.1 &mdash; Cash / Credit ledger settlement)</td>
+                        </tr>
+                        <tr>
+                            <td>Document Details</td>
+                            <td>Yes (HSN summary, document counts)</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Masters Setup &amp; Configuration Verification</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Customer 1 (Local B2B):</strong> Mumbai Retail Pvt Ltd (Sundry Debtors, Maharashtra &mdash; Regular GSTIN)</li>
+                    <li><strong>Customer 2 (Interstate B2B):</strong> Gujarat Electronics Pvt Ltd (Sundry Debtors, Gujarat &mdash; Regular GSTIN)</li>
+                    <li><strong>Supplier 1 (Local):</strong> Maharashtra Supplier (Sundry Creditors, Maharashtra)</li>
+                    <li><strong>Supplier 2 (Interstate):</strong> Gujarat Supplier (Sundry Creditors, Gujarat)</li>
+                    <li><strong>Stock Item:</strong> Laptop (Unit: <em>Nos</em>, GST @ 18%, HSN Configured)</li>
+                </ul>
+
+                <h3>Pre-Return Configuration Checklist:</h3>
+                <p>Path: <code>Gateway of Tally &rarr; F11 (Features) &rarr; GST Details</code></p>
+                <ul>
+                    <li>✔ GST Enabled</li>
+                    <li>✔ Accurate 15-digit GSTIN entered</li>
+                    <li>✔ Registration Type set to <strong>Regular</strong></li>
+                    <li>✔ Applicable period and periodicity (Monthly/Quarterly) set correctly</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Transactions Walkthrough</h2>
+
+                <h3>Inward / Purchafrom Transactions (For GSTR-3B ITC Table 4)</h3>
+                <ul>
+                    <li><strong>01-Apr (Local Purchafrom F9):</strong> ₹5,00,000 from Maharashtra Supplier @ 18% &rarr; <strong>Input CGST = ₹45,000</strong>, <strong>Input SGST = ₹45,000</strong>.</li>
+                    <li><strong>01-Apr (Interstate Purchafrom F9):</strong> ₹3,00,000 from Gujarat Supplier @ 18% &rarr; <strong>Input IGST = ₹54,000</strong>.</li>
+                </ul>
+
+                <h3>Outward / Sales Transactions (For GSTR-1 &amp; GSTR-3B Table 3.1)</h3>
+                <ul>
+                    <li><strong>01-Apr (Local B2B Sale F8):</strong> Sold Laptops ₹8,00,000 to Mumbai Retail Pvt Ltd &rarr; <strong>Output CGST = ₹72,000</strong>, <strong>Output SGST = ₹72,000</strong>.</li>
+                    <li><strong>01-May (Interstate B2B Sale F8):</strong> Sold Laptops ₹6,00,000 to Gujarat Electronics &rarr; <strong>Output IGST = ₹1,08,000</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>GSTR-3B Tax Computation &amp; Net Liability</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Total Output Tax (Table 3.1)</th>
+                            <th>Eligible ITC (Table 4)</th>
+                            <th>Net Balance Payable (Table 6.1)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>₹72,000</td>
+                            <td>₹45,000</td>
+                            <td>₹27,000</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>₹72,000</td>
+                            <td>₹45,000</td>
+                            <td>₹27,000</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>₹1,08,000</td>
+                            <td>₹54,000</td>
+                            <td>₹54,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>₹2,52,000</strong></td>
+                            <td><strong>₹1,44,000</strong></td>
+                            <td><strong>₹1,08,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>TallyPrime Return Generation &amp; Export Process</h2>
+
+                <h3>Generating GSTR-1:</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-1</strong>.</li>
+                    <li>Check <strong>Uncertain Transactions (Corrections Needed)</strong> &mdash; count must be <strong>0</strong>.</li>
+                    <li>Verify Table 4A (B2B Invoices), Table 5 (B2C Large), Table 7 (B2C Small), and Table 12 (HSN Summary).</li>
+                    <li>Press <strong>Alt + E (Export)</strong> &rarr; <strong>GST Returns</strong> &rarr; File Format: <strong>JSON</strong> (for direct portal upload) or <strong>Excel</strong> (for offline verification).</li>
+                </ol>
+
+                <h3>Generating GSTR-3B:</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-3B</strong>.</li>
+                    <li>Verify Section 3.1 (Outward Supplies) and Section 4 (Eligible ITC).</li>
+                    <li>Click <strong>Set Off Tax Liabilities</strong> to compute final payable amounts.</li>
+                    <li>Export return file via <strong>Alt + E</strong> in JSON format.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Error Resolution &amp; Correction (Triangulation Report)</h2>
+                <ul>
+                    <li><strong>Error 1 &mdash; Information required for generating table is incomplete/mismatch:</strong> Caused by invalid GSTIN format, blank State, or missing CountrFix inside the Triangulation drill-down screen.</li>
+                    <li><strong>Error 2 &mdash; Mismatch in Tax Amount:</strong> Caused by manual rate overrideUfrom <em>Recompute Tax</em> inside the correction screen.</li>
+                    <li><strong>Error 3 &mdash; Missing HSN Summary / Unit of Measure (UQC):</strong> Stock Item master in UQC (e.g., <code>NOS-NUMBERS</code>) select.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Sequential Monthly Lab)</h3>
+                <p>Enter the following transactions and generate monthly return files:</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Party</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>GST Split</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchafrom (F9)</td>
+                            <td>Maharashtra Supplier</td>
+                            <td>2,00,000</td>
+                            <td>CGST ₹18,000 + SGST ₹18,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchafrom (F9)</td>
+                            <td>Gujarat Supplier</td>
+                            <td>3,00,000</td>
+                            <td>IGST ₹54,000</td>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Purchafrom (F9)</td>
+                            <td>Maharashtra Supplier</td>
+                            <td>1,50,000</td>
+                            <td>CGST ₹13,500 + SGST ₹13,500</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Mumbai Retail</td>
+                            <td>4,00,000</td>
+                            <td>CGST ₹36,000 + SGST ₹36,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Sales (F8)</td>
+                            <td>Gujarat Electronics</td>
+                            <td>5,00,000</td>
+                            <td>IGST ₹90,000</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Sales (F8)</td>
+                            <td>Delhi Enterprises</td>
+                            <td>3,00,000</td>
+                            <td>IGST ₹54,000</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Sales (F8)</td>
+                            <td>Pune Traders</td>
+                            <td>2,00,000</td>
+                            <td>CGST ₹18,000 + SGST ₹18,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Sales Register &amp; Purchafrom Register:</strong> Ensure voucher totals match GSTR-1 and GSTR-3B.</li>
+                    <li><strong>GST Computation Screen:</strong> Verify tax collections against eligible ITC and challan payments.</li>
+                    <li><strong>GSTR-1 &amp; GSTR-3B Triangulation Screen:</strong> Confirm that zero vouchers remain in the <em>Correction Needed</em> category.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Generating return JSON files while uncertain transactions still exist in the report.</li>
+                    <li>Assuming that exporting JSON automatically completes return filing on the GST portal.</li>
+                    <li>Failing to verify HSN Summary (Table 12) before exporting GSTR-1.</li>
+                    <li>Entering wrong customer states resulting in incorrect CGST/SGST vs IGST classifications.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: GSTR-1 and GSTR-3B in main difference kor hai?</strong><br>A: GSTR-1 invoice-wifrom sales details report karta hai, jabki GSTR-3B monthly sales, ITC and tax payment ki consolidated summary return is.</li>
+                    <li><strong>Q: JSON file ka kor ufrom is?</strong><br>A: TallyPrime from export ki gayi JSON file ko direct GST Common Portal (<code>gst.gov.in</code>) par offline upload karke return generate kior jata is.</li>
+                    <li><strong>Q: Uncertain transactions ko kaifrom solve execute?</strong><br>A: GSTR-1 or GSTR-3B screen in <em>Uncertain Transactions (Corrections Needed)</em> par Enter press and missing GSTIN, State or HSN code correct execute.</li>
+                </ul>
+
+                <hr>
+
+                <h2>1Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>GST Return Golden Workflow:</strong><br>
+                    <code>Voucher Entries &rarr; GST Triangulation &amp; Error Correction &rarr; Generate GSTR-1 (JSON) &rarr; Set Off ITC in GSTR-3B &rarr; Pay Cash Balance (PMT-06) &rarr; Generate GSTR-3B (JSON) &rarr; Portal Upload &amp; E-Filing</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Company GST settings and active registration details verified</li>
+                    <li>B2B and B2C sales and purchafrom vouchers recorded with accurate taxes</li>
+                    <li>Uncertain / mismatched transactions reconciled to zero</li>
+                    <li>GSTR-1 B2B and HSN summary tables verified</li>
+                    <li>GSTR-3B eligible ITC and tax liabilities set off</li>
+                    <li>Return JSON files exported for portal upload</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>GST Return ka concept samjhega.</li>
+                    <li>Regular GST Dealer ke liye applicable returns identify karega.</li>
+                    <li>GSTR-1 aur GSTR-3B ka difference samjhega.</li>
+                    <li>TallyPrime mein GST return data generate karega.</li>
+                    <li>Return filing se pehle data verification karega.</li>
+                    <li>Sales register se GSTR-1 data ka relation samjhega.</li>
+                    <li>Purchase aur ITC data ka GSTR-3B se relation samjhega.</li>
+                    <li>JSON/Excel format mein return data export karega.</li>
+                    <li>GST portal upload ke liye file prepare karega.</li>
+                    <li>Errors identify aur resolve karega.</li>
+                    <li>Complete monthly GST compliance cycle perform karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>GST Return Concepts: GSTR-1 vs GSTR-3B</h2>
+                <p>GST Return ek statutory electronic document hai jisme regular dealer apni Outward Supplies (Sales), Inward Supplies (Purchases), Input Tax Credit (ITC), aur Net Tax Payment ki report government portal par file karta hai.</p>
+
+                <h3>Main Returns for Regular Taxpayers</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Return</th>
+                            <th>Filing Purpose</th>
+                            <th>Frequency / Target</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>GSTR-1</strong></td>
+                            <td>Outward Supply (Detailed sales, invoice-wise B2B, B2C, Credit/Debit notes)</td>
+                            <td>Monthly / Quarterly (QRMP)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GSTR-3B</strong></td>
+                            <td>Summary Return (Total taxable sales, eligible ITC claimed, net tax liability &amp; payment)</td>
+                            <td>Monthly / Quarterly</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>GSTR-1 vs GSTR-3B Comparison</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>GSTR-1</th>
+                            <th>GSTR-3B</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Focus</td>
+                            <td>Detailed outward sales &amp; supplies</td>
+                            <td>Self-assessed tax summary &amp; payment</td>
+                        </tr>
+                        <tr>
+                            <td>Invoice-wise Breakdown</td>
+                            <td>Yes (B2B, Export, Large B2C)</td>
+                            <td>No (Consolidated section totals)</td>
+                        </tr>
+                        <tr>
+                            <td>ITC Reporting</td>
+                            <td>No</td>
+                            <td>Yes (Table 4 &mdash; Eligible/Ineligible ITC)</td>
+                        </tr>
+                        <tr>
+                            <td>Tax Payment Mechanism</td>
+                            <td>No tax payment directly attached</td>
+                            <td>Yes (Table 6.1 &mdash; Cash / Credit ledger settlement)</td>
+                        </tr>
+                        <tr>
+                            <td>Document Details</td>
+                            <td>Yes (HSN summary, document counts)</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Masters Setup &amp; Configuration Verification</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Required Masters Setup:</h3>
+                <ul>
+                    <li><strong>Customer 1 (Local B2B):</strong> Mumbai Retail Pvt Ltd (Sundry Debtors, Maharashtra &mdash; Regular GSTIN)</li>
+                    <li><strong>Customer 2 (Interstate B2B):</strong> Gujarat Electronics Pvt Ltd (Sundry Debtors, Gujarat &mdash; Regular GSTIN)</li>
+                    <li><strong>Supplier 1 (Local):</strong> Maharashtra Supplier (Sundry Creditors, Maharashtra)</li>
+                    <li><strong>Supplier 2 (Interstate):</strong> Gujarat Supplier (Sundry Creditors, Gujarat)</li>
+                    <li><strong>Stock Item:</strong> Laptop (Unit: <em>Nos</em>, GST @ 18%, HSN Configured)</li>
+                </ul>
+
+                <h3>Pre-Return Configuration Checklist:</h3>
+                <p>Path: <code>Gateway of Tally &rarr; F11 (Features) &rarr; GST Details</code></p>
+                <ul>
+                    <li>✔ GST Enabled</li>
+                    <li>✔ Accurate 15-digit GSTIN entered</li>
+                    <li>✔ Registration Type set to <strong>Regular</strong></li>
+                    <li>✔ Applicable period and periodicity (Monthly/Quarterly) set correctly</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Transactions Walkthrough</h2>
+
+                <h3>Inward / Purchase Transactions (For GSTR-3B ITC Table 4)</h3>
+                <ul>
+                    <li><strong>01-Apr (Local Purchase F9):</strong> ₹5,00,000 from Maharashtra Supplier @ 18% &rarr; <strong>Input CGST = ₹45,000</strong>, <strong>Input SGST = ₹45,000</strong>.</li>
+                    <li><strong>01-Apr (Interstate Purchase F9):</strong> ₹3,00,000 from Gujarat Supplier @ 18% &rarr; <strong>Input IGST = ₹54,000</strong>.</li>
+                </ul>
+
+                <h3>Outward / Sales Transactions (For GSTR-1 &amp; GSTR-3B Table 3.1)</h3>
+                <ul>
+                    <li><strong>01-Apr (Local B2B Sale F8):</strong> Sold Laptops ₹8,00,000 to Mumbai Retail Pvt Ltd &rarr; <strong>Output CGST = ₹72,000</strong>, <strong>Output SGST = ₹72,000</strong>.</li>
+                    <li><strong>01-May (Interstate B2B Sale F8):</strong> Sold Laptops ₹6,00,000 to Gujarat Electronics &rarr; <strong>Output IGST = ₹1,08,000</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>GSTR-3B Tax Computation &amp; Net Liability</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Total Output Tax (Table 3.1)</th>
+                            <th>Eligible ITC (Table 4)</th>
+                            <th>Net Balance Payable (Table 6.1)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>₹72,000</td>
+                            <td>₹45,000</td>
+                            <td>₹27,000</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>₹72,000</td>
+                            <td>₹45,000</td>
+                            <td>₹27,000</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>₹1,08,000</td>
+                            <td>₹54,000</td>
+                            <td>₹54,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>₹2,52,000</strong></td>
+                            <td><strong>₹1,44,000</strong></td>
+                            <td><strong>₹1,08,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>TallyPrime Return Generation &amp; Export Process</h2>
+
+                <h3>Generating GSTR-1:</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-1</strong>.</li>
+                    <li>Check <strong>Uncertain Transactions (Corrections Needed)</strong> &mdash; count must be <strong>0</strong>.</li>
+                    <li>Verify Table 4A (B2B Invoices), Table 5 (B2C Large), Table 7 (B2C Small), and Table 12 (HSN Summary).</li>
+                    <li>Press <strong>Alt + E (Export)</strong> &rarr; <strong>GST Returns</strong> &rarr; File Format: <strong>JSON</strong> (for direct portal upload) or <strong>Excel</strong> (for offline verification).</li>
+                </ol>
+
+                <h3>Generating GSTR-3B:</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-3B</strong>.</li>
+                    <li>Verify Section 3.1 (Outward Supplies) and Section 4 (Eligible ITC).</li>
+                    <li>Click <strong>Set Off Tax Liabilities</strong> to compute final payable amounts.</li>
+                    <li>Export return file via <strong>Alt + E</strong> in JSON format.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Error Resolution &amp; Correction (Triangulation Report)</h2>
+                <ul>
+                    <li><strong>Error 1 &mdash; Information required for generating table is incomplete/mismatch:</strong> Caused by invalid GSTIN format, blank State, or missing CountrFix inside the Triangulation drill-down screen.</li>
+                    <li><strong>Error 2 &mdash; Mismatch in Tax Amount:</strong> Caused by manual rate overrideUse <em>Recompute Tax</em> inside the correction screen.</li>
+                    <li><strong>Error 3 &mdash; Missing HSN Summary / Unit of Measure (UQC):</strong> Stock Item master mein UQC (e.g., <code>NOS-NUMBERS</code>) select karein.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Sequential Monthly Lab)</h3>
+                <p>Enter the following transactions and generate monthly return files:</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Party</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>GST Split</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchase (F9)</td>
+                            <td>Maharashtra Supplier</td>
+                            <td>2,00,000</td>
+                            <td>CGST ₹18,000 + SGST ₹18,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Purchase (F9)</td>
+                            <td>Gujarat Supplier</td>
+                            <td>3,00,000</td>
+                            <td>IGST ₹54,000</td>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Purchase (F9)</td>
+                            <td>Maharashtra Supplier</td>
+                            <td>1,50,000</td>
+                            <td>CGST ₹13,500 + SGST ₹13,500</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Mumbai Retail</td>
+                            <td>4,00,000</td>
+                            <td>CGST ₹36,000 + SGST ₹36,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Sales (F8)</td>
+                            <td>Gujarat Electronics</td>
+                            <td>5,00,000</td>
+                            <td>IGST ₹90,000</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Sales (F8)</td>
+                            <td>Delhi Enterprises</td>
+                            <td>3,00,000</td>
+                            <td>IGST ₹54,000</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Sales (F8)</td>
+                            <td>Pune Traders</td>
+                            <td>2,00,000</td>
+                            <td>CGST ₹18,000 + SGST ₹18,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Sales Register &amp; Purchase Register:</strong> Ensure voucher totals match GSTR-1 and GSTR-3B.</li>
+                    <li><strong>GST Computation Screen:</strong> Verify tax collections against eligible ITC and challan payments.</li>
+                    <li><strong>GSTR-1 &amp; GSTR-3B Triangulation Screen:</strong> Confirm that zero vouchers remain in the <em>Correction Needed</em> category.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Generating return JSON files while uncertain transactions still exist in the report.</li>
+                    <li>Assuming that exporting JSON automatically completes return filing on the GST portal.</li>
+                    <li>Failing to verify HSN Summary (Table 12) before exporting GSTR-1.</li>
+                    <li>Entering wrong customer states resulting in incorrect CGST/SGST vs IGST classifications.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: GSTR-1 aur GSTR-3B mein main difference kya hai?</strong><br>A: GSTR-1 invoice-wise sales details report karta hai, jabki GSTR-3B monthly sales, ITC aur tax payment ki consolidated summary return hoti hai.</li>
+                    <li><strong>Q: JSON file ka kya use hota hai?</strong><br>A: TallyPrime se export ki gayi JSON file ko direct GST Common Portal (<code>gst.gov.in</code>) par offline upload karke return generate kiya jata hai.</li>
+                    <li><strong>Q: Uncertain transactions ko kaise solve karein?</strong><br>A: GSTR-1 ya GSTR-3B screen mein <em>Uncertain Transactions (Corrections Needed)</em> par Enter press karein aur missing GSTIN, State ya HSN code correct karein.</li>
+                </ul>
+
+                <hr>
+
+                <h2>1Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>GST Return Golden Workflow:</strong><br>
+                    <code>Voucher Entries &rarr; GST Triangulation &amp; Error Correction &rarr; Generate GSTR-1 (JSON) &rarr; Set Off ITC in GSTR-3B &rarr; Pay Cash Balance (PMT-06) &rarr; Generate GSTR-3B (JSON) &rarr; Portal Upload &amp; E-Filing</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Company GST settings and active registration details verified</li>
+                    <li>B2B and B2C sales and purchase vouchers recorded with accurate taxes</li>
+                    <li>Uncertain / mismatched transactions reconciled to zero</li>
+                    <li>GSTR-1 B2B and HSN summary tables verified</li>
+                    <li>GSTR-3B eligible ITC and tax liabilities set off</li>
+                    <li>Return JSON files exported for portal upload</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

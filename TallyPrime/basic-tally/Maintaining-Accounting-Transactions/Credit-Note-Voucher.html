@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <ul>
+                    <li><strong>Credit Note:</strong> A document issued to a customer (Debtor) when they return goods previously sold, or when allowing a price adjustment/discount on a past invoice.</li>
+                    <li><strong>Accounting Impact:</strong> It reduces your accounts receivable (asset) from the customer and increases your available stock balance.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>The TallyPrime Return Cycle:</strong><br>
+                    <code>Sales Invoice (F8)</code> &rarr; <code>Credit Note / Sales Return (Alt + F6)</code><br>
+                    <em>(Note: In TallyPrime, the default shortcut for Credit Note is Alt + F6)</em>.
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Credit Note Guide:</strong>
+                    <ul>
+                        <li>Press <kbd>Alt + F6</kbd> (Credit Note) to record sales returns from customers.</li>
+                        <li>Enter date as <code>01-Apr</code> or <code>02-Apr</code> (<kbd>F2</kbd>).</li>
+                        <li>Select original Sales Invoice reference and provide reason for return.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. Feature Activation in TallyPrime</h2>
+
+                <h3>Step A: Enable Debit &amp; Credit Notes</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Under Accounting Features, set <strong>Enable Debit and Credit Notes</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Activate Voucher Type (If Inactive)</h3>
+                <ul>
+                    <li><strong>Method 1 (Fastest):</strong> Go to <strong>Vouchers</strong> &rarr; Press <strong>F10 (Other Vouchers)</strong> &rarr; Select <strong>Credit Note</strong> (Shortcut: <strong>Alt + F6</strong>). When prompted to activate, press <strong>Y</strong> or select <strong>Yes</strong>.</li>
+                    <li><strong>Method 2:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Credit Note</strong> &rarr; Set <strong>Activate this Voucher Type</strong> to <strong>Yes</strong> &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>3. How to Record Vouchers</h2>
+
+                <h3>Recording Credit Notes (<code>Alt + F6</code>)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>Alt + F6</strong> (Credit Note).</li>
+                    <li>Select <strong>Party A/c Name</strong> (Customer / Debtor).</li>
+                    <li>In the <strong>Original Invoice Details</strong> pop-up, enter the original <strong>Reference No.</strong> (e.g., S-101) and Invoice Date.</li>
+                    <li>Select the <strong>Sales / Sales Return Ledger</strong>.</li>
+                    <li>Select <strong>Stock Item</strong>, enter <strong>Quantity</strong>, and <strong>Rate</strong> (Total amount auto-calculates).</li>
+                    <li>Enter Narration: <code>Being goods received.</code></li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Record Credit Notes (<code>Alt + F6</code>)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ref No.</th>
+                            <th>Original Inv No.</th>
+                            <th>Company Name (Customer)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Total Amt</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>C1</strong></td>
+                            <td><strong>S-101</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>2<br><br>1</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>25,000</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C2</strong></td>
+                            <td><strong>S-102</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>40,000</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C3</strong></td>
+                            <td><strong>S-103</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>2<br><br>3</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>31,000</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C4</strong></td>
+                            <td><strong>S-105</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>1<br><br>2</td>
+                            <td>P1-300<br><br>HP-810</td>
+                            <td>32,200</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C5</strong></td>
+                            <td><strong>S-106</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>1<br><br>2<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor</td>
+                            <td>47,500</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C6</strong></td>
+                            <td><strong>S-107</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>1<br><br>1</td>
+                            <td>386Dx4<br><br>15” Mono Monitor</td>
+                            <td>12,000</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C7</strong></td>
+                            <td><strong>S-108</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>1<br><br>2</td>
+                            <td>Epson 400<br><br>Laptop B 200</td>
+                            <td>1,26,500</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking Effect &amp; Report Verification</h2>
+
+                <h3>To Check Effect on Outstanding Receivables:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Outstandings</strong> &rarr; <strong>Receivables</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Receivables</strong>)</em>
+                    </li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Credit Notes:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Journal Register</strong> &rarr; <strong>Credit Note Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Credit Note Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to view or edit details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <ul>
+                    <li><strong>Credit Note:</strong> A document issued to a customer (Debtor) when they return goods previously sold, or when allowing a price adjustment/discount on a past invoice.</li>
+                    <li><strong>Accounting Impact:</strong> It reduces your accounts receivable (asset) from the customer and increases your available stock balance.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>The TallyPrime Return Cycle:</strong><br>
+                    <code>Sales Invoice (F8)</code> &rarr; <code>Credit Note / Sales Return (Alt + F6)</code><br>
+                    <em>(Note: In TallyPrime, the default shortcut for Credit Note is Alt + F6)</em>.
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Credit Note Guide:</strong>
+                    <ul>
+                        <li><kbd>Alt + F6</kbd> (Credit Note) press karein (Credit Note) to record sales returns from customers.</li>
+                        <li>Enter date as <code>01-Apr</code> or <code>02-Apr</code> (<kbd>F2</kbd>).</li>
+                        <li>Select original Sales Invoice reference and provide reason for return.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. Feature Activation in TallyPrime</h2>
+
+                <h3>Step A: Enable Debit &amp; Credit Notes</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Under Accounting Features, set <strong>Enable Debit and Credit Notes</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Activate Voucher Type (If Inactive)</h3>
+                <ul>
+                    <li><strong>Method 1 (Fastest):</strong> Go to <strong>Vouchers</strong> &rarr; Press <strong>F10 (Other Vouchers)</strong> &rarr; Select <strong>Credit Note</strong> (Shortcut: <strong>Alt + F6</strong>). When prompted to activate, press <strong>Y</strong> or select <strong>Yes</strong>.</li>
+                    <li><strong>Method 2:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong> &rarr; <strong>Credit Note</strong> &rarr; Set <strong>Activate this Voucher Type</strong> to <strong>Yes</strong> &rarr; Save with <strong>Ctrl + A</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>3. How to Record Vouchers</h2>
+
+                <h3>Recording Credit Notes (<code>Alt + F6</code>)</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>Alt + F6</strong> (Credit Note).</li>
+                    <li>Select <strong>Party A/c Name</strong> (Customer / Debtor).</li>
+                    <li>In the <strong>Original Invoice Details</strong> pop-up, enter the original <strong>Reference No.</strong> (e.g., S-101) and Invoice Date.</li>
+                    <li>Select the <strong>Sales / Sales Return Ledger</strong>.</li>
+                    <li>Select <strong>Stock Item</strong>, enter <strong>Quantity</strong>, and <strong>Rate</strong> (Total amount auto-calculates).</li>
+                    <li>Enter Narration: <code>Being goods received.</code></li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Record Credit Notes (<code>Alt + F6</code>)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ref No.</th>
+                            <th>Original Inv No.</th>
+                            <th>Company Name (Customer)</th>
+                            <th>Qty</th>
+                            <th>Item Name</th>
+                            <th>Total Amt</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>C1</strong></td>
+                            <td><strong>S-101</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>2<br><br>1</td>
+                            <td>486Dx4<br><br>386Dx4</td>
+                            <td>25,000</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C2</strong></td>
+                            <td><strong>S-102</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>1<br><br>2</td>
+                            <td>P1-300<br><br>P2-300</td>
+                            <td>40,000</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C3</strong></td>
+                            <td><strong>S-103</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>2<br><br>3</td>
+                            <td>Epson 400<br><br>Epson 800</td>
+                            <td>31,000</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C4</strong></td>
+                            <td><strong>S-105</strong></td>
+                            <td>Deepak Creation</td>
+                            <td>1<br><br>2</td>
+                            <td>P1-300<br><br>HP-810</td>
+                            <td>32,200</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C5</strong></td>
+                            <td><strong>S-106</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>1<br><br>2<br><br>1</td>
+                            <td>P1-300<br><br>P2-300<br><br>21” Color Monitor</td>
+                            <td>47,500</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C6</strong></td>
+                            <td><strong>S-107</strong></td>
+                            <td>Keerti Computers</td>
+                            <td>1<br><br>1</td>
+                            <td>386Dx4<br><br>15” Mono Monitor</td>
+                            <td>12,000</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C7</strong></td>
+                            <td><strong>S-108</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td>1<br><br>2</td>
+                            <td>Epson 400<br><br>Laptop B 200</td>
+                            <td>1,26,500</td>
+                            <td>Being goods received.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Checking Effect &amp; Report Verification</h2>
+
+                <h3>To Check Effect on Outstanding Receivables:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Outstandings</strong> &rarr; <strong>Receivables</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Receivables</strong>)</em>
+                    </li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Credit Notes:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Journal Register</strong> &rarr; <strong>Credit Note Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Credit Note Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the voucher to view or edit details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/course-data.js"></script>
+    <script src="/TallyPrime/scripts/shared.js"></script>
+</body>
+</html>

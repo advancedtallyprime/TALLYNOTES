@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <ul>
+                    <li><strong>Budgets:</strong> Financial targets set for expenses, incomes, or ledgers over a specific timeframe (e.g., monthly, quarterly, annually) to manage cash flow and operational costs.</li>
+                    <li><strong>Variance Analysis:</strong> The process of comparing your actual expenses and incomes against your pre-set budget figures to identify overspending, cost savings, or revenue shortfalls.</li>
+                    <li><strong>Controls:</strong> Management tools in TallyPrime that alert you or provide reporting insights when expenses exceed budgeted limits.</li>
+                    <li>
+                        <strong>Budget Allocation Types in TallyPrime:</strong>
+                        <ul>
+                            <li><strong>On Net Transactions:</strong> Compares the budget against total net changes (debits minus credits) during the given period. (Best for expense and income accounts).</li>
+                            <li><strong>On Closing Balance:</strong> Compares the budget against the cumulative closing balance at the end of the period. (Best for assets and liability accounts).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Enabling &amp; Creating Budgets in TallyPrime</h2>
+
+                <h3>Step A: Enable Budget Feature</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Maintain Budgets and Controls</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Create a Budget Master</h3>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>Budget</strong> (or press <strong>Alt + G</strong> &rarr; <strong>Create Master</strong> &rarr; <strong>Budget</strong>).</li>
+                    <li>Enter the Name of the budget (e.g., Marketing Budget FY 26-27 or Q1 Expense Budget).</li>
+                    <li>
+                        Set the Period of Budget:
+                        <ul>
+                            <li>From: 1-Apr-2026</li>
+                            <li>To: 31-Jul-2026 (Quarter 1)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Set Budget Parameters for Group or Ledger:
+                        <ul>
+                            <li><strong>Set/Alter Groups:</strong> Set to <strong>Yes</strong> if assigning a single budget limit to an entire group (e.g., Indirect Expenses).</li>
+                            <li><strong>Set/Alter Ledgers:</strong> Set to <strong>Yes</strong> if setting specific limits for individual ledgers (e.g., Advertising, Rent, Travel Expenses).</li>
+                        </ul>
+                    </li>
+                    <li>Specify the allocation type (On Net Transactions or On Closing Balance) and enter the budget amounts.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Ledgers Required to be Created First</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Maintain Cost Centres</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Advertisement Expenses A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Promotion A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td>Travel &amp; Conveyance A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td>Office Rent A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td>Cash / Bank A/c</td>
+                            <td>Cash-in-Hand / Bank Accounts</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Set Up Q1 Expense Budget (1-Apr-2026 to 31-Jul-2026)</h3>
+                <p><strong>Budget Name:</strong> Q1 Marketing &amp; Admin Budget<br>
+                <strong>Period:</strong> 1-Apr-2026 to 31-Jul-2026</p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Budget Type</th>
+                            <th>Budgeted Amount (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Advertisement Expenses A/c</td>
+                            <td>On Net Transactions</td>
+                            <td>1,50,000</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Promotion A/c</td>
+                            <td>On Net Transactions</td>
+                            <td>80,000</td>
+                        </tr>
+                        <tr>
+                            <td>Travel &amp; Conveyance A/c</td>
+                            <td>On Net Transactions</td>
+                            <td>50,000</td>
+                        </tr>
+                        <tr>
+                            <td>Office Rent A/c</td>
+                            <td>On Net Transactions</td>
+                            <td>75,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Record Actual Payment Vouchers (F5)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Expense Ledger</th>
+                            <th>Amount Paid (₹)</th>
+                            <th>Payment Mode</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Payment (F5)</td>
+                            <td>Advertisement Expenses</td>
+                            <td>60,000</td>
+                            <td>Bank</td>
+                            <td>Being social media ad campaign payment</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Payment (F5)</td>
+                            <td>Office Rent</td>
+                            <td>25,000</td>
+                            <td>Bank</td>
+                            <td>Being office rent paid for April</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Payment (F5)</td>
+                            <td>Sales Promotion</td>
+                            <td>45,000</td>
+                            <td>Bank</td>
+                            <td>Being trade show booth payment</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Payment (F5)</td>
+                            <td>Travel &amp; Conveyance</td>
+                            <td>30,000</td>
+                            <td>Cash</td>
+                            <td>Being client site visit travel expenses</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Payment (F5)</td>
+                            <td>Advertisement Expenses</td>
+                            <td>1,00,000</td>
+                            <td>Bank</td>
+                            <td>Being print &amp; digital campaign payment</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jun</td>
+                            <td>Payment (F5)</td>
+                            <td>Sales Promotion</td>
+                            <td>40,000</td>
+                            <td>Cash</td>
+                            <td>Being promotional flyers &amp; banners</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 3: Budget Variance Analysis (Actual vs. Budget)</h3>
+                <p><strong>Calculated Totals at Quarter-End (31-Jul):</strong></p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Budget Amount (₹)</th>
+                            <th>Actual Spent (₹)</th>
+                            <th>Variance (₹)</th>
+                            <th>Status / Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Advertisement Expenses</td>
+                            <td>1,50,000</td>
+                            <td>1,60,000</td>
+                            <td>-10,000</td>
+                            <td>Over Budget (106.6% spent)</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Promotion</td>
+                            <td>80,000</td>
+                            <td>85,000</td>
+                            <td>-5,000</td>
+                            <td>Over Budget (106.25% spent)</td>
+                        </tr>
+                        <tr>
+                            <td>Travel &amp; Conveyance</td>
+                            <td>50,000</td>
+                            <td>30,000</td>
+                            <td>+20,000</td>
+                            <td>Under Budget / Saved (60% spent)</td>
+                        </tr>
+                        <tr>
+                            <td>Office Rent</td>
+                            <td>75,000</td>
+                            <td>25,000</td>
+                            <td>+50,000</td>
+                            <td>Under Budget (Pending June rent)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Report Verification &amp; Variance Analysis</h2>
+                <p><strong>How to View Budget Variance Reports in TallyPrime:</strong></p>
+                <ul>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statement of Accounts</strong> &rarr; <strong>Budgets</strong>.</li>
+                    <li><strong>Alternative Shortcut:</strong> Press <strong>Alt + G (Go To)</strong> &rarr; Type <strong>Budget Variance</strong>.</li>
+                    <li>Select your budget name (e.g., <em>Q1 Marketing &amp; Admin Budget</em>).</li>
+                    <li>Press <strong>F10 (Budget Variance)</strong> to toggle variance view on/off in the Profit &amp; Loss or Trial Balance screen.</li>
+                </ul>
+
+                <p><strong>Interpreting Columns:</strong></p>
+                <ul>
+                    <li><strong>Target Column:</strong> Shows the budgeted target figures.</li>
+                    <li><strong>Actual Column:</strong> Shows actual voucher postings during the period.</li>
+                    <li><strong>Variance Column:</strong> Shows the difference in amount and percentage (<code>+</code> values indicate savings, <code>-</code> values indicate overspending).</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <ul>
+                    <li><strong>Budgets:</strong> Financial targets set for expenses, incomes, or ledgers over a specific timeframe (e.g., monthly, quarterly, annually) to manage cash flow and operational costs.</li>
+                    <li><strong>Variance Analysis:</strong> The process of comparing your actual expenses and incomes against your pre-set budget figures to identify overspending, cost savings, or revenue shortfalls.</li>
+                    <li><strong>Controls:</strong> Management tools in TallyPrime that alert you or provide reporting insights when expenses exceed budgeted limits.</li>
+                    <li>
+                        <strong>Budget Allocation Types in TallyPrime:</strong>
+                        <ul>
+                            <li><strong>On Net Transactions:</strong> Compares the budget against total net changes (debits minus credits) during the given period. (Best for expense and income accounts).</li>
+                            <li><strong>On Closing Balance:</strong> Compares the budget against the cumulative closing balance at the end of the period. (Best for assets and liability accounts).</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Enabling &amp; Creating Budgets in TallyPrime</h2>
+
+                <h3>Step A: Enable Budget Feature</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Maintain Budgets and Controls</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Create a Budget Master</h3>
+                <ol>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Create</strong> &rarr; <strong>Budget</strong> (or press <strong>Alt + G</strong> &rarr; <strong>Create Master</strong> &rarr; <strong>Budget</strong>).</li>
+                    <li>Enter the Name of the budget (e.g., Marketing Budget FY 26-27 or Q1 Expense Budget).</li>
+                    <li>
+                        Set the Period of Budget:
+                        <ul>
+                            <li>From: 1-Apr-2026</li>
+                            <li>To: 31-Jul-2026 (Quarter 1)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Set Budget Parameters for Group or Ledger:
+                        <ul>
+                            <li><strong>Set/Alter Groups:</strong> Set to <strong>Yes</strong> if assigning a single budget limit to an entire group (e.g., Indirect Expenses).</li>
+                            <li><strong>Set/Alter Ledgers:</strong> Set to <strong>Yes</strong> if setting specific limits for individual ledgers (e.g., Advertising, Rent, Travel Expenses).</li>
+                        </ul>
+                    </li>
+                    <li>Specify the allocation type (On Net Transactions or On Closing Balance) and enter the budget amounts.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Ledgers Required to be Created First</h2>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Maintain Cost Centres</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Advertisement Expenses A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Promotion A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td>Travel &amp; Conveyance A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td>Office Rent A/c</td>
+                            <td>Indirect Expenses</td>
+                            <td>Optional</td>
+                        </tr>
+                        <tr>
+                            <td>Cash / Bank A/c</td>
+                            <td>Cash-in-Hand / Bank Accounts</td>
+                            <td>No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Complete Practice Set</h2>
+
+                <h3>Part 1: Set Up Q1 Expense Budget (1-Apr-2026 to 31-Jul-2026)</h3>
+                <p><strong>Budget Name:</strong> Q1 Marketing &amp; Admin Budget<br>
+                <strong>Period:</strong> 1-Apr-2026 to 31-Jul-2026</p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Budget Type</th>
+                            <th>Budgeted Amount (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Advertisement Expenses A/c</td>
+                            <td>On Net Transactions</td>
+                            <td>1,50,000</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Promotion A/c</td>
+                            <td>On Net Transactions</td>
+                            <td>80,000</td>
+                        </tr>
+                        <tr>
+                            <td>Travel &amp; Conveyance A/c</td>
+                            <td>On Net Transactions</td>
+                            <td>50,000</td>
+                        </tr>
+                        <tr>
+                            <td>Office Rent A/c</td>
+                            <td>On Net Transactions</td>
+                            <td>75,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 2: Record Actual Payment Vouchers (F5)</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Expense Ledger</th>
+                            <th>Amount Paid (₹)</th>
+                            <th>Payment Mode</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Payment (F5)</td>
+                            <td>Advertisement Expenses</td>
+                            <td>60,000</td>
+                            <td>Bank</td>
+                            <td>Being social media ad campaign payment</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Payment (F5)</td>
+                            <td>Office Rent</td>
+                            <td>25,000</td>
+                            <td>Bank</td>
+                            <td>Being office rent paid for April</td>
+                        </tr>
+                        <tr>
+                            <td>01-May</td>
+                            <td>Payment (F5)</td>
+                            <td>Sales Promotion</td>
+                            <td>45,000</td>
+                            <td>Bank</td>
+                            <td>Being trade show booth payment</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Payment (F5)</td>
+                            <td>Travel &amp; Conveyance</td>
+                            <td>30,000</td>
+                            <td>Cash</td>
+                            <td>Being client site visit travel expenses</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Payment (F5)</td>
+                            <td>Advertisement Expenses</td>
+                            <td>1,00,000</td>
+                            <td>Bank</td>
+                            <td>Being print &amp; digital campaign payment</td>
+                        </tr>
+                        <tr>
+                            <td>01-Jun</td>
+                            <td>Payment (F5)</td>
+                            <td>Sales Promotion</td>
+                            <td>40,000</td>
+                            <td>Cash</td>
+                            <td>Being promotional flyers &amp; banners</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Part 3: Budget Variance Analysis (Actual vs. Budget)</h3>
+                <p><strong>Calculated Totals at Quarter-End (31-Jul):</strong></p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Budget Amount (₹)</th>
+                            <th>Actual Spent (₹)</th>
+                            <th>Variance (₹)</th>
+                            <th>Status / Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Advertisement Expenses</td>
+                            <td>1,50,000</td>
+                            <td>1,60,000</td>
+                            <td>-10,000</td>
+                            <td>Over Budget (106.6% spent)</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Promotion</td>
+                            <td>80,000</td>
+                            <td>85,000</td>
+                            <td>-5,000</td>
+                            <td>Over Budget (106.25% spent)</td>
+                        </tr>
+                        <tr>
+                            <td>Travel &amp; Conveyance</td>
+                            <td>50,000</td>
+                            <td>30,000</td>
+                            <td>+20,000</td>
+                            <td>Under Budget / Saved (60% spent)</td>
+                        </tr>
+                        <tr>
+                            <td>Office Rent</td>
+                            <td>75,000</td>
+                            <td>25,000</td>
+                            <td>+50,000</td>
+                            <td>Under Budget (Pending June rent)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Report Verification &amp; Variance Analysis</h2>
+                <p><strong>How to View Budget Variance Reports in TallyPrime:</strong></p>
+                <ul>
+                    <li><strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statement of Accounts</strong> &rarr; <strong>Budgets</strong>.</li>
+                    <li><strong>Alternative Shortcut:</strong> Press <strong>Alt + G (Go To)</strong> &rarr; Type <strong>Budget Variance</strong>.</li>
+                    <li>Select your budget name (e.g., <em>Q1 Marketing &amp; Admin Budget</em>).</li>
+                    <li>Press <strong>F10 (Budget Variance)</strong> to toggle variance view on/off in the Profit &amp; Loss or Trial Balance screen.</li>
+                </ul>
+
+                <p><strong>Interpreting Columns:</strong></p>
+                <ul>
+                    <li><strong>Target Column:</strong> Shows the budgeted target figures.</li>
+                    <li><strong>Actual Column:</strong> Shows actual voucher postings during the period.</li>
+                    <li><strong>Variance Column:</strong> Shows the difference in amount and percentage (<code>+</code> values indicate savings, <code>-</code> values indicate overspending).</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

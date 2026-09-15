@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <p><strong>Voucher Class:</strong> A powerful automation sub-feature within TallyPrime’s Voucher Types that pre-defines ledgers, payment methods, calculations, and tax duties during transaction entry.</p>
+                
+                <p><strong>Why Use Voucher Classes?</strong></p>
+                <ul>
+                    <li><strong>Eliminates Manual Selection:</strong> Pre-loads specific ledgers (e.g., Sales, Purchase, CGST, SGST, Freight) so users don't have to choose them on every invoice.</li>
+                    <li><strong>Automates Tax &amp; Calculations:</strong> Calculates percentage-based additions/deductions automatically.</li>
+                    <li><strong>Prevents Human Error:</strong> Restricts options to appropriate modes (e.g., ensuring a Cash Payment voucher class only permits Cash ledgers).</li>
+                    <li><strong>Speeds Up Invoicing:</strong> Speeds up data entry for high-volume operations like Point of Sale (POS) and GST billing.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. How to Create a Voucher Class in TallyPrime</h2>
+                <p><strong>Step-by-Step Walkthrough:</strong></p>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong>.</li>
+                    <li>Select the Voucher Type you want to customize (e.g., Sales, Purchase, Payment, or Receipt).</li>
+                    <li>In the Voucher Type Alteration screen, move down to the <strong>Name of Class</strong> field (located at the bottom right).</li>
+                    <li>Type a clear, descriptive name for your class (e.g., Local Sales GST or Cash Sales POS) and press Enter.</li>
+                </ol>
+
+                <pre><code>+-----------------------------------------------------------------------+
+|                       VOUCHER TYPE ALTERATION                         |
+| Name: Sales                                                           |
+| Type of Voucher: Sales                                                |
+|                                                                       |
+| ...                                       Name of Class               |
+|                                           --------------------------- |
+|                                           Local Sales GST             |
++-----------------------------------------------------------------------+</code></pre>
+
+                <p><strong>Configure the Voucher Class Classifications Screen:</strong></p>
+                <ul>
+                    <li><strong>Exclude / Include Groups:</strong> Specify which ledger groups are restricted or allowed (e.g., Include only Cash-in-Hand or Bank Accounts).</li>
+                    <li><strong>Default Accounting Ledger:</strong> Select the primary ledger to use automatically (e.g., Sales Account).</li>
+                    <li>
+                        <strong>Additional Ledger Allocations (Auto-Calculations):</strong>
+                        <ul>
+                            <li>List additional ledgers like CGST, SGST, or Freight Charges.</li>
+                            <li>Set the Calculation Type (e.g., As Total Amount Rate, On Current Subtotal, or Flat Rate).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Press <strong>Ctrl + A</strong> to save the class, and <strong>Ctrl + A</strong> again to save the Voucher Type.</p>
+
+                <hr>
+
+                <h2>3. Practice Set: Creating &amp; Using Voucher Classes</h2>
+
+                <h3>Exercise 1: Create a Local GST Sales Class</h3>
+                <p><strong>Setup Configuration:</strong></p>
+                <ul>
+                    <li>Voucher Type: Sales</li>
+                    <li>Class Name: Local Sales GST</li>
+                    <li>Default Sales Ledger: Sales Account</li>
+                    <li>
+                        Auto-Loaded Tax Ledgers:
+                        <ul>
+                            <li>CGST @ 9% (Calculation Type: As Total Amount Rate)</li>
+                            <li>SGST @ 9% (Calculation Type: As Total Amount Rate)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>Record Transactions using Local Sales GST Class:</strong></p>
+                <p><em>Note: When entering these vouchers, select Local Sales GST from the Voucher Class list when prompted. The taxes will calculate automatically!</em></p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer Name (Party A/c)</th>
+                            <th>Item Name</th>
+                            <th>Qty</th>
+                            <th>Rate (₹)</th>
+                            <th>Base Amt (₹)</th>
+                            <th>Auto CGST (9%)</th>
+                            <th>Auto SGST (9%)</th>
+                            <th>Total Invoice Amt (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-Apr</td>
+                            <td>Keerti Computers</td>
+                            <td>486Dx4</td>
+                            <td>5</td>
+                            <td>10,000</td>
+                            <td>50,000</td>
+                            <td>4,500</td>
+                            <td>4,500</td>
+                            <td>59,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sushant Infotech</td>
+                            <td>P1-300</td>
+                            <td>4</td>
+                            <td>15,000</td>
+                            <td>60,000</td>
+                            <td>5,400</td>
+                            <td>5,400</td>
+                            <td>70,800</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Deepak Creation</td>
+                            <td>Epson 400</td>
+                            <td>10</td>
+                            <td>6,000</td>
+                            <td>60,000</td>
+                            <td>5,400</td>
+                            <td>5,400</td>
+                            <td>70,800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Exercise 2: Create a Bank Payment Class</h3>
+                <p><strong>Setup Configuration:</strong></p>
+                <ul>
+                    <li>Voucher Type: Payment</li>
+                    <li>Class Name: Bank Payment</li>
+                    <li>Include Groups: Bank Accounts (Restricts payments to bank ledgers only)</li>
+                </ul>
+
+                <p><strong>Record Transactions using Bank Payment Class:</strong></p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Particulars (Expense / Party Ledger)</th>
+                            <th>Amount (₹)</th>
+                            <th>Auto-Selected Payment Account</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Office Rent A/c</td>
+                            <td>25,000</td>
+                            <td>State Bank of India</td>
+                            <td>Being rent paid via bank transfer</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Electricity Charges A/c</td>
+                            <td>12,000</td>
+                            <td>State Bank of India</td>
+                            <td>Being electricity bill paid online</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Checking Reports &amp; Verification</h2>
+                <p><strong>To View Transactions Created via Voucher Class:</strong></p>
+                <p><strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Sales Register / Payment Register</strong>.</p>
+                <p>Drill down into any month to see how the Voucher Class auto-calculated taxes and maintained ledger consistency.</p>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <p><strong>Voucher Class:</strong> A powerful automation sub-feature within TallyPrime’s Voucher Types that pre-defines ledgers, payment methods, calculations, and tax duties during transaction entry.</p>
+                
+                <p><strong>Why Use Voucher Classes?</strong></p>
+                <ul>
+                    <li><strong>Eliminates Manual Selection:</strong> Pre-loads specific ledgers (e.g., Sales, Purchase, CGST, SGST, Freight) so users don't have to choose them on every invoice.</li>
+                    <li><strong>Automates Tax &amp; Calculations:</strong> Calculates percentage-based additions/deductions automatically.</li>
+                    <li><strong>Prevents Human Error:</strong> Restricts options to appropriate modes (e.g., ensuring a Cash Payment voucher class only permits Cash ledgers).</li>
+                    <li><strong>Speeds Up Invoicing:</strong> Speeds up data entry for high-volume operations like Point of Sale (POS) and GST billing.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. How to Create a Voucher Class in TallyPrime</h2>
+                <p><strong>Step-by-Step Walkthrough:</strong></p>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Voucher Type</strong>.</li>
+                    <li>Select the Voucher Type you want to customize (e.g., Sales, Purchase, Payment, or Receipt).</li>
+                    <li>In the Voucher Type Alteration screen, move down to the <strong>Name of Class</strong> field (located at the bottom right).</li>
+                    <li>Type a clear, descriptive name for your class (e.g., Local Sales GST or Cash Sales POS) and press Enter.</li>
+                </ol>
+
+                <pre><code>+-----------------------------------------------------------------------+
+|                       VOUCHER TYPE ALTERATION                         |
+| Name: Sales                                                           |
+| Type of Voucher: Sales                                                |
+|                                                                       |
+| ...                                       Name of Class               |
+|                                           --------------------------- |
+|                                           Local Sales GST             |
++-----------------------------------------------------------------------+</code></pre>
+
+                <p><strong>Configure the Voucher Class Classifications Screen:</strong></p>
+                <ul>
+                    <li><strong>Exclude / Include Groups:</strong> Specify which ledger groups are restricted or allowed (e.g., Include only Cash-in-Hand or Bank Accounts).</li>
+                    <li><strong>Default Accounting Ledger:</strong> Select the primary ledger to use automatically (e.g., Sales Account).</li>
+                    <li>
+                        <strong>Additional Ledger Allocations (Auto-Calculations):</strong>
+                        <ul>
+                            <li>List additional ledgers like CGST, SGST, or Freight Charges.</li>
+                            <li>Set the Calculation Type (e.g., As Total Amount Rate, On Current Subtotal, or Flat Rate).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p>Press <strong>Ctrl + A</strong> to save the class, and <strong>Ctrl + A</strong> again to Voucher ko save karein Type.</p>
+
+                <hr>
+
+                <h2>3. Practice Set: Creating &amp; Using Voucher Classes</h2>
+
+                <h3>Exercise 1: Create a Local GST Sales Class</h3>
+                <p><strong>Setup Configuration:</strong></p>
+                <ul>
+                    <li>Voucher Type: Sales</li>
+                    <li>Class Name: Local Sales GST</li>
+                    <li>Default Sales Ledger: Sales Account</li>
+                    <li>
+                        Auto-Loaded Tax Ledgers:
+                        <ul>
+                            <li>CGST @ 9% (Calculation Type: As Total Amount Rate)</li>
+                            <li>SGST @ 9% (Calculation Type: As Total Amount Rate)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p><strong>Record Transactions using Local Sales GST Class:</strong></p>
+                <p><em>Note: When entering these vouchers, select Local Sales GST from the Voucher Class list when prompted. The taxes will calculate automatically!</em></p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer Name (Party A/c)</th>
+                            <th>Item Name</th>
+                            <th>Qty</th>
+                            <th>Rate (₹)</th>
+                            <th>Base Amt (₹)</th>
+                            <th>Auto CGST (9%)</th>
+                            <th>Auto SGST (9%)</th>
+                            <th>Total Invoice Amt (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-Apr</td>
+                            <td>Keerti Computers</td>
+                            <td>486Dx4</td>
+                            <td>5</td>
+                            <td>10,000</td>
+                            <td>50,000</td>
+                            <td>4,500</td>
+                            <td>4,500</td>
+                            <td>59,000</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sushant Infotech</td>
+                            <td>P1-300</td>
+                            <td>4</td>
+                            <td>15,000</td>
+                            <td>60,000</td>
+                            <td>5,400</td>
+                            <td>5,400</td>
+                            <td>70,800</td>
+                        </tr>
+                        <tr>
+                            <td>02-May</td>
+                            <td>Deepak Creation</td>
+                            <td>Epson 400</td>
+                            <td>10</td>
+                            <td>6,000</td>
+                            <td>60,000</td>
+                            <td>5,400</td>
+                            <td>5,400</td>
+                            <td>70,800</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Exercise 2: Create a Bank Payment Class</h3>
+                <p><strong>Setup Configuration:</strong></p>
+                <ul>
+                    <li>Voucher Type: Payment</li>
+                    <li>Class Name: Bank Payment</li>
+                    <li>Include Groups: Bank Accounts (Restricts payments to bank ledgers only)</li>
+                </ul>
+
+                <p><strong>Record Transactions using Bank Payment Class:</strong></p>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Particulars (Expense / Party Ledger)</th>
+                            <th>Amount (₹)</th>
+                            <th>Auto-Selected Payment Account</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Office Rent A/c</td>
+                            <td>25,000</td>
+                            <td>State Bank of India</td>
+                            <td>Being rent paid via bank transfer</td>
+                        </tr>
+                        <tr>
+                            <td>31-May</td>
+                            <td>Electricity Charges A/c</td>
+                            <td>12,000</td>
+                            <td>State Bank of India</td>
+                            <td>Being electricity bill paid online</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Checking Reports &amp; Verification</h2>
+                <p><strong>To View Transactions Created via Voucher Class:</strong></p>
+                <p><strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Sales Register / Payment Register</strong>.</p>
+                <p>Drill down into any month to see how the Voucher Class auto-calculated taxes and maintained ledger consistency.</p>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

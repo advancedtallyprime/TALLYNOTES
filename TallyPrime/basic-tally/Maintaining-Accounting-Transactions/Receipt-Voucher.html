@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <p><strong>Receipt Voucher (F6):</strong> Used to record all incoming cash or bank receipts into the business.</p>
+                
+                <p><strong>Common Use Cases:</strong></p>
+                <ul>
+                    <li>Receiving payments from debtors/customers against sales invoices (Bill-by-Bill settlement).</li>
+                    <li>Capital introduced by the owner/proprietor.</li>
+                    <li>Receiving interest, commission, or other indirect income.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Accounting Impact:</strong><br>
+                    <code>Debit</code> &rarr; Cash / Bank Account<br>
+                    <code>Credit</code> &rarr; Giver / Customer / Income Account
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Receipt Voucher Tip:</strong>
+                    <ul>
+                        <li>Press <kbd>F6</kbd> for Receipt voucher.</li>
+                        <li>Set transaction date using <kbd>F2</kbd> to <code>1-4</code>, <code>2-4</code>, or <code>31-5</code>.</li>
+                        <li>Credit the Customer ledger / Income ledger and Debit Cash or Bank account.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. How to Record Receipt Vouchers in TallyPrime</h2>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F6</strong> (Receipt).</li>
+                    <li><strong>Select Mode:</strong> Press <strong>Ctrl + H</strong> to choose between <strong>Single-Entry Mode</strong> (easiest for cash/bank receipts) or <strong>Double-Entry Mode</strong> (Debit/Credit).</li>
+                    <li><strong>Select Receipt Account:</strong> Choose <strong>Cash</strong> or <strong>Bank Account</strong> in the <em>Account</em> field.</li>
+                    <li><strong>Select Party:</strong> Under <em>Particulars</em>, select the customer ledger (e.g., <code>Deepak Creation</code>).</li>
+                    <li>
+                        <strong>Bill-wise Settlement:</strong>
+                        <ul>
+                            <li>In the <strong>Bill-wise Details</strong> pop-up, select <strong>Agst Ref</strong> (Against Reference).</li>
+                            <li>Select the corresponding <strong>Sales Invoice Reference Number</strong> (e.g., <code>S-103</code> / Ref <code>3</code>).</li>
+                        </ul>
+                    </li>
+                    <li>Enter the <strong>Amount</strong> being received.</li>
+                    <li>Fill in Narration: <code>Being amount received</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Complete Practice Set</h2>
+
+                <h3>Record Receipts (<code>F6</code>)</h3>
+                <p><em>Note: Settle these incoming payments against the respective customer bills (<code>Agst Ref</code>).</em></p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Reference No.</th>
+                            <th>Party’s Name (Debtor)</th>
+                            <th>Pending Amount (₹)</th>
+                            <th>Mode / Account</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>3</strong></td>
+                            <td>Deepak Creation</td>
+                            <td><strong>31,500</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>5</strong></td>
+                            <td>Deepak Creation</td>
+                            <td><strong>1,55,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>1</strong></td>
+                            <td>Keerti Computer</td>
+                            <td><strong>16,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>4</strong></td>
+                            <td>Keerti Computer</td>
+                            <td><strong>19,500</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>7</strong></td>
+                            <td>Keerti Computer</td>
+                            <td><strong>45,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>2</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td><strong>24,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>6</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td><strong>1,62,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>8</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td><strong>81,700</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Checking Effect &amp; Report Verification</h2>
+
+                <h3>To View Statistics &amp; Receipt Count:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Statistics</strong> &rarr; Select <strong>Receipt</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Statistics</strong> &rarr; Drill down into <strong>Receipt</strong>)</em>
+                    </li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Receipt Entries:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Receipt Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Receipt Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the transaction to view or edit details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <p><strong>Receipt Voucher (F6):</strong> Used to record all incoming cash or bank receipts into the business.</p>
+                
+                <p><strong>Common Use Cases:</strong></p>
+                <ul>
+                    <li>Receiving payments from debtors/customers against sales invoices (Bill-by-Bill settlement).</li>
+                    <li>Capital introduced by the owner/proprietor.</li>
+                    <li>Receiving interest, commission, or other indirect income.</li>
+                </ul>
+
+                <blockquote>
+                    <strong>Accounting Impact:</strong><br>
+                    <code>Debit</code> &rarr; Cash / Bank Account<br>
+                    <code>Credit</code> &rarr; Giver / Customer / Income Account
+                </blockquote>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Receipt Voucher Tip:</strong>
+                    <ul>
+                        <li>Press <kbd>F6</kbd> for Receipt voucher.</li>
+                        <li>Set transaction date using <kbd>F2</kbd> to <code>1-4</code>, <code>2-4</code>, or <code>31-5</code>.</li>
+                        <li>Credit the Customer ledger / Income ledger and Debit Cash or Bank account.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. How to Record Receipt Vouchers in TallyPrime</h2>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F6</strong> (Receipt).</li>
+                    <li><strong>Select Mode:</strong> Press <strong>Ctrl + H</strong> to choose between <strong>Single-Entry Mode</strong> (easiest for cash/bank receipts) or <strong>Double-Entry Mode</strong> (Debit/Credit).</li>
+                    <li><strong>Select Receipt Account:</strong> Choose <strong>Cash</strong> or <strong>Bank Account</strong> in the <em>Account</em> field.</li>
+                    <li><strong>Select Party:</strong> Under <em>Particulars</em>, Customer ledger select karein (e.g., <code>Deepak Creation</code>).</li>
+                    <li>
+                        <strong>Bill-wise Settlement:</strong>
+                        <ul>
+                            <li>In the <strong>Bill-wise Details</strong> pop-up, select <strong>Agst Ref</strong> (Against Reference).</li>
+                            <li>Select the corresponding <strong>Sales Invoice Reference Number</strong> (e.g., <code>S-103</code> / Ref <code>3</code>).</li>
+                        </ul>
+                    </li>
+                    <li>Enter the <strong>Amount</strong> being received.</li>
+                    <li>Fill in Narration: <code>Being amount received</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Complete Practice Set</h2>
+
+                <h3>Record Receipts (<code>F6</code>)</h3>
+                <p><em>Note: Settle these incoming payments against the respective customer bills (<code>Agst Ref</code>).</em></p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Reference No.</th>
+                            <th>Party’s Name (Debtor)</th>
+                            <th>Pending Amount (₹)</th>
+                            <th>Mode / Account</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>3</strong></td>
+                            <td>Deepak Creation</td>
+                            <td><strong>31,500</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>5</strong></td>
+                            <td>Deepak Creation</td>
+                            <td><strong>1,55,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>1</strong></td>
+                            <td>Keerti Computer</td>
+                            <td><strong>16,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>4</strong></td>
+                            <td>Keerti Computer</td>
+                            <td><strong>19,500</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>7</strong></td>
+                            <td>Keerti Computer</td>
+                            <td><strong>45,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>2</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td><strong>24,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>6</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td><strong>1,62,000</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                        <tr>
+                            <td><strong>1-4</strong></td>
+                            <td><strong>8</strong></td>
+                            <td>Sushant Infotech</td>
+                            <td><strong>81,700</strong></td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount received</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Checking Effect &amp; Report Verification</h2>
+
+                <h3>To View Statistics &amp; Receipt Count:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Statistics</strong> &rarr; Select <strong>Receipt</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Statistics</strong> &rarr; Drill down into <strong>Receipt</strong>)</em>
+                    </li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Receipt Entries:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Receipt Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Receipt Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the transaction to view or edit details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/course-data.js"></script>
+    <script src="/TallyPrime/scripts/shared.js"></script>
+</body>
+</html>

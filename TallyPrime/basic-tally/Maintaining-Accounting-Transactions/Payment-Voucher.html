@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <p><strong>Payment Voucher (F5):</strong> Used to record all outgoing cash or bank payments made by the business.</p>
+                
+                <p><strong>Common Use Cases:</strong></p>
+                <ul>
+                    <li>Clearing outstanding bills/dues of creditors/suppliers (Bill-by-Bill settlement against Purchase Invoices).</li>
+                    <li>Paying operational expenses (e.g., Rent, Salaries, Electricity Bills).</li>
+                    <li>Purchasing fixed assets for cash/bank.</li>
+                </ul>
+
+                <p><strong>Accounting Impact:</strong></p>
+                <ul>
+                    <li><strong>Debit</strong> &rarr; Receiver / Supplier / Expense Account</li>
+                    <li><strong>Credit</strong> &rarr; Cash / Bank Account</li>
+                </ul>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Payment Voucher Tip:</strong>
+                    <ul>
+                        <li>Press <kbd>F5</kbd> for Payment voucher.</li>
+                        <li>Set voucher date to <code>1-4</code> or <code>2-4</code> (<kbd>F2</kbd>).</li>
+                        <li>In Educational Mode, bank ledger payments and cash payments operate with complete accuracy.</li>
+                        <li>When settling bills with <em>Against Reference (Agst Ref)</em>, verify that purchase bill was also recorded on 1st or 2nd.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. How to Record Payment Vouchers in TallyPrime</h2>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F5</strong> (Payment).</li>
+                    <li><strong>Select Mode:</strong> Press <strong>Ctrl + H</strong> to choose between Single-Entry Mode (easiest for cash/bank payments) or Double-Entry Mode (Debit/Credit).</li>
+                    <li><strong>Select Payment Source:</strong> Choose Cash or Bank Account in the Account field.</li>
+                    <li><strong>Select Party:</strong> Under Particulars, select the supplier ledger (e.g., Anil InfoTech).</li>
+                    <li>
+                        <strong>Bill-wise Settlement:</strong>
+                        <ul>
+                            <li>In the Bill-wise Details pop-up, select <strong>Agst Ref</strong> (Against Reference).</li>
+                            <li>Select the corresponding Purchase Invoice Number (e.g., P-106).</li>
+                            <li>Enter the Amount being paid.</li>
+                        </ul>
+                    </li>
+                    <li>Fill in Narration: <code>Being amount paid</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Complete Practice Set</h2>
+
+                <h3>Record Payments (F5)</h3>
+                <p><em>Note: Settle these pending payments against the respective supplier bills (Agst Ref).</em></p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Reference No.</th>
+                            <th>Party’s Name (Creditor)</th>
+                            <th>Pending Amt (₹)</th>
+                            <th>Mode / Account</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-106</strong></td>
+                            <td>Anil InfoTech</td>
+                            <td>1,27,500</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-104</strong></td>
+                            <td>Anil InfoTech</td>
+                            <td>3,500</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-108</strong></td>
+                            <td>Anil InfoTech</td>
+                            <td>70,700</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-103</strong></td>
+                            <td>Mahendra InfoTech</td>
+                            <td>42,500</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-105</strong></td>
+                            <td>Mahendra InfoTech</td>
+                            <td>76,200</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-107</strong></td>
+                            <td>Mahendra InfoTech</td>
+                            <td>31,000</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-101</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>19,000</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-102</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>54,000</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Checking Effect &amp; Report Verification</h2>
+
+                <h3>To View Statistics &amp; Payment Count:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Statistics</strong> &rarr; Select <strong>Payment</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Statistics</strong> &rarr; Drill down into Payment)</em>
+                    </li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Payment Entries:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Payment Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Payment Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the transaction to view or edit details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <p><strong>Payment Voucher (F5):</strong> Used to record all outgoing cash or bank payments made by the business.</p>
+                
+                <p><strong>Common Use Cases:</strong></p>
+                <ul>
+                    <li>Clearing outstanding bills/dues of creditors/suppliers (Bill-by-Bill settlement against Purchase Invoices).</li>
+                    <li>Paying operational expenses (e.g., Rent, Salaries, Electricity Bills).</li>
+                    <li>Purchasing fixed assets for cash/bank.</li>
+                </ul>
+
+                <p><strong>Accounting Impact:</strong></p>
+                <ul>
+                    <li><strong>Debit</strong> &rarr; Receiver / Supplier / Expense Account</li>
+                    <li><strong>Credit</strong> &rarr; Cash / Bank Account</li>
+                </ul>
+
+                
+                <div class="edu-box">
+                    <strong><i class="fa-solid fa-graduation-cap"></i> Educational Mode Payment Voucher Tip:</strong>
+                    <ul>
+                        <li>Press <kbd>F5</kbd> for Payment voucher.</li>
+                        <li>Set voucher date to <code>1-4</code> or <code>2-4</code> (<kbd>F2</kbd>).</li>
+                        <li>Educational Mode mein, bank ledger payments and cash payments operate with complete accuracy.</li>
+                        <li>When settling bills with <em>Against Reference (Agst Ref - पिछले बिल के अगेंस्ट)</em>, verify that purchase bill was also recorded on 1st or 2nd.</li>
+                    </ul>
+                </div>
+  
+                <hr>
+
+                <h2>2. How to Record Payment Vouchers in TallyPrime</h2>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Vouchers</strong> &rarr; Press <strong>F5</strong> (Payment).</li>
+                    <li><strong>Select Mode:</strong> Press <strong>Ctrl + H</strong> to choose between Single-Entry Mode (easiest for cash/bank payments) or Double-Entry Mode (Debit/Credit).</li>
+                    <li><strong>Select Payment Source:</strong> Choose Cash or Bank Account in the Account field.</li>
+                    <li><strong>Select Party:</strong> Under Particulars, Supplier ledger select karein (e.g., Anil InfoTech).</li>
+                    <li>
+                        <strong>Bill-wise Settlement:</strong>
+                        <ul>
+                            <li>In the Bill-wise Details pop-up, select <strong>Agst Ref</strong> (Against Reference).</li>
+                            <li>Select the corresponding Purchase Invoice Number (e.g., P-106).</li>
+                            <li>Enter the Amount being paid.</li>
+                        </ul>
+                    </li>
+                    <li>Fill in Narration: <code>Being amount paid</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>3. Complete Practice Set</h2>
+
+                <h3>Record Payments (F5)</h3>
+                <p><em>Note: Settle these pending payments against the respective supplier bills (Agst Ref).</em></p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Reference No.</th>
+                            <th>Party’s Name (Creditor)</th>
+                            <th>Pending Amt (₹)</th>
+                            <th>Mode / Account</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-106</strong></td>
+                            <td>Anil InfoTech</td>
+                            <td>1,27,500</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-104</strong></td>
+                            <td>Anil InfoTech</td>
+                            <td>3,500</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-108</strong></td>
+                            <td>Anil InfoTech</td>
+                            <td>70,700</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-103</strong></td>
+                            <td>Mahendra InfoTech</td>
+                            <td>42,500</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-105</strong></td>
+                            <td>Mahendra InfoTech</td>
+                            <td>76,200</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-107</strong></td>
+                            <td>Mahendra InfoTech</td>
+                            <td>31,000</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-101</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>19,000</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                        <tr>
+                            <td>1-4</td>
+                            <td><strong>P-102</strong></td>
+                            <td>Sun Micro Pvt Ltd</td>
+                            <td>54,000</td>
+                            <td>Cash / Bank</td>
+                            <td>Being amount paid</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>4. Checking Effect &amp; Report Verification</h2>
+
+                <h3>To View Statistics &amp; Payment Count:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Statistics</strong> &rarr; Select <strong>Payment</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Statistics</strong> &rarr; Drill down into Payment)</em>
+                    </li>
+                </ul>
+
+                <h3>To Check / Delete / Modify Payment Entries:</h3>
+                <ul>
+                    <li>
+                        <strong>Navigation Path:</strong><br>
+                        <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Account Books</strong> &rarr; <strong>Payment Register</strong><br>
+                        <em>(Shortcut: Press <strong>Alt + G</strong> &rarr; Type <strong>Payment Register</strong>)</em>
+                    </li>
+                    <li><strong>Action:</strong> Select the month &rarr; Press <strong>Enter</strong> on the transaction to view or edit details. Press <strong>Alt + D</strong> inside the voucher to delete it.</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/course-data.js"></script>
+    <script src="/TallyPrime/scripts/shared.js"></script>
+</body>
+</html>

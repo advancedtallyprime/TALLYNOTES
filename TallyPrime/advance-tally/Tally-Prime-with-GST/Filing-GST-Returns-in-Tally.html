@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>Understand the operational differences between GST return generation and GST return filing.</li>
+                    <li>GST portal ke liye return prepare kar payega.</li>
+                    <li>GSTR-1 and GSTR-3B file karne ka process samjhega.</li>
+                    <li>TallyPrime from GST return upload karna seekhega.</li>
+                    <li>Return data validation karna seekhega.</li>
+                    <li>JSON file generate and upload process samjhega.</li>
+                    <li>GST portal errors identify and resolve kar payega.</li>
+                    <li>Filed return ka acknowledgement verify kar payega.</li>
+                    <li>Complete GST compliance cycle perform kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Return Generation vs Return Filing</h2>
+                <p>Accounting software data preparation and statutory portal submission dono separate stages hain:</p>
+                <ul>
+                    <li><strong>Return Generation (TallyPrime):</strong> Accounting vouchers and registers from statutory tables (B2B, B2C, ITC, HSN) ko compile karke JSON/Excel file format in export karna.</li>
+                    <li><strong>Return Filing (GST Portal):</strong> Prepared JSON file ko <code>gst.gov.in</code> par upload karna, data validate karna, tax liability offset karna, and DSC/EVC ke through <strong>ARN (Application Reference Number)</strong> generate karna.</li>
+                </ul>
+
+                <h3>Complete GST Compliance Lifecycle</h3>
+                <p><code>Purchase/Sales Vouchers &rarr; TallyPrime Triangulation &rarr; GSTR-1 JSON Export &rarr; Portal Upload &amp; Validation &rarr; GSTR-1 Submission &rarr; GSTR-3B ITC Set-off &rarr; Cash Payment &rarr; GSTR-3B File &rarr; ARN Generated</code></p>
+
+                <hr>
+
+                <h2>Company Setup &amp; Pre-Filing Master Verification</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Pre-Filing Verification Checklist:</h3>
+                <ul>
+                    <li><strong>Company Master:</strong> Valid 15-digit GSTIN, State code, Legal trade name, and Return Periodicity verify execute.</li>
+                    <li><strong>Party Masters:</strong> Customer &amp; Supplier GSTIN registration type (Regular/Composition/Unregistered) and State confirm execute.</li>
+                    <li><strong>Ledger &amp; Stock Setup:</strong> Taxability (Taxable/Exempt), HSN/SAC, UQC (e.g., <code>NOS-NUMBERS</code>), and tax rate configuration check execute.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Data Preparation Walkthrough</h2>
+
+                <h3>Inward / Purchafrom Entries (For ITC Verification)</h3>
+                <ul>
+                    <li><strong>Purchafrom 1 (Local):</strong> ₹80,000 from Maharashtra Supplier @ 18% &rarr; <strong>Input CGST = ₹7,200</strong>, <strong>Input SGST = ₹7,200</strong>.</li>
+                    <li><strong>Purchafrom 2 (Interstate):</strong> ₹1,50,000 from Gujarat Supplier @ 18% &rarr; <strong>Input IGST = ₹27,000</strong>.</li>
+                </ul>
+
+                <h3>Outward / Sales Entries (For GSTR-1 &amp; GSTR-3B Table 3.1)</h3>
+                <ul>
+                    <li><strong>Sales 1 (Local B2B):</strong> ₹1,00,000 to Mumbai Retail Pvt Ltd @ 18% &rarr; <strong>Output CGST = ₹9,000</strong>, <strong>Output SGST = ₹9,000</strong>.</li>
+                    <li><strong>Sales 2 (Interstate B2B):</strong> ₹2,00,000 to Gujarat Electronics Pvt Ltd @ 18% &rarr; <strong>Output IGST = ₹36,000</strong>.</li>
+                </ul>
+
+                <h3>Net Tax Liability Calculation for GSTR-3B:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Output Liability (₹)</th>
+                            <th>Available ITC (₹)</th>
+                            <th>Net Balance Payable (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>9,000</td>
+                            <td>7,200</td>
+                            <td>1,800</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>9,000</td>
+                            <td>7,200</td>
+                            <td>1,800</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>36,000</td>
+                            <td>27,000</td>
+                            <td>9,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>54,000</strong></td>
+                            <td><strong>41,400</strong></td>
+                            <td><strong>12,600</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>GSTR-1 Export, Portal Upload &amp; Submission</h2>
+
+                <h3>Step A: Export JSON from TallyPrime</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-1</strong>.</li>
+                    <li>Verify that <em>Uncertain Transactions (Corrections Needed)</em> is <strong>0</strong>.</li>
+                    <li>Press <strong>Alt + E (Export)</strong> &rarr; Select <strong>GST Returns</strong> &rarr; File Format: <strong>JSON</strong> &rarr; Save file (e.g., <code>GSTR1_ABC_TRADERS.json</code>).</li>
+                </ol>
+
+                <h3>Step B: Upload &amp; File on GST Portal</h3>
+                <ol>
+                    <li>Login to <code>gst.gov.in</code> &rarr; Navigate to <strong>Returns Dashboard</strong> &rarr; Select Financial Year &amp; Return Period.</li>
+                    <li>Under <strong>GSTR-1</strong>, click <strong>Prepare Offline</strong> &rarr; Upload JSON file.</li>
+                    <li>Wait for portal validation status to show <em>Processed</em>.</li>
+                    <li>Click <strong>Generate Summary</strong> &rarr; Review Table totals (B2B, B2C, HSN) &rarr; Click <strong>Submit</strong>.</li>
+                    <li>File with <strong>EVC (OTP)</strong> or <strong>DSC (Digital Signature Certificate)</strong> to receive the <strong>ARN</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>GSTR-3B Tax Offset &amp; Filing Workflow</h2>
+
+                <h3>Step A: Tax Liability Offset &amp; Payment</h3>
+                <ol>
+                    <li>Open <strong>GSTR-3B</strong> on the GST Portal.</li>
+                    <li>Auto-populated outward liabilities (from GSTR-1) and auto-drafted ITC (from GSTR-2B) verify execute.</li>
+                    <li>Click <strong>Proceed to Payment</strong> &rarr; If cash balance is insufficient, generate <strong>Challan (PMT-06)</strong> for ₹12,600 and deposit funds via Net Banking.</li>
+                    <li>Click <strong>Make Payment / Set Off Liability</strong>.</li>
+                </ol>
+
+                <h3>Step B: Final GSTR-3B Filing</h3>
+                <ol>
+                    <li>Check declaration box &rarr; Select Authorized Signatory.</li>
+                    <li>Click <strong>File GSTR-3B with EVC / DSC</strong>.</li>
+                    <li>Save filing acknowledgement receipt containing the ARN.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Common Portal Upload Errors &amp; Solutions</h2>
+                <ul>
+                    <li><strong>Error: Invalid GSTIN Format / Checksum:</strong> Customer ledger in GSTIN re-check execute and voucher re-save karke fresh JSON export execute.</li>
+                    <li><strong>Error: Duplicate Invoice Number:</strong> Check if an invoice with the same number was already uploaded in a previous batcEnsure unique invoice numbering.</li>
+                    <li><strong>Error: Tax Amount Mismatch:</strong> Tally in Tax Analysis screen (<strong>Ctrl + O</strong>) check karke round-off issues fix execute.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Monthly Filing Cycle)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction Type</th>
+                            <th>Party</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>GST Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Mumbai Retail</td>
+                            <td>1,50,000</td>
+                            <td>18% (Local)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Apr</td>
+                            <td>Purchafrom (F9)</td>
+                            <td>Maharashtra Supplier</td>
+                            <td>1,00,000</td>
+                            <td>18% (Local)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Pune Traders</td>
+                            <td>2,00,000</td>
+                            <td>18% (Local)</td>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Purchafrom (F9)</td>
+                            <td>Gujarat Supplier</td>
+                            <td>2,00,000</td>
+                            <td>18% (Interstate)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Gujarat Electronics</td>
+                            <td>3,00,000</td>
+                            <td>18% (Interstate)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Level 1 Task:</h3>
+                <ol>
+                    <li>Record all 5 transactions in TallyPrime.</li>
+                    <li>Reconcile GSTR-1 and GSTR-3B reports.</li>
+                    <li>Export GSTR-1 JSON file.</li>
+                    <li>Calculate balance tax payable and prepare statutory payment voucher (F5).</li>
+                </ol>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>GSTR-1 &amp; GSTR-3B Triangulation Summary:</strong> Ensure <em>Included in Returns</em> matches all recorded vouchers.</li>
+                    <li><strong>GST Computation:</strong> Cross-check balance liability against Electronic Cash/Credit Ledgers.</li>
+                    <li><strong>Electronic Return Export Log:</strong> Maintain a backup of exported JSON files with respective ARNs.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Attempting to upload JSON while transactions remain under <em>Uncertain Transactions (Corrections Needed)</em>.</li>
+                    <li>Submitting GSTR-1 without verifying B2B invoice GSTINs against the official GST portal portal cache.</li>
+                    <li>Attempting to file GSTR-3B before setting off liability in cash/credit ledgers.</li>
+                    <li>Failing to save and archive the ARN acknowledgement after successful submission.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Return generate karna and return file karna in kor antar hai?</strong><br>A: Generate karna TallyPrime in data prepare karna hai, jabki file karna us data ko GST portal par submit karke ARN generate karna is.</li>
+                    <li><strong>Q: ARN ka full form kor hai?</strong><br>A: <strong>Application Reference Number</strong> &mdash; yeh return successfully file hone ka unique statutory proof is.</li>
+                    <li><strong>Q: Kor TallyPrime direct bina portal login kiye return submit kar deta hai?</strong><br>A: TallyPrime return data export and API upload support karta hai, lekin final submission and verification (EVC/DSC) portal authentication ke through complete is.</li>
+                </ul>
+
+                <hr>
+
+                <h2>1Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>GST Filing Golden Workflow:</strong><br>
+                    <code>Data Entry &rarr; Error Validation (Zero Uncertain) &rarr; JSON Export &rarr; Portal Upload &rarr; GSTR-1 Submit &rarr; GSTR-3B Set-off &amp; Cash Payment &rarr; EVC/DSC Filing &rarr; ARN Generation</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>GST return generation vs filing concepts understood</li>
+                    <li>Company and party master GSTINs verified</li>
+                    <li>Sales and purchafrom vouchers entered with accurate tax breakdowns</li>
+                    <li>GSTR-1 validated, exported to JSON, and portal upload simulated</li>
+                    <li>GSTR-3B ITC offset and net cash liability calculated</li>
+                    <li>Payment entry recorded and ARN acknowledgement saved</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Is practical ke end tak student:</p>
+                <ul>
+                    <li>GST return generation aur GST return filing ka difference samjhega.</li>
+                    <li>GST portal ke liye return prepare kar payega.</li>
+                    <li>GSTR-1 aur GSTR-3B file karne ka process samjhega.</li>
+                    <li>TallyPrime se GST return upload karna seekhega.</li>
+                    <li>Return data validation karna seekhega.</li>
+                    <li>JSON file generate aur upload process samjhega.</li>
+                    <li>GST portal errors identify aur resolve kar payega.</li>
+                    <li>Filed return ka acknowledgement verify kar payega.</li>
+                    <li>Complete GST compliance cycle perform kar payega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Return Generation vs Return Filing</h2>
+                <p>Accounting software data preparation aur statutory portal submission dono separate stages hain:</p>
+                <ul>
+                    <li><strong>Return Generation (TallyPrime):</strong> Accounting vouchers aur registers se statutory tables (B2B, B2C, ITC, HSN) ko compile karke JSON/Excel file format mein export karna.</li>
+                    <li><strong>Return Filing (GST Portal):</strong> Prepared JSON file ko <code>gst.gov.in</code> par upload karna, data validate karna, tax liability offset karna, aur DSC/EVC ke through <strong>ARN (Application Reference Number)</strong> generate karna.</li>
+                </ul>
+
+                <h3>Complete GST Compliance Lifecycle</h3>
+                <p><code>Purchase/Sales Vouchers &rarr; TallyPrime Triangulation &rarr; GSTR-1 JSON Export &rarr; Portal Upload &amp; Validation &rarr; GSTR-1 Submission &rarr; GSTR-3B ITC Set-off &rarr; Cash Payment &rarr; GSTR-3B File &rarr; ARN Generated</code></p>
+
+                <hr>
+
+                <h2>Company Setup &amp; Pre-Filing Master Verification</h2>
+
+                <h3>Company Setup</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>Registration:</strong> Regular | <strong>FY:</strong> 2026&ndash;27</li>
+                </ul>
+
+                <h3>Pre-Filing Verification Checklist:</h3>
+                <ul>
+                    <li><strong>Company Master:</strong> Valid 15-digit GSTIN, State code, Legal trade name, aur Return Periodicity verify karein.</li>
+                    <li><strong>Party Masters:</strong> Customer &amp; Supplier GSTIN registration type (Regular/Composition/Unregistered) aur State confirm karein.</li>
+                    <li><strong>Ledger &amp; Stock Setup:</strong> Taxability (Taxable/Exempt), HSN/SAC, UQC (e.g., <code>NOS-NUMBERS</code>), aur tax rate configuration check karein.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Data Preparation Walkthrough</h2>
+
+                <h3>Inward / Purchase Entries (For ITC Verification)</h3>
+                <ul>
+                    <li><strong>Purchase 1 (Local):</strong> ₹80,000 from Maharashtra Supplier @ 18% &rarr; <strong>Input CGST = ₹7,200</strong>, <strong>Input SGST = ₹7,200</strong>.</li>
+                    <li><strong>Purchase 2 (Interstate):</strong> ₹1,50,000 from Gujarat Supplier @ 18% &rarr; <strong>Input IGST = ₹27,000</strong>.</li>
+                </ul>
+
+                <h3>Outward / Sales Entries (For GSTR-1 &amp; GSTR-3B Table 3.1)</h3>
+                <ul>
+                    <li><strong>Sales 1 (Local B2B):</strong> ₹1,00,000 to Mumbai Retail Pvt Ltd @ 18% &rarr; <strong>Output CGST = ₹9,000</strong>, <strong>Output SGST = ₹9,000</strong>.</li>
+                    <li><strong>Sales 2 (Interstate B2B):</strong> ₹2,00,000 to Gujarat Electronics Pvt Ltd @ 18% &rarr; <strong>Output IGST = ₹36,000</strong>.</li>
+                </ul>
+
+                <h3>Net Tax Liability Calculation for GSTR-3B:</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tax Head</th>
+                            <th>Output Liability (₹)</th>
+                            <th>Available ITC (₹)</th>
+                            <th>Net Balance Payable (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CGST</td>
+                            <td>9,000</td>
+                            <td>7,200</td>
+                            <td>1,800</td>
+                        </tr>
+                        <tr>
+                            <td>SGST</td>
+                            <td>9,000</td>
+                            <td>7,200</td>
+                            <td>1,800</td>
+                        </tr>
+                        <tr>
+                            <td>IGST</td>
+                            <td>36,000</td>
+                            <td>27,000</td>
+                            <td>9,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><strong>54,000</strong></td>
+                            <td><strong>41,400</strong></td>
+                            <td><strong>12,600</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>GSTR-1 Export, Portal Upload &amp; Submission</h2>
+
+                <h3>Step A: Export JSON from TallyPrime</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>GST Reports</strong> &rarr; <strong>GSTR-1</strong>.</li>
+                    <li>Verify that <em>Uncertain Transactions (Corrections Needed)</em> is <strong>0</strong>.</li>
+                    <li>Press <strong>Alt + E (Export)</strong> &rarr; Select <strong>GST Returns</strong> &rarr; File Format: <strong>JSON</strong> &rarr; Save file (e.g., <code>GSTR1_ABC_TRADERS.json</code>).</li>
+                </ol>
+
+                <h3>Step B: Upload &amp; File on GST Portal</h3>
+                <ol>
+                    <li>Login to <code>gst.gov.in</code> &rarr; Navigate to <strong>Returns Dashboard</strong> &rarr; Select Financial Year &amp; Return Period.</li>
+                    <li>Under <strong>GSTR-1</strong>, click <strong>Prepare Offline</strong> &rarr; Upload JSON file.</li>
+                    <li>Wait for portal validation status to show <em>Processed</em>.</li>
+                    <li>Click <strong>Generate Summary</strong> &rarr; Review Table totals (B2B, B2C, HSN) &rarr; Click <strong>Submit</strong>.</li>
+                    <li>File with <strong>EVC (OTP)</strong> or <strong>DSC (Digital Signature Certificate)</strong> to receive the <strong>ARN</strong>.</li>
+                </ol>
+
+                <hr>
+
+                <h2>GSTR-3B Tax Offset &amp; Filing Workflow</h2>
+
+                <h3>Step A: Tax Liability Offset &amp; Payment</h3>
+                <ol>
+                    <li>Open <strong>GSTR-3B</strong> on the GST Portal.</li>
+                    <li>Auto-populated outward liabilities (from GSTR-1) aur auto-drafted ITC (from GSTR-2B) verify karein.</li>
+                    <li>Click <strong>Proceed to Payment</strong> &rarr; If cash balance is insufficient, generate <strong>Challan (PMT-06)</strong> for ₹12,600 and deposit funds via Net Banking.</li>
+                    <li>Click <strong>Make Payment / Set Off Liability</strong>.</li>
+                </ol>
+
+                <h3>Step B: Final GSTR-3B Filing</h3>
+                <ol>
+                    <li>Check declaration box &rarr; Select Authorized Signatory.</li>
+                    <li>Click <strong>File GSTR-3B with EVC / DSC</strong>.</li>
+                    <li>Save filing acknowledgement receipt containing the ARN.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Common Portal Upload Errors &amp; Solutions</h2>
+                <ul>
+                    <li><strong>Error: Invalid GSTIN Format / Checksum:</strong> Customer ledger mein GSTIN re-check karein aur voucher re-save karke fresh JSON export karein.</li>
+                    <li><strong>Error: Duplicate Invoice Number:</strong> Check if an invoice with the same number was already uploaded in a previous batcEnsure unique invoice numbering.</li>
+                    <li><strong>Error: Tax Amount Mismatch:</strong> Tally mein Tax Analysis screen (<strong>Ctrl + O</strong>) check karke round-off issues fix karein.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set &mdash; Level 1 (Monthly Filing Cycle)</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Transaction Type</th>
+                            <th>Party</th>
+                            <th>Taxable Value (₹)</th>
+                            <th>GST Rate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Mumbai Retail</td>
+                            <td>1,50,000</td>
+                            <td>18% (Local)</td>
+                        </tr>
+                        <tr>
+                            <td>02-Apr</td>
+                            <td>Purchase (F9)</td>
+                            <td>Maharashtra Supplier</td>
+                            <td>1,00,000</td>
+                            <td>18% (Local)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Pune Traders</td>
+                            <td>2,00,000</td>
+                            <td>18% (Local)</td>
+                        </tr>
+                        <tr>
+                            <td>08-Apr</td>
+                            <td>Purchase (F9)</td>
+                            <td>Gujarat Supplier</td>
+                            <td>2,00,000</td>
+                            <td>18% (Interstate)</td>
+                        </tr>
+                        <tr>
+                            <td>01-Apr</td>
+                            <td>Sales (F8)</td>
+                            <td>Gujarat Electronics</td>
+                            <td>3,00,000</td>
+                            <td>18% (Interstate)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <h3>Level 1 Task:</h3>
+                <ol>
+                    <li>Record all 5 transactions in TallyPrime.</li>
+                    <li>Reconcile GSTR-1 and GSTR-3B reports.</li>
+                    <li>Export GSTR-1 JSON file.</li>
+                    <li>Calculate balance tax payable and prepare statutory payment voucher (F5).</li>
+                </ol>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>GSTR-1 &amp; GSTR-3B Triangulation Summary:</strong> Ensure <em>Included in Returns</em> matches all recorded vouchers.</li>
+                    <li><strong>GST Computation:</strong> Cross-check balance liability against Electronic Cash/Credit Ledgers.</li>
+                    <li><strong>Electronic Return Export Log:</strong> Maintain a backup of exported JSON files with respective ARNs.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Attempting to upload JSON while transactions remain under <em>Uncertain Transactions (Corrections Needed)</em>.</li>
+                    <li>Submitting GSTR-1 without verifying B2B invoice GSTINs against the official GST portal portal cache.</li>
+                    <li>Attempting to file GSTR-3B before setting off liability in cash/credit ledgers.</li>
+                    <li>Failing to save and archive the ARN acknowledgement after successful submission.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Return generate karna aur return file karna mein kya antar hai?</strong><br>A: Generate karna TallyPrime mein data prepare karna hai, jabki file karna us data ko GST portal par submit karke ARN generate karna hai.</li>
+                    <li><strong>Q: ARN ka full form kya hai?</strong><br>A: <strong>Application Reference Number</strong> &mdash; yeh return successfully file hone ka unique statutory proof hota hai.</li>
+                    <li><strong>Q: Kya TallyPrime direct bina portal login kiye return submit kar deta hai?</strong><br>A: TallyPrime return data export aur API upload support karta hai, lekin final submission aur verification (EVC/DSC) portal authentication ke through complete hota hai.</li>
+                </ul>
+
+                <hr>
+
+                <h2>1Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>GST Filing Golden Workflow:</strong><br>
+                    <code>Data Entry &rarr; Error Validation (Zero Uncertain) &rarr; JSON Export &rarr; Portal Upload &rarr; GSTR-1 Submit &rarr; GSTR-3B Set-off &amp; Cash Payment &rarr; EVC/DSC Filing &rarr; ARN Generation</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>GST return generation vs filing concepts understood</li>
+                    <li>Company and party master GSTINs verified</li>
+                    <li>Sales and purchase vouchers entered with accurate tax breakdowns</li>
+                    <li>GSTR-1 validated, exported to JSON, and portal upload simulated</li>
+                    <li>GSTR-3B ITC offset and net cash liability calculated</li>
+                    <li>Payment entry recorded and ARN acknowledgement saved</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept</h2>
+                <ul>
+                    <li><strong>Bill-Wise Details:</strong> An accounting feature in TallyPrime that tracks pending amounts invoice-by-invoice rather than viewing only the total ledger balance.</li>
+                    <li><strong>Primary Use:</strong> Essential for managing Accounts Receivable (Sundry Debtors) and Accounts Payable (Sundry Creditors). It can also be enabled for non-trading accounts like loans, advances, and installment payments.</li>
+                    <li><strong>Why it Matters:</strong> Without bill-wise tracking, if a customer owes ₹50,000 across 3 invoices and pays ₹20,000, you wouldn't know which specific bill was settled. Bill-wise details link every payment/receipt to its corresponding invoice.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. The 4 Methods of Adjustment (Ref Types)</h2>
+                <p>When entering transactions for a party with bill-by-bill tracking enabled, TallyPrime prompts you to select one of four reference types:</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Reference Type</th>
+                            <th>When to Use</th>
+                            <th>Typical Voucher</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>New Ref</strong></td>
+                            <td>Raising a new bill or invoice for credit sales/purchases. Generates a fresh bill reference number.</td>
+                            <td>Sales (F8) / Purchase (F9)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Agst Ref (Against Ref)</strong></td>
+                            <td>Settling or adjusting against an existing pending bill.</td>
+                            <td>Receipt (F6) / Payment (F5) / Credit Note / Debit Note</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Advance</strong></td>
+                            <td>Money received or paid in advance before the invoice is created. Adjusted against future bills later.</td>
+                            <td>Receipt (F6) / Payment (F5)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>On Account</strong></td>
+                            <td>Recording payments or receipts without linking to any specific pending bill.</td>
+                            <td>Receipt (F6) / Payment (F5)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>3. Enabling Bill-Wise Details in TallyPrime</h2>
+
+                <h3>Step A: Company Feature Activation</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Bill-wise entry</strong> to <strong>Yes</strong>.</li>
+                    <li>(Optional) Set <strong>Maintain Bill-wise Details for Non-Trading Accounts</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Enable in Party Ledger</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Ledger</strong> &rarr; Select Party.</li>
+                    <li>Set <strong>Maintain balances bill-by-bill</strong> to <strong>Yes</strong>.</li>
+                    <li>Enter <strong>Default Credit Period</strong> (e.g., 30 days). TallyPrime automatically calculates due dates for invoices based on this credit window.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Ledgers Required to be Created First</h2>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Maintain Balances Bill-by-Bill</th>
+                            <th>Default Credit Period</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apex Traders</td>
+                            <td>Sundry Debtors</td>
+                            <td>Yes</td>
+                            <td>30 Days</td>
+                        </tr>
+                        <tr>
+                            <td>Global Tech Solutions</td>
+                            <td>Sundry Creditors</td>
+                            <td>Yes</td>
+                            <td>15 Days</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Account</td>
+                            <td>Sales Accounts</td>
+                            <td>No</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase Account</td>
+                            <td>Purchase Accounts</td>
+                            <td>No</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Complete Practice Set (7 Sequential Transactions)</h2>
+
+                <h3>Record Vouchers using Bill-Wise Allocations</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entry</th>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Party / Account</th>
+                            <th>Amount (₹)</th>
+                            <th>Bill Allocation Type</th>
+                            <th>Ref Name &amp; Due Date</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1-4</td>
+                            <td>Sales (F8)</td>
+                            <td>Apex Traders</td>
+                            <td>50,000</td>
+                            <td>New Ref</td>
+                            <td>INV-01 (Due: 30 days)</td>
+                            <td>Being credit sales made</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1-4</td>
+                            <td>Purchase (F9)</td>
+                            <td>Global Tech</td>
+                            <td>80,000</td>
+                            <td>New Ref</td>
+                            <td>PUR-101 (Due: 15 days)</td>
+                            <td>Being credit purchase made</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2-4</td>
+                            <td>Receipt (F6)</td>
+                            <td>Apex Traders</td>
+                            <td>15,000</td>
+                            <td>Advance</td>
+                            <td>ADV-APEX-01</td>
+                            <td>Being advance received against future orders</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>1-5</td>
+                            <td>Receipt (F6)</td>
+                            <td>Apex Traders</td>
+                            <td>35,000</td>
+                            <td>Agst Ref</td>
+                            <td>INV-01</td>
+                            <td>Being remaining invoice amount received</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>2-5</td>
+                            <td>Payment (F5)</td>
+                            <td>Global Tech</td>
+                            <td>50,000</td>
+                            <td>Agst Ref</td>
+                            <td>PUR-101</td>
+                            <td>Being partial payment made against bill</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>31-5</td>
+                            <td>Sales (F8)</td>
+                            <td>Apex Traders</td>
+                            <td>40,000</td>
+                            <td>New Ref<br><br>Agst Ref</td>
+                            <td>INV-02 (₹40,000)<br><br>ADV-APEX-01 (₹15,000 set off)</td>
+                            <td>Being sale made and advance set off</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>31-5</td>
+                            <td>Payment (F5)</td>
+                            <td>Global Tech</td>
+                            <td>10,000</td>
+                            <td>On Account</td>
+                            <td>—</td>
+                            <td>Being general payment made on account</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>6. Generating &amp; Viewing Bill-Wise Reports</h2>
+
+                <h3>1. Outstanding Receivables &amp; Payables:</h3>
+                <ul>
+                    <li><strong>Path:</strong> Press <strong>Alt + G (Go To)</strong> &rarr; Type <strong>Receivables</strong> or <strong>Payables</strong>.</li>
+                    <li><strong>Alternative Path:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Outstandings</strong> &rarr; <strong>Receivables / Payables</strong>.</li>
+                    <li><strong>What it shows:</strong> Pending invoice numbers, original amounts, pending balances, and overdue days.</li>
+                </ul>
+
+                <h3>2. Ageing Analysis (Tracking Overdue Bills):</h3>
+                <ul>
+                    <li><strong>Path:</strong> Open Receivables or Payables report &rarr; Press <strong>F6 (Age-wise)</strong>.</li>
+                    <li>Select Method of Ageing (Ageing by Bill Date or Ageing by Due Date).</li>
+                    <li>Define period slabs (e.g., 0 to 30 days, 30 to 60 days, 60 to 90 days, &gt; 90 days).</li>
+                </ul>
+
+                <h3>3. Quick Bill Settlement from Reports:</h3>
+                <ul>
+                    <li>In the Outstandings Report, select one or multiple pending bills using <strong>Spacebar</strong>.</li>
+                    <li>Press <strong>Alt + B (Settle Bills)</strong>.</li>
+                    <li>TallyPrime automatically opens a pre-filled Receipt or Payment voucher to clear the selected bills instantly!</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>1. Core Concept (मूल अवधारणा)</h2>
+                <ul>
+                    <li><strong>Bill-Wise Details:</strong> An accounting feature in TallyPrime that tracks pending amounts invoice-by-invoice rather than viewing only the total ledger balance.</li>
+                    <li><strong>Primary Use:</strong> Essential for managing Accounts Receivable (Sundry Debtors) and Accounts Payable (Sundry Creditors). It can also be enabled for non-trading accounts like loans, advances, and installment payments.</li>
+                    <li><strong>Why it Matters:</strong> Without bill-wise tracking, if a customer owes ₹50,000 across 3 invoices and pays ₹20,000, you wouldn't know which specific bill was settled. Bill-wise details link every payment/receipt to its corresponding invoice.</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. The 4 Methods of Adjustment (Ref Types)</h2>
+                <p>When entering transactions for a party with bill-by-bill tracking enabled, TallyPrime prompts you to select one of four reference types:</p>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Reference Type</th>
+                            <th>When to Use</th>
+                            <th>Typical Voucher</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>New Ref</strong></td>
+                            <td>Raising a new bill or invoice for credit sales/purchases. Generates a fresh bill reference number.</td>
+                            <td>Sales (F8) / Purchase (F9)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Agst Ref (Against Ref)</strong></td>
+                            <td>Settling or adjusting against an existing pending bill.</td>
+                            <td>Receipt (F6) / Payment (F5) / Credit Note / Debit Note</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Advance</strong></td>
+                            <td>Money received or paid in advance before the invoice is created. Adjusted against future bills later.</td>
+                            <td>Receipt (F6) / Payment (F5)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>On Account</strong></td>
+                            <td>Recording payments or receipts without linking to any specific pending bill.</td>
+                            <td>Receipt (F6) / Payment (F5)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>3. Enabling Bill-Wise Details in TallyPrime</h2>
+
+                <h3>Step A: Company Feature Activation</h3>
+                <ol>
+                    <li>Press <strong>F11</strong> (Features) on the Gateway of Tally.</li>
+                    <li>Set <strong>Enable Bill-wise entry</strong> to <strong>Yes</strong>.</li>
+                    <li>(Optional) Set <strong>Maintain Bill-wise Details for Non-Trading Accounts</strong> to <strong>Yes</strong>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <h3>Step B: Enable in Party Ledger</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Alter</strong> &rarr; <strong>Ledger</strong> &rarr; Select Party.</li>
+                    <li>Set <strong>Maintain balances bill-by-bill</strong> to <strong>Yes</strong>.</li>
+                    <li>Enter <strong>Default Credit Period</strong> (e.g., 30 days). TallyPrime automatically calculates due dates for invoices based on this credit window.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>4. Ledgers Required to be Created First</h2>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ledger Name</th>
+                            <th>Group (Under)</th>
+                            <th>Maintain Balances Bill-by-Bill</th>
+                            <th>Default Credit Period</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apex Traders</td>
+                            <td>Sundry Debtors</td>
+                            <td>Yes</td>
+                            <td>30 Days</td>
+                        </tr>
+                        <tr>
+                            <td>Global Tech Solutions</td>
+                            <td>Sundry Creditors</td>
+                            <td>Yes</td>
+                            <td>15 Days</td>
+                        </tr>
+                        <tr>
+                            <td>Sales Account</td>
+                            <td>Sales Accounts</td>
+                            <td>No</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase Account</td>
+                            <td>Purchase Accounts</td>
+                            <td>No</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>5. Complete Practice Set (7 Sequential Transactions)</h2>
+
+                <h3>Record Vouchers using Bill-Wise Allocations</h3>
+            </section>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Entry</th>
+                            <th>Date</th>
+                            <th>Voucher Type</th>
+                            <th>Party / Account</th>
+                            <th>Amount (₹)</th>
+                            <th>Bill Allocation Type</th>
+                            <th>Ref Name &amp; Due Date</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1-4</td>
+                            <td>Sales (F8)</td>
+                            <td>Apex Traders</td>
+                            <td>50,000</td>
+                            <td>New Ref</td>
+                            <td>INV-01 (Due: 30 days)</td>
+                            <td>Being credit sales made</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>1-4</td>
+                            <td>Purchase (F9)</td>
+                            <td>Global Tech</td>
+                            <td>80,000</td>
+                            <td>New Ref</td>
+                            <td>PUR-101 (Due: 15 days)</td>
+                            <td>Being credit purchase made</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>2-4</td>
+                            <td>Receipt (F6)</td>
+                            <td>Apex Traders</td>
+                            <td>15,000</td>
+                            <td>Advance</td>
+                            <td>ADV-APEX-01</td>
+                            <td>Being advance received against future orders</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>1-5</td>
+                            <td>Receipt (F6)</td>
+                            <td>Apex Traders</td>
+                            <td>35,000</td>
+                            <td>Agst Ref</td>
+                            <td>INV-01</td>
+                            <td>Being remaining invoice amount received</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>2-5</td>
+                            <td>Payment (F5)</td>
+                            <td>Global Tech</td>
+                            <td>50,000</td>
+                            <td>Agst Ref</td>
+                            <td>PUR-101</td>
+                            <td>Being partial payment made against bill</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>31-5</td>
+                            <td>Sales (F8)</td>
+                            <td>Apex Traders</td>
+                            <td>40,000</td>
+                            <td>New Ref<br><br>Agst Ref</td>
+                            <td>INV-02 (₹40,000)<br><br>ADV-APEX-01 (₹15,000 set off)</td>
+                            <td>Being sale made and advance set off</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>31-5</td>
+                            <td>Payment (F5)</td>
+                            <td>Global Tech</td>
+                            <td>10,000</td>
+                            <td>On Account</td>
+                            <td>—</td>
+                            <td>Being general payment made on account</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>6. Generating &amp; Viewing Bill-Wise Reports</h2>
+
+                <h3>1. Outstanding Receivables &amp; Payables:</h3>
+                <ul>
+                    <li><strong>Path:</strong> Press <strong>Alt + G (Go To)</strong> &rarr; Type <strong>Receivables</strong> or <strong>Payables</strong>.</li>
+                    <li><strong>Alternative Path:</strong> <strong>Gateway of Tally</strong> &rarr; <strong>Display More Reports</strong> &rarr; <strong>Statements of Accounts</strong> &rarr; <strong>Outstandings</strong> &rarr; <strong>Receivables / Payables</strong>.</li>
+                    <li><strong>What it shows:</strong> Pending invoice numbers, original amounts, pending balances, and overdue days.</li>
+                </ul>
+
+                <h3>2. Ageing Analysis (Tracking Overdue Bills):</h3>
+                <ul>
+                    <li><strong>Path:</strong> Open Receivables or Payables report &rarr; Press <strong>F6 (Age-wise)</strong>.</li>
+                    <li>Select Method of Ageing (Ageing by Bill Date or Ageing by Due Date).</li>
+                    <li>Define period slabs (e.g., 0 to 30 days, 30 to 60 days, 60 to 90 days, &gt; 90 days).</li>
+                </ul>
+
+                <h3>3. Quick Bill Settlement from Reports:</h3>
+                <ul>
+                    <li>In the Outstandings Report, select one or multiple pending bills using <strong>Spacebar</strong>.</li>
+                    <li>Press <strong>Alt + B (Settle Bills)</strong>.</li>
+                    <li>TallyPrime automatically opens a pre-filled Receipt or Payment voucher to clear the selected bills instantly!</li>
+                </ul>
+            </section>
+
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

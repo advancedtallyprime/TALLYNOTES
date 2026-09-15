@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Stock Valuation ka core meaning and financial statements par uska impact samjhega.</li>
+                    <li>Stock Quantity and Stock Monetary Value ke beech ka difference identify karega.</li>
+                    <li>Inventory valuation methods (FIFO, Average Cost, Last Purchafrom Rate, Standard Rate) ko practically calculate karega.</li>
+                    <li>Closing stock value and Cost of Goods Sold (COGS) ke relationship ko master karega.</li>
+                    <li>Valuation methods badlne par Gross Profit par padne wale impact ko analyze karega.</li>
+                    <li>Verify TallyPrime in stock item valuation methods configure karke reports from in management and statutory tax reports.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Stock Valuation, COGS &amp; Gross Profit</h2>
+                <p>Advanced inventory management in unsold closing stock ki monetary worth calculate karna financial reporting ke liye essential is:</p>
+
+                <ul>
+                    <li><strong>Stock Valuation:</strong> Business ke paas year-end or period-end par available closing inventory ki monetary value determine karna.</li>
+                    <li><strong>Cost of Goods Sold (COGS):</strong> <code>Opening Stock + Purchases &minus; Closing Stock</code>. Valuation method change hone from closing stock badalta hai, jisfrom COGS and final Gross Profit also alter are.</li>
+                </ul>
+
+                <h3>Comparison &amp; Impact Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Valuation Method</th>
+                            <th>Cost Flow Assumption</th>
+                            <th>Impact on Closing Stock in Inflation</th>
+                            <th>Impact on Gross Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>FIFO (First In, First Out)</strong></td>
+                            <td>Oldest costs are charged to COGS first</td>
+                            <td>Higher (Valued at latest/recent higher prices)</td>
+                            <td>Higher Profit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Average Cost</strong></td>
+                            <td>Weighted average of all cost layers</td>
+                            <td>Moderate (Blended average valuation)</td>
+                            <td>Moderate Profit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Last Purchafrom Rate</strong></td>
+                            <td>Valued at the most recent purchafrom cost</td>
+                            <td>Reflects latest market replacement cost</td>
+                            <td>Variable depending on market trend</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Standard Rate</strong></td>
+                            <td>Predefined constant standard cost</td>
+                            <td>Fixed standard baseline</td>
+                            <td>Variance-dependent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Valuation Rule:</strong><br>
+                    <strong>Stock Quantity</strong> batata hai ki kitne units rakhe are.<br>
+                    <strong>Stock Valuation</strong> batata hai ki un units ki books in cost value kitni hai (Selling price par nahi, cost price par value is).
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Company Setup &amp; Configuration</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>Inventory:</strong> Enabled</li>
+                </ul>
+
+                <h3>Configuring Valuation Method in TallyPrime:</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Create / Alter</strong> &rarr; <strong>Stock Item</strong> (e.g., <code>Printer</code>).</li>
+                    <li>Under item configuration, locate the <strong>Method of Stock Valuation</strong> field.</li>
+                    <li>Select desired method: <code>FIFO</code>, <code>At Average Cost</code>, <code>Last Purchafrom Rate</code>, or <code>Standard Cost</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: FIFO vs Average Cost Calculation</h2>
+
+                <h3>Scenario Data for Printer:</h3>
+                <ul>
+                    <li>Opening Stock: 100 Nos @ ₹8,000 = ₹8,00,000</li>
+                    <li>Purchafrom 1 (01-Apr): 50 Nos @ ₹8,500 = ₹4,25,000</li>
+                    <li>Purchafrom 2 (02-May): 100 Nos @ ₹9,000 = ₹9,00,000</li>
+                    <li><strong>Total Available:</strong> 250 Nos | Total Purchafrom Cost = <strong>₹21,25,000</strong></li>
+                    <li><strong>Sales (31-May):</strong> 120 Nos sold @ ₹10,000 = ₹12,00,000 revenue. Closing Stock = <strong>130 Nos</strong>.</li>
+                </ul>
+
+                <h3>Method 1: FIFO Valuation Calculation</h3>
+                <ul>
+                    <div><strong>COGS (120 units issued):</strong> 100 units from Opening @ ₹8,000 (₹8,00,000) + 20 units from Purchafrom 1 @ ₹8,500 (₹1,70,000) = <strong>₹9,70,000</strong>.</div>
+                    <div><strong>Closing Stock (130 units left):</strong> 30 units from Purchafrom 1 @ ₹8,500 (₹2,55,000) + 100 units from Purchafrom 2 @ ₹9,000 (₹9,00,000) = <strong>₹11,55,000</strong>.</div>
+                    <div><strong>Gross Profit:</strong> Sales (₹12,00,000) &minus; COGS (₹9,70,000) = <strong>₹2,30,000</strong>.</div>
+                </ul>
+
+                <h3>Method 2: Average Cost Valuation Calculation</h3>
+                <ul>
+                    <li><strong>Weighted Average Cost per unit:</strong> Total Cost (₹21,25,000) &divide; Total Qty (250) = <strong>₹8,500 / unit</strong>.</li>
+                    <li><strong>COGS (120 units issued):</strong> 120 &times; ₹8,500 = <strong>₹10,20,000</strong>.</li>
+                    <li><strong>Closing Stock (130 units left):</strong> 130 &times; ₹8,500 = <strong>₹11,05,000</strong>.</li>
+                    <li><strong>Gross Profit:</strong> Sales (₹12,00,000) &minus; COGS (₹10,20,000) = <strong>₹1,80,000</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (ABC Electronics Valuation Comparison Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Valuation Method Applied</th>
+                            <th>Closing Quantity (Nos)</th>
+                            <th>Closing Stock Value (₹)</th>
+                            <th>Cost of Goods Sold (COGS) (₹)</th>
+                            <th>Reported Gross Profit (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>FIFO</strong></td>
+                            <td>130</td>
+                            <td>11,55,000</td>
+                            <td>9,70,000</td>
+                            <td>2,30,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Average Cost</strong></td>
+                            <td>130</td>
+                            <td>11,05,000</td>
+                            <td>10,20,000</td>
+                            <td>1,80,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Difference</strong></td>
+                            <td>0 (Same Qty)</td>
+                            <td>50,000 (Variance)</td>
+                            <td>50,000 (Variance)</td>
+                            <td>50,000 (Variance)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Inspect closing stock valuation totals and per-unit rates. Drill down into item monthly summaries to verify cost layers.</li>
+                    <li><strong>Profit &amp; Loss Account:</strong> Confirm how inventory valuation adjustments alter Cost of Sales and Net Profit figures.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Treating selling prices as inventory acquisition costs when setting up stock item masters.</li>
+                    <li>Assuming that changing the valuation method alters physical closing quantities (it only alters monetary valuation).</li>
+                    <li>Ignoring opening stock layers while calculating manual FIFO or weighted averages.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Stock valuation method change karne from physical stock quantity par kor asar padta hai?</strong><br>A: Physical quantity bilkul same rehti hai; only inventory ki monetary valuation amount change is.</li>
+                    <li><strong>Q: FIFO and Average Cost in kaunsa method behtar hai?</strong><br>A: Yeh company ki accounting policy and industry standards par nirbhar karta is. Rising price trends in FIFO higher profit show karta is.</li>
+                    <li><strong>Q: TallyPrime in valuation method kahan change is?</strong><br>A: Stock Item alteration screen in <em>Method of Stock Valuation</em> option ke through.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Stock Valuation Golden Workflow:</strong><br>
+                    <code>Record Opening Stock &amp; Purchases &rarr; Record Sales &rarr; Configure Valuation Method in Stock Item Master (FIFO/Average) &rarr; Review Stock Summary Valuation &rarr; Reconcile P&amp;L Gross Profit</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Stock valuation concepts and financial statement impact understood</li>
+                    <li>FIFO manual calculation and Tally output reconciled</li>
+                    <li>Average Cost manual calculation and Tally output reconciled</li>
+                    <li>Gross profit variance between valuation methods analyzed</li>
+                    <li>Stock Summary and Profit &amp; Loss reports verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 10 complete karne ke baad student:</p>
+                <ul>
+                    <li>Stock Valuation ka core meaning aur financial statements par uska impact samjhega.</li>
+                    <li>Stock Quantity aur Stock Monetary Value ke beech ka difference identify karega.</li>
+                    <li>Inventory valuation methods (FIFO, Average Cost, Last Purchase Rate, Standard Rate) ko practically calculate karega.</li>
+                    <li>Closing stock value aur Cost of Goods Sold (COGS) ke relationship ko master karega.</li>
+                    <li>Valuation methods badlne par Gross Profit par padne wale impact ko analyze karega.</li>
+                    <li>TallyPrime mein stock item valuation methods configure karke reports se verify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Stock Valuation, COGS &amp; Gross Profit</h2>
+                <p>Advanced inventory management mein unsold closing stock ki monetary worth calculate karna financial reporting ke liye essential hota hai:</p>
+
+                <ul>
+                    <li><strong>Stock Valuation:</strong> Business ke paas year-end ya period-end par available closing inventory ki monetary value determine karna.</li>
+                    <li><strong>Cost of Goods Sold (COGS):</strong> <code>Opening Stock + Purchases &minus; Closing Stock</code>. Valuation method change hone se closing stock badalta hai, jisse COGS aur final Gross Profit bhi alter hote hain.</li>
+                </ul>
+
+                <h3>Comparison &amp; Impact Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Valuation Method</th>
+                            <th>Cost Flow Assumption</th>
+                            <th>Impact on Closing Stock in Inflation</th>
+                            <th>Impact on Gross Profit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>FIFO (First In, First Out)</strong></td>
+                            <td>Oldest costs are charged to COGS first</td>
+                            <td>Higher (Valued at latest/recent higher prices)</td>
+                            <td>Higher Profit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Average Cost</strong></td>
+                            <td>Weighted average of all cost layers</td>
+                            <td>Moderate (Blended average valuation)</td>
+                            <td>Moderate Profit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Last Purchase Rate</strong></td>
+                            <td>Valued at the most recent purchase cost</td>
+                            <td>Reflects latest market replacement cost</td>
+                            <td>Variable depending on market trend</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Standard Rate</strong></td>
+                            <td>Predefined constant standard cost</td>
+                            <td>Fixed standard baseline</td>
+                            <td>Variance-dependent</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Valuation Rule:</strong><br>
+                    <strong>Stock Quantity</strong> batata hai ki kitne units rakhe hain.<br>
+                    <strong>Stock Valuation</strong> batata hai ki un units ki books mein cost value kitni hai (Selling price par nahi, cost price par value hota hai).
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Company Setup &amp; Configuration</h2>
+
+                <h3>Company Profile</h3>
+                <ul>
+                    <li><strong>Company:</strong> ABC Electronics | <strong>State:</strong> Maharashtra | <strong>FY:</strong> 2026&ndash;27 | <strong>Inventory:</strong> Enabled</li>
+                </ul>
+
+                <h3>Configuring Valuation Method in TallyPrime:</h3>
+                <ol>
+                    <li>Go to <strong>Gateway of Tally</strong> &rarr; <strong>Create / Alter</strong> &rarr; <strong>Stock Item</strong> (e.g., <code>Printer</code>).</li>
+                    <li>Under item configuration, locate the <strong>Method of Stock Valuation</strong> field.</li>
+                    <li>Select desired method: <code>FIFO</code>, <code>At Average Cost</code>, <code>Last Purchase Rate</code>, or <code>Standard Cost</code>.</li>
+                    <li>Press <strong>Ctrl + A</strong> to save.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Practical Walkthroughs: FIFO vs Average Cost Calculation</h2>
+
+                <h3>Scenario Data for Printer:</h3>
+                <ul>
+                    <li>Opening Stock: 100 Nos @ ₹8,000 = ₹8,00,000</li>
+                    <li>Purchase 1 (01-Apr): 50 Nos @ ₹8,500 = ₹4,25,000</li>
+                    <li>Purchase 2 (02-May): 100 Nos @ ₹9,000 = ₹9,00,000</li>
+                    <li><strong>Total Available:</strong> 250 Nos | Total Purchase Cost = <strong>₹21,25,000</strong></li>
+                    <li><strong>Sales (31-May):</strong> 120 Nos sold @ ₹10,000 = ₹12,00,000 revenue. Closing Stock = <strong>130 Nos</strong>.</li>
+                </ul>
+
+                <h3>Method 1: FIFO Valuation Calculation</h3>
+                <ul>
+                    <div><strong>COGS (120 units issued):</strong> 100 units from Opening @ ₹8,000 (₹8,00,000) + 20 units from Purchase 1 @ ₹8,500 (₹1,70,000) = <strong>₹9,70,000</strong>.</div>
+                    <div><strong>Closing Stock (130 units left):</strong> 30 units from Purchase 1 @ ₹8,500 (₹2,55,000) + 100 units from Purchase 2 @ ₹9,000 (₹9,00,000) = <strong>₹11,55,000</strong>.</div>
+                    <div><strong>Gross Profit:</strong> Sales (₹12,00,000) &minus; COGS (₹9,70,000) = <strong>₹2,30,000</strong>.</div>
+                </ul>
+
+                <h3>Method 2: Average Cost Valuation Calculation</h3>
+                <ul>
+                    <li><strong>Weighted Average Cost per unit:</strong> Total Cost (₹21,25,000) &divide; Total Qty (250) = <strong>₹8,500 / unit</strong>.</li>
+                    <li><strong>COGS (120 units issued):</strong> 120 &times; ₹8,500 = <strong>₹10,20,000</strong>.</li>
+                    <li><strong>Closing Stock (130 units left):</strong> 130 &times; ₹8,500 = <strong>₹11,05,000</strong>.</li>
+                    <li><strong>Gross Profit:</strong> Sales (₹12,00,000) &minus; COGS (₹10,20,000) = <strong>₹1,80,000</strong>.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set (ABC Electronics Valuation Comparison Lab):</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Valuation Method Applied</th>
+                            <th>Closing Quantity (Nos)</th>
+                            <th>Closing Stock Value (₹)</th>
+                            <th>Cost of Goods Sold (COGS) (₹)</th>
+                            <th>Reported Gross Profit (₹)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>FIFO</strong></td>
+                            <td>130</td>
+                            <td>11,55,000</td>
+                            <td>9,70,000</td>
+                            <td>2,30,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Average Cost</strong></td>
+                            <td>130</td>
+                            <td>11,05,000</td>
+                            <td>10,20,000</td>
+                            <td>1,80,000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Difference</strong></td>
+                            <td>0 (Same Qty)</td>
+                            <td>50,000 (Variance)</td>
+                            <td>50,000 (Variance)</td>
+                            <td>50,000 (Variance)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Stock Summary:</strong> Inspect closing stock valuation totals and per-unit rates. Drill down into item monthly summaries to verify cost layers.</li>
+                    <li><strong>Profit &amp; Loss Account:</strong> Confirm how inventory valuation adjustments alter Cost of Sales and Net Profit figures.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Treating selling prices as inventory acquisition costs when setting up stock item masters.</li>
+                    <li>Assuming that changing the valuation method alters physical closing quantities (it only alters monetary valuation).</li>
+                    <li>Ignoring opening stock layers while calculating manual FIFO or weighted averages.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Stock valuation method change karne se physical stock quantity par kya asar padta hai?</strong><br>A: Physical quantity bilkul same rehti hai; sirf inventory ki monetary valuation amount change hoti hai.</li>
+                    <li><strong>Q: FIFO aur Average Cost mein kaunsa method behtar hai?</strong><br>A: Yeh company ki accounting policy aur industry standards par nirbhar karta hai. Rising price trends mein FIFO higher profit show karta hai.</li>
+                    <li><strong>Q: TallyPrime mein valuation method kahan change hota hai?</strong><br>A: Stock Item alteration screen mein <em>Method of Stock Valuation</em> option ke through.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Stock Valuation Golden Workflow:</strong><br>
+                    <code>Record Opening Stock &amp; Purchases &rarr; Record Sales &rarr; Configure Valuation Method in Stock Item Master (FIFO/Average) &rarr; Review Stock Summary Valuation &rarr; Reconcile P&amp;L Gross Profit</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Stock valuation concepts and financial statement impact understood</li>
+                    <li>FIFO manual calculation and Tally output reconciled</li>
+                    <li>Average Cost manual calculation and Tally output reconciled</li>
+                    <li>Gross profit variance between valuation methods analyzed</li>
+                    <li>Stock Summary and Profit &amp; Loss reports verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>

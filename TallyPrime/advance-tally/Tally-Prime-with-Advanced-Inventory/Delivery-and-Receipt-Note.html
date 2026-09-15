@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic</title>
+
+    <link rel="stylesheet" href="/TallyPrime/styles/shared.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="header"></div>
+
+    <div class="parent-container">
+        <aside id="sidebar"></aside>
+        <main>
+            <h1 id="topicTitle"></h1>
+            <div id="prev-next"></div>
+
+            <!-- Dual-Variant Content (English & Hinglish) -->
+            <div class="lang-content lang-en">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Upon completing this session, students will be able to:</p>
+                <ul>
+                    <li>Receipt Note and Delivery Note ka core business concept samjhega.</li>
+                    <li>Purchafrom Order (PO) ke against Receipt Note (Alt + F9) create kar payega.</li>
+                    <li>Sales Order (SO) ke against Delivery Note create kar payega.</li>
+                    <li>Partial receipt and partial delivery handling master karega.</li>
+                    <li>Pending PO/SO quantities ko multiple shipments ke through track karega.</li>
+                    <li>Understand the operational differences between Receipt Note vs Purchafrom Invoice and Delivery Note vs Sales Invoice.</li>
+                    <li><code>Order &rarr; Note &rarr; Invoice</code> ka complete inventory-to-accounting workflow perform karega.</li>
+                    <li>Verify Pre-closure and physical inventory registers (Stock Summary) ko in management and statutory tax reports.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Receipt Note &amp; Delivery Note</h2>
+                <p>Real-world supply chain operations in physical goods ka movement and financial/tax invoicing alag-alag timelines par is:</p>
+
+                <ul>
+                    <li><strong>Receipt Note (Alt + F9):</strong> Jab supplier from physical goods warehoufrom in receive ho jaate hain lekin official Purchafrom Invoice baad in process is. (<em>Effect: Physical stock increases, Supplier bill liability pending</em>).</li>
+                    <li><strong>Delivery Note:</strong> Jab business customer ko goods dispatch/deliver karta hai lekin Sales Invoice immediate generate nahi hoti. (<em>Effect: Physical stock decreases, Customer receivable billing pending</em>).</li>
+                </ul>
+
+                <h3>Document Workflow &amp; Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Receipt Note (Alt + F9)</th>
+                            <th>Purchafrom Invoice (F9)</th>
+                            <th>Delivery Note</th>
+                            <th>Sales Invoice (F8)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Goods Movement</td>
+                            <td>Physical Inward (Yes)</td>
+                            <td>Confirmed Inward</td>
+                            <td>Physical Outward (Yes)</td>
+                            <td>Confirmed Outward</td>
+                        </tr>
+                        <tr>
+                            <td>Financial Liability</td>
+                            <td>Not yet created</td>
+                            <td>Yes (Sundry Creditor)</td>
+                            <td>Not yet created</td>
+                            <td>Yes (Sundry Debtor)</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Impact</td>
+                            <td>Increases Inventory</td>
+                            <td>Confirmed</td>
+                            <td>Decreases Inventory</td>
+                            <td>Confirmed</td>
+                        </tr>
+                        <tr>
+                            <td>Primary Purpose</td>
+                            <td>Record warehoufrom receipt</td>
+                            <td>Accounting + tax booking</td>
+                            <td>Record dispatch proof</td>
+                            <td>Billing + revenue booking</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Chain Rule:</strong><br>
+                    <strong>Purchafrom Side:</strong> <code>Purchafrom Order &rarr; Receipt Note (Stock In) &rarr; Purchafrom Invoice (Liability)</code><br>
+                    <strong>Sales Side:</strong> <code>Sales Order &rarr; Delivery Note (Stock Out) &rarr; Sales Invoice (Receivable)</code>
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Company &amp; Review of Day 2 Orders</h2>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>FY:</strong> 2026&ndash;27</li>
+                    <li><strong>Purchafrom Order Review (PO-201 from Tech Distributors):</strong> Laptop (25 Nos @ ₹40,000) + Printer (40 Nos @ ₹8,000) = Total ₹13,20,000.</li>
+                    <li><strong>Sales Order Review (SO-201 to Mumbai Office Solutions):</strong> Laptop (15 Nos @ ₹50,000) + Printer (25 Nos @ ₹12,000) = Total ₹10,50,000.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs &amp; Partial Fulfilments</h2>
+
+                <h3>Part A — Purchafrom Side: PO &rarr; Receipt Note &rarr; Invoice</h3>
+                <ol>
+                    <li><strong>First Receipt Note (Partial):</strong> Press <strong>Alt + F9 (Receipt Note)</strong> &rarr; Select Party: <code>Tech Distributors</code> &rarr; Link Order Ref: <code>PO-201</code> &rarr; Receive Laptop = 10 Nos &amp; Printer = 20 Nos. <br><em>Balance Pending:</em> Laptops = 15 | Printers = 20.</li>
+                    <li><strong>Second Receipt Note:</strong> Against same PO-201, receive Laptop = 15 Nos &amp; Printer = 10 Nos. <br><em>Balance Pending:</em> Laptops = 0 | Printers = 10.</li>
+                    <li><strong>Final Receipt Note:</strong> Receive remaining 10 Printers. PO-201 becomes <strong>Fully Fulfilled</strong> (Pending = 0).</li>
+                    <li><strong>Purchafrom Invoice Linking:</strong> Open Purchafrom Voucher (F9) against Receipt Note reference to book final financial liability.</li>
+                </ol>
+
+                <h3>Part B — Sales Side: SO &rarr; Delivery Note &rarr; Invoice</h3>
+                <ol>
+                    <li><strong>First Delivery Note (Partial):</strong> Go to Vouchers &rarr; Select <strong>Delivery Note</strong> &rarr; Select Party: <code>Mumbai Office Solutions</code> &rarr; Link Order Ref: <code>SO-201</code> &rarr; Dispatch Laptop = 6 Nos &amp; Printer = 10 Nos. <br><em>Balance Pending:</em> Laptops = 9 | Printers = 15.</li>
+                    <li><strong>Second &amp; Final Deliveries:</strong> Record subsequent dispatches until SO-201 pending quantity reaches 0 (Fully Fulfilled).</li>
+                    <li><strong>Sales Invoice Linking:</strong> Open Sales Voucher (F8) against the respective Delivery Note to generate financial billing and receivables.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Handling Order Pre-Closure with Physical Notes</h2>
+                <p>If a supplier or customer cannot fulfill remaining order quantities after partial receipts/deliveries, ufrom <strong>Pre-Closure</strong> to clear outstanding registers.</p>
+                <ul>
+                    <li><strong>Example (PO-301 to Maharashtra Computer House):</strong> Ordered Monitors (30) + Keyboards (100). Received Monitors (30) + Keyboards (60). Remaining 40 Keyboards are discontinued by the manufacturer &rarr; <strong>Pre-clofrom 40 Keyboards</strong> &rarr; Outstanding becomes 0.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set A (Receipt Note Tracking):</h3>
+                <ul>
+                    <li>Create <strong>PO-401</strong> to <em>Tech Distributors</em> for Laptops (30 Nos) and Printers (50 Nos).</li>
+                    <li>Record Receipt Note 1 (Laptops: 10, Printers: 20).</li>
+                    <li>Record Receipt Note 2 (Laptops: 10, Printers: 15).</li>
+                    <li>Record Receipt Note 3 (Receive balance quantities to clofrom PO).</li>
+                </ul>
+
+                <h3>Practice Set B (Delivery Note Tracking):</h3>
+                <ul>
+                    <li>Create <strong>SO-401</strong> to <em>Pune Retail</em> for Monitors (25 Nos) and Keyboards (100 Nos).</li>
+                    <li>Record Delivery Note 1 (Monitors: 10, Keyboards: 40).</li>
+                    <li>Record Delivery Note 2 (Monitors: 10, Keyboards: 30).</li>
+                    <li>Deliver remaining quantities and generate Sales Invoice.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Receipt Note Register &amp; Delivery Note Register:</strong> Verify chronological records of physical inward and outward movements linked to POs and SOs.</li>
+                    <li><strong>Stock Summary:</strong> Confirm that physical stock increases upon saving a Receipt Note and decreases upon saving a Delivery Note.</li>
+                    <li><strong>Order Outstanding Reports:</strong> Check that pending quantities reduce accurately across shipments.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing a Receipt Note with a financial Purchafrom Invoice, leading to double-booked liabilities.</li>
+                    <li>Creating Delivery Notes without linking original Sales Order references.</li>
+                    <li>Assuming that saving a Receipt Note automatically updates accounts payable (it only updates inventory).</li>
+                    <li>Forgetting to pre-clofrom cancelled order balances, inflating stock commitment reports.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Receipt Note and Purchafrom Invoice in kor antar hai?</strong><br>A: Receipt Note physical goods warehoufrom in aane ka proof hai (inventory update), jabki Purchafrom Invoice supplier ka financial billing document hai (liability update).</li>
+                    <li><strong>Q: Kor ek hi Purchafrom Order ke against multiple Receipt Notes ban sakte hain?</strong><br>A: Haan, partial shipments ke cafrom in multiple Receipt Notes ek hi PO reference ke under create kiye ja sakte are.</li>
+                    <li><strong>Q: Delivery Note save karne par stock par kor impact padta hai?</strong><br>A: Physical stock quantity kam ho jaati hai kyunki goods dispatch ho chuke are.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Day 3 Inventory Movement Golden Workflow:</strong><br>
+                    <code>Purchafrom Order (PO) &rarr; Receipt Note (Alt+F9) [Stock Increases] &rarr; Purchafrom Invoice (F9) [Liability Booked] &rarr; Stock Summary Reconciled</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Receipt Note (Alt + F9) and Delivery Note concepts mastered</li>
+                    <li>Partial receipts and partial deliveries recorded against PO-201 and SO-201</li>
+                    <li>Multiple Receipt/Delivery notes linked successfully to single orders</li>
+                    <li>Purchafrom Invoices and Sales Invoices generated against Note references</li>
+                    <li>Pre-closure applied to unfulfilled order balances (PO-301)</li>
+                    <li>Stock Summary and Order Outstanding reports verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+
+            <div class="lang-content lang-hi">
+                <!-- Topic Content Here -->
+            
+            <section class="notes-content">
+                <h2>Learning Objectives</h2>
+                <p>Day 3 complete karne ke baad student:</p>
+                <ul>
+                    <li>Receipt Note aur Delivery Note ka core business concept samjhega.</li>
+                    <li>Purchase Order (PO) ke against Receipt Note (Alt + F9) create kar payega.</li>
+                    <li>Sales Order (SO) ke against Delivery Note create kar payega.</li>
+                    <li>Partial receipt aur partial delivery handling master karega.</li>
+                    <li>Pending PO/SO quantities ko multiple shipments ke through track karega.</li>
+                    <li>Receipt Note vs Purchase Invoice aur Delivery Note vs Sales Invoice ka difference samjhega.</li>
+                    <li><code>Order &rarr; Note &rarr; Invoice</code> ka complete inventory-to-accounting workflow perform karega.</li>
+                    <li>Pre-closure aur physical inventory registers (Stock Summary) ko verify karega.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Core Concepts: Receipt Note &amp; Delivery Note</h2>
+                <p>Real-world supply chain operations mein physical goods ka movement aur financial/tax invoicing alag-alag timelines par hoti hai:</p>
+
+                <ul>
+                    <li><strong>Receipt Note (Alt + F9):</strong> Jab supplier se physical goods warehouse mein receive ho jaate hain lekin official Purchase Invoice baad mein process hoti hai. (<em>Effect: Physical stock increases, Supplier bill liability pending</em>).</li>
+                    <li><strong>Delivery Note:</strong> Jab business customer ko goods dispatch/deliver karta hai lekin Sales Invoice immediate generate nahi hoti. (<em>Effect: Physical stock decreases, Customer receivable billing pending</em>).</li>
+                </ul>
+
+                <h3>Document Workflow &amp; Comparison Matrix</h3>
+            </section>
+             
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Particular</th>
+                            <th>Receipt Note (Alt + F9)</th>
+                            <th>Purchase Invoice (F9)</th>
+                            <th>Delivery Note</th>
+                            <th>Sales Invoice (F8)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Goods Movement</td>
+                            <td>Physical Inward (Yes)</td>
+                            <td>Confirmed Inward</td>
+                            <td>Physical Outward (Yes)</td>
+                            <td>Confirmed Outward</td>
+                        </tr>
+                        <tr>
+                            <td>Financial Liability</td>
+                            <td>Not yet created</td>
+                            <td>Yes (Sundry Creditor)</td>
+                            <td>Not yet created</td>
+                            <td>Yes (Sundry Debtor)</td>
+                        </tr>
+                        <tr>
+                            <td>Stock Impact</td>
+                            <td>Increases Inventory</td>
+                            <td>Confirmed</td>
+                            <td>Decreases Inventory</td>
+                            <td>Confirmed</td>
+                        </tr>
+                        <tr>
+                            <td>Primary Purpose</td>
+                            <td>Record warehouse receipt</td>
+                            <td>Accounting + tax booking</td>
+                            <td>Record dispatch proof</td>
+                            <td>Billing + revenue booking</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="notes-content">
+                <blockquote>
+                    <strong>Golden Inventory Chain Rule:</strong><br>
+                    <strong>Purchase Side:</strong> <code>Purchase Order &rarr; Receipt Note (Stock In) &rarr; Purchase Invoice (Liability)</code><br>
+                    <strong>Sales Side:</strong> <code>Sales Order &rarr; Delivery Note (Stock Out) &rarr; Sales Invoice (Receivable)</code>
+                </blockquote>
+
+                <hr>
+
+                <h2>Practice Company &amp; Review of Day 2 Orders</h2>
+                <ul>
+                    <li><strong>Company:</strong> ABC Traders (Maharashtra) | <strong>FY:</strong> 2026&ndash;27</li>
+                    <li><strong>Purchase Order Review (PO-201 from Tech Distributors):</strong> Laptop (25 Nos @ ₹40,000) + Printer (40 Nos @ ₹8,000) = Total ₹13,20,000.</li>
+                    <li><strong>Sales Order Review (SO-201 to Mumbai Office Solutions):</strong> Laptop (15 Nos @ ₹50,000) + Printer (25 Nos @ ₹12,000) = Total ₹10,50,000.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Practical Walkthroughs &amp; Partial Fulfilments</h2>
+
+                <h3>Part A — Purchase Side: PO &rarr; Receipt Note &rarr; Invoice</h3>
+                <ol>
+                    <li><strong>First Receipt Note (Partial):</strong> Press <strong>Alt + F9 (Receipt Note)</strong> &rarr; Select Party: <code>Tech Distributors</code> &rarr; Link Order Ref: <code>PO-201</code> &rarr; Receive Laptop = 10 Nos &amp; Printer = 20 Nos. <br><em>Balance Pending:</em> Laptops = 15 | Printers = 20.</li>
+                    <li><strong>Second Receipt Note:</strong> Against same PO-201, receive Laptop = 15 Nos &amp; Printer = 10 Nos. <br><em>Balance Pending:</em> Laptops = 0 | Printers = 10.</li>
+                    <li><strong>Final Receipt Note:</strong> Receive remaining 10 Printers. PO-201 becomes <strong>Fully Fulfilled</strong> (Pending = 0).</li>
+                    <li><strong>Purchase Invoice Linking:</strong> Open Purchase Voucher (F9) against Receipt Note reference to book final financial liability.</li>
+                </ol>
+
+                <h3>Part B — Sales Side: SO &rarr; Delivery Note &rarr; Invoice</h3>
+                <ol>
+                    <li><strong>First Delivery Note (Partial):</strong> Go to Vouchers &rarr; Select <strong>Delivery Note</strong> &rarr; Select Party: <code>Mumbai Office Solutions</code> &rarr; Link Order Ref: <code>SO-201</code> &rarr; Dispatch Laptop = 6 Nos &amp; Printer = 10 Nos. <br><em>Balance Pending:</em> Laptops = 9 | Printers = 15.</li>
+                    <li><strong>Second &amp; Final Deliveries:</strong> Record subsequent dispatches until SO-201 pending quantity reaches 0 (Fully Fulfilled).</li>
+                    <li><strong>Sales Invoice Linking:</strong> Open Sales Voucher (F8) against the respective Delivery Note to generate financial billing and receivables.</li>
+                </ol>
+
+                <hr>
+
+                <h2>Handling Order Pre-Closure with Physical Notes</h2>
+                <p>If a supplier or customer cannot fulfill remaining order quantities after partial receipts/deliveries, use <strong>Pre-Closure</strong> to clear outstanding registers.</p>
+                <ul>
+                    <li><strong>Example (PO-301 to Maharashtra Computer House):</strong> Ordered Monitors (30) + Keyboards (100). Received Monitors (30) + Keyboards (60). Remaining 40 Keyboards are discontinued by the manufacturer &rarr; <strong>Pre-close 40 Keyboards</strong> &rarr; Outstanding becomes 0.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Complete Practice Sets</h2>
+
+                <h3>Practice Set A (Receipt Note Tracking):</h3>
+                <ul>
+                    <li>Create <strong>PO-401</strong> to <em>Tech Distributors</em> for Laptops (30 Nos) and Printers (50 Nos).</li>
+                    <li>Record Receipt Note 1 (Laptops: 10, Printers: 20).</li>
+                    <li>Record Receipt Note 2 (Laptops: 10, Printers: 15).</li>
+                    <li>Record Receipt Note 3 (Receive balance quantities to close PO).</li>
+                </ul>
+
+                <h3>Practice Set B (Delivery Note Tracking):</h3>
+                <ul>
+                    <li>Create <strong>SO-401</strong> to <em>Pune Retail</em> for Monitors (25 Nos) and Keyboards (100 Nos).</li>
+                    <li>Record Delivery Note 1 (Monitors: 10, Keyboards: 40).</li>
+                    <li>Record Delivery Note 2 (Monitors: 10, Keyboards: 30).</li>
+                    <li>Deliver remaining quantities and generate Sales Invoice.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Verification Reports, Common Mistakes &amp; FAQs</h2>
+
+                <h3>Verification Reports in TallyPrime:</h3>
+                <ul>
+                    <li><strong>Receipt Note Register &amp; Delivery Note Register:</strong> Verify chronological records of physical inward and outward movements linked to POs and SOs.</li>
+                    <li><strong>Stock Summary:</strong> Confirm that physical stock increases upon saving a Receipt Note and decreases upon saving a Delivery Note.</li>
+                    <li><strong>Order Outstanding Reports:</strong> Check that pending quantities reduce accurately across shipments.</li>
+                </ul>
+
+                <h3>Common Mistakes:</h3>
+                <ul>
+                    <li>Confusing a Receipt Note with a financial Purchase Invoice, leading to double-booked liabilities.</li>
+                    <li>Creating Delivery Notes without linking original Sales Order references.</li>
+                    <li>Assuming that saving a Receipt Note automatically updates accounts payable (it only updates inventory).</li>
+                    <li>Forgetting to pre-close cancelled order balances, inflating stock commitment reports.</li>
+                </ul>
+
+                <h3>Frequently Asked Questions:</h3>
+                <ul>
+                    <li><strong>Q: Receipt Note aur Purchase Invoice mein kya antar hai?</strong><br>A: Receipt Note physical goods warehouse mein aane ka proof hai (inventory update), jabki Purchase Invoice supplier ka financial billing document hai (liability update).</li>
+                    <li><strong>Q: Kya ek hi Purchase Order ke against multiple Receipt Notes ban sakte hain?</strong><br>A: Haan, partial shipments ke case mein multiple Receipt Notes ek hi PO reference ke under create kiye ja sakte hain.</li>
+                    <li><strong>Q: Delivery Note save karne par stock par kya impact padta hai?</strong><br>A: Physical stock quantity kam ho jaati hai kyunki goods dispatch ho chuke hain.</li>
+                </ul>
+
+                <hr>
+
+                <h2>Quick Revision &amp; Completion Checklist</h2>
+
+                <blockquote>
+                    <strong>Day 3 Inventory Movement Golden Workflow:</strong><br>
+                    <code>Purchase Order (PO) &rarr; Receipt Note (Alt+F9) [Stock Increases] &rarr; Purchase Invoice (F9) [Liability Booked] &rarr; Stock Summary Reconciled</code>
+                </blockquote>
+
+                <h3>Completion Checklist:</h3>
+                <ul>
+                    <li>Receipt Note (Alt + F9) and Delivery Note concepts mastered</li>
+                    <li>Partial receipts and partial deliveries recorded against PO-201 and SO-201</li>
+                    <li>Multiple Receipt/Delivery notes linked successfully to single orders</li>
+                    <li>Purchase Invoices and Sales Invoices generated against Note references</li>
+                    <li>Pre-closure applied to unfulfilled order balances (PO-301)</li>
+                    <li>Stock Summary and Order Outstanding reports verified</li>
+                </ul>
+            </section>
+
+            <div id="prev-next"></div>
+            <nav id="breadcrumbs"></nav>
+            </div>
+  
+            <div id="topicProgress"></div>
+            <div id="moduleProgress"></div>
+        </main>
+    </div>
+    <div id="footer"></div>
+    <script src="/TallyPrime/scripts/acourse-data.js"></script>
+    <script src="/TallyPrime/scripts/ashared.js"></script>
+</body>
+</html>
